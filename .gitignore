@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+# MacOS Trash
+.DS_Store
+
+# Temp folder
+
+tmp/
+
+# Binaries
+
+main
+test

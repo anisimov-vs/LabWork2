@@ -1,0 +1,21 @@
+name: Build and Test
+
+on:
+    push:
+      branches:
+        - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgtest-dev
+        sudo apt-get install -y build-essential
+    - name: Build
+      run: make test
+    - name: Test
+      run: ./test
