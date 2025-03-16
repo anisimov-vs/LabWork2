@@ -66,7 +66,7 @@ make
 ### Run
 
 ```bash
-./slay_game
+./deckstiny
 ```
 
 ### Extending the Game
