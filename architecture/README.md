@@ -1,15 +1,31 @@
-# Deckstiny - Architectural Documentation
+# Deckstiny Architecture
 
-This directory contains the complete architectural documentation for the Deckstiny project.
+This folder contains architecture documentation for the Deckstiny project.
 
-## Document Index
+## Class Hierarchy
 
-1. [General System Description](01_general_description.md) - Provides an overview of the system, core game concept, and architectural philosophy.
+- **Game**: Main game controller class
+- **Card**: Base class for all cards
+- **Character**: Base class for player characters
+- **Enemy**: Base class for enemies
+- **Relic**: Base class for relics
+- **Event**: Base class for events
+- **UI**: Interface for UI implementations
+  - **TextUI**: Text-based UI implementation
 
-2. [System Requirements and Usage Scenarios](02_requirements_and_scenarios.md) - Details the functional and non-functional requirements, as well as key usage scenarios.
+## Directory Structure
 
-3. [Component Diagram](03_component_diagram.md) - Illustrates the high-level components of the system and their interactions.
-
-4. [Class Diagram](04_class_diagram.md) - Documents the class hierarchy and relationships between different classes in the system.
-
-5. [Test Plan](05_test_plan.md) - Outlines the approach to testing the system at different levels.
+- **src/**: Source code files
+  - **core/**: Core game logic
+  - **ui/**: UI implementations
+- **include/**: Header files
+  - **core/**: Core game headers
+  - **ui/**: UI headers
+- **data/**: JSON data files
+  - **characters/**: Character definitions
+  - **cards/**: Card definitions
+  - **enemies/**: Enemy definitions
+  - **relics/**: Relic definitions
+  - **events/**: Event definitions
+- **tests/**: Unit tests
+- **architecture/**: Architecture documentation

@@ -1,0 +1,14 @@
+{
+  "id": "sample_card",
+  "name": "Sample Card",
+  "description": "Sample card",
+  "cost": 1,
+  "type": "attack",
+  "rarity": "common",
+  "effects": [
+    {
+      "type": "damage",
+      "value": 6
+    }
+  ]
+} 

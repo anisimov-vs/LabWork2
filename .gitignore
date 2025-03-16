@@ -42,3 +42,9 @@ tmp/
 
 main
 test
+
+# CMake build directories
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
