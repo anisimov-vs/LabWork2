@@ -4,6 +4,7 @@
 #include <memory>
 #include <functional>
 #include <queue>
+#include <string>
 
 namespace deckstiny {
 
@@ -163,7 +164,7 @@ public:
      * @param source Source description
      */
     void addDelayedAction(std::function<void()> action, int delay = 0, 
-                          int priority = 0, const std::string& source = "");
+                          int priority = 0, const std::string& source = std::string());
     
     /**
      * @brief Process delayed actions for current turn
