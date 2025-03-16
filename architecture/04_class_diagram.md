@@ -6,7 +6,7 @@ Deckstiny features a rich class hierarchy that models the various game elements.
 
 ## Class Diagram
 
-![Class Diagram](component_diagram.png)
+![Class Diagram](class_diagram.png)
 
 ## Class Hierarchy
 
