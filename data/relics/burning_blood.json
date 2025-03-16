@@ -1,0 +1,16 @@
+{
+    "id": "burning_blood",
+    "name": "Burning Blood",
+    "description": "At the end of combat, heal 6 HP.",
+    "flavor_text": "Your body's ability to heal itself has been greatly accelerated.",
+    "rarity": "STARTER",
+    "class": "IRONCLAD",
+    "effects": [
+        {
+            "trigger": "COMBAT_END",
+            "type": "heal",
+            "value": 6,
+            "target": "player"
+        }
+    ]
+} 

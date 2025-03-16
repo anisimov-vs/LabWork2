@@ -1,0 +1,77 @@
+{
+    "id": "nemesis",
+    "name": "Nemesis",
+    "max_health": 185,
+    "min_gold": 35,
+    "max_gold": 45,
+    "is_elite": true,
+    "is_boss": false,
+    "min_floor": 9,
+    "max_floor": 15,
+    "moves": [
+        {
+            "id": "scythe",
+            "weight": 50,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 7,
+                    "target": "player",
+                    "hits": 3
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 7,
+                "secondary_value": 3,
+                "target": "player"
+            }
+        },
+        {
+            "id": "intangible",
+            "weight": 25,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "intangible",
+                    "value": 1,
+                    "target": "self"
+                },
+                {
+                    "type": "block",
+                    "value": 15,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "defend",
+                "value": 15,
+                "target": "self"
+            }
+        },
+        {
+            "id": "burning_strike",
+            "weight": 25,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 18,
+                    "target": "player"
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "burn",
+                    "value": 3,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack_debuff",
+                "value": 18,
+                "effect": "burn",
+                "secondary_value": 3,
+                "target": "player"
+            }
+        }
+    ]
+} 

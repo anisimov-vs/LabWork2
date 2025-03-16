@@ -1,0 +1,76 @@
+{
+    "id": "maw",
+    "name": "Maw",
+    "max_health": 90,
+    "min_gold": 17,
+    "max_gold": 23,
+    "is_elite": false,
+    "is_boss": false,
+    "min_floor": 8,
+    "max_floor": 15,
+    "moves": [
+        {
+            "id": "bite",
+            "weight": 40,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 15,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 15,
+                "target": "player"
+            }
+        },
+        {
+            "id": "drool",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "weak",
+                    "value": 3,
+                    "target": "player"
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "vulnerable",
+                    "value": 2,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "debuff",
+                "value": 3,
+                "effect": "weak",
+                "target": "player"
+            }
+        },
+        {
+            "id": "devour",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 8,
+                    "target": "player",
+                    "hits": 2
+                },
+                {
+                    "type": "heal",
+                    "value": 8,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 8,
+                "secondary_value": 2,
+                "target": "player"
+            }
+        }
+    ]
+} 

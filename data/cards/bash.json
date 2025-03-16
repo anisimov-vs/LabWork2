@@ -1,0 +1,26 @@
+{
+    "id": "bash",
+    "name": "Bash",
+    "description": "Deal 8 damage. Apply 2 Vulnerable.",
+    "type": "ATTACK",
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY",
+    "cost": 2,
+    "upgradable": true,
+    "class": "IRONCLAD",
+    "effects": [
+        {
+            "type": "damage",
+            "value": 8,
+            "target": "enemy",
+            "upgraded_value": 10
+        },
+        {
+            "type": "status_effect",
+            "effect": "vulnerable",
+            "value": 2,
+            "target": "enemy",
+            "upgraded_value": 3
+        }
+    ]
+} 

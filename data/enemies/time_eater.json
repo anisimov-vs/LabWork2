@@ -1,0 +1,89 @@
+{
+    "id": "time_eater",
+    "name": "Time Eater",
+    "max_health": 456,
+    "min_gold": 99,
+    "max_gold": 110,
+    "is_elite": false,
+    "is_boss": true,
+    "min_floor": 14,
+    "max_floor": 19,
+    "moves": [
+        {
+            "id": "rewind",
+            "weight": 20,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 8,
+                    "target": "player",
+                    "hits": 3
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "strength",
+                    "value": 3,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "attack_buff",
+                "value": 8,
+                "secondary_value": 3,
+                "effect": "strength",
+                "target": "player"
+            }
+        },
+        {
+            "id": "time_warp",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "slow",
+                    "value": 2,
+                    "target": "player"
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "weak",
+                    "value": 3,
+                    "target": "player"
+                },
+                {
+                    "type": "block",
+                    "value": 20,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "defend_debuff",
+                "value": 20,
+                "effect": "slow",
+                "secondary_value": 2,
+                "target": "player"
+            }
+        },
+        {
+            "id": "ripple",
+            "weight": 50,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 26,
+                    "target": "player"
+                },
+                {
+                    "type": "heal",
+                    "value": 10,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 26,
+                "target": "player"
+            }
+        }
+    ]
+} 

@@ -1,0 +1,16 @@
+{
+    "id": "ring_of_the_snake",
+    "name": "Ring of the Snake",
+    "description": "At the start of each combat, draw 2 additional cards.",
+    "flavor_text": "Made from a fossilized snake. Represents great skill as a huntress.",
+    "rarity": "STARTER",
+    "class": "SILENT",
+    "effects": [
+        {
+            "trigger": "COMBAT_START",
+            "type": "draw",
+            "value": 2,
+            "target": "player"
+        }
+    ]
+} 

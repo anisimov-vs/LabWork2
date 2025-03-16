@@ -1,0 +1,28 @@
+{
+  "id": "rest_site",
+  "name": "Rest Site",
+  "description": "You find a peaceful place to rest. You can either heal your wounds or improve your deck.",
+  "imagePath": "",
+  "choices": [
+    {
+      "text": "Rest and Heal",
+      "resultText": "You rest and recover some health.",
+      "effects": [
+        {
+          "effect": "GAIN_HEALTH",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "text": "Upgrade a Card",
+      "resultText": "You improve one of your cards.",
+      "effects": [
+        {
+          "effect": "UPGRADE_CARD",
+          "value": 1
+        }
+      ]
+    }
+  ]
+} 

@@ -1,0 +1,26 @@
+{
+    "id": "neutralize",
+    "name": "Neutralize",
+    "description": "Deal 3 damage. Apply 2 Weak.",
+    "type": "ATTACK",
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY",
+    "cost": 0,
+    "upgradable": true,
+    "class": "SILENT",
+    "effects": [
+        {
+            "type": "damage",
+            "value": 3,
+            "target": "enemy",
+            "upgraded_value": 4
+        },
+        {
+            "type": "status_effect",
+            "effect": "weak",
+            "value": 1,
+            "target": "enemy",
+            "upgraded_value": 2
+        }
+    ]
+} 
