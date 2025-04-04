@@ -49,9 +49,9 @@ The project is designed with separation of concerns and extensibility in mind:
 
 ### Documentation
 
-Source code documentation is generated using Doxygen. You can view the documentation by opening the following file in your web browser:
+Source code documentation is generated using Doxygen.
 
-[Documentation](docs/doxygen/html/index.html)
+[View Documentation](https://anisimov-vs.github.io/LabWork2/doxygen/html/index.html)
 
 ### Build Instructions
 
@@ -68,6 +68,18 @@ cd build
 cmake ..
 make
 ```
+
+#### Generating Documentation (Optional)
+
+If you have Doxygen and Graphviz installed (`brew install doxygen graphviz` on macOS), you can generate the source code documentation locally:
+
+```bash
+# Ensure the output directory exists
+mkdir -p docs/doxygen
+# Run doxygen
+doxygen Doxyfile
+```
+The output will be in `docs/doxygen/html/`.
 
 ### Run
 
