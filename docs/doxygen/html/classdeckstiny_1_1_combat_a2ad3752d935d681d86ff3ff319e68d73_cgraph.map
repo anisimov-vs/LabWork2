@@ -1,0 +1,5 @@
+<map id="deckstiny::Combat::beginPlayerTurn" name="deckstiny::Combat::beginPlayerTurn">
+<area shape="rect" id="Node000001" title="Begin player turn." alt="" coords="5,5,145,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_combat.html#a4e928b01e98e6907d21d1360e01e7621" title="Process delayed actions for current turn." alt="" coords="193,5,352,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,23,177,23,177,28,145,28"/>
+</map>

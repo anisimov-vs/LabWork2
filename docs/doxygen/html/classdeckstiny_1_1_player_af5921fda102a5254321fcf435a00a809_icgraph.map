@@ -1,0 +1,12 @@
+<map id="deckstiny::Player::shuffleDrawPile" name="deckstiny::Player::shuffleDrawPile">
+<area shape="rect" id="Node000001" title="Shuffle the draw pile." alt="" coords="568,35,699,75"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html#a17b93847849d33a793ec29285ce8f637" title="Begin combat setup." alt="" coords="5,5,136,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="553,54,136,32,136,26,553,48"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_player.html#a797a56487937b9f5d1fb917d8675f15d" title="Shuffle the discard pile into the draw pile." alt="" coords="362,63,520,103"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="553,69,521,74,520,69,553,64"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="184,63,314,103"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="346,86,314,86,314,80,346,80"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="168,60,135,49,137,44,170,55"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="5,71,136,111"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="168,89,136,91,136,85,168,84"/>
+</map>

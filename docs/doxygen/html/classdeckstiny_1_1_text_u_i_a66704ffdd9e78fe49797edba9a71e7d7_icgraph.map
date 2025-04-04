@@ -1,0 +1,5 @@
+<map id="deckstiny::TextUI::shutdown" name="deckstiny::TextUI::shutdown">
+<area shape="rect" id="Node000001" title="Shut down the UI." alt="" coords="186,5,318,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a34fb5cfde3a8f3879030a5b79b808cd6" title="Virtual destructor." alt="" coords="5,5,138,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
+</map>

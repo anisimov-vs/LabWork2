@@ -1,0 +1,11 @@
+<map id="deckstiny::Card::canPlay" name="deckstiny::Card::canPlay">
+<area shape="rect" id="Node000001" title="Check if card can be played in the current state." alt="" coords="5,112,174,137"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_combat.html#a605144860de37c936a27e128d2922d6a" title="Get enemy at index." alt="" coords="223,5,362,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,109,220,57,233,51,235,56,223,61,119,113"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="223,71,362,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,108,208,102,209,107,172,114"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_character.html#a32a8f1be9b718b07e6a9fca5e6abe8a5" title="Get current energy." alt="" coords="222,136,364,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,135,207,140,206,145,174,140"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="222,201,364,242"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="119,135,223,186,235,192,233,197,221,191,117,140"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="deckstiny::Card::loadFromJson" name="deckstiny::Card::loadFromJson">
+<area shape="rect" id="Node000001" title="Load card data from JSON." alt="" coords="5,46,209,72"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="257,5,384,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,43,241,35,242,41,194,48"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html#a2edb4f597ca1b3eb9f15e77640857ada" title="Load entity data from JSON." alt="" coords="257,71,384,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,70,242,77,241,82,197,75"/>
+</map>

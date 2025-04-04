@@ -1,0 +1,5 @@
+<map id="deckstiny::Card::canUse" name="deckstiny::Card::canUse">
+<area shape="rect" id="Node000001" title="Check if a player can use this card." alt="" coords="5,13,172,38"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html#a1841865787da4e7496f1f3cdfd73fe34" title="Get the player&#39;s class as a string." alt="" coords="220,5,364,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,23,204,23,204,28,172,28"/>
+</map>

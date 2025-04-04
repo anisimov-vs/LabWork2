@@ -1,0 +1,7 @@
+<map id="deckstiny::TextUI" name="deckstiny::TextUI">
+<area shape="rect" id="Node000001" title="Text&#45;based implementation of UIInterface." alt="" coords="98,94,223,120"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_u_i_interface.html" title="Abstract interface for UI implementations." alt="" coords="5,5,156,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,41,151,92,148,95,100,44"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html" title="Main game manager class." alt="" coords="180,5,301,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,44,173,95,170,92,217,41"/>
+</map>

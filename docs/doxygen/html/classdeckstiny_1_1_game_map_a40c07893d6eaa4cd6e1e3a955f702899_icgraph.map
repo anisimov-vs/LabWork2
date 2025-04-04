@@ -1,0 +1,5 @@
+<map id="deckstiny::GameMap::canMoveTo" name="deckstiny::GameMap::canMoveTo">
+<area shape="rect" id="Node000001" title="Check if player can move to a specific room." alt="" coords="199,5,344,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game_map.html#a0042c7a3a600dc024c293ef4a99f10e1" title="Move to a specific room." alt="" coords="5,5,151,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
+</map>

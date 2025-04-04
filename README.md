@@ -47,6 +47,12 @@ The project is designed with separation of concerns and extensibility in mind:
 - `tests/`: Unit tests
 - `architecture/`: Architecture documentation
 
+### Documentation
+
+Source code documentation is generated using Doxygen. You can view the documentation by opening the following file in your web browser:
+
+[Documentation](docs/doxygen/html/index.html)
+
 ### Build Instructions
 
 #### Prerequisites
@@ -97,4 +103,4 @@ More detailed game instructions will be provided as the project develops.
 
 ## License
 
-This project is provided as-is for educational purposes. 
+This project is provided as-is for educational purposes.

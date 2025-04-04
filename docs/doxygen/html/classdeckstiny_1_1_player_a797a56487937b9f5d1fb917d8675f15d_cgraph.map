@@ -1,0 +1,5 @@
+<map id="deckstiny::Player::shuffleDiscardIntoDraw" name="deckstiny::Player::shuffleDiscardIntoDraw">
+<area shape="rect" id="Node000001" title="Shuffle the discard pile into the draw pile." alt="" coords="5,5,164,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html#af5921fda102a5254321fcf435a00a809" title="Shuffle the draw pile." alt="" coords="212,5,342,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,23,196,23,196,28,164,28"/>
+</map>

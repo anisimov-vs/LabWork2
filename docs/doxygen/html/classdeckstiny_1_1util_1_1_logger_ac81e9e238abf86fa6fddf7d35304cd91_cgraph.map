@@ -1,0 +1,8 @@
+<map id="deckstiny::util::Logger::getInstance" name="deckstiny::util::Logger::getInstance">
+<area shape="rect" id="Node000001" title="Get the singleton instance." alt="" coords="5,35,155,75"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1util_1_1_logger.html#a57cd88b468afdb727287f5ab6af4a9d8" title="Initialize the logger system." alt="" coords="203,5,352,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,41,187,36,188,42,155,47"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1util_1_1_logger.html#a5aee353b23b46197d4bcc921833c92cb" title=" " alt="" coords="400,35,549,75"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="155,54,203,55,352,55,384,55,384,60,352,60,203,60,155,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="353,34,385,39,384,44,352,39"/>
+</map>

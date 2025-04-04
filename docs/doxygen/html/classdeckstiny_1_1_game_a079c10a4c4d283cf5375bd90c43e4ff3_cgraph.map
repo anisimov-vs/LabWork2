@@ -1,0 +1,17 @@
+<map id="deckstiny::Game::handleMapInput" name="deckstiny::Game::handleMapInput">
+<area shape="rect" id="Node000001" title="Handle map input." alt="" coords="5,72,197,113"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a9d6a87ad0e84b8cfc3ca853f55e95a00" title="Start a new combat." alt="" coords="245,55,445,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,80,229,77,230,82,198,86"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#ae27472a5b10f73eeea564b1d5a327ea1" title="Start an event." alt="" coords="251,104,439,130"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="198,100,235,103,235,109,197,105"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#a967348f90b62e4e51fd27a92cddc2e20" title="Load an enemy template." alt="" coords="493,5,686,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,51,507,32,508,37,413,57"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#a4e2cf91aa39ad612f9ef49c8f7173b73" title="Change the game state." alt="" coords="501,79,678,104"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="446,75,486,79,485,84,445,80"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="551,80,543,70,548,60,564,54,590,52,618,55,633,61,631,66,617,60,590,57,565,59,551,64,548,69,555,77"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#aa304486f1c821211f7a4499b6a0f513b" title="Calculate the player&#39;s score based on their progress." alt="" coords="734,71,915,112"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="679,89,719,89,719,94,679,94"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="439,104,485,100,486,105,440,110"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game.html#a62dcda03476c9f1bf43201a33617bd7c" title="Load an event template." alt="" coords="496,128,683,154"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="440,123,481,128,481,133,439,129"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="deckstiny::Player::shuffleDiscardIntoDraw" name="deckstiny::Player::shuffleDiscardIntoDraw">
+<area shape="rect" id="Node000001" title="Shuffle the discard pile into the draw pile." alt="" coords="362,39,520,79"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="184,39,314,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="346,62,314,62,314,56,346,56"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_player.html#a17b93847849d33a793ec29285ce8f637" title="Begin combat setup." alt="" coords="5,5,136,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="168,47,136,41,137,35,169,41"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="5,71,136,111"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="169,76,137,82,136,77,168,71"/>
+</map>

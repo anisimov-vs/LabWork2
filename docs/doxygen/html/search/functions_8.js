@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['increasemaxhealth_0',['increaseMaxHealth',['../classdeckstiny_1_1_player.html#aba89076e3460abe11db12a42392dd227',1,'deckstiny::Player']]],
+  ['incrementcounter_1',['incrementCounter',['../classdeckstiny_1_1_relic.html#acd3dced2c24382ffa25aaf3b3ba30ac5',1,'deckstiny::Relic']]],
+  ['init_2',['init',['../classdeckstiny_1_1util_1_1_logger.html#a57cd88b468afdb727287f5ab6af4a9d8',1,'deckstiny::util::Logger']]],
+  ['initialize_3',['initialize',['../classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3',1,'deckstiny::Game::initialize()'],['../classdeckstiny_1_1_text_u_i.html#a052e08d4e7d9e4c25df74b8ace5ea45b',1,'deckstiny::TextUI::initialize()'],['../classdeckstiny_1_1_u_i_interface.html#a3eccc43c9cbff1d371967c35b778361b',1,'deckstiny::UIInterface::initialize()']]],
+  ['initializeinputhandlers_4',['initializeInputHandlers',['../classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13',1,'deckstiny::Game']]],
+  ['initializelogging_5',['initializeLogging',['../classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d',1,'deckstiny::Game']]],
+  ['inputthreadfunc_6',['inputThreadFunc',['../classdeckstiny_1_1_text_u_i.html#a67c2872a32ad501a737d041a419012c9',1,'deckstiny::TextUI']]],
+  ['isalive_7',['isAlive',['../classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11',1,'deckstiny::Character']]],
+  ['isboss_8',['isBoss',['../classdeckstiny_1_1_enemy.html#a7f66dab1b49e78a3c0361ff8cce01647',1,'deckstiny::Enemy']]],
+  ['isbossdefeated_9',['isBossDefeated',['../classdeckstiny_1_1_game_map.html#a7ecdab5b92a291f34f0f00b2fb9f870a',1,'deckstiny::GameMap']]],
+  ['iscombatover_10',['isCombatOver',['../classdeckstiny_1_1_combat.html#a62f56ffeb65c144261417287de97f426',1,'deckstiny::Combat']]],
+  ['iselite_11',['isElite',['../classdeckstiny_1_1_enemy.html#a227543bb91053cd383ec97b27030d32c',1,'deckstiny::Enemy']]],
+  ['ismapcompleted_12',['isMapCompleted',['../classdeckstiny_1_1_game_map.html#a95e91bfb230c2d47db9f9b7c32fb3ac3',1,'deckstiny::GameMap']]],
+  ['isplayerdefeated_13',['isPlayerDefeated',['../classdeckstiny_1_1_combat.html#aa2356d5e886d301c2cb47736eba69fd3',1,'deckstiny::Combat']]],
+  ['isplayerturn_14',['isPlayerTurn',['../classdeckstiny_1_1_combat.html#a8e430adc6a55d580e113f8730699f390',1,'deckstiny::Combat']]],
+  ['isrunning_15',['isRunning',['../classdeckstiny_1_1_game.html#a267551c749e9a45637b1fa0570948c8d',1,'deckstiny::Game']]],
+  ['isupgradable_16',['isUpgradable',['../classdeckstiny_1_1_card.html#a649ead3c9061fe716882d99375fe678c',1,'deckstiny::Card']]],
+  ['isupgraded_17',['isUpgraded',['../classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0',1,'deckstiny::Card']]]
+];

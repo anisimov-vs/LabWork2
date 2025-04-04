@@ -1,0 +1,5 @@
+<map id="deckstiny::Game::addCardToDeck" name="deckstiny::Game::addCardToDeck">
+<area shape="rect" id="Node000001" title="Add a card to the player&#39;s deck." alt="" coords="5,5,183,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a2b04741a2aa9b52314eb405544d152f8" title="Load a card template." alt="" coords="231,13,411,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,23,215,23,215,28,183,28"/>
+</map>

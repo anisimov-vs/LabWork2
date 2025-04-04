@@ -1,0 +1,9 @@
+<map id="deckstiny::Game::startCombat" name="deckstiny::Game::startCombat">
+<area shape="rect" id="Node000001" title="Start a new combat." alt="" coords="691,13,892,38"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a079c10a4c4d283cf5375bd90c43e4ff3" title="Handle map input." alt="" coords="452,5,643,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="675,28,644,28,644,23,675,23"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="229,5,404,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="436,28,404,28,404,23,436,23"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
+</map>

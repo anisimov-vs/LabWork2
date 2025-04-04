@@ -1,0 +1,11 @@
+<map id="deckstiny::TextUI::getCardTypeString" name="deckstiny::TextUI::getCardTypeString">
+<area shape="rect" id="Node000001" title="Get card type as string." alt="" coords="546,39,679,79"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="366,39,498,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="531,62,499,62,499,56,531,56"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a6712c5f811b74e5d2b7c5a7cac3b0654" title="Display a list of cards." alt="" coords="186,5,318,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,47,318,41,319,35,351,41"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="186,71,318,111"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="351,76,319,82,318,77,350,71"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="5,5,138,46"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
+</map>
