@@ -13,9 +13,24 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libgtest-dev
-        sudo apt-get install -y build-essential
+        sudo apt-get install -y libgtest-dev cmake build-essential
+        cd /usr/src/gtest
+        sudo cmake CMakeLists.txt
+        sudo make
+        sudo cp lib/*.a /usr/lib
+    
+    - name: Configure
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+    
     - name: Build
-      run: make test
+      run: |
+        cd build
+        make
+    
     - name: Test
-      run: ./test
+      run: |
+        cd build
+        ctest --verbose

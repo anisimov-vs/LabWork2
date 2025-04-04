@@ -1,11 +1,10 @@
 #include <gtest/gtest.h>
-#include "include/test.h"
 
-TEST(ExampleTest, BasicTest) {
-  EXPECT_EQ(1, 1);
+TEST(EmptyTest, AlwaysPasses) {
+    ASSERT_TRUE(true);
 }
 
 int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

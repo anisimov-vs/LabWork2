@@ -1,7 +1,6 @@
-# Laboratory Work 2
+# Deckstiny - Laboratory Work 2
 
 ![Build Status](https://github.com/anisimov-vs/LabWork2/actions/workflows/build.yml/badge.svg)
-
 
 ## Author
 
@@ -13,35 +12,89 @@ st129629@student.spbu.ru
 
 ## Description
 
-This project develops the core of a roguelike deck-building game, featuring character selection, strategic card play, and procedurally generated levels with combat, events, and relics. It includes a hierarchy of at least 20 classes, multiple interaction modes, and simple AI, forming the foundation for further development.
+Deckstiny is a C++ implementation of a roguelike deck-building game inspired by "Slay the Spire." This project develops a comprehensive game core featuring character selection, strategic card play, and procedurally generated levels with combat, events, and relics. The architecture includes a hierarchy of over 20 classes, multiple interaction modes, and enemy AI, forming a solid foundation for further development.
+
+The game features:
+- Multiple character classes with unique starting decks and abilities
+- A wide variety of cards and relics to collect
+- Different enemy types with distinct combat behaviors
+- Procedurally generated maps with various encounter types
+- Text-based UI (with architecture to support future graphical UI)
 
 For detailed architectural information, see the [architecture folder](architecture/).
 
-### Files
+### Architecture
 
-- `README.md`: Project overview and instructions
-- `Makefile`: Build script for compiling the project
-- `.github/workflows/build.yml`: GitHub Actions workflow for automated builds
-- `src/main.cpp`: Main source file (placeholder)
-- `src/main.h`: Main header file
-- `src/test.cpp`: Test file using Google Test
-- `src/test.h`: Test header file
-- `architecture/README.md`: Architectural description
-- `architecture/classes.png`: Class diagram placeholder
-- `architecture/components.png`: Component diagram placeholder
+The project is designed with separation of concerns and extensibility in mind:
 
-### Build
+- **Core Game Logic**: All game mechanics and entities are implemented as separate classes
+- **Data-Driven Design**: Game entities (cards, enemies, relics, etc.) are defined in JSON files for easy modification
+- **UI Abstraction**: The UI interface is abstracted, allowing for easy switching between text-based and graphical implementations
+- **Clear Hierarchy**: There's a clear inheritance hierarchy that promotes code reuse
 
-```
+### Directory Structure
+
+- `src/`: Source code files
+  - `core/`: Core game logic
+  - `ui/`: UI implementations
+- `include/`: Header files
+- `data/`: JSON data files
+  - `characters/`: Character definitions
+  - `cards/`: Card definitions
+  - `enemies/`: Enemy definitions
+  - `relics/`: Relic definitions
+  - `events/`: Event definitions
+- `tests/`: Unit tests
+- `architecture/`: Architecture documentation
+
+### Build Instructions
+
+#### Prerequisites
+
+- C++17 compatible compiler
+- CMake 3.10 or higher
+
+#### Build
+
+```bash
+mkdir build
+cd build
+cmake ..
 make
 ```
 
 ### Run
 
+```bash
+./deckstiny
 ```
-./main
-```
+
+### Extending the Game
+
+#### Adding New Cards
+
+Create a new JSON file in the `data/cards/` directory with the appropriate card properties.
+
+#### Adding New Enemies
+
+Create a new JSON file in the `data/enemies/` directory with enemy properties and behavior.
+
+#### Adding New Relics
+
+Create a new JSON file in the `data/relics/` directory with relic properties and effects.
 
 ### Usage
 
-TODO
+The game features a text-based interface. Upon starting:
+
+1. Select a character class
+2. Navigate through the map
+3. Engage in card-based combat encounters
+4. Collect cards and relics to build your deck
+5. Defeat the final boss to win
+
+More detailed game instructions will be provided as the project develops.
+
+## License
+
+This project is provided as-is for educational purposes. 

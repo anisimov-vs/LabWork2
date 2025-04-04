@@ -1,6 +1,6 @@
-#include "include/main.h"
+#include <iostream>
 
 int main() {
-    //TODO
+    std::cout << "Deckstiny" << std::endl;
     return 0;
 }
