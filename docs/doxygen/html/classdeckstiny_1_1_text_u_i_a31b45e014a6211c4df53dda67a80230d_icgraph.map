@@ -1,0 +1,7 @@
+<map id="deckstiny::TextUI::showEnemyStats" name="deckstiny::TextUI::showEnemyStats">
+<area shape="rect" id="Node000001" title="Display enemy stats." alt="" coords="233,39,365,79"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="29,5,161,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,48,161,39,162,34,218,43"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a8a9e64a0c2b686978b2342d9a6ac94cb" title="Display an enemy selection menu." alt="" coords="5,71,185,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,74,186,80,185,74,217,69"/>
+</map>

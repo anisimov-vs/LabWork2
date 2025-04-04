@@ -1,0 +1,76 @@
+{
+    "id": "mushroom_warrior",
+    "name": "Mushroom Warrior",
+    "max_health": 54,
+    "min_gold": 12,
+    "max_gold": 16,
+    "is_elite": false,
+    "is_boss": false,
+    "min_floor": 5,
+    "max_floor": 10,
+    "moves": [
+        {
+            "id": "club",
+            "weight": 45,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 10,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 10,
+                "target": "player"
+            }
+        },
+        {
+            "id": "spore_cloud",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "weak",
+                    "value": 2,
+                    "target": "player"
+                },
+                {
+                    "type": "block",
+                    "value": 5,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "defend_debuff",
+                "value": 5,
+                "effect": "weak",
+                "secondary_value": 2,
+                "target": "player"
+            }
+        },
+        {
+            "id": "grow",
+            "weight": 25,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "strength",
+                    "value": 2,
+                    "target": "self"
+                },
+                {
+                    "type": "heal",
+                    "value": 6,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "buff",
+                "value": 2,
+                "effect": "strength",
+                "target": "self"
+            }
+        }
+    ]
+} 

@@ -1,0 +1,5 @@
+<map id="deckstiny::TextUI::getRoomTypeString" name="deckstiny::TextUI::getRoomTypeString">
+<area shape="rect" id="Node000001" title="Get room type as string." alt="" coords="186,5,322,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a7e3a4a0473a44c567caf384ff313e4d9" title="Show the game map." alt="" coords="5,5,138,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
+</map>

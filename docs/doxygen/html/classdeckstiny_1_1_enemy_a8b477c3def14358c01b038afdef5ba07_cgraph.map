@@ -1,0 +1,5 @@
+<map id="deckstiny::Enemy::rollGoldReward" name="deckstiny::Enemy::rollGoldReward">
+<area shape="rect" id="Node000001" title="Get gold reward for defeating this enemy." alt="" coords="5,5,184,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="232,5,374,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,23,216,23,216,28,184,28"/>
+</map>

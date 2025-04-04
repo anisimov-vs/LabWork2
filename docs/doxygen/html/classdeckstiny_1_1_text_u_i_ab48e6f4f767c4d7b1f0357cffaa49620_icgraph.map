@@ -1,0 +1,6 @@
+<map id="deckstiny::TextUI::showEventHelp" name="deckstiny::TextUI::showEventHelp">
+<area shape="rect" id="Node000001" title="Show help for event commands." alt="" coords="186,29,318,70"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a4a932ec86db4dee32c4e1c8c108284e7" title="Display a prompt and get input." alt="" coords="5,29,138,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,52,138,52,138,47,170,47"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="100,16,90,10,71,8,55,10,44,14,40,20,42,28,37,29,35,19,41,10,53,5,72,3,91,5,103,11"/>
+</map>

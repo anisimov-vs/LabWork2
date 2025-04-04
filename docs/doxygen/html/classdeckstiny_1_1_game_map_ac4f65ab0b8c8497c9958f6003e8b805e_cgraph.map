@@ -1,0 +1,5 @@
+<map id="deckstiny::GameMap::setRoomType" name="deckstiny::GameMap::setRoomType">
+<area shape="rect" id="Node000001" title="Set room type based on position and strategic rules." alt="" coords="5,5,151,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="199,5,344,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,23,183,23,183,28,151,28"/>
+</map>

@@ -1,0 +1,59 @@
+{
+  "id": "strange_statue",
+  "name": "Strange Statue",
+  "description": "You come across a peculiar statue with outstretched arms. In its hands are a golden idol and a small potion.\nThe statue's plaque reads: 'Take only one.'",
+  "image": "     _______\n    /       \\\n   /         \\\n  |  (o)_(o)  |\n  |     |     |\n  |  \\___/    |\n   \\_________/\n       ||\n     __||__\n    |      |\n  --|      |--\n |  |      |  |\n |__|______|__|\n     |    |\n     |    |\n    /|    |\\\n   / |    | \\\n  /~~|    |~~\\\n /   |____|   \\\n",
+  "choices": [
+    {
+      "text": "Take the golden idol (Gain 50 Gold)",
+      "requiresGold": 0,
+      "requiresHealth": 0,
+      "effects": [
+        {
+          "effect": "GAIN_GOLD",
+          "value": 50
+        },
+        {
+          "effect": "LOSE_HEALTH",
+          "value": 10
+        }
+      ],
+      "resultText": "As you take the golden idol, the statue's eyes glow red.\nThe floor begins to shake, and you feel a sharp pain in your chest.\nYou've been cursed! But at least you're 50 gold richer.\n\nYou lost 10 HP, but gained 50 Gold."
+    },
+    {
+      "text": "Take the potion (Gain 15 Max HP)",
+      "requiresGold": 0,
+      "requiresHealth": 0,
+      "effects": [
+        {
+          "effect": "INCREASE_MAX_HEALTH",
+          "value": 15
+        }
+      ],
+      "resultText": "You take the small potion and drink it. A warm sensation spreads through your body.\nYou feel stronger and more resilient.\n\nYour maximum HP increased by 15!"
+    },
+    {
+      "text": "Destroy the statue (Requires 5 HP)",
+      "requiresGold": 0,
+      "requiresHealth": 5,
+      "effects": [
+        {
+          "effect": "LOSE_HEALTH",
+          "value": 5
+        },
+        {
+          "effect": "ADD_CARD",
+          "value": "strike_plus"
+        }
+      ],
+      "resultText": "You attack the statue with all your might. It crumbles to dust, revealing a glowing card inside.\nYou lost 5 HP, but obtained a new card: Strike+!"
+    },
+    {
+      "text": "Leave",
+      "requiresGold": 0,
+      "requiresHealth": 0,
+      "effects": [],
+      "resultText": "You decide it's best not to disturb ancient artifacts. You turn and leave the statue behind."
+    }
+  ]
+} 

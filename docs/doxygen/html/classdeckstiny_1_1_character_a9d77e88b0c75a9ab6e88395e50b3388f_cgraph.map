@@ -1,0 +1,5 @@
+<map id="deckstiny::Character::Character" name="deckstiny::Character::Character">
+<area shape="rect" id="Node000001" title="Constructor with id, name, health, and energy." alt="" coords="5,5,148,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_entity.html#a6563cb1bf9cb6228734640399dfb08d8" title="Default constructor." alt="" coords="196,5,323,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,23,180,23,180,28,148,28"/>
+</map>

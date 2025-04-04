@@ -1,0 +1,15 @@
+<map id="deckstiny::Entity" name="deckstiny::Entity">
+<area shape="rect" id="Node000001" title="Base class for all game entities." alt="" coords="232,5,351,31"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_card.html" title="Represents a card in the game." alt="" coords="5,79,119,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,39,102,81,100,76,237,34"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_character.html" title="Base class for all characters (player and enemies)" alt="" coords="143,79,285,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="269,44,229,81,225,77,265,40"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_event.html" title="Represents an event encounter." alt="" coords="309,79,428,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="317,40,358,77,354,81,314,44"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_relic.html" title="Represents a relic in the game." alt="" coords="452,79,568,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="344,34,474,76,472,81,342,39"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_enemy.html" title="Represents an enemy character in the game." alt="" coords="76,153,202,178"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="192,117,154,154,150,150,189,114"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_player.html" title="Represents the player character in the game." alt="" coords="226,153,348,178"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="239,114,277,150,273,154,235,117"/>
+</map>

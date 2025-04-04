@@ -1,0 +1,20 @@
+<map id="deckstiny::Game::~Game" name="deckstiny::Game::~Game">
+<area shape="rect" id="Node000001" title="Virtual destructor." alt="" coords="5,132,177,157"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1util_1_1_logger.html#ac81e9e238abf86fa6fddf7d35304cd91" title="Get the singleton instance." alt="" coords="237,63,386,103"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,128,221,105,223,110,141,133"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1util_1_1_logger.html#a0911fa960f0dae76588e09cd10a5a4d7" title="Log a message." alt="" coords="225,193,399,218"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="141,155,249,186,247,191,139,160"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1util_1_1_logger.html#a57cd88b468afdb727287f5ab6af4a9d8" title="Initialize the logger system." alt="" coords="447,5,596,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="386,60,432,47,433,53,388,65"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1util_1_1_logger.html#a5aee353b23b46197d4bcc921833c92cb" title=" " alt="" coords="644,35,794,75"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="387,75,629,58,629,64,387,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="597,34,629,39,628,44,596,39"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1util_1_1_logger.html#adae603e7ca2b06376fe0b86ff2cf9595" title=" " alt="" coords="447,120,596,161"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="355,190,439,163,440,168,356,195"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1util_1_1_logger.html#a165b1b9c623879e88c56c994828381ea" title=" " alt="" coords="447,185,596,226"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="399,203,432,203,432,208,399,208"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1util_1_1_logger.html#aba289a59c4a99b8d787761d392600c13" title=" " alt="" coords="447,251,596,291"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="356,217,440,243,439,248,355,222"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1util_1_1_logger.html#ae2da7a3abe89af9cf57679977bf8a685" title=" " alt="" coords="447,316,596,357"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="331,217,382,257,448,301,458,306,456,311,446,305,379,261,328,221"/>
+</map>

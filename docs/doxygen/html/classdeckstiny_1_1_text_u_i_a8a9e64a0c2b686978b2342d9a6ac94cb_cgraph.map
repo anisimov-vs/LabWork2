@@ -1,0 +1,29 @@
+<map id="deckstiny::TextUI::showEnemySelectionMenu" name="deckstiny::TextUI::showEnemySelectionMenu">
+<area shape="rect" id="Node000001" title="Display an enemy selection menu." alt="" coords="5,201,185,242"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="238,5,370,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,199,157,131,192,92,231,57,237,52,241,57,234,61,196,96,161,135,112,202"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="238,71,370,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="121,199,171,161,231,122,241,117,243,121,234,127,174,166,124,203"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="238,136,370,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,198,222,179,224,184,163,203"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_combat.html#a605144860de37c936a27e128d2922d6a" title="Get enemy at index." alt="" coords="234,201,374,242"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="185,219,219,219,219,224,185,224"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="234,267,374,307"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="163,240,223,259,221,264,161,245"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="233,332,375,373"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="124,240,174,277,234,317,243,322,241,327,231,321,171,282,121,245"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_text_u_i.html#a31b45e014a6211c4df53dda67a80230d" title="Display enemy stats." alt="" coords="238,397,370,438"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="112,241,161,309,196,347,234,382,241,387,237,391,231,386,192,351,157,312,107,244"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="444,245,587,286"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="357,395,373,382,389,361,396,340,404,319,421,297,429,291,433,295,425,301,408,321,401,342,394,364,377,386,360,399"/>
+<area shape="rect" id="Node000010" href="$classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="444,311,587,351"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="348,394,422,361,437,355,439,360,424,365,350,399"/>
+<area shape="rect" id="Node000011" href="$classdeckstiny_1_1_enemy.html#aec86f62bb424ed791b43ec2e5afa9f33" title="Get the enemy&#39;s current intent." alt="" coords="423,376,608,401"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="370,406,407,401,408,406,371,411"/>
+<area shape="rect" id="Node000012" href="$classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="444,425,587,466"/>
+<area shape="poly" id="edge11_Node000008_Node000012" title=" " alt="" coords="371,424,429,432,429,437,370,429"/>
+<area shape="rect" id="Node000013" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="452,491,579,531"/>
+<area shape="poly" id="edge12_Node000008_Node000013" title=" " alt="" coords="345,436,424,475,441,482,439,487,422,480,342,441"/>
+<area shape="rect" id="Node000014" href="$classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="444,556,587,597"/>
+<area shape="poly" id="edge13_Node000008_Node000014" title=" " alt="" coords="322,437,364,488,393,516,425,541,434,546,431,551,421,545,389,520,360,492,318,440"/>
+</map>

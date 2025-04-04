@@ -1,0 +1,17 @@
+<map id="deckstiny::Combat::endPlayerTurn" name="deckstiny::Combat::endPlayerTurn">
+<area shape="rect" id="Node000001" title="End player turn." alt="" coords="5,39,145,79"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_combat.html#a2ad3752d935d681d86ff3ff319e68d73" title="Begin player turn." alt="" coords="194,5,333,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,44,178,38,179,43,145,49"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_combat.html#a3a2ff91967de33ce83dcbb59ea93e268" title="Process enemy turns." alt="" coords="193,71,334,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,68,178,74,177,79,144,73"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_combat.html#a4e928b01e98e6907d21d1360e01e7621" title="Process delayed actions for current turn." alt="" coords="382,5,542,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,23,367,23,367,28,333,28"/>
+<area shape="poly" id="edge8_Node000004_Node000003" title=" " alt="" coords="326,68,383,49,385,54,328,73"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_combat.html#a567428f01436a07629212658f996982c" title="Check if all enemies are defeated." alt="" coords="383,71,541,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="334,88,368,88,368,94,334,94"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_combat.html#a8391128a9754a2eb76a85593a37e6666" title="End the combat." alt="" coords="382,136,542,161"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="335,109,401,128,399,133,334,114"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_combat.html#aa2356d5e886d301c2cb47736eba69fd3" title="Check if player is defeated." alt="" coords="590,153,730,194"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="287,110,329,144,355,159,383,171,431,182,481,187,574,184,575,189,481,192,430,187,381,176,353,164,326,148,284,114"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="543,156,575,160,575,165,543,161"/>
+</map>

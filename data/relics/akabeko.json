@@ -1,0 +1,17 @@
+{
+    "id": "akabeko",
+    "name": "Akabeko",
+    "description": "Your first attack each combat deals 8 additional damage.",
+    "flavor_text": "\"Moo.\"",
+    "rarity": "COMMON",
+    "class": "ANY",
+    "effects": [
+        {
+            "trigger": "COMBAT_START",
+            "type": "status_effect",
+            "effect": "first_attack_bonus",
+            "value": 8,
+            "target": "player"
+        }
+    ]
+} 

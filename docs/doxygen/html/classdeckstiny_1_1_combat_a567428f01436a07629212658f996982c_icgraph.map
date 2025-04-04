@@ -1,0 +1,20 @@
+<map id="deckstiny::Combat::areAllEnemiesDefeated" name="deckstiny::Combat::areAllEnemiesDefeated">
+<area shape="rect" id="Node000001" title="Check if all enemies are defeated." alt="" coords="785,120,943,161"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_combat.html#a3416de203976a7bbe81be493bf142fe4" title="Handle enemy death." alt="" coords="596,5,736,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="815,114,735,67,704,49,707,44,738,62,817,109"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="386,100,547,125"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="778,119,736,111,639,105,548,108,548,103,639,100,737,106,779,113"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,152,145,193"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="779,167,737,175,571,188,406,191,258,187,145,181,145,175,258,182,406,186,571,183,736,170,778,162"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_combat.html#a62f56ffeb65c144261417287de97f426" title="Check if combat is over." alt="" coords="596,120,736,161"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="769,143,736,143,736,138,769,138"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_combat.html#a3a2ff91967de33ce83dcbb59ea93e268" title="Process enemy turns." alt="" coords="595,235,737,275"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="817,171,738,219,707,236,704,232,735,214,815,167"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="604,55,499,102,497,97,602,50"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,132,338,157"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="371,130,339,135,338,130,370,125"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="178,160,146,165,145,159,177,155"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="580,131,547,126,548,121,581,126"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_combat.html#a94ab13d0756a8db6eee7bc0762a035b0" title="End player turn." alt="" coords="397,235,536,275"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="580,258,536,258,536,252,580,252"/>
+</map>

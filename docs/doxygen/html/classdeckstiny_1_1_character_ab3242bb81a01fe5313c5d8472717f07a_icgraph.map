@@ -1,0 +1,7 @@
+<map id="deckstiny::Character::loadFromJson" name="deckstiny::Character::loadFromJson">
+<area shape="rect" id="Node000001" title="Load character data from JSON." alt="" coords="270,27,412,68"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_enemy.html#a491e01e029f90e842cac6659d993855b" title="Load enemy data from JSON." alt="" coords="5,5,222,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,39,218,34,218,29,254,34"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_player.html#a22754355e2abc72395fd88b43ca555fc" title="Load player data from JSON." alt="" coords="48,55,179,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,61,180,70,179,65,254,56"/>
+</map>

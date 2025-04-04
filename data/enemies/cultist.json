@@ -1,0 +1,47 @@
+{
+    "id": "cultist",
+    "name": "Cultist",
+    "max_health": 48,
+    "min_gold": 10,
+    "max_gold": 14,
+    "is_elite": false,
+    "is_boss": false,
+    "min_floor": 0,
+    "max_floor": 10,
+    "moves": [
+        {
+            "id": "dark_strike",
+            "weight": 70,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 6,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 6,
+                "target": "player"
+            }
+        },
+        {
+            "id": "incantation",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "ritual",
+                    "value": 3,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "buff",
+                "value": 3,
+                "effect": "ritual",
+                "target": "self"
+            }
+        }
+    ]
+} 

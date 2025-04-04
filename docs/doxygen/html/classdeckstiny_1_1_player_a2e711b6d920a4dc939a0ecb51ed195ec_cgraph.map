@@ -1,0 +1,15 @@
+<map id="deckstiny::Player::endTurn" name="deckstiny::Player::endTurn">
+<area shape="rect" id="Node000001" title="End of turn processing." alt="" coords="5,72,136,113"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html#a294b0e43d962c188b87d86aef76b4bfe" title="Discard all cards in hand." alt="" coords="190,23,320,63"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,72,174,62,176,67,137,78"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_character.html#afc9c623aa8a9321246d0cb6b7a999c85" title="End of turn processing." alt="" coords="184,104,326,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="136,101,169,107,168,112,135,106"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_player.html#ab22447f1e20d3aac1239e6a005352827" title="Discard a single card from hand by index." alt="" coords="380,5,510,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="320,34,364,30,365,36,320,40"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="374,71,516,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="326,109,358,104,359,109,327,114"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_character.html#ac5801197a907c315eed27ee293f7c9ed" title="Get status effect stacks." alt="" coords="374,136,516,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="327,134,359,139,358,144,326,139"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="374,201,516,242"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="295,143,375,186,386,192,384,196,373,191,292,148"/>
+</map>

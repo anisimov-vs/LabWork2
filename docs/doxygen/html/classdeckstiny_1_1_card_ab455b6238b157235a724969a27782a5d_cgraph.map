@@ -1,0 +1,16 @@
+<map id="deckstiny::Card::fallbackCardEffect" name="deckstiny::Card::fallbackCardEffect">
+<area shape="rect" id="Node000001" title="Fallback implementation for basic card effects when JSON processing fails." alt="" coords="5,136,172,177"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#a58d05fc7d49fa1b1187f998fa3fdbbe1" title="Add block to the character." alt="" coords="220,5,362,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,133,161,96,218,57,228,51,230,56,221,61,164,100,116,137"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_combat.html#a605144860de37c936a27e128d2922d6a" title="Get enemy at index." alt="" coords="221,71,360,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,133,210,114,212,119,154,138"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="221,136,360,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="172,154,205,154,205,159,172,159"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="220,201,362,242"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="154,175,212,193,210,199,153,180"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="220,267,362,307"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="116,175,164,212,221,251,230,257,228,261,218,256,161,217,113,179"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="410,136,537,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="342,44,363,57,406,89,443,123,440,127,403,93,361,61,339,49"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="339,264,361,251,403,219,440,186,443,190,406,223,363,256,342,268"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="deckstiny::Game::loadEvent" name="deckstiny::Game::loadEvent">
+<area shape="rect" id="Node000001" title="Load an event template." alt="" coords="968,42,1154,68"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#aa38e8d94430de43a21ea43d7051232c3" title="Load all event templates." alt="" coords="742,5,909,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="952,44,909,39,910,33,953,39"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#ae27472a5b10f73eeea564b1d5a327ea1" title="Start an event." alt="" coords="731,70,920,96"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="953,71,920,74,920,69,952,65"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#acc7fa912d453b7513bddc09557355e4a" title="Load data from JSON files." alt="" coords="229,13,444,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="726,28,444,28,444,23,726,23"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,42,181,68"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="213,43,181,47,181,42,213,38"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#a079c10a4c4d283cf5375bd90c43e4ff3" title="Handle map input." alt="" coords="492,63,683,103"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="716,86,684,86,684,80,716,80"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="249,63,424,103"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="476,86,424,86,424,80,476,80"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="233,74,181,68,181,62,233,68"/>
+</map>

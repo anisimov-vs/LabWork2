@@ -1,0 +1,55 @@
+{
+    "id": "snake_plant",
+    "name": "Snake Plant",
+    "max_health": 68,
+    "min_gold": 12,
+    "max_gold": 16,
+    "is_elite": false,
+    "is_boss": false,
+    "min_floor": 4,
+    "max_floor": 8,
+    "moves": [
+        {
+            "id": "strike",
+            "weight": 60,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 7,
+                    "target": "player",
+                    "hits": 3
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 7,
+                "secondary_value": 3,
+                "target": "player"
+            }
+        },
+        {
+            "id": "poison_cloud",
+            "weight": 40,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "poison",
+                    "value": 2,
+                    "target": "player"
+                },
+                {
+                    "type": "block",
+                    "value": 6,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "defend_debuff",
+                "value": 6,
+                "effect": "poison",
+                "secondary_value": 2,
+                "target": "player"
+            }
+        }
+    ]
+} 

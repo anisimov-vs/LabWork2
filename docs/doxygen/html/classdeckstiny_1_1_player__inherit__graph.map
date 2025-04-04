@@ -1,0 +1,7 @@
+<map id="deckstiny::Player" name="deckstiny::Player">
+<area shape="rect" id="Node000001" title="Represents the player character in the game." alt="" coords="15,153,138,178"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html" title="Base class for all characters (player and enemies)" alt="" coords="5,79,148,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,120,79,152,74,152,74,120"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html" title="Base class for all game entities." alt="" coords="17,5,136,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,46,79,79,74,79,74,46"/>
+</map>

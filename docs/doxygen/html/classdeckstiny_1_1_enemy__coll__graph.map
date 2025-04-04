@@ -1,0 +1,9 @@
+<map id="deckstiny::Enemy" name="deckstiny::Enemy">
+<area shape="rect" id="Node000001" title="Represents an enemy character in the game." alt="" coords="91,169,217,195"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html" title="Base class for all characters (player and enemies)" alt="" coords="5,80,148,106"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,116,145,167,141,170,96,120"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html" title="Base class for all game entities." alt="" coords="17,5,136,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,46,79,80,74,80,74,46"/>
+<area shape="rect" id="Node000004" href="$structdeckstiny_1_1_intent.html" title="Structure representing an enemy&#39;s intent." alt="" coords="172,80,290,106"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="212,120,166,170,163,167,208,116"/>
+</map>

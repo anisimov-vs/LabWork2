@@ -1,0 +1,7 @@
+<map id="deckstiny::Player::drawCards" name="deckstiny::Player::drawCards">
+<area shape="rect" id="Node000001" title="Draw cards from the draw pile." alt="" coords="5,5,136,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html#a797a56487937b9f5d1fb917d8675f15d" title="Shuffle the discard pile into the draw pile." alt="" coords="184,5,342,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,23,168,23,168,28,136,28"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_player.html#af5921fda102a5254321fcf435a00a809" title="Shuffle the draw pile." alt="" coords="390,5,520,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="342,23,374,23,374,28,342,28"/>
+</map>

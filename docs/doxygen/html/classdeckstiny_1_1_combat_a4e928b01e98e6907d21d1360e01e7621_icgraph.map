@@ -1,0 +1,10 @@
+<map id="deckstiny::Combat::processDelayedActions" name="deckstiny::Combat::processDelayedActions">
+<area shape="rect" id="Node000001" title="Process delayed actions for current turn." alt="" coords="382,39,541,79"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_combat.html#a2ad3752d935d681d86ff3ff319e68d73" title="Begin player turn." alt="" coords="194,5,333,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="367,46,333,40,333,35,367,40"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_combat.html#a3a2ff91967de33ce83dcbb59ea93e268" title="Process enemy turns." alt="" coords="193,71,334,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="367,77,335,82,334,77,367,72"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_combat.html#a94ab13d0756a8db6eee7bc0762a035b0" title="End player turn." alt="" coords="5,39,145,79"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,43,146,49,145,44,178,38"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="177,79,145,73,146,68,178,74"/>
+</map>

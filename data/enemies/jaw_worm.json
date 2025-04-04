@@ -1,0 +1,75 @@
+{
+    "id": "jaw_worm",
+    "name": "Jaw Worm",
+    "max_health": 42,
+    "min_gold": 10,
+    "max_gold": 14,
+    "is_elite": false,
+    "is_boss": false,
+    "min_floor": 0,
+    "max_floor": 5,
+    "moves": [
+        {
+            "id": "chomp",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 11,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 11,
+                "target": "player"
+            }
+        },
+        {
+            "id": "thrash",
+            "weight": 40,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 7,
+                    "target": "player"
+                },
+                {
+                    "type": "block",
+                    "value": 5,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "attack_defend",
+                "value": 7,
+                "secondary_value": 5,
+                "target": "player"
+            }
+        },
+        {
+            "id": "bellow",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "strength",
+                    "value": 3,
+                    "target": "self"
+                },
+                {
+                    "type": "block",
+                    "value": 6,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "buff",
+                "value": 3,
+                "effect": "strength",
+                "secondary_value": 6,
+                "target": "self"
+            }
+        }
+    ]
+} 

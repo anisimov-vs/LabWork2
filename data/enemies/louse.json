@@ -1,0 +1,47 @@
+{
+    "id": "louse",
+    "name": "Louse",
+    "max_health": 24,
+    "min_gold": 6,
+    "max_gold": 10,
+    "is_elite": false,
+    "is_boss": false,
+    "min_floor": 0,
+    "max_floor": 5,
+    "moves": [
+        {
+            "id": "bite",
+            "weight": 60,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 5,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 5,
+                "target": "player"
+            }
+        },
+        {
+            "id": "grow",
+            "weight": 40,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "strength",
+                    "value": 2,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "buff",
+                "value": 2,
+                "effect": "strength",
+                "target": "self"
+            }
+        }
+    ]
+} 

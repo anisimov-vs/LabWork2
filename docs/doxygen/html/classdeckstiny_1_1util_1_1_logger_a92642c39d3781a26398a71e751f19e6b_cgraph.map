@@ -1,0 +1,7 @@
+<map id="deckstiny::util::Logger::setTestingMode" name="deckstiny::util::Logger::setTestingMode">
+<area shape="rect" id="Node000001" title="Set the testing mode." alt="" coords="5,5,155,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1util_1_1_logger.html#a57cd88b468afdb727287f5ab6af4a9d8" title="Initialize the logger system." alt="" coords="203,5,352,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,23,187,23,187,28,155,28"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1util_1_1_logger.html#a5aee353b23b46197d4bcc921833c92cb" title=" " alt="" coords="400,5,549,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="352,23,385,23,385,28,352,28"/>
+</map>

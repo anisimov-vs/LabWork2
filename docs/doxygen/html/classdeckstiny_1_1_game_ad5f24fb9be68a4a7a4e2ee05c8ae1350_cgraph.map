@@ -1,0 +1,17 @@
+<map id="deckstiny::Game::handleCombatInput" name="deckstiny::Game::handleCombatInput">
+<area shape="rect" id="Node000001" title="Handle combat input." alt="" coords="5,75,218,116"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#ac09f7c422f6d2daaa798f919c73ba889" title="End the current combat." alt="" coords="266,26,461,51"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,72,288,53,289,58,204,77"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="300,75,427,116"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="218,93,284,93,284,98,218,98"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_card.html#a530610910608f457c02262d29906a33a" title="Check if this card needs a target." alt="" coords="267,140,460,166"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="204,114,289,134,288,139,203,119"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#aa304486f1c821211f7a4499b6a0f513b" title="Calculate the player&#39;s score based on their progress." alt="" coords="760,30,941,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="427,22,509,10,611,3,656,4,713,10,772,23,771,28,712,16,655,10,611,8,509,16,428,28"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#a4bc9adcef052b2265a7b14378dfd14a3" title="Generate a new game map." alt="" coords="509,26,712,51"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="461,36,493,36,493,41,461,41"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#a4e2cf91aa39ad612f9ef49c8f7173b73" title="Change the game state." alt="" coords="522,99,699,125"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="419,49,462,61,556,91,555,96,460,66,417,54"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="663,96,753,73,754,78,665,101"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="571,100,563,90,568,80,584,74,611,72,641,75,655,82,653,87,639,80,611,78,585,80,571,84,568,90,575,97"/>
+</map>

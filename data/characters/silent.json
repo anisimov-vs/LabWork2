@@ -1,0 +1,26 @@
+{
+    "id": "silent",
+    "name": "The Silent",
+    "max_health": 70,
+    "base_energy": 3,
+    "initial_hand_size": 5,
+    "class": "SILENT",
+    "description": "A deadly huntress from the foglands.",
+    "starting_deck": [
+        "strike_g",
+        "strike_g",
+        "strike_g",
+        "strike_g",
+        "strike_g",
+        "defend_g",
+        "defend_g",
+        "defend_g",
+        "defend_g",
+        "defend_g",
+        "neutralize",
+        "survivor"
+    ],
+    "starting_relics": [
+        "ring_of_the_snake"
+    ]
+} 

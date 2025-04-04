@@ -1,0 +1,5 @@
+<map id="deckstiny::TextUI::initialize" name="deckstiny::TextUI::initialize">
+<area shape="rect" id="Node000001" title="Initialize the UI." alt="" coords="5,5,138,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a67c2872a32ad501a737d041a419012c9" title="Input thread function." alt="" coords="186,5,318,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+</map>

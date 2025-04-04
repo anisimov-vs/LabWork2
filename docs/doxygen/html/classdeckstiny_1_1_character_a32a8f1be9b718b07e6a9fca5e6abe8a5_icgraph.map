@@ -1,0 +1,18 @@
+<map id="deckstiny::Character::getEnergy" name="deckstiny::Character::getEnergy">
+<area shape="rect" id="Node000001" title="Get current energy." alt="" coords="602,114,745,154"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_card.html#a9de4bd59e6581821c00383d985ebc7b5" title="Check if card can be played in the current state." alt="" coords="386,31,554,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="625,108,553,71,521,59,523,54,555,66,628,104"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_player.html#af59af8f194ae20912a1347f66db1e723" title="Create a clone of this player." alt="" coords="405,80,535,121"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="587,123,535,114,536,109,588,117"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_text_u_i.html#a9e36b39033de41d2022279da95ee3883" title="Display player stats." alt="" coords="404,146,536,186"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="587,150,537,158,537,153,586,145"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="405,211,535,252"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="624,165,555,201,527,213,525,208,553,196,622,160"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,5,338,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="370,34,338,30,339,24,371,29"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,23,145,64"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="371,46,145,46,145,41,371,41"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="178,33,145,37,145,32,177,27"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="199,146,332,186"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="389,169,332,169,332,164,389,164"/>
+</map>

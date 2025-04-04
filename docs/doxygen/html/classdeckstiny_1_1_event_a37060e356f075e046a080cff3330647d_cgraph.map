@@ -1,0 +1,36 @@
+<map id="deckstiny::Event::processChoice" name="deckstiny::Event::processChoice">
+<area shape="rect" id="Node000001" title="Process a selected choice." alt="" coords="5,243,179,283"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#ad18b41869af13703866bbda828811562" title="Add a card to the player&#39;s deck." alt="" coords="239,5,416,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,241,116,202,144,153,180,101,225,57,232,52,235,56,228,61,184,105,148,156,121,205,104,243"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_player.html#acb746c705c0c3b27493a9dab87de3675" title="Add gold to the player." alt="" coords="263,71,393,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="106,241,154,182,188,149,225,121,247,109,250,114,228,125,191,153,158,185,110,244"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#a739302a9cd247cc663fa90a1c73ee71e" title="Add a relic to the player." alt="" coords="238,136,418,161"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="117,240,166,205,226,171,245,164,247,169,228,176,169,209,120,244"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="497,268,639,309"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="179,279,227,286,361,292,482,290,482,295,361,297,226,291,179,284"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_game.html#a59fbe85e05f0963db13c0561b055389e" title="Get the current player." alt="" coords="236,250,420,276"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="179,260,220,260,220,266,179,266"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_character.html#ad7c1e499124d15caf120041e6592db3d" title="Heal the character." alt="" coords="257,185,399,226"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="178,240,241,224,242,229,179,245"/>
+<area shape="rect" id="Node000011" href="$classdeckstiny_1_1_player.html#aba89076e3460abe11db12a42392dd227" title="Increase maximum health." alt="" coords="261,351,394,391"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="132,281,228,330,256,342,254,347,226,335,130,286"/>
+<area shape="rect" id="Node000015" href="$classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="257,416,399,457"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="110,282,158,341,191,373,228,401,244,409,241,414,225,405,188,377,154,344,106,285"/>
+<area shape="rect" id="Node000017" href="$classdeckstiny_1_1_game.html#aa051415d54114ebdc87e1e863af8a9b7" title="Show UI for selecting and upgrading a card from the player&#39;s deck." alt="" coords="227,481,429,506"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="103,283,120,322,147,372,183,423,204,446,228,466,237,472,234,476,225,470,201,450,179,427,142,375,115,324,98,285"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#a2b04741a2aa9b52314eb405544d152f8" title="Load a card template." alt="" coords="478,13,658,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="417,23,462,23,462,28,417,28"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#ab4498ca452f37c1897cb1f9e165487a4" title="Load a relic template." alt="" coords="477,136,659,161"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="418,146,462,146,462,151,418,151"/>
+<area shape="rect" id="Node000010" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="497,185,639,226"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="399,203,481,203,481,208,399,208"/>
+<area shape="poly" id="edge11_Node000011_Node000007" title=" " alt="" coords="388,348,491,312,493,317,390,353"/>
+<area shape="rect" id="Node000012" href="$classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="497,464,639,505"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="396,386,430,402,446,414,455,426,464,437,479,449,488,454,486,459,475,453,461,441,451,429,442,418,428,407,394,391"/>
+<area shape="rect" id="Node000013" href="$classdeckstiny_1_1_character.html#aeec4add498f281bfb2b57170ad5999d4" title="Set current health." alt="" coords="497,333,639,374"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="395,364,481,357,482,363,395,369"/>
+<area shape="rect" id="Node000014" href="$classdeckstiny_1_1_character.html#ae75fe5a96e8ff9b3907c94917c5e315f" title="Set maximum health." alt="" coords="497,399,639,439"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="395,382,482,399,481,404,394,387"/>
+<area shape="rect" id="Node000016" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="504,529,632,570"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="400,452,430,466,446,478,455,490,464,502,479,514,492,522,489,526,475,519,460,506,451,494,442,482,428,471,398,456"/>
+</map>

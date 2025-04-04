@@ -1,0 +1,11 @@
+<map id="deckstiny::Combat" name="deckstiny::Combat">
+<area shape="rect" id="Node000001" title="Manages combat between the player and enemies." alt="" coords="84,244,216,270"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html" title="Represents the player character in the game." alt="" coords="15,155,138,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,191,142,242,138,245,94,195"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_character.html" title="Base class for all characters (player and enemies)" alt="" coords="5,80,148,106"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,121,79,155,74,155,74,121"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_entity.html" title="Base class for all game entities." alt="" coords="17,5,136,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="79,46,79,80,74,80,74,46"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html" title="Main game manager class." alt="" coords="162,155,282,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="204,195,162,245,158,242,200,191"/>
+</map>

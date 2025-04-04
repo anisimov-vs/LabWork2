@@ -1,0 +1,24 @@
+{
+    "id": "watcher",
+    "name": "The Watcher",
+    "max_health": 72,
+    "base_energy": 3,
+    "initial_hand_size": 5,
+    "class": "WATCHER",
+    "description": "A blind ascetic who has come to evaluate the Spire.",
+    "starting_deck": [
+        "strike_p",
+        "strike_p",
+        "strike_p",
+        "strike_p",
+        "defend_p",
+        "defend_p",
+        "defend_p",
+        "defend_p",
+        "eruption",
+        "vigilance"
+    ],
+    "starting_relics": [
+        "pure_water"
+    ]
+}

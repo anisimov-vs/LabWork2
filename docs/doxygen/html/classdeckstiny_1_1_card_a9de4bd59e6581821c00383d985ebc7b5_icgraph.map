@@ -1,0 +1,8 @@
+<map id="deckstiny::Card::canPlay" name="deckstiny::Card::canPlay">
+<area shape="rect" id="Node000001" title="Check if card can be played in the current state." alt="" coords="386,31,554,56"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,5,338,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="370,34,338,30,339,24,371,29"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,23,145,64"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="371,46,145,46,145,41,371,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,33,145,37,145,32,177,27"/>
+</map>

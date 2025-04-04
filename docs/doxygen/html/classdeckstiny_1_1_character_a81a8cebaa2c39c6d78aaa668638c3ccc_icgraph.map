@@ -1,0 +1,7 @@
+<map id="deckstiny::Character::startTurn" name="deckstiny::Character::startTurn">
+<area shape="rect" id="Node000001" title="Start of turn processing." alt="" coords="240,27,382,68"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_enemy.html#a1b88024f36ca803dc9b701803b29db2f" title="Start of turn processing." alt="" coords="5,5,192,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,38,192,34,192,28,224,33"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="33,55,164,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,62,164,70,164,64,224,56"/>
+</map>

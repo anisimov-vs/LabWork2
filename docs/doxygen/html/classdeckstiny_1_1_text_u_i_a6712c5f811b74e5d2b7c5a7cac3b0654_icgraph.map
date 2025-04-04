@@ -1,0 +1,5 @@
+<map id="deckstiny::TextUI::showCards" name="deckstiny::TextUI::showCards">
+<area shape="rect" id="Node000001" title="Display a list of cards." alt="" coords="186,5,318,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="5,5,138,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
+</map>

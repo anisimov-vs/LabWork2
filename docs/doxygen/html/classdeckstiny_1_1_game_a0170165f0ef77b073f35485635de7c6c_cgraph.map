@@ -1,0 +1,7 @@
+<map id="deckstiny::Game::createPlayer" name="deckstiny::Game::createPlayer">
+<area shape="rect" id="Node000001" title="Create a new player." alt="" coords="5,31,207,56"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a2b04741a2aa9b52314eb405544d152f8" title="Load a card template." alt="" coords="256,5,436,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,30,240,27,240,32,208,35"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#ab4498ca452f37c1897cb1f9e165487a4" title="Load a relic template." alt="" coords="255,55,437,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,51,240,54,239,60,207,56"/>
+</map>

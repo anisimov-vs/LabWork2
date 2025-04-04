@@ -1,0 +1,93 @@
+{
+    "id": "hexaghost",
+    "name": "Hexaghost",
+    "max_health": 250,
+    "min_gold": 75,
+    "max_gold": 85,
+    "is_elite": false,
+    "is_boss": true,
+    "min_floor": 8,
+    "max_floor": 10,
+    "moves": [
+        {
+            "id": "activate",
+            "weight": 100,
+            "first_turn_only": true,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "strength",
+                    "value": 2,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "buff",
+                "value": 2,
+                "effect": "strength",
+                "target": "self"
+            }
+        },
+        {
+            "id": "sear",
+            "weight": 40,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 6,
+                    "target": "player",
+                    "hits": 2
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "burn",
+                    "value": 1,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack_debuff",
+                "value": 6,
+                "secondary_value": 2,
+                "effect": "burn",
+                "target": "player"
+            }
+        },
+        {
+            "id": "tackle",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 5,
+                    "target": "player",
+                    "hits": 3
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 5,
+                "secondary_value": 3,
+                "target": "player"
+            }
+        },
+        {
+            "id": "inferno",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 3,
+                    "target": "player",
+                    "hits": 6
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 3,
+                "secondary_value": 6,
+                "target": "player"
+            }
+        }
+    ]
+} 

@@ -1,0 +1,12 @@
+<map id="deckstiny::Game::generateMap" name="deckstiny::Game::generateMap">
+<area shape="rect" id="Node000001" title="Generate a new game map." alt="" coords="956,45,1159,70"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#ac09f7c422f6d2daaa798f919c73ba889" title="End the current combat." alt="" coords="712,17,908,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="940,47,908,43,908,38,940,42"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="229,35,404,75"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="940,61,452,60,404,60,404,54,452,55,940,56"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#ad5f24fb9be68a4a7a4e2ee05c8ae1350" title="Handle combat input." alt="" coords="452,5,664,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="697,31,665,30,665,25,697,25"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="437,43,405,47,404,42,436,38"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,42,181,68"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="213,58,181,58,181,52,213,52"/>
+</map>

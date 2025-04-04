@@ -1,0 +1,7 @@
+<map id="deckstiny::Character::heal" name="deckstiny::Character::heal">
+<area shape="rect" id="Node000001" title="Heal the character." alt="" coords="260,27,402,68"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_relic.html#abe722d3d74287a9ad32336571dbab8d1" title="Called at the end of combat." alt="" coords="5,5,212,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,39,211,34,211,29,245,33"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="22,55,195,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,61,196,67,195,62,244,56"/>
+</map>

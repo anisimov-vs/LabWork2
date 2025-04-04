@@ -1,0 +1,19 @@
+{
+    "id": "defend_g",
+    "name": "Defend",
+    "description": "Gain 5 Block.",
+    "type": "SKILL",
+    "rarity": "BASIC",
+    "target": "SELF",
+    "cost": 1,
+    "upgradable": true,
+    "class": "SILENT",
+    "effects": [
+        {
+            "type": "block",
+            "value": 5,
+            "target": "self",
+            "upgraded_value": 8
+        }
+    ]
+} 

@@ -1,0 +1,76 @@
+{
+    "id": "gremlin_nob",
+    "name": "Gremlin Nob",
+    "max_health": 85,
+    "min_gold": 25,
+    "max_gold": 35,
+    "is_elite": true,
+    "is_boss": false,
+    "min_floor": 2,
+    "max_floor": 7,
+    "moves": [
+        {
+            "id": "bellow",
+            "weight": 20,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "strength",
+                    "value": 3,
+                    "target": "self"
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "rage",
+                    "value": 2,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "buff",
+                "value": 3,
+                "effect": "strength",
+                "target": "self"
+            }
+        },
+        {
+            "id": "skull_bash",
+            "weight": 40,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 14,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 14,
+                "target": "player"
+            }
+        },
+        {
+            "id": "rush",
+            "weight": 40,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 8,
+                    "target": "player"
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "vulnerable",
+                    "value": 2,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack_debuff",
+                "value": 8,
+                "effect": "vulnerable",
+                "target": "player"
+            }
+        }
+    ]
+} 

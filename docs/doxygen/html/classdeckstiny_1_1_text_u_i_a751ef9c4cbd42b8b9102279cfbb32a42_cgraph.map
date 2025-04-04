@@ -1,0 +1,61 @@
+<map id="deckstiny::TextUI::showCombat" name="deckstiny::TextUI::showCombat">
+<area shape="rect" id="Node000001" title="Display combat state." alt="" coords="5,397,138,438"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="191,5,323,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,396,78,333,95,243,109,195,128,146,153,99,184,57,187,54,190,58,188,61,158,102,133,148,114,196,100,245,83,334,76,397"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="191,71,323,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,396,83,343,103,271,135,193,157,156,184,123,187,119,191,123,188,126,162,159,140,195,108,273,88,344,78,397"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="191,136,323,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="75,397,89,354,111,299,142,240,184,188,188,184,192,188,188,191,146,243,115,301,94,356,81,398"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_combat.html#a605144860de37c936a27e128d2922d6a" title="Get enemy at index." alt="" coords="187,201,326,242"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="80,396,120,328,149,288,184,253,189,249,193,253,187,257,153,292,124,330,85,398"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="187,267,326,307"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="92,395,133,357,184,318,192,313,195,318,187,323,136,361,95,399"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_player.html#a4d5dc59067bc80957a5b39d81a45a21b" title="Get the player&#39;s hand." alt="" coords="192,332,322,373"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="130,394,182,376,184,381,132,399"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_combat.html#a4da9a24de1c570d79b23a2e5f40a3b53" title="Get the player character." alt="" coords="187,397,326,438"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="138,415,172,415,172,420,138,420"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_combat.html#a86129bf98a776cad5995ccaa2cf49c63" title="Get current turn number." alt="" coords="187,463,326,503"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="132,436,184,455,182,460,130,441"/>
+<area shape="rect" id="Node000010" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="186,528,328,569"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="95,437,136,474,187,513,195,518,192,522,184,517,133,478,92,440"/>
+<area shape="rect" id="Node000011" href="$classdeckstiny_1_1_combat.html#a8e430adc6a55d580e113f8730699f390" title="Get whether it&#39;s currently the player&#39;s turn." alt="" coords="187,593,326,634"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="85,437,124,505,153,544,187,578,193,582,189,587,184,582,149,547,120,508,80,440"/>
+<area shape="rect" id="Node000012" href="$classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="191,659,323,699"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="81,437,94,479,115,534,146,592,188,644,192,648,188,651,184,647,142,595,111,536,89,481,75,439"/>
+<area shape="rect" id="Node000019" href="$classdeckstiny_1_1_text_u_i.html#a31b45e014a6211c4df53dda67a80230d" title="Display enemy stats." alt="" coords="191,867,323,907"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="83,437,188,710,244,852,239,854,183,712,78,439"/>
+<area shape="rect" id="Node000025" href="$classdeckstiny_1_1_text_u_i.html#a9e36b39033de41d2022279da95ee3883" title="Display player stats." alt="" coords="191,964,323,1005"/>
+<area shape="poly" id="edge25_Node000001_Node000025" title=" " alt="" coords="76,438,81,520,97,642,111,712,131,783,156,852,188,918,216,952,212,955,183,920,151,854,125,784,106,713,92,643,76,520,71,438"/>
+<area shape="rect" id="Node000013" href="$classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="412,687,545,727"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="324,685,397,694,397,699,323,690"/>
+<area shape="rect" id="Node000014" href="$classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="395,489,562,514"/>
+<area shape="poly" id="edge13_Node000012_Node000014" title=" " alt="" coords="311,656,326,644,337,629,343,614,348,584,353,553,361,538,374,524,380,519,383,524,378,528,365,541,358,555,353,584,349,615,342,631,330,648,315,660"/>
+<area shape="rect" id="Node000015" href="$classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="376,538,581,564"/>
+<area shape="poly" id="edge14_Node000012_Node000015" title=" " alt="" coords="309,656,326,644,341,626,349,608,357,590,374,573,381,569,384,573,378,577,362,593,354,610,346,629,330,648,312,660"/>
+<area shape="rect" id="Node000016" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="415,801,542,842"/>
+<area shape="poly" id="edge15_Node000012_Node000016" title=" " alt="" coords="277,698,320,743,347,767,377,787,401,799,399,804,375,792,344,771,316,747,273,702"/>
+<area shape="rect" id="Node000017" href="$classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="395,588,562,613"/>
+<area shape="poly" id="edge16_Node000012_Node000017" title=" " alt="" coords="301,656,375,622,396,615,398,620,377,627,303,661"/>
+<area shape="rect" id="Node000018" href="$classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="385,637,572,662"/>
+<area shape="poly" id="edge17_Node000012_Node000018" title=" " alt="" coords="323,668,369,661,370,667,324,673"/>
+<area shape="poly" id="edge23_Node000019_Node000016" title=" " alt="" coords="323,865,399,842,401,847,324,870"/>
+<area shape="rect" id="Node000020" href="$classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="408,932,550,973"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="324,904,394,925,392,930,323,909"/>
+<area shape="rect" id="Node000021" href="$classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="408,997,550,1038"/>
+<area shape="poly" id="edge20_Node000019_Node000021" title=" " alt="" coords="280,906,323,944,377,982,394,990,392,995,375,987,320,949,277,910"/>
+<area shape="rect" id="Node000022" href="$classdeckstiny_1_1_enemy.html#aec86f62bb424ed791b43ec2e5afa9f33" title="Get the enemy&#39;s current intent." alt="" coords="386,752,571,777"/>
+<area shape="poly" id="edge21_Node000019_Node000022" title=" " alt="" coords="276,864,319,825,346,805,375,787,391,780,393,785,377,792,349,809,322,829,279,868"/>
+<area shape="rect" id="Node000023" href="$classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="408,1063,550,1103"/>
+<area shape="poly" id="edge22_Node000019_Node000023" title=" " alt="" coords="286,906,309,926,330,951,345,978,352,1003,360,1025,378,1048,395,1059,392,1064,374,1052,355,1028,347,1004,340,980,326,954,305,930,283,910"/>
+<area shape="rect" id="Node000024" href="$classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="408,867,550,907"/>
+<area shape="poly" id="edge24_Node000019_Node000024" title=" " alt="" coords="323,884,392,884,392,890,323,890"/>
+<area shape="poly" id="edge31_Node000025_Node000016" title=" " alt="" coords="281,962,326,917,339,899,348,883,358,868,374,853,399,839,402,844,378,857,362,872,352,886,344,902,330,921,284,965"/>
+<area shape="poly" id="edge27_Node000025_Node000020" title=" " alt="" coords="323,972,392,962,393,967,324,977"/>
+<area shape="poly" id="edge29_Node000025_Node000021" title=" " alt="" coords="324,992,393,1002,392,1007,323,997"/>
+<area shape="poly" id="edge30_Node000025_Node000023" title=" " alt="" coords="293,1003,377,1047,395,1054,393,1059,375,1052,291,1008"/>
+<area shape="poly" id="edge32_Node000025_Node000024" title=" " alt="" coords="291,961,375,918,393,911,395,916,377,923,294,966"/>
+<area shape="rect" id="Node000026" href="$classdeckstiny_1_1_character.html#afa74e032423a811509d332d7592ba76e" title="Get base energy per turn." alt="" coords="408,1193,550,1234"/>
+<area shape="poly" id="edge26_Node000025_Node000026" title=" " alt="" coords="267,1004,282,1041,306,1088,337,1137,378,1178,395,1189,392,1194,374,1182,333,1140,301,1091,277,1043,262,1006"/>
+<area shape="rect" id="Node000027" href="$classdeckstiny_1_1_character.html#a32a8f1be9b718b07e6a9fca5e6abe8a5" title="Get current energy." alt="" coords="408,1128,550,1169"/>
+<area shape="poly" id="edge28_Node000025_Node000027" title=" " alt="" coords="274,1003,316,1058,345,1087,377,1113,394,1122,392,1127,375,1117,341,1091,312,1061,270,1007"/>
+</map>

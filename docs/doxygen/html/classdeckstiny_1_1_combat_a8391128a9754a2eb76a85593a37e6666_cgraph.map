@@ -1,0 +1,5 @@
+<map id="deckstiny::Combat::end" name="deckstiny::Combat::end">
+<area shape="rect" id="Node000001" title="End the combat." alt="" coords="5,13,166,38"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_combat.html#aa2356d5e886d301c2cb47736eba69fd3" title="Check if player is defeated." alt="" coords="214,5,353,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,23,198,23,198,28,166,28"/>
+</map>

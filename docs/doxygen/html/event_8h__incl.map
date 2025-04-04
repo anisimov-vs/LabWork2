@@ -1,0 +1,18 @@
+<map id="include/core/event.h" name="include/core/event.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="151,5,289,31"/>
+<area shape="rect" id="Node000002" href="$entity_8h.html" title=" " alt="" coords="66,79,158,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,34,145,72,142,68,200,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,59,178"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="151,32,101,49,77,63,57,81,42,108,35,138,30,136,37,106,53,77,74,59,98,45,150,27"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="84,153,153,178"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="216,33,172,106,142,143,138,139,167,103,211,30"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,153,309,178"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="225,31,242,137,237,138,219,32"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="283,79,341,105"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="237,29,286,67,283,72,234,34"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="365,79,411,105"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="250,29,351,72,349,77,247,34"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="100,107,58,144,55,140,97,103"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="116,105,119,137,113,137,110,105"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="136,103,210,143,207,147,133,108"/>
+</map>

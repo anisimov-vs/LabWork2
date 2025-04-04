@@ -1,0 +1,5 @@
+<map id="deckstiny::Combat::processEnemyTurns" name="deckstiny::Combat::processEnemyTurns">
+<area shape="rect" id="Node000001" title="Process enemy turns." alt="" coords="193,5,334,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_combat.html#a94ab13d0756a8db6eee7bc0762a035b0" title="End player turn." alt="" coords="5,5,145,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,28,145,28,145,23,177,23"/>
+</map>

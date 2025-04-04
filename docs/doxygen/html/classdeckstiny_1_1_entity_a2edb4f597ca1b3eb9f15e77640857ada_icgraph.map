@@ -1,0 +1,13 @@
+<map id="deckstiny::Entity::loadFromJson" name="deckstiny::Entity::loadFromJson">
+<area shape="rect" id="Node000001" title="Load entity data from JSON." alt="" coords="523,55,650,96"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_card.html#abfad771b0d8ca3502b675d33b7a44b6c" title="Load card data from JSON." alt="" coords="271,5,474,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="507,55,474,46,428,34,430,29,476,41,509,50"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_character.html#ab3242bb81a01fe5313c5d8472717f07a" title="Load character data from JSON." alt="" coords="301,55,444,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="508,78,444,78,444,73,508,73"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_relic.html#a1db2a587e7f211f09eb2b85bd65f692f" title="Load relic data from JSON." alt="" coords="270,120,475,146"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="509,101,476,110,430,122,428,117,474,105,507,96"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_enemy.html#a491e01e029f90e842cac6659d993855b" title="Load enemy data from JSON." alt="" coords="5,35,222,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="285,69,222,62,222,57,286,63"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_player.html#a22754355e2abc72395fd88b43ca555fc" title="Load player data from JSON." alt="" coords="48,84,179,125"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="286,88,180,100,179,95,285,83"/>
+</map>

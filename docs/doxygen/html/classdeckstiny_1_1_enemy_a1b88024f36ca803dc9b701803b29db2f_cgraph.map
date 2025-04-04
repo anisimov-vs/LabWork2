@@ -1,0 +1,15 @@
+<map id="deckstiny::Enemy::startTurn" name="deckstiny::Enemy::startTurn">
+<area shape="rect" id="Node000001" title="Start of turn processing." alt="" coords="5,112,192,137"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="240,104,382,145"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,122,224,122,224,127,192,127"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="430,5,572,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="347,101,429,57,440,51,442,56,431,61,350,106"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_character.html#ac5801197a907c315eed27ee293f7c9ed" title="Get status effect stacks." alt="" coords="430,71,572,111"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="382,109,414,104,415,109,383,114"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="430,136,572,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="383,134,415,139,414,144,382,139"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="430,201,572,242"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="351,143,431,186,442,192,440,196,429,191,348,148"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="620,201,748,242"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="573,219,605,219,605,224,573,224"/>
+</map>

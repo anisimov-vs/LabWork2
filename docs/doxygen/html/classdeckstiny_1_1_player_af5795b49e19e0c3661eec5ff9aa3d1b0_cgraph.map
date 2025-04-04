@@ -1,0 +1,7 @@
+<map id="deckstiny::Player::addCardToDeck" name="deckstiny::Player::addCardToDeck">
+<area shape="rect" id="Node000001" title="Add a card to player&#39;s deck." alt="" coords="5,5,136,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html#ad815f1c98ee1c295877dd71cf2565f38" title="Add a card to the player&#39;s deck." alt="" coords="184,5,314,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,23,168,23,168,28,136,28"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_player.html#a1841865787da4e7496f1f3cdfd73fe34" title="Get the player&#39;s class as a string." alt="" coords="362,5,506,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="315,23,346,23,346,28,315,28"/>
+</map>

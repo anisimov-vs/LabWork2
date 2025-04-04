@@ -1,0 +1,5 @@
+<map id="deckstiny::Enemy::addPossibleMove" name="deckstiny::Enemy::addPossibleMove">
+<area shape="rect" id="Node000001" title="Add a possible move." alt="" coords="270,5,507,31"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_enemy.html#a491e01e029f90e842cac6659d993855b" title="Load enemy data from JSON." alt="" coords="5,5,222,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,21,222,21,222,16,254,16"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="deckstiny::Enemy::clone" name="deckstiny::Enemy::clone">
+<area shape="rect" id="Node000001" title="Create a clone of this enemy." alt="" coords="5,177,171,202"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="219,5,361,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,175,146,120,180,87,217,57,225,52,228,56,220,61,184,91,150,123,102,178"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="219,71,361,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="114,174,217,122,229,116,232,121,220,127,117,179"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_entity.html#a7eb1d4773598c5104eb409c6cc26bfcb" title="Get the entity&#39;s id." alt="" coords="226,136,354,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,174,210,167,211,172,170,179"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="219,201,361,242"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="171,200,204,205,203,211,170,205"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="226,267,354,307"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="117,201,220,251,232,257,230,262,217,256,115,205"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="219,332,361,373"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="102,201,150,255,184,287,220,317,228,322,225,326,217,321,180,291,146,259,98,205"/>
+</map>
