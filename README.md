@@ -51,7 +51,7 @@ The project is designed with separation of concerns and extensibility in mind:
 
 Source code documentation is generated using Doxygen.
 
-[View Documentation](https://anisimov-vs.github.io/LabWork2/doxygen/html/index.html)
+[View Documentation](https://anisimov-vs.github.io/LabWork2/docs/doxygen/html/index.html)
 
 ### Build Instructions
 
