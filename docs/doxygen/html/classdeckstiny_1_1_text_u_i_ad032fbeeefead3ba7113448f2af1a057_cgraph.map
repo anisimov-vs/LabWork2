@@ -1,0 +1,9 @@
+<map id="deckstiny::TextUI::showCharacterSelection" name="deckstiny::TextUI::showCharacterSelection">
+<area shape="rect" id="Node000001" title="Display the character selection screen." alt="" coords="5,71,169,111"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="217,5,349,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,68,204,49,206,54,151,73"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="217,71,349,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,88,201,88,201,94,169,94"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="217,136,349,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,109,206,128,204,133,149,114"/>
+</map>

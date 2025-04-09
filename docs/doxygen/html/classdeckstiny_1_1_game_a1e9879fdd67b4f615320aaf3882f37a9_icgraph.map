@@ -1,0 +1,12 @@
+<map id="deckstiny::Game::shutdown" name="deckstiny::Game::shutdown">
+<area shape="rect" id="Node000001" title="Shut down the game." alt="" coords="694,46,879,72"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a560e3b9feca291b6a3758104e052fcb2" title="Handle main menu input." alt="" coords="452,8,646,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="678,48,646,44,647,38,679,42"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#adc93138f082b628f488630a534affd92" title="Process input for the current state." alt="" coords="229,71,404,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="679,69,404,88,404,82,679,64"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="229,5,404,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="436,30,404,29,404,24,436,24"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,46,181,72"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="214,44,181,49,181,43,213,38"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="214,79,181,74,182,69,215,74"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="deckstiny::Game::run" name="deckstiny::Game::run">
+<area shape="rect" id="Node000001" title="Run the game main loop." alt="" coords="5,29,152,55"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a4e2cf91aa39ad612f9ef49c8f7173b73" title="Change the game state." alt="" coords="200,29,377,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,40,184,40,184,45,152,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="253,31,246,21,251,11,265,5,288,3,314,5,327,12,325,17,313,10,288,8,266,10,254,15,252,20,258,27"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#aa304486f1c821211f7a4499b6a0f513b" title="Calculate the player&#39;s score based on their progress." alt="" coords="425,22,605,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,40,410,40,410,45,378,45"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="deckstiny::Relic::clone" name="deckstiny::Relic::clone">
+<area shape="rect" id="Node000001" title="Create a clone of this relic." alt="" coords="5,46,160,72"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_entity.html#a7eb1d4773598c5104eb409c6cc26bfcb" title="Get the entity&#39;s id." alt="" coords="208,5,335,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,43,192,37,193,42,159,48"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="208,71,335,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,69,193,75,192,80,160,75"/>
+</map>

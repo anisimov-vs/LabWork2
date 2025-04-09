@@ -1,0 +1,15 @@
+<map id="deckstiny::Character::getStatusEffect" name="deckstiny::Character::getStatusEffect">
+<area shape="rect" id="Node000001" title="Get status effect stacks." alt="" coords="430,87,572,128"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#afc9c623aa8a9321246d0cb6b7a999c85" title="End of turn processing." alt="" coords="240,54,382,94"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,95,382,89,383,84,415,90"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="240,119,382,160"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="415,125,383,130,382,125,414,119"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_enemy.html#a083bf21385991e4a40804a3f2ba53076" title="End of turn processing." alt="" coords="8,5,189,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="224,54,149,34,151,29,225,49"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_player.html#a2e711b6d920a4dc939a0ecb51ed195ec" title="End of turn processing." alt="" coords="33,55,164,96"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="224,77,164,78,164,72,224,72"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_enemy.html#a1b88024f36ca803dc9b701803b29db2f" title="Start of turn processing." alt="" coords="5,124,192,150"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="224,141,192,141,192,135,224,136"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="33,174,164,214"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="225,164,165,180,163,175,224,159"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="deckstiny::TextUI::showRelics" name="deckstiny::TextUI::showRelics">
+<area shape="rect" id="Node000001" title="Display a list of relics." alt="" coords="5,104,138,145"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a2cfab4e3e6939e1432e34ac29cf0a239" title="Display a relic." alt="" coords="186,104,318,145"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,122,170,122,170,128,138,128"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_relic.html#af4be78c5be239853bac2f87f26eae3b9" title="Get the relic&#39;s description." alt="" coords="366,5,573,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="274,102,314,70,365,40,380,34,382,39,367,45,318,74,277,106"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_relic.html#acf6adaf258cfcf9c0ba2634b21251eac" title="Get the relic&#39;s flavor text." alt="" coords="368,55,571,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="317,103,365,90,397,82,398,87,367,95,319,109"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="406,104,533,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="318,122,390,122,390,128,318,128"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_relic.html#a0c9cbc3e09eaf291295e00dab05907bd" title="Get the relic&#39;s rarity." alt="" coords="382,169,558,195"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="319,141,367,154,398,162,397,168,365,159,317,146"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_text_u_i.html#a99d03f1370eec3eafc8ba14c1e5878c8" title="Get relic rarity as string." alt="" coords="400,219,539,260"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="278,144,319,175,367,205,387,214,385,219,365,210,316,179,275,148"/>
+</map>

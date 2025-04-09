@@ -1,0 +1,10 @@
+<map id="deckstiny::Game::handleEventInput" name="deckstiny::Game::handleEventInput">
+<area shape="rect" id="Node000001" title="Handle event input." alt="" coords="5,22,206,62"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a7776c045d7ca9c260c1c34cc8a470ed1" title="End the current event." alt="" coords="254,29,437,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,40,238,40,238,45,206,45"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#a4e2cf91aa39ad612f9ef49c8f7173b73" title="Change the game state." alt="" coords="485,29,662,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="437,40,469,40,469,45,437,45"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="536,31,529,21,533,11,548,5,574,3,601,5,616,12,613,17,600,10,574,8,550,10,537,15,534,20,540,27"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#aa304486f1c821211f7a4499b6a0f513b" title="Calculate the player&#39;s score based on their progress." alt="" coords="710,22,891,62"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="663,40,695,40,695,45,663,45"/>
+</map>

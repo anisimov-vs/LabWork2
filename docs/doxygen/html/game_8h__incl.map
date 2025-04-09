@@ -1,0 +1,13 @@
+<map id="include/core/game.h" name="include/core/game.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="161,5,299,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,74,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,34,87,76,85,71,197,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="98,79,152,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,34,157,72,154,68,211,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="175,79,285,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="233,31,233,63,228,63,228,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="310,79,367,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="250,29,308,68,305,72,247,34"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="392,79,469,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="265,29,383,71,381,76,263,34"/>
+</map>

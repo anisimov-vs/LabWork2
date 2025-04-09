@@ -1,0 +1,13 @@
+<map id="deckstiny::GameMap::createRoomLink" name="deckstiny::GameMap::createRoomLink">
+<area shape="rect" id="Node000001" title="Create a link between two rooms." alt="" coords="585,23,731,64"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,46,538,46,538,41,570,41"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
+</map>

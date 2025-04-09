@@ -1,0 +1,19 @@
+{
+    "id": "strike_g",
+    "name": "Strike",
+    "description": "Deal 6 damage.",
+    "type": "ATTACK",
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY",
+    "cost": 1,
+    "upgradable": true,
+    "class": "SILENT",
+    "effects": [
+        {
+            "type": "damage",
+            "value": 6,
+            "target": "enemy",
+            "upgraded_value": 9
+        }
+    ]
+} 

@@ -1,0 +1,7 @@
+<map id="deckstiny::Event::getAvailableChoices" name="deckstiny::Event::getAvailableChoices">
+<area shape="rect" id="Node000001" title="Get available choices based on player state." alt="" coords="5,39,204,79"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_player.html#ae55197880cba0f0c73251a53be41d22e" title="Get the player&#39;s gold." alt="" coords="258,5,388,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,41,242,35,243,41,205,46"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="252,71,394,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,71,237,76,236,81,204,76"/>
+</map>

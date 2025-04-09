@@ -1,0 +1,59 @@
+{
+  "id": "abandoned_shop",
+  "name": "Abandoned Shop",
+  "description": "You stumble upon an abandoned merchant's shop. The dusty shelves still hold a few items, and a small chest sits behind the counter. The shop appears to have been left in a hurry.",
+  "image": "     _____________\n    /             \\\n   /_______________\\\n   |  []       []  |\n   |               |\n   |      $$$      |\n   |      $$$      |\n   |      $$$      |\n   |_______________|",
+  "choices": [
+    {
+      "text": "Search the shelves (Find a random item)",
+      "requiresGold": 0,
+      "requiresHealth": 0,
+      "effects": [
+        {
+          "effect": "RANDOM_RELIC",
+          "value": 1
+        }
+      ],
+      "resultText": "You carefully search through the dusty shelves and find a curious artifact hidden among the clutter. It looks valuable!"
+    },
+    {
+      "text": "Open the chest (Requires 25 Gold)",
+      "requiresGold": 25,
+      "requiresHealth": 0,
+      "effects": [
+        {
+          "effect": "LOSE_GOLD",
+          "value": 25
+        },
+        {
+          "effect": "ADD_CARD",
+          "value": "uppercut"
+        }
+      ],
+      "resultText": "The chest is locked with a complex mechanism. You notice a coin slot next to the lock - perhaps the merchant used this as a safe? You insert 25 gold and the chest clicks open, revealing a powerful card inside!"
+    },
+    {
+      "text": "Break into the chest (Requires 15 HP)",
+      "requiresGold": 0,
+      "requiresHealth": 15,
+      "effects": [
+        {
+          "effect": "LOSE_HEALTH",
+          "value": 15
+        },
+        {
+          "effect": "GAIN_GOLD",
+          "value": 100
+        }
+      ],
+      "resultText": "You smash the chest open with brute force, cutting yourself in the process. Inside, you find the merchant's savings - a small fortune of 100 gold! However, you've sustained 15 damage from your efforts."
+    },
+    {
+      "text": "Leave the shop",
+      "requiresGold": 0,
+      "requiresHealth": 0,
+      "effects": [],
+      "resultText": "You decide not to disturb the abandoned shop and continue on your journey."
+    }
+  ]
+} 

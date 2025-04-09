@@ -1,0 +1,17 @@
+<map id="deckstiny::TextUI::showCards" name="deckstiny::TextUI::showCards">
+<area shape="rect" id="Node000001" title="Display a list of cards." alt="" coords="5,141,138,182"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="186,141,318,182"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,159,170,159,170,164,138,164"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="402,5,535,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="269,139,310,97,336,75,365,55,387,44,389,49,367,60,339,79,313,101,273,143"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="385,70,552,96"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="290,138,365,105,386,98,388,103,367,109,292,143"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="366,120,571,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="318,150,353,145,354,151,319,155"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="405,169,532,210"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="319,168,390,177,389,182,318,173"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="385,234,552,260"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="288,180,326,201,367,219,390,227,388,232,365,224,323,205,286,185"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="375,284,562,309"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="270,180,311,226,338,250,367,270,378,275,375,280,365,275,334,254,307,230,266,184"/>
+</map>

@@ -1,0 +1,76 @@
+{
+    "id": "collector",
+    "name": "The Collector",
+    "max_health": 300,
+    "min_gold": 80,
+    "max_gold": 95,
+    "is_elite": false,
+    "is_boss": true,
+    "min_floor": 11,
+    "max_floor": 14,
+    "moves": [
+        {
+            "id": "summon",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "summon",
+                    "value": 2,
+                    "target": "self",
+                    "summon_type": "torch_head"
+                }
+            ],
+            "intent": {
+                "type": "summon",
+                "value": 2,
+                "target": "self"
+            }
+        },
+        {
+            "id": "mega_debuff",
+            "weight": 20,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "weak",
+                    "value": 3,
+                    "target": "player"
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "vulnerable",
+                    "value": 3,
+                    "target": "player"
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "frail",
+                    "value": 3,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "debuff",
+                "value": 3,
+                "effect": "weak",
+                "target": "player"
+            }
+        },
+        {
+            "id": "pain",
+            "weight": 50,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 18,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 18,
+                "target": "player"
+            }
+        }
+    ]
+} 

@@ -1,0 +1,5 @@
+<map id="deckstiny::UIInterface" name="deckstiny::UIInterface">
+<area shape="rect" id="Node000001" title="Abstract interface for UI implementations." alt="" coords="5,5,156,31"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html" title="Text&#45;based implementation of UIInterface." alt="" coords="18,79,143,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,46,83,79,78,79,78,46"/>
+</map>

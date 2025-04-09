@@ -1,0 +1,19 @@
+<map id="deckstiny::GameMap::generateAct3Map" name="deckstiny::GameMap::generateAct3Map">
+<area shape="rect" id="Node000001" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="5,169,151,210"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="199,169,344,210"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,187,183,187,183,192,151,192"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game_map.html#a1fb5abfbd2c835d04de264c776a3cabb" title="Create a path through the map." alt="" coords="408,5,553,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="285,167,328,113,358,83,390,57,399,51,402,56,394,61,361,87,332,117,289,170"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game_map.html#aa227fb2b9f4f2f2d8f0f4fe3af64c92b" title="Create a new room." alt="" coords="408,71,553,111"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="306,167,391,122,406,115,408,120,393,127,309,171"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game_map.html#aa1fc0a7e9ee7f82a9a44de83c716118a" title="Create a link between two rooms." alt="" coords="408,136,553,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="344,175,392,168,392,173,345,181"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game_map.html#abffb3d0f38571192d60a16aa82534654" title="Mark the current room as visited." alt="" coords="392,201,568,242"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="345,198,377,203,376,208,344,203"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game_map.html#ac4f65ab0b8c8497c9958f6003e8b805e" title="Set room type based on position and strategic rules." alt="" coords="408,267,553,307"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="310,208,393,251,409,258,406,263,391,256,307,213"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="408,332,553,373"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="289,209,332,262,361,291,394,317,402,322,399,327,390,321,358,295,328,266,285,212"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="616,267,762,307"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="553,284,601,284,601,290,553,290"/>
+</map>

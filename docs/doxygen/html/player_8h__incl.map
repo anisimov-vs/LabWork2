@@ -1,0 +1,19 @@
+<map id="include/core/player.h" name="include/core/player.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="252,5,393,31"/>
+<area shape="rect" id="Node000002" href="$character_8h.html" title=" " alt="" coords="164,79,278,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="307,34,253,72,250,67,304,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="296,226,365,252"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="332,30,346,57,361,93,370,136,367,179,351,214,346,212,361,178,364,136,356,95,341,59,328,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="294,153,351,178"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="325,31,325,137,320,137,320,31"/>
+<area shape="rect" id="Node000003" href="$entity_8h.html" title=" " alt="" coords="44,153,135,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="200,108,126,147,124,143,198,103"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="240,103,294,141,291,145,237,107"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="160,153,270,178"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="223,105,220,137,215,137,218,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,226,59,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="82,180,53,216,49,212,78,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="131,176,283,221,281,226,130,181"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="83,226,213,252"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="101,177,131,213,127,216,97,180"/>
+</map>

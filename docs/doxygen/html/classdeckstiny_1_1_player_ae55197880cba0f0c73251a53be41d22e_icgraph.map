@@ -1,0 +1,9 @@
+<map id="deckstiny::Player::getGold" name="deckstiny::Player::getGold">
+<area shape="rect" id="Node000001" title="Get the player&#39;s gold." alt="" coords="252,71,382,111"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_event.html#ae3e337dc047eee249b59d0e66ed5a6e8" title="Get available choices based on player state." alt="" coords="5,5,204,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,69,172,49,174,44,238,64"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a2ba3c38d1cf810f7ffbce3a12aa8b429" title="Show an event." alt="" coords="38,71,171,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="236,94,171,94,171,88,236,88"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="38,136,171,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="238,118,172,138,171,133,236,113"/>
+</map>

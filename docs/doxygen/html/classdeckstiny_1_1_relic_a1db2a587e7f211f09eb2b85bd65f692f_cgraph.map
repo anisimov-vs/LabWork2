@@ -1,0 +1,5 @@
+<map id="deckstiny::Relic::loadFromJson" name="deckstiny::Relic::loadFromJson">
+<area shape="rect" id="Node000001" title="Load relic data from JSON." alt="" coords="5,13,211,38"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_entity.html#a2edb4f597ca1b3eb9f15e77640857ada" title="Load entity data from JSON." alt="" coords="259,5,386,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,23,243,23,243,28,211,28"/>
+</map>

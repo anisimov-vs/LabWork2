@@ -1,0 +1,16 @@
+<map id="deckstiny::Character::addBlock" name="deckstiny::Character::addBlock">
+<area shape="rect" id="Node000001" title="Add block to the character." alt="" coords="856,84,998,125"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_enemy.html#a52c262c65e7b01dcfdc1663db97718a7" title="Execute a specific move." alt="" coords="595,5,808,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="877,79,807,46,768,34,770,29,809,41,879,74"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_card.html#ab455b6238b157235a724969a27782a5d" title="Fallback implementation for basic card effects when JSON processing fails." alt="" coords="618,55,785,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="840,96,785,89,786,84,841,91"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="386,92,547,118"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="840,110,808,110,595,110,548,109,548,104,595,105,808,105,840,104"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_enemy.html#af03aa6f850faabc1162ad0d138a3a36f" title="Execute the enemy&#39;s turn." alt="" coords="609,171,794,196"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="862,134,809,154,750,173,749,168,807,149,860,129"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="603,90,548,97,548,92,603,85"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,92,338,118"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="371,108,339,108,339,102,371,102"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,84,145,125"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="177,108,145,108,145,102,177,102"/>
+</map>

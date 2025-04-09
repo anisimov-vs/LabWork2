@@ -1,0 +1,76 @@
+{
+    "id": "acid_slime",
+    "name": "Acid Slime",
+    "max_health": 30,
+    "min_gold": 8,
+    "max_gold": 12,
+    "is_elite": false,
+    "is_boss": false,
+    "min_floor": 0,
+    "max_floor": 4,
+    "moves": [
+        {
+            "id": "tackle",
+            "weight": 50,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 7,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack",
+                "value": 7,
+                "target": "player"
+            }
+        },
+        {
+            "id": "spit",
+            "weight": 30,
+            "effects": [
+                {
+                    "type": "damage",
+                    "value": 5,
+                    "target": "player"
+                },
+                {
+                    "type": "status_effect",
+                    "effect": "weak",
+                    "value": 1,
+                    "target": "player"
+                }
+            ],
+            "intent": {
+                "type": "attack_debuff",
+                "value": 5,
+                "effect": "weak",
+                "target": "player"
+            }
+        },
+        {
+            "id": "split",
+            "weight": 20,
+            "effects": [
+                {
+                    "type": "status_effect",
+                    "effect": "strength",
+                    "value": 1,
+                    "target": "self"
+                },
+                {
+                    "type": "block",
+                    "value": 4,
+                    "target": "self"
+                }
+            ],
+            "intent": {
+                "type": "buff",
+                "value": 1,
+                "effect": "strength",
+                "secondary_value": 4,
+                "target": "self"
+            }
+        }
+    ]
+} 

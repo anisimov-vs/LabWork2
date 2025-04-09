@@ -1,0 +1,9 @@
+<map id="deckstiny::Relic::getFlavorText" name="deckstiny::Relic::getFlavorText">
+<area shape="rect" id="Node000001" title="Get the relic&#39;s flavor text." alt="" coords="546,13,749,38"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a2cfab4e3e6939e1432e34ac29cf0a239" title="Display a relic." alt="" coords="366,5,498,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="531,28,499,28,499,23,531,23"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a98ca955c6fb22db0b75b0ab2b6caf61c" title="Display a list of relics." alt="" coords="186,5,318,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,28,318,28,318,23,351,23"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="5,5,138,46"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
+</map>

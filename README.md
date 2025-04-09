@@ -47,6 +47,12 @@ The project is designed with separation of concerns and extensibility in mind:
 - `tests/`: Unit tests
 - `architecture/`: Architecture documentation
 
+### Documentation
+
+Source code documentation is generated using Doxygen.
+
+[View Documentation](https://anisimov-vs.github.io/LabWork2/docs/doxygen/html/index.html)
+
 ### Build Instructions
 
 #### Prerequisites
@@ -62,6 +68,18 @@ cd build
 cmake ..
 make
 ```
+
+#### Generating Documentation (Optional)
+
+If you have Doxygen and Graphviz installed (`brew install doxygen graphviz` on macOS), you can generate the source code documentation locally:
+
+```bash
+# Ensure the output directory exists
+mkdir -p docs/doxygen
+# Run doxygen
+doxygen Doxyfile
+```
+The output will be in `docs/doxygen/html/`.
 
 ### Run
 
@@ -97,4 +115,4 @@ More detailed game instructions will be provided as the project develops.
 
 ## License
 
-This project is provided as-is for educational purposes. 
+This project is provided as-is for educational purposes.

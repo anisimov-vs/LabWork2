@@ -1,0 +1,24 @@
+{
+    "id": "defect",
+    "name": "The Defect",
+    "max_health": 75,
+    "base_energy": 3,
+    "initial_hand_size": 5,
+    "class": "DEFECT",
+    "description": "A malfunctioning combat automaton that learned to harness the power of orbs.",
+    "starting_deck": [
+        "strike_b",
+        "strike_b",
+        "strike_b",
+        "strike_b",
+        "defend_b",
+        "defend_b",
+        "defend_b",
+        "defend_b",
+        "zap",
+        "dualcast"
+    ],
+    "starting_relics": [
+        "cracked_core"
+    ]
+}

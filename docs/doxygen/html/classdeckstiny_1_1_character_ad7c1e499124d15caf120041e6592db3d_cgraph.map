@@ -1,0 +1,5 @@
+<map id="deckstiny::Character::heal" name="deckstiny::Character::heal">
+<area shape="rect" id="Node000001" title="Heal the character." alt="" coords="5,5,148,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="196,5,338,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,23,180,23,180,28,148,28"/>
+</map>

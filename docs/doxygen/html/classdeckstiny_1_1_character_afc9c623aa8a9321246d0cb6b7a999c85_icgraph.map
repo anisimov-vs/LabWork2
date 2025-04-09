@@ -1,0 +1,7 @@
+<map id="deckstiny::Character::endTurn" name="deckstiny::Character::endTurn">
+<area shape="rect" id="Node000001" title="End of turn processing." alt="" coords="235,27,377,68"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_enemy.html#a083bf21385991e4a40804a3f2ba53076" title="End of turn processing." alt="" coords="5,5,187,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,38,187,34,188,28,220,33"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_player.html#a2e711b6d920a4dc939a0ecb51ed195ec" title="End of turn processing." alt="" coords="31,55,161,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,62,162,69,161,64,219,56"/>
+</map>

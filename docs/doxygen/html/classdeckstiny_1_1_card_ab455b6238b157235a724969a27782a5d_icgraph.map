@@ -1,0 +1,9 @@
+<map id="deckstiny::Card::fallbackCardEffect" name="deckstiny::Card::fallbackCardEffect">
+<area shape="rect" id="Node000001" title="Fallback implementation for basic card effects when JSON processing fails." alt="" coords="595,5,762,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="386,13,547,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="580,28,548,28,548,23,580,23"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,13,338,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,28,339,28,339,23,371,23"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,5,145,46"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,28,145,28,145,23,177,23"/>
+</map>
