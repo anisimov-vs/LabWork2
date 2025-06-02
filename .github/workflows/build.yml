@@ -106,10 +106,11 @@ jobs:
         echo "$COMMIT_MSG" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
         
-        # Generate release name
+        # Generate release name with timestamp for chronological sorting
         CURRENT_DATE=$(date +"%Y-%m-%d")
+        TIMESTAMP=$(date +"%Y%m%d%H%M%S")
         BRANCH_NAME=${GITHUB_REF#refs/heads/}
-        echo "release_name=Pre-release-Deckstiny-$CURRENT_DATE-$BRANCH_NAME-$SHORT_HASH" >> $GITHUB_OUTPUT
+        echo "release_name=Pre-release-Deckstiny-$TIMESTAMP-$BRANCH_NAME-$SHORT_HASH" >> $GITHUB_OUTPUT
         
         # Always create a release for new commits
         echo "should_release=true" >> $GITHUB_OUTPUT
