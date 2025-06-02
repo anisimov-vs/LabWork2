@@ -32,7 +32,7 @@ jobs:
     - name: Build
       run: |
         cd build
-        make
+        make -j$(nproc)
       
     - name: Test
       run: |
@@ -78,9 +78,9 @@ jobs:
 
     - name: Build AppImage
       run: |
-        ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage \\
-          --executable AppDir/usr/bin/deckstiny \\
-          --desktop-file AppDir/usr/share/applications/deckstiny.desktop \\
+        ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage \
+          --executable AppDir/usr/bin/deckstiny \
+          --desktop-file AppDir/usr/share/applications/deckstiny.desktop \
           --icon-file AppDir/usr/share/icons/hicolor/256x256/apps/deckstiny.png
 
     - name: Upload AppImage Artifact
