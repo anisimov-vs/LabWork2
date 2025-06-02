@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include <gtest/gtest.h>
 #include "mocks/MockUI.h"
 #include "core/game.h"

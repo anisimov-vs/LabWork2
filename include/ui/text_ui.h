@@ -1,9 +1,12 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #pragma once
 
 #include "ui/ui_interface.h"
-#include "core/map.h"        // For RoomType
-#include "core/card.h"       // For CardType, CardRarity
-#include "core/relic.h"      // For RelicRarity
+#include "core/map.h"
+#include "core/card.h"
+#include "core/relic.h"
 
 #include <iostream>
 #include <sstream>

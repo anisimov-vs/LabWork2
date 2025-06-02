@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/game.h"
 #include "core/player.h"
 #include "core/enemy.h"

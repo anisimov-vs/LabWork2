@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/character.h"
 #include "core/player.h"
 #include "util/logger.h"
@@ -26,7 +29,7 @@ void Character::setMaxHealth(int newMaxHealthValue) {
     int oldMaxHealth = maxHealth_;
     int oldCurrentHealth = currentHealth_;
     maxHealth_ = std::max(1, newMaxHealthValue);
-    currentHealth_ = std::min(currentHealth_, maxHealth_); // Cap current health if it exceeds new max
+    currentHealth_ = std::min(currentHealth_, maxHealth_);
     LOG_INFO("character_setmaxhealth", getName() + " setMaxHealth. Old MaxHP: " + std::to_string(oldMaxHealth) + " -> New MaxHP: " + std::to_string(maxHealth_) + ". Old HP: " + std::to_string(oldCurrentHealth) + " -> New HP (after cap): " + std::to_string(currentHealth_) + ". Requested New MaxHP: " + std::to_string(newMaxHealthValue));
 }
 
@@ -45,23 +48,19 @@ int Character::takeDamage(int amount) {
         LOG_DEBUG("combat", getName() + " is Vulnerable, incoming damage increased to " + std::to_string(modifiedAmount));
     }
     
-    // Add debug logging
     std::string entityType = (dynamic_cast<Player*>(this)) ? "Player" : "Enemy";
     LOG_DEBUG("combat", entityType + " " + getName() + " taking " + std::to_string(modifiedAmount) + " damage with " + std::to_string(block_) + " block");
     
-    // Apply block
     int remainingDamage = modifiedAmount;
     if (block_ > 0) {
         int blockUsed = std::min(block_, remainingDamage);
         block_ -= blockUsed;
         remainingDamage -= blockUsed;
         
-        // More detailed block usage logging
         LOG_DEBUG("combat", entityType + " " + getName() + " blocked " + std::to_string(blockUsed) + 
                  " damage, " + std::to_string(block_) + " block remaining");
     }
     
-    // Apply remaining damage to health
     if (remainingDamage > 0) {
         int oldHealth = currentHealth_;
         currentHealth_ = std::max(0, currentHealth_ - remainingDamage);
@@ -69,9 +68,6 @@ int Character::takeDamage(int amount) {
                  " health damage, health now " + std::to_string(currentHealth_));
     }
     
-    // Return the original damage amount, as the tests expect this
-    // However, for game logic, it might be more consistent to return actual health lost or modifiedAmount before block.
-    // For now, sticking to original damage amount to avoid breaking tests.
     return amount;
 }
 
@@ -92,7 +88,6 @@ void Character::addBlock(int amount) {
     if (amount > 0) {
         int oldBlock = block_;
         block_ += amount;
-        // Add debug logging
         std::string entityType = (dynamic_cast<Player*>(this)) ? "Player" : "Enemy";
         LOG_DEBUG("combat", entityType + " " + getName() + " block increased from " + 
                  std::to_string(oldBlock) + " to " + std::to_string(block_));
@@ -133,7 +128,6 @@ void Character::resetEnergy() {
 }
 
 void Character::resetBlock() {
-    // Add debug logging
     if (block_ > 0) {
         std::string entityType = (dynamic_cast<Player*>(this)) ? "Player" : "Enemy";
         LOG_DEBUG("combat", entityType + " " + getName() + " block reset from " + 
@@ -174,18 +168,14 @@ const std::unordered_map<std::string, int>& Character::getStatusEffects() const 
 }
 
 void Character::startTurn() {
-    // Process status effects at start of turn
-    // For example, poison damage
     if (hasStatusEffect("poison")) {
         int poison = getStatusEffect("poison");
         takeDamage(poison);
-        addStatusEffect("poison", -1); // Reduce poison by 1
+        addStatusEffect("poison", -1);
     }
 }
 
 void Character::endTurn() {
-    // Process status effects at end of turn
-    // For example, reduce strength from temporary buffs
     if (hasStatusEffect("temporary_strength")) {
         int tempStr = getStatusEffect("temporary_strength");
         addStatusEffect("strength", -tempStr);
@@ -221,7 +211,6 @@ bool Character::loadFromJson(const nlohmann::json& json) {
         
         return true;
     } catch (const std::exception& e) {
-        // TODO: Add proper error handling/logging
         return false;
     }
 }

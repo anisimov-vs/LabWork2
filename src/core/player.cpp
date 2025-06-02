@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/player.h"
 #include "core/card.h"
 #include "core/relic.h"

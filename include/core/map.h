@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #pragma once
 
 #include <vector>
@@ -5,7 +8,7 @@
 #include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <random>  // Add back for RNG
+#include <random>
 
 namespace deckstiny {
 

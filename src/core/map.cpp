@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/map.h"
 #include <random>
 #include <algorithm>
@@ -406,7 +409,7 @@ bool GameMap::generate(int act) {
         }
     }
     std::shuffle(candidate_treasure_rooms_ids.begin(), candidate_treasure_rooms_ids.end(), rng_);
-    int treasures_to_place = 1 + (rng_() % 2); // Place 1 or 2 treasures
+    int treasures_to_place = 1 + (rng_() % 2);
     LOG_DEBUG("map", "Attempting to place " + std::to_string(treasures_to_place) + " mid-act treasures on floor " + std::to_string(STS_MID_ACT_TREASURE_FLOOR_Y));
     
     int treasures_placed = 0;
@@ -460,7 +463,7 @@ void GameMap::setRoomType(int roomId, int y, int x, int numPathsFromNode) {
             return;
         }
     }
-    if (room.type == RoomType::BOSS) { // Boss type is sacred
+    if (room.type == RoomType::BOSS) { 
         LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " is BOSS, type assignment skipped.");
         return;
     }

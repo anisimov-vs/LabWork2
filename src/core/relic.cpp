@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/relic.h"
 #include "core/player.h"
 #include "core/combat.h"

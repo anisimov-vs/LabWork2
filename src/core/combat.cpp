@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/combat.h"
 #include "core/player.h"
 #include "core/enemy.h"
@@ -278,15 +281,6 @@ void Combat::handleEnemyDeath(size_t index) {
         end(true);
     }
 }
-
-/*void Combat::calculateRewards() {
-    int goldReward = 0;
-    for (const auto& enemy : enemies_) {
-        goldReward += enemy->rollGoldReward();
-    }
-    
-    std::cout << "Calculated gold reward: " << goldReward << std::endl;
-}*/
 
 void Combat::end(bool victorious) {
     if (!inCombat_) {

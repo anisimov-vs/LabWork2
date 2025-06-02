@@ -1,9 +1,12 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #pragma once
 
 #include "core/character.h"
 #include <vector>
 #include <memory>
-#include <string> // Required for std::string
+#include <string> 
 
 namespace deckstiny {
 

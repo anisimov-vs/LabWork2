@@ -1,8 +1,11 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #pragma once
 
 #include <string>
 #include <memory>
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 
 namespace deckstiny {
 

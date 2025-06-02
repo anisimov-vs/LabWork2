@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/card.h"
 #include "core/player.h"
 #include "core/enemy.h"
@@ -6,7 +9,6 @@
 #include "util/logger.h"
 #include "util/path_util.h"
 
-#include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <sys/stat.h>
