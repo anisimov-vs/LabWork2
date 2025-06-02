@@ -13,7 +13,7 @@
 #include <nlohmann/json.hpp>
 #include <sys/stat.h>
 
-namespace deckstiny {
+namespace deckstiny 
 
 Card::Card(const std::string& id, const std::string& name, const std::string& description,
            CardType type, CardRarity rarity, CardTarget target, int cost, bool upgradable)

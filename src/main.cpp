@@ -15,7 +15,6 @@
 using namespace deckstiny;
 
 int main(int argc, char* argv[]) {
-    // Initialize logging is now handled by Game::initializeLogging()
     
     // Create game instance
     auto game = std::make_unique<Game>();
