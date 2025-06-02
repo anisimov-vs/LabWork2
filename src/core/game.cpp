@@ -313,7 +313,7 @@ bool Game::createPlayer(const std::string& characterId, const std::string& playe
         } else {
             LOG_WARNING("game", "No starting relics specified for character: " + characterId);
         }
-
+        
         LOG_INFO("game", "Player " + nameToUse + " created successfully.");
         return true;
 
@@ -715,7 +715,7 @@ void Game::initializeInputHandlers() {
 
                 if (createPlayer(selectedCharacterId, "")) {
                     LOG_DEBUG("game", "Player '" + selectedCharacterId + "' created, generating map");
-                    if (generateMap(1)) {
+                        if (generateMap(1)) {
                             LOG_DEBUG("game", "Map generated, setting state to MAP");
                             setState(GameState::MAP);
                         return true;
@@ -724,16 +724,16 @@ void Game::initializeInputHandlers() {
                         LOG_ERROR("game", "Failed to generate map after creating player " + selectedCharacterId);
                         
                         player_.reset();
-                        setState(GameState::MAIN_MENU);
+                            setState(GameState::MAIN_MENU);
 
                         return false;
                         }
                     } else {
                     LOG_ERROR("game", "Failed to create player with ID: " + selectedCharacterId);
-                    setState(GameState::MAIN_MENU);
+                            setState(GameState::MAIN_MENU);
                     return false;
-                }
-                        } else {
+                        }
+                    } else {
                 LOG_DEBUG("game", "Invalid character choice number: " + std::to_string(choice));
                 ui_->showMessage("Invalid choice. Please select a valid character number.", true);
                 ui_->showCharacterSelection(availableCharacterNames);

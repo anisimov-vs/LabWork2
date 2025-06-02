@@ -2,6 +2,7 @@
 #include "core/map.h"
 #include <queue>
 #include <set>
+#include <algorithm>
 
 namespace deckstiny {
 namespace testing {
