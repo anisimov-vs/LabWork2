@@ -109,8 +109,9 @@ jobs:
         # Generate release name with timestamp for chronological sorting
         CURRENT_DATE=$(date +"%Y-%m-%d")
         TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+        FORMATTED_TIMESTAMP=$(date +"%Y.%m.%d_%H.%M.%S")
         BRANCH_NAME=${GITHUB_REF#refs/heads/}
-        echo "release_name=Pre-release-Deckstiny-$TIMESTAMP-$BRANCH_NAME-$SHORT_HASH" >> $GITHUB_OUTPUT
+        echo "release_name=Pre-release-Deckstiny-$FORMATTED_TIMESTAMP-$BRANCH_NAME-$SHORT_HASH" >> $GITHUB_OUTPUT
         
         # Always create a release for new commits
         echo "should_release=true" >> $GITHUB_OUTPUT
