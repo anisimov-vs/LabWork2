@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_TESTS_MOCKS_MOCK_UI_H
+#define DECKSTINY_TESTS_MOCKS_MOCK_UI_H
 
 #include "ui/ui_interface.h"
 #include "core/game.h"
@@ -125,3 +126,5 @@ private:
 
 } // namespace testing
 } // namespace deckstiny 
+
+#endif // DECKSTINY_TESTS_MOCKS_MOCK_UI_H

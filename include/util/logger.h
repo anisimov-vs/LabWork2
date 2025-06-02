@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_UTIL_LOGGER_H
+#define DECKSTINY_UTIL_LOGGER_H
 
 #include <string>
 #include <fstream>
@@ -154,3 +155,5 @@ private:
 #define LOG_FATAL(category, message) ::deckstiny::util::Logger::getInstance().log(::deckstiny::util::LogLevel::Fatal, category, message)
 
 } // namespace deckstiny
+
+#endif // DECKSTINY_UTIL_LOGGER_H

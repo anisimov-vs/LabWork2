@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_CORE_EVENT_H
+#define DECKSTINY_CORE_EVENT_H
 
 #include "core/entity.h"
 #include <string>
@@ -129,3 +130,5 @@ private:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_CORE_EVENT_H

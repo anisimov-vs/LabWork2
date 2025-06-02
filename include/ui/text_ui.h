@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_UI_TEXT_UI_H
+#define DECKSTINY_UI_TEXT_UI_H
 
 #include "ui/ui_interface.h"
 #include "core/map.h"
@@ -319,3 +320,5 @@ private:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_UI_TEXT_UI_H

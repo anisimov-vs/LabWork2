@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_TESTS_TEST_LOGGER_H
+#define DECKSTINY_TESTS_TEST_LOGGER_H
 
 #include "util/logger.h"
 
@@ -39,3 +40,5 @@ public:
 
 } // namespace testing
 } // namespace deckstiny 
+
+#endif // DECKSTINY_TESTS_TEST_LOGGER_H

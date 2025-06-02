@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_CORE_GAME_H
+#define DECKSTINY_CORE_GAME_H
 
 #include <memory>
 #include <string>
@@ -359,3 +360,5 @@ private:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_CORE_GAME_H

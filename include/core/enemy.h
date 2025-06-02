@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_CORE_ENEMY_H
+#define DECKSTINY_CORE_ENEMY_H
 
 #include "core/character.h"
 #include <vector>
@@ -182,3 +183,5 @@ private:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_CORE_ENEMY_H

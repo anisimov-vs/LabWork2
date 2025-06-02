@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_UI_INTERFACE_H
+#define DECKSTINY_UI_INTERFACE_H
 
 #include <string>
 #include <vector>
@@ -219,3 +220,5 @@ public:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_UI_INTERFACE_H

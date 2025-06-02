@@ -1,7 +1,8 @@
 // Anisimov Vasiliy st129629@student.spbu.ru
 // Laboratory Work 2
 
-#pragma once
+#ifndef DECKSTINY_CORE_CARD_H
+#define DECKSTINY_CORE_CARD_H
 
 #include "core/entity.h"
 #include <memory>
@@ -248,3 +249,5 @@ protected:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_CORE_CARD_H
