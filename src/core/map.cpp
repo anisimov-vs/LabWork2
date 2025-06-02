@@ -9,598 +9,649 @@
 
 namespace deckstiny {
 
-GameMap::GameMap() : act_(1), currentRoomId_(-1), bossDefeated_(false) {
-    // Initialize random number generator with a seed
+// Define constants for StS-style map generation
+const int STS_NUM_FLOORS = 15;         // Number of regular floors (0-14)
+const int STS_NUM_COLUMNS = 7;         // Width of the map (0-6)
+const int STS_BOSS_FLOOR_Y = STS_NUM_FLOORS; // Boss is on the 16th "level" (y-coordinate 15)
+const int STS_MIN_STARTING_PATHS = 2;  // Min distinct starting columns on floor 0
+const int STS_PRE_BOSS_REST_FLOOR_Y = STS_NUM_FLOORS - 1; // Floor 14 (0-indexed)
+const int STS_MID_ACT_TREASURE_FLOOR_Y = STS_NUM_FLOORS / 2; // e.g., Floor 7 (0-indexed)
+const int STS_ELITE_MIN_FLOOR_Y = 5; // Elites can start appearing from floor 5 (0-indexed)
+const size_t STS_MAX_INCOMING_CONNECTIONS_PER_NODE = 3; // Max incoming connections a typical node can receive
+
+GameMap::GameMap() : act_(1), currentRoomId_(-1), bossDefeated_(false), nextRoomId_(0) {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     rng_.seed(seed);
     mapSeed_ = seed;
 }
 
 bool GameMap::generate(int act) {
-    // Clear existing map
     rooms_.clear();
-    paths_.clear();
     currentRoomId_ = -1;
     bossDefeated_ = false;
     act_ = act;
+    nextRoomId_ = 0; 
     
-    // Set up random seed for reproducibility
-    mapSeed_ = std::chrono::system_clock::now().time_since_epoch().count();
-    rng_.seed(mapSeed_);
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    rng_.seed(seed);
+    mapSeed_ = seed;
     
-    LOG_INFO("map", "Generating new map for act " + std::to_string(act_) + " with seed " + std::to_string(mapSeed_));
-    
-    // Define map parameters based on act
-    int numFloors = 0;
-    switch (act) {
-        case 1:
-            numFloors = 15;
-            return generateAct1Map(numFloors);
-        case 2:
-            numFloors = 17;
-            return generateAct2Map(numFloors);
-        case 3:
-            numFloors = 19;
-            return generateAct3Map(numFloors);
-        default:
-            LOG_ERROR("map", "Invalid act number: " + std::to_string(act));
-            numFloors = 15;
-            return generateAct1Map(numFloors); // Default to Act 1 style
-    }
-}
+    LOG_INFO("map", "Generating new StS-style map for act " + std::to_string(act_) + " with seed " + std::to_string(mapSeed_));
 
-bool GameMap::generateAct1Map(int numFloors) {
-    LOG_INFO("map", "Generating Act 1 map with " + std::to_string(numFloors) + " floors");
-    
-    // Act 1 is simpler, more linear with fewer branches
-    // It's designed to be easier for new players
-    
-    // Create starting room at floor 0
-    int startRoomId = createRoom(0, 0, 0, numFloors, 0, PathType::NORMAL);
-    Room& startRoom = rooms_[startRoomId];
-    startRoom.type = RoomType::EVENT; // Start room is an event
-    startRoom.visited = false; // Explicitly set to false (should be default but make sure)
-    
-    // Create boss room at the last floor
-    int bossRoomId = createRoom(numFloors - 1, 0, numFloors - 1, 0, 0, PathType::NORMAL);
-    Room& bossRoom = rooms_[bossRoomId];
-    bossRoom.type = RoomType::BOSS;
-    
-    // Create normal path (always available)
-    int mainPathId = createPath(PathType::NORMAL);
-    
-    // Add starting and boss rooms to main path
-    paths_[mainPathId].roomIds.push_back(startRoomId);
-    paths_[mainPathId].roomIds.push_back(bossRoomId);
-    rooms_[startRoomId].pathId = mainPathId;
-    rooms_[bossRoomId].pathId = mainPathId;
-    
-    // Create second path (more risky)
-    int riskyPathId = createPath(PathType::RISKY);
-    
-    // Create a third path (safer with more rest sites)
-    int safePathId = createPath(PathType::SAFE);
-    
-    // Generate main path first (one room per floor)
-    int prevRoomId = startRoomId;
-    int centerX = 0;
-    
-    // Create mandatory rest sites only at the middle of the act (floor numFloors/2)
-    std::unordered_set<int> mandatoryRestFloors = {numFloors / 2};
-    
-    // Create rooms from floor 1 to numFloors-2 (omitting start and boss)
-    for (int floor = 1; floor < numFloors - 1; ++floor) {
-        // Main path slightly meanders from center
-        std::uniform_int_distribution<> xDist(-1, 1);
-        centerX += xDist(rng_);
-        
-        // Limit how far it can go from center
-        centerX = std::max(-2, std::min(2, centerX));
-        
-        // Create a room at this floor for the main path
-        int roomId = createRoom(floor, centerX, floor, numFloors - floor, mainPathId, PathType::NORMAL);
-        Room& room = rooms_[roomId];
-        
-        // Add to main path
-        paths_[mainPathId].roomIds.push_back(roomId);
-        
-        // Checkpoint rest sites only at the middle of the act
-        if (mandatoryRestFloors.find(floor) != mandatoryRestFloors.end()) {
-            room.type = RoomType::REST;
-            room.isCheckpoint = true;
-            LOG_INFO("map", "Placed mandatory rest site at floor " + std::to_string(floor));
-        } else {
-            // Set room type based on strategic rules (but don't randomly create REST sites)
-            setRoomType(roomId);
-            
-            // Force non-rest site for all other floors
-            if (room.type == RoomType::REST && !room.isCheckpoint) {
-                room.type = RoomType::MONSTER;
-            }
-        }
-        
-        // Connect from previous room
-        createRoomLink(prevRoomId, roomId);
-        LOG_INFO("map", "Connected room #" + std::to_string(prevRoomId) + " to room #" + std::to_string(roomId));
-        
-        prevRoomId = roomId;
-        
-        // Create branching paths at specific floors (3, 6, 9, 12)
-        if (floor == 3 || floor == 6 || floor == 9 || floor == 12) {
-            // Create branch rooms (left and right)
-            int leftX = centerX - 2;
-            int rightX = centerX + 2;
-            
-            // Determine which path goes where (randomize)
-            std::uniform_int_distribution<> pathChoice(0, 1);
-            int leftPathId = (pathChoice(rng_) == 0) ? riskyPathId : safePathId;
-            int rightPathId = (leftPathId == riskyPathId) ? safePathId : riskyPathId;
-            
-            // Create branch rooms
-            int leftRoomId = createRoom(floor, leftX, floor, numFloors - floor, leftPathId, 
-                                       (leftPathId == riskyPathId) ? PathType::RISKY : PathType::SAFE);
-            int rightRoomId = createRoom(floor, rightX, floor, numFloors - floor, rightPathId, 
-                                        (rightPathId == riskyPathId) ? PathType::RISKY : PathType::SAFE);
-            
-            // Add to respective paths
-            paths_[leftPathId].roomIds.push_back(leftRoomId);
-            paths_[rightPathId].roomIds.push_back(rightRoomId);
-            
-            // Set room types based on path type
-            if (leftPathId == riskyPathId) {
-                // Risky path: More monsters/elites but better rewards
-                if (floor % 4 == 0) {
-                    rooms_[leftRoomId].type = RoomType::ELITE;
-                } else if (floor % 7 == 0) {
-                    rooms_[leftRoomId].type = RoomType::TREASURE;
-                } else {
-                    rooms_[leftRoomId].type = RoomType::MONSTER;
-                }
-            } else {
-                // Safe path: More events, no rest sites
-                rooms_[leftRoomId].type = RoomType::EVENT;
-            }
-            
-            if (rightPathId == riskyPathId) {
-                // Risky path: More monsters/elites but better rewards
-                if (floor % 4 == 0) {
-                    rooms_[rightRoomId].type = RoomType::ELITE;
-                } else if (floor % 7 == 0) {
-                    rooms_[rightRoomId].type = RoomType::TREASURE;
-                } else {
-                    rooms_[rightRoomId].type = RoomType::MONSTER;
-                }
-            } else {
-                // Safe path: More events, no rest sites
-                rooms_[rightRoomId].type = RoomType::EVENT;
-            }
-            
-            // Connect from previous room (connecting from main path room)
-            createRoomLink(roomId, leftRoomId);
-            createRoomLink(roomId, rightRoomId);
-            
-            // Always connect to the next floor (instead of only sometimes)
-            int nextFloor = floor + 1;
-            if (nextFloor < numFloors - 1) {
-                // Create next rooms for the branches
-                int nextMainRoomId = createRoom(nextFloor, centerX, nextFloor, numFloors - nextFloor, mainPathId, PathType::NORMAL);
-                setRoomType(nextMainRoomId);
-                paths_[mainPathId].roomIds.push_back(nextMainRoomId);
-                
-                // Important - connect current room to next floor's main room
-                createRoomLink(roomId, nextMainRoomId);
-                
-                // Also connect the branch rooms to the next floor's main room
-                createRoomLink(leftRoomId, nextMainRoomId);
-                createRoomLink(rightRoomId, nextMainRoomId);
-                
-                // Update prevRoomId to the next floor's main room
-                prevRoomId = nextMainRoomId;
-            }
-        }
-    }
-    
-    // Connect the last main path room to boss
-    createRoomLink(prevRoomId, bossRoomId);
-    
-    // Final map validation - ensure there are valid paths through the map
-    if (!validateMap()) {
-        LOG_ERROR("map", "Generated map failed validation");
+    std::vector<std::vector<Room*>> grid_nodes(STS_NUM_FLOORS, std::vector<Room*>(STS_NUM_COLUMNS, nullptr));
+
+    // 1. Create the Boss Room
+    int boss_x_column = STS_NUM_COLUMNS / 2;
+    int bossRoomId = createRoom(STS_BOSS_FLOOR_Y, boss_x_column);
+    if (bossRoomId == -1) { 
+        LOG_ERROR("map", "Failed to create boss room.");
         return false;
     }
+    rooms_[bossRoomId].type = RoomType::BOSS;
+    LOG_INFO("map", "Created Boss Room #" + std::to_string(bossRoomId) + " at (x:" + std::to_string(boss_x_column) + ", y:" + std::to_string(STS_BOSS_FLOOR_Y) + ")");
+
+    std::vector<Room*> nodes_on_higher_floor_to_connect_from; 
+
+    // 2a. Create Pre-Boss Rest Site(s) on STS_PRE_BOSS_REST_FLOOR_Y (e.g., floor 14)
+    std::uniform_int_distribution<> pre_boss_rest_count_dist(2, 3); 
+    int num_pre_boss_rests = pre_boss_rest_count_dist(rng_);
+    std::vector<int> available_pre_boss_columns;
+    for(int i=0; i<STS_NUM_COLUMNS; ++i) available_pre_boss_columns.push_back(i);
+    std::shuffle(available_pre_boss_columns.begin(), available_pre_boss_columns.end(), rng_); 
+
+    LOG_INFO("map", "Creating " + std::to_string(num_pre_boss_rests) + " rest sites on pre-boss floor y=" + std::to_string(STS_PRE_BOSS_REST_FLOOR_Y));
+    for (int i = 0; i < num_pre_boss_rests && i < (int)available_pre_boss_columns.size(); ++i) {
+        int col = available_pre_boss_columns[i];
+        int rest_room_id = createRoom(STS_PRE_BOSS_REST_FLOOR_Y, col);
+        rooms_[rest_room_id].type = RoomType::REST; 
+        createRoomLink(rest_room_id, bossRoomId);
+        nodes_on_higher_floor_to_connect_from.push_back(&rooms_[rest_room_id]);
+        if (STS_PRE_BOSS_REST_FLOOR_Y < STS_NUM_FLOORS) { 
+             grid_nodes[STS_PRE_BOSS_REST_FLOOR_Y][col] = &rooms_[rest_room_id];
+        }
+        LOG_DEBUG("map", "  Created pre-boss rest room #" + std::to_string(rest_room_id) + " at (x:" + std::to_string(col) + ", y:" + std::to_string(STS_PRE_BOSS_REST_FLOOR_Y) + ") linked to boss.");
+    }
+
+    if (nodes_on_higher_floor_to_connect_from.empty()) {
+        LOG_ERROR("map", "Failed to create any pre-boss rest sites. Aborting generation.");
+        return false;
+    }
+
+    // 2b. Iterate downwards from floor STS_PRE_BOSS_REST_FLOOR_Y - 1 (e.g., floor 13) down to 0
+    for (int y = STS_PRE_BOSS_REST_FLOOR_Y - 1; y >= 0; --y) {
+        LOG_DEBUG("map", "Generating paths for floor y=" + std::to_string(y) + ". Nodes on floor above (y+1) to connect from: " + std::to_string(nodes_on_higher_floor_to_connect_from.size()));
+        std::vector<Room*> nodes_actually_created_on_this_floor_y;
+        std::unordered_set<Room*> all_nodes_on_higher_floor_that_got_a_link;
+
+        for (Room* room_on_higher_floor : nodes_on_higher_floor_to_connect_from) {
+            std::uniform_int_distribution<> num_incoming_paths_dist(1, 2); 
+            int num_paths_to_create_for_this_room_above = num_incoming_paths_dist(rng_);
+            if (nodes_on_higher_floor_to_connect_from.size() == 1 && y > 0) num_paths_to_create_for_this_room_above = std::max(1, num_paths_to_create_for_this_room_above);
+            
+            LOG_DEBUG("map_detail", "  TargetRoom on y+1: #" + std::to_string(room_on_higher_floor->id) + 
+                      " at (x:" + std::to_string(room_on_higher_floor->x) + ", y:" + std::to_string(room_on_higher_floor->y) + ") needs " + 
+                      std::to_string(num_paths_to_create_for_this_room_above) + " incoming paths from floor y=" + std::to_string(y) );
+
+            for (int i = 0; i < num_paths_to_create_for_this_room_above; ++i) {
+                std::vector<int> possible_cols;
+                possible_cols.push_back(room_on_higher_floor->x); 
+                if (room_on_higher_floor->x > 0) possible_cols.push_back(room_on_higher_floor->x - 1);
+                if (room_on_higher_floor->x < STS_NUM_COLUMNS - 1) possible_cols.push_back(room_on_higher_floor->x + 1);
+                std::shuffle(possible_cols.begin(), possible_cols.end(), rng_);
+
+                int chosen_x_for_new_room_on_floor_y = -1;
+                Room* existing_room_on_floor_y_to_reuse = nullptr;
+
+                for (int candidate_col : possible_cols) {
+                    if (grid_nodes[y][candidate_col] == nullptr) { 
+                        chosen_x_for_new_room_on_floor_y = candidate_col;
+                        LOG_DEBUG("map_detail", "    Path #" + std::to_string(i+1) + " to TargetRoom #" + std::to_string(room_on_higher_floor->id) + ": Found empty spot at (x:" + std::to_string(candidate_col) + ", y:" + std::to_string(y) + ")");
+                        break;
+                    } else { 
+                        Room* potential_reuse_room = grid_nodes[y][candidate_col];
+                        bool already_linked = false;
+                        for(int next_id : potential_reuse_room->nextRooms) {
+                            if (next_id == room_on_higher_floor->id) { already_linked = true; break; }
+                        }
+                        if (!already_linked && potential_reuse_room->nextRooms.size() < 2) {
+                            chosen_x_for_new_room_on_floor_y = candidate_col;
+                            existing_room_on_floor_y_to_reuse = potential_reuse_room;
+                            LOG_DEBUG("map_detail", "    Path #" + std::to_string(i+1) + " to TargetRoom #" + std::to_string(room_on_higher_floor->id) + ": Reusing existing room #" + std::to_string(existing_room_on_floor_y_to_reuse->id) + " at (x:" + std::to_string(candidate_col) + ", y:" + std::to_string(y) + ")");
+                            break;
+                        }
+                    }
+                }
+
+                if (chosen_x_for_new_room_on_floor_y == -1) {
+                    if (!possible_cols.empty()) {
+                        chosen_x_for_new_room_on_floor_y = possible_cols[0];
+                        if (grid_nodes[y][chosen_x_for_new_room_on_floor_y] != nullptr) {
+                            existing_room_on_floor_y_to_reuse = grid_nodes[y][chosen_x_for_new_room_on_floor_y];
+                            LOG_DEBUG("map_detail", "    Path #" + std::to_string(i+1) + " to TargetRoom #" + std::to_string(room_on_higher_floor->id) + ": Forced reuse/creation at (x:" + std::to_string(chosen_x_for_new_room_on_floor_y) + ", y:" + std::to_string(y) + ") existing: " + (existing_room_on_floor_y_to_reuse ? "Yes" : "No"));
+                        } else {
+                             LOG_DEBUG("map_detail", "    Path #" + std::to_string(i+1) + " to TargetRoom #" + std::to_string(room_on_higher_floor->id) + ": Forced creation at (x:" + std::to_string(chosen_x_for_new_room_on_floor_y) + ", y:" + std::to_string(y) + ")");
+                        }
+                    } else {
+                        LOG_WARNING("map", "    Path #" + std::to_string(i+1) + " to TargetRoom #" + std::to_string(room_on_higher_floor->id) + ": No valid column on floor y=" + std::to_string(y) + ". Skipping path.");
+                        continue; 
+                    }
+                }
+
+                Room* room_on_floor_y_that_links_upward;
+                if (existing_room_on_floor_y_to_reuse) {
+                    room_on_floor_y_that_links_upward = existing_room_on_floor_y_to_reuse;
+                } else {
+                    int new_room_id = createRoom(y, chosen_x_for_new_room_on_floor_y);
+                    room_on_floor_y_that_links_upward = &rooms_[new_room_id];
+                    grid_nodes[y][chosen_x_for_new_room_on_floor_y] = room_on_floor_y_that_links_upward;
+                    nodes_actually_created_on_this_floor_y.push_back(room_on_floor_y_that_links_upward); 
+                }
+                
+                createRoomLink(room_on_floor_y_that_links_upward->id, room_on_higher_floor->id);
+                all_nodes_on_higher_floor_that_got_a_link.insert(room_on_higher_floor);
+            }
+        }
+        
+        // Orphan Check for rooms on floor y+1
+        for (Room* room_on_higher_floor_check : nodes_on_higher_floor_to_connect_from) {
+            if (all_nodes_on_higher_floor_that_got_a_link.find(room_on_higher_floor_check) == all_nodes_on_higher_floor_that_got_a_link.end()) {
+                LOG_WARNING("map", "  Orphaned room #" + std::to_string(room_on_higher_floor_check->id) + " at (x:"+std::to_string(room_on_higher_floor_check->x)+",y:"+std::to_string(room_on_higher_floor_check->y)+") found. Attempting emergency link from floor y=" + std::to_string(y));
+                Room* emergency_link_source_on_floor_y = nullptr;
+                int min_h_dist = STS_NUM_COLUMNS + 1;
+                for(Room* candidate_on_y : nodes_actually_created_on_this_floor_y) { 
+                    if(candidate_on_y->nextRooms.size() < 3) {
+                       int h_dist = std::abs(candidate_on_y->x - room_on_higher_floor_check->x);
+                       if (h_dist < min_h_dist) {min_h_dist = h_dist; emergency_link_source_on_floor_y = candidate_on_y;}
+                    }
+                }
+                if (!emergency_link_source_on_floor_y) {
+                     for(int temp_x = 0; temp_x < STS_NUM_COLUMNS; ++temp_x) {
+                        if(grid_nodes[y][temp_x] != nullptr && grid_nodes[y][temp_x]->nextRooms.size() < 3) {
+                            int h_dist = std::abs(grid_nodes[y][temp_x]->x - room_on_higher_floor_check->x);
+                            if (h_dist < min_h_dist) {min_h_dist = h_dist; emergency_link_source_on_floor_y = grid_nodes[y][temp_x];}
+                        }
+                     }
+                }
+
+                if (emergency_link_source_on_floor_y) {
+                    LOG_DEBUG("map", "    Emergency linking orphan #" + std::to_string(room_on_higher_floor_check->id) + " from #" + std::to_string(emergency_link_source_on_floor_y->id) + " on floor y="+std::to_string(y));
+                    createRoomLink(emergency_link_source_on_floor_y->id, room_on_higher_floor_check->id);
+        } else {
+                    LOG_ERROR("map", "    COULD NOT FIX ORPHAN #" + std::to_string(room_on_higher_floor_check->id) + " on y+1=" + std::to_string(room_on_higher_floor_check->y) + ". Map might be invalid.");
+                }
+            }
+        }
+
+        nodes_on_higher_floor_to_connect_from.clear();
+        for(int col_idx = 0; col_idx < STS_NUM_COLUMNS; ++col_idx) {
+            if(grid_nodes[y][col_idx] != nullptr) {
+                nodes_on_higher_floor_to_connect_from.push_back(grid_nodes[y][col_idx]);
+            }
+        }
+        if (nodes_on_higher_floor_to_connect_from.empty() && y > 0) { 
+            LOG_ERROR("map", "Path generation terminated: No nodes available on floor y=" + std::to_string(y) + " to continue paths downwards. Map invalid.");
+            return false;
+        }
+        LOG_DEBUG("map", "Finished processing for floor y="+std::to_string(y)+". " + std::to_string(nodes_on_higher_floor_to_connect_from.size()) + " nodes on this floor will be connection targets for floor y-1.");
+    }
+
+    LOG_INFO("map", "Starting Path Diversification Pass...");
+    for (int y = 0; y < STS_PRE_BOSS_REST_FLOOR_Y; ++y) {
+        if (y >= STS_NUM_FLOORS) continue;
+
+        LOG_DEBUG("map_diversify", "Diversifying paths FROM floor y=" + std::to_string(y));
+        for (int x = 0; x < STS_NUM_COLUMNS; ++x) {
+            Room* source_room_on_floor_y = grid_nodes[y][x];
+            if (!source_room_on_floor_y) continue;
+
+            size_t current_exits = source_room_on_floor_y->nextRooms.size();
+            if (current_exits >= static_cast<size_t>(STS_MIN_STARTING_PATHS)) continue;
+
+            size_t num_additional_paths_needed = static_cast<size_t>(STS_MIN_STARTING_PATHS) - current_exits;
+            LOG_DEBUG("map_diversify", "  Room #" + std::to_string(source_room_on_floor_y->id) + " at (x:" + std::to_string(x) + ", y:" + std::to_string(y) + ") has " + std::to_string(current_exits) + " exits, needs " + std::to_string(num_additional_paths_needed) + " more.");
+
+            std::vector<Room*> potential_targets_on_floor_y_plus_1;
+            int target_cols_ordered[] = {source_room_on_floor_y->x, source_room_on_floor_y->x - 1, source_room_on_floor_y->x + 1};
+            
+            for (int target_x_offset_idx = 0; target_x_offset_idx < 3; ++target_x_offset_idx) {
+                int target_x = target_cols_ordered[target_x_offset_idx];
+                if (target_x < 0 || target_x >= STS_NUM_COLUMNS) continue;
+                if ( (y + 1) >= STS_NUM_FLOORS && (y+1) != STS_BOSS_FLOOR_Y ) continue;
+
+                Room* target_room_on_y_plus_1 = nullptr;
+                if ((y + 1) == STS_BOSS_FLOOR_Y) {
+                     for(auto& pair : rooms_) { if(pair.second.type == RoomType::BOSS) { target_room_on_y_plus_1 = &pair.second; break; } }
+                } else if ((y+1) < STS_NUM_FLOORS) {
+                    target_room_on_y_plus_1 = grid_nodes[y + 1][target_x];
+                }
+
+                if (target_room_on_y_plus_1) {
+                    bool already_connected = false;
+                    for (int next_id : source_room_on_floor_y->nextRooms) {
+                        if (next_id == target_room_on_y_plus_1->id) {
+                            already_connected = true;
+                            break;
+                        }
+                    }
+                    if (!already_connected && target_room_on_y_plus_1->prevRooms.size() < STS_MAX_INCOMING_CONNECTIONS_PER_NODE) {
+                        potential_targets_on_floor_y_plus_1.push_back(target_room_on_y_plus_1);
+                    }
+                }
+            }
+            std::shuffle(potential_targets_on_floor_y_plus_1.begin(), potential_targets_on_floor_y_plus_1.end(), rng_);
+
+            size_t added_count = 0;
+            for (Room* target_node : potential_targets_on_floor_y_plus_1) {
+                if (added_count >= num_additional_paths_needed) break;
+                createRoomLink(source_room_on_floor_y->id, target_node->id);
+                added_count++;
+                LOG_DEBUG("map_diversify", "    Added emergency link from #" + std::to_string(source_room_on_floor_y->id) + " to #" + std::to_string(target_node->id) + " on floor y+1.");
+            }
+            if (added_count > 0) {
+                 LOG_INFO("map_diversify", "  Room #" + std::to_string(source_room_on_floor_y->id) + " now has " + std::to_string(source_room_on_floor_y->nextRooms.size()) + " exits after diversification.");
+            } else if (num_additional_paths_needed > 0) {
+                 LOG_WARNING("map_diversify", "  Could not add any new exits for Room #" + std::to_string(source_room_on_floor_y->id) + ". Still needs " + std::to_string(num_additional_paths_needed - added_count) + " exits.");
+            }
+        }
+    }
+    LOG_INFO("map", "Path Diversification Pass completed.");
+
+    // 3. Set Starting Room (currentRoomId_)
+    std::vector<Room*> floor0_rooms = nodes_on_higher_floor_to_connect_from; 
+                                                                        
+    std::vector<Room*> good_starting_rooms;
+    for (Room* r_ptr : floor0_rooms) {
+        if (r_ptr && r_ptr->nextRooms.size() >= static_cast<size_t>(STS_MIN_STARTING_PATHS)) {
+            good_starting_rooms.push_back(r_ptr);
+        }
+    }
+
+    if (!good_starting_rooms.empty()) {
+        std::shuffle(good_starting_rooms.begin(), good_starting_rooms.end(), rng_);
+        currentRoomId_ = good_starting_rooms[0]->id;
+        LOG_INFO("map", "Selected start room #" + std::to_string(currentRoomId_) + " at (x:" + std::to_string(rooms_[currentRoomId_].x) + ", y:0) with " + std::to_string(rooms_[currentRoomId_].nextRooms.size()) + " exits.");
+    } else {
+        LOG_WARNING("map", "No rooms on floor 0 have at least " + std::to_string(STS_MIN_STARTING_PATHS) + " exits. Attempting emergency fix for start room.");
+        if (floor0_rooms.empty()) {
+            LOG_ERROR("map", "CRITICAL: No rooms on floor 0 at all. Cannot set start room. Map generation failed.");
+            return false;
+        }
+        
+        std::sort(floor0_rooms.begin(), floor0_rooms.end(), [](const Room* a, const Room* b) {
+            return a->nextRooms.size() > b->nextRooms.size();
+        });
+        Room* start_room_ptr = floor0_rooms[0];
+        currentRoomId_ = start_room_ptr->id;
+        
+        LOG_INFO("map", "Emergency fallback: selected start room #" + std::to_string(currentRoomId_) + " at (x:" + std::to_string(start_room_ptr->x) + ", y:0) with " + std::to_string(start_room_ptr->nextRooms.size()) + " exits initially.");
+
+        size_t num_needed_exits = static_cast<size_t>(STS_MIN_STARTING_PATHS) - start_room_ptr->nextRooms.size();
+        if (num_needed_exits > 0) {
+            LOG_INFO("map", "Attempting to add " + std::to_string(num_needed_exits) + " more exits to start room #" + std::to_string(currentRoomId_));
+            
+            std::vector<Room*> potential_targets_on_floor1;
+            for (auto& pair : rooms_) {
+                Room& room_on_f1 = pair.second;
+                if (room_on_f1.y == 1) {
+                    bool already_connected = false;
+                    for (int next_id : start_room_ptr->nextRooms) {
+                        if (next_id == room_on_f1.id) {
+                            already_connected = true;
+                            break;
+                        }
+                    }
+                    if (!already_connected) {
+                        potential_targets_on_floor1.push_back(&room_on_f1);
+                    }
+                }
+            }
+            std::shuffle(potential_targets_on_floor1.begin(), potential_targets_on_floor1.end(), rng_);
+
+            size_t added_count = 0;
+            for (Room* target_room_on_floor1 : potential_targets_on_floor1) {
+                if (added_count >= num_needed_exits) break;
+                
+                createRoomLink(start_room_ptr->id, target_room_on_floor1->id);
+                added_count++;
+                LOG_INFO("map", "Emergency: Added link from start #" + std::to_string(start_room_ptr->id) + " to floor 1 room #" + std::to_string(target_room_on_floor1->id));
+            }
+            if (added_count < num_needed_exits) {
+                LOG_WARNING("map", "Emergency fix: Could only add " + std::to_string(added_count) + " of " + std::to_string(num_needed_exits) + " needed additional exits to start room.");
+            }
+             LOG_INFO("map", "Start room #" + std::to_string(currentRoomId_) + " now has " + std::to_string(start_room_ptr->nextRooms.size()) + " exits after emergency fix.");
+        }
+    }
+
+    // 4. Assign Room Types (Complex Logic - initial pass in setRoomType)
+    LOG_INFO("map", "Assigning room types (initial pass)...");
+    for (auto& pair : rooms_) {
+        Room& room = pair.second;
+        if (room.type == RoomType::BOSS) continue;
+        
+        setRoomType(room.id, room.y, room.x, room.nextRooms.size());
+    }
+
+    LOG_INFO("map", "Applying GENERALIZED diversity pass for all rooms...");
+    for (auto& pair : rooms_) {
+        Room& parent_room = pair.second;
+
+        if (parent_room.type == RoomType::BOSS || 
+            parent_room.y == STS_PRE_BOSS_REST_FLOOR_Y || 
+            parent_room.nextRooms.size() <= 1) {
+            continue;
+        }
+
+        std::vector<Room*> child_shops;
+        std::vector<Room*> child_rests;
+        std::vector<Room*> child_events;
+
+        for (int child_id : parent_room.nextRooms) {
+            if (!rooms_.count(child_id)) continue;
+            Room* child_room = &rooms_.at(child_id);
+            
+            if (parent_room.y == (STS_PRE_BOSS_REST_FLOOR_Y -1) && child_room->y == STS_PRE_BOSS_REST_FLOOR_Y) continue;
+            if (child_room->type == RoomType::BOSS || child_room->y == STS_PRE_BOSS_REST_FLOOR_Y) continue;
+
+            if (child_room->type == RoomType::SHOP)   child_shops.push_back(child_room);
+            else if (child_room->type == RoomType::REST)  child_rests.push_back(child_room);
+            else if (child_room->type == RoomType::EVENT) child_events.push_back(child_room);
+        }
+
+        if (child_shops.size() > 1) {
+            LOG_DEBUG("map_diversity_gen", "Parent #" + std::to_string(parent_room.id) + " (y:" + std::to_string(parent_room.y) + ") has " + std::to_string(child_shops.size()) + " SHOP children. Changing extras to EVENT.");
+            for (size_t i = 1; i < child_shops.size(); ++i) {
+                child_shops[i]->type = RoomType::EVENT;
+                LOG_DEBUG("map_diversity_gen", "  Changed child SHOP #" + std::to_string(child_shops[i]->id) + " to EVENT.");
+            }
+        }
+        if (child_rests.size() > 1) {
+            LOG_DEBUG("map_diversity_gen", "Parent #" + std::to_string(parent_room.id) + " (y:" + std::to_string(parent_room.y) + ") has " + std::to_string(child_rests.size()) + " REST children. Changing extras to EVENT.");
+            for (size_t i = 1; i < child_rests.size(); ++i) {
+                child_rests[i]->type = RoomType::EVENT;
+                LOG_DEBUG("map_diversity_gen", "  Changed child REST #" + std::to_string(child_rests[i]->id) + " to EVENT.");
+            }
+        }
+        if (child_events.size() > 1 && parent_room.type != RoomType::EVENT /* && parent_room.type != RoomType::SHOP && parent_room.type != RoomType::TREASURE */ ) {
+             bool can_change_child_event_to_monster = true;
+             if (parent_room.type == RoomType::SHOP || parent_room.type == RoomType::TREASURE || parent_room.type == RoomType::REST){
+                 if(parent_room.type != RoomType::MONSTER && parent_room.type != RoomType::ELITE) {
+                    can_change_child_event_to_monster = false;
+                 }
+             }
+
+            if (can_change_child_event_to_monster) {
+                LOG_DEBUG("map_diversity_gen", "Parent #" + std::to_string(parent_room.id) + " (y:" + std::to_string(parent_room.y) + ", type:" + getRoomTypeString(parent_room.type) + ") has " + std::to_string(child_events.size()) + " EVENT children. Changing extras to MONSTER.");
+                for (size_t i = 1; i < child_events.size(); ++i) {
+                    child_events[i]->type = RoomType::MONSTER;
+                    LOG_DEBUG("map_diversity_gen", "  Changed child EVENT #" + std::to_string(child_events[i]->id) + " to MONSTER.");
+                }
+            }
+        }
+    }
+
+    std::vector<int> candidate_treasure_rooms_ids;
+    for (const auto& pair : rooms_) {
+        const Room& room = pair.second;
+        if (room.y == STS_MID_ACT_TREASURE_FLOOR_Y && room.type != RoomType::BOSS && room.type != RoomType::REST) {
+            bool leads_to_boss_directly = false;
+            for (int next_id : room.nextRooms) {
+                if (rooms_.count(next_id) && rooms_.at(next_id).type == RoomType::BOSS) {
+                    leads_to_boss_directly = true;
+                    break;
+                }
+            }
+            if (!leads_to_boss_directly) {
+                candidate_treasure_rooms_ids.push_back(room.id);
+            }
+        }
+    }
+    std::shuffle(candidate_treasure_rooms_ids.begin(), candidate_treasure_rooms_ids.end(), rng_);
+    int treasures_to_place = 1 + (rng_() % 2); // Place 1 or 2 treasures
+    LOG_DEBUG("map", "Attempting to place " + std::to_string(treasures_to_place) + " mid-act treasures on floor " + std::to_string(STS_MID_ACT_TREASURE_FLOOR_Y));
     
-    LOG_INFO("map", "Act 1 map generation complete. Created " + std::to_string(rooms_.size()) + " rooms.");
+    int treasures_placed = 0;
+    for (int room_id : candidate_treasure_rooms_ids) {
+        if (treasures_placed >= treasures_to_place) break;
+        if (rooms_.count(room_id)) {
+            rooms_[room_id].type = RoomType::TREASURE;
+            treasures_placed++;
+            LOG_INFO("map", "Placed mid-act TREASURE at room #" + std::to_string(room_id) + " (y:" + std::to_string(rooms_[room_id].y) + ", x:" + std::to_string(rooms_[room_id].x) + ") overriding its previous type.");
+        }
+    }
+    if (treasures_placed < treasures_to_place) {
+        LOG_WARNING("map", "Wanted to place " + std::to_string(treasures_to_place) + " mid-act treasures, but only placed " + std::to_string(treasures_placed) + ".");
+    }
     
-    // Set starting room as current room
-    currentRoomId_ = startRoomId;
-    LOG_INFO("map", "Set current room ID to starting room #" + std::to_string(startRoomId));
-    
-    // Mark the starting room as visited so the player can move to the next rooms
-    markCurrentRoomVisited();
-    LOG_INFO("map", "Marked starting room as visited");
-    
-    return rooms_.size() > 0;
+    if (!validateMap()) {
+        LOG_ERROR("map", "Generated StS-style map failed validation.");
+        return false;
+    }
+    LOG_INFO("map", "Successfully generated StS-style map for act " + std::to_string(act_));
+    return true;
 }
 
-bool GameMap::generateAct2Map(int numFloors) {
-    LOG_INFO("map", "Generating Act 2 map with " + std::to_string(numFloors) + " floors");
-    
-    // Act 2 is wider with more horizontal branching
-    // It has more complex path structures and room distributions
-    
-    // For now, use Act 1 style but with different parameters
-    // This is a placeholder - you should implement a more complex generation algorithm
-    return generateAct1Map(numFloors);
-}
-
-bool GameMap::generateAct3Map(int numFloors) {
-    LOG_INFO("map", "Generating Act 3 map with " + std::to_string(numFloors) + " floors");
-    
-    // Act 3 is the most complex with interesting vertical branching
-    // It has the most challenging paths and strategic decision points
-    
-    // For now, use Act 1 style but with different parameters
-    // This is a placeholder - you should implement a more complex generation algorithm
-    return generateAct1Map(numFloors);
-}
-
-int GameMap::createRoom(int floor, int x, int distFromStart, int distFromBoss, 
-                       int pathId, PathType pathType) {
-    // Create a new room
-    static int nextRoomId = 0;
-    
-    Room room;
-    room.id = nextRoomId++;
-    room.y = floor;
-    room.x = x;
-    room.visited = false;
-    room.pathId = pathId;
-    room.pathType = pathType;
-    room.distanceFromStart = distFromStart;
-    room.distanceFromBoss = distFromBoss;
-    
-    // Store the room
-    rooms_[room.id] = room;
-    
-    LOG_DEBUG("map", "Created room #" + std::to_string(room.id) + 
-              " at floor " + std::to_string(floor) + ", x=" + std::to_string(x) +
-              ", pathId=" + std::to_string(pathId));
-    
-    return room.id;
+int GameMap::createRoom(int y, int x) {
+    int roomId = nextRoomId_++;
+    Room newRoom;
+    newRoom.id = roomId;
+    newRoom.y = y;
+    newRoom.x = x;
+    newRoom.distanceFromStart = y;
+    rooms_[roomId] = newRoom;
+    LOG_DEBUG("map_detail", "Created room #" + std::to_string(roomId) + " at (x:" + std::to_string(x) + ", y:" + std::to_string(y) + ")");
+    return roomId;
 }
 
 void GameMap::createRoomLink(int fromId, int toId) {
-    // Check if rooms exist
-    auto fromIt = rooms_.find(fromId);
-    auto toIt = rooms_.find(toId);
-    if (fromIt == rooms_.end() || toIt == rooms_.end()) {
-        LOG_ERROR("map", "Cannot create link: room not found");
-        return;
-    }
-    
-    // Check if link already exists
-    if (std::find(fromIt->second.nextRooms.begin(), 
-                 fromIt->second.nextRooms.end(), 
-                 toId) != fromIt->second.nextRooms.end()) {
-        return; // Link already exists
-    }
-    
-    // Add forward link
-    fromIt->second.nextRooms.push_back(toId);
-    
-    // Add backward link for tracking
-    toIt->second.prevRooms.push_back(fromId);
-    
-    LOG_DEBUG("map", "Created link from room #" + std::to_string(fromId) + 
-              " to room #" + std::to_string(toId));
+    rooms_[fromId].nextRooms.push_back(toId);
+    rooms_[toId].prevRooms.push_back(fromId);
+    LOG_DEBUG("map_detail", "Linked room #" + std::to_string(fromId) + " -> #" + std::to_string(toId));
 }
 
-void GameMap::setRoomType(int roomId) {
-    auto it = rooms_.find(roomId);
-    if (it == rooms_.end()) {
-        return;
-    }
-    
-    Room& room = it->second;
-    
-    // Room type probabilities based on path type
-    std::vector<double> roomProbs;
-    
-    // Define probabilities based on path type and distance
-    // Order: MONSTER, ELITE, REST, EVENT, SHOP, TREASURE
-    switch (room.pathType) {
-        case PathType::NORMAL:
-            // Weighted heavily toward MONSTER rooms
-            if (room.distanceFromStart < 5) {
-                // Early in the path: lots of monsters (80%)
-                roomProbs = {0.85, 0.05, 0.0, 0.07, 0.03, 0.0};
-            } else if (room.distanceFromBoss < 5) {
-                // Near the boss: more monsters and elites
-                roomProbs = {0.75, 0.15, 0.0, 0.05, 0.02, 0.03};
-            } else {
-                // Middle of the path: monsters dominate
-                roomProbs = {0.80, 0.08, 0.0, 0.07, 0.03, 0.02};
-            }
-            break;
-            
-        case PathType::RISKY:
-            // Risky path: Even more monsters and elites
-            roomProbs = {0.75, 0.20, 0.0, 0.02, 0.0, 0.03};
-            break;
-            
-        case PathType::SAFE:
-            // Safe path: More events, but still mostly monsters
-            roomProbs = {0.65, 0.05, 0.0, 0.20, 0.08, 0.02};
-            break;
-            
-        default:
-            // Default - heavily weighted toward monsters
-            roomProbs = {0.80, 0.08, 0.0, 0.07, 0.03, 0.02};
-            break;
-    }
-    
-    // Strategic rules that override probabilities
-    
-    // 1. If connected to an ELITE, make next room a monster (no REST or EVENT)
-    bool connectedToElite = false;
-    for (int prevId : room.prevRooms) {
-        auto prevIt = rooms_.find(prevId);
-        if (prevIt != rooms_.end() && prevIt->second.type == RoomType::ELITE) {
-            connectedToElite = true;
-            break;
-        }
-    }
-    
-    if (connectedToElite) {
-        // After ELITE rooms, give monster room
-        roomProbs[0] = 1.0; // 100% MONSTER
-        roomProbs[1] = roomProbs[2] = roomProbs[3] = roomProbs[4] = roomProbs[5] = 0.0;
-    }
-    
-    // 2. If at a floor that's a multiple of 4, increase ELITE chance
-    if (room.y % 4 == 0 && room.y > 0) {
-        // Boost ELITE chance
-        roomProbs[1] += 0.15;
-        
-        // Normalize
-        double sum = 0.0;
-        for (double prob : roomProbs) {
-            sum += prob;
-        }
-        for (double& prob : roomProbs) {
-            prob /= sum;
-        }
-    }
-    
-    // 3. Ensure shops appear at reasonable intervals - but only after the 4th floor
-    // This prevents the first room from always being a shop
-    if (room.y >= 4) {
-        int distanceFromLastShop = 999;
-        for (const auto& [id, r] : rooms_) {
-            if (r.type == RoomType::SHOP && r.y < room.y) {
-                distanceFromLastShop = std::min(distanceFromLastShop, room.y - r.y);
-            }
-        }
-        
-        if (distanceFromLastShop > 8) {
-            // Force a SHOP if too far from last one and we're not in the first few floors
-            room.type = RoomType::SHOP;
-            LOG_INFO("map", "Forced shop at floor " + std::to_string(room.y) + " due to distance from last shop: " + std::to_string(distanceFromLastShop));
+void GameMap::setRoomType(int roomId, int y, int x, int numPathsFromNode) {
+    (void)x;
+    (void)numPathsFromNode;
+    if (!rooms_.count(roomId)) return;
+    Room& room = rooms_[roomId];
+
+    if (room.type != RoomType::MONSTER && room.type != RoomType::BOSS) {
+        if (y == STS_PRE_BOSS_REST_FLOOR_Y && room.type == RoomType::REST) {
+             LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " y:" + std::to_string(y) + " set to REST (pre-boss area).");
             return;
         }
     }
-    
-    // Roll for room type
-    std::uniform_real_distribution<> dist(0.0, 1.0);
-    double roll = dist(rng_);
-    
-    // Determine room type based on roll and probabilities
-    double cumProb = 0.0;
-    int typeIndex = 0;
-    
-    for (size_t i = 0; i < roomProbs.size(); ++i) {
-        cumProb += roomProbs[i];
-        if (roll <= cumProb) {
-            typeIndex = i;
-            break;
-        }
+    if (room.type == RoomType::BOSS) { // Boss type is sacred
+        LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " is BOSS, type assignment skipped.");
+        return;
     }
     
-    // Set room type (follow RoomType enum order)
-    switch (typeIndex) {
-        case 0:
-            room.type = RoomType::MONSTER;
-            break;
-        case 1:
-            room.type = RoomType::ELITE;
-            break;
-        case 2:
-            room.type = RoomType::REST;
-            break;
-        case 3:
-            room.type = RoomType::EVENT;
-            break;
-        case 4:
-            room.type = RoomType::SHOP;
-            break;
-        case 5:
-            room.type = RoomType::TREASURE;
-            break;
-        default:
-            room.type = RoomType::MONSTER; // Fallback
-            break;
+    // 1. Handle fixed types based on y-coordinate or flags
+    if (y == STS_PRE_BOSS_REST_FLOOR_Y) {
+        room.type = RoomType::REST;
+        LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " y:" + std::to_string(y) + " set to REST (pre-boss area).");
+        return;
+    }
+    if (y == 0) {
+        room.type = RoomType::MONSTER;
+        LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " y:" + std::to_string(y) + " set to MONSTER (floor 0).");
+        return;
     }
     
-    LOG_INFO("map", "Set room #" + std::to_string(roomId) + 
-             " at floor " + std::to_string(room.y) + 
-             " to type: " + getRoomTypeString(room.type) +
-             " (roll: " + std::to_string(roll) + ")");
-}
-
-int GameMap::createPath(PathType pathType) {
-    // Create a new path
-    static int nextPathId = 1; // Start from 1 (0 is reserved for no path)
-    
-    Path path;
-    path.id = nextPathId++;
-    path.type = pathType;
-    
-    // Set difficulty/rewards based on path type
-    switch (pathType) {
-        case PathType::NORMAL:
-            path.difficultyRating = 5;
-            path.rewardsRating = 5;
-            break;
-        case PathType::ELITE:
-            path.difficultyRating = 8;
-            path.rewardsRating = 8;
-            break;
-        case PathType::SAFE:
-            path.difficultyRating = 3;
-            path.rewardsRating = 3;
-            break;
-        case PathType::RISKY:
-            path.difficultyRating = 7;
-            path.rewardsRating = 7;
-            break;
-        default:
-            path.difficultyRating = 5;
-            path.rewardsRating = 5;
-            break;
-    }
-    
-    // Store the path
-    paths_[path.id] = path;
-    
-    LOG_DEBUG("map", "Created path #" + std::to_string(path.id) + 
-              " of type " + std::to_string(static_cast<int>(pathType)));
-    
-    return path.id;
-}
-
-bool GameMap::validateMap() {
-    // Check if map is empty
-    if (rooms_.empty()) {
-        LOG_ERROR("map", "Map validation failed: No rooms");
-        return false;
-    }
-    
-    // Find start room
-    int startRoomId = -1;
-    for (const auto& [id, room] : rooms_) {
-        if (room.y == 0) {
-            startRoomId = id;
-            break;
-        }
-    }
-    
-    if (startRoomId == -1) {
-        LOG_ERROR("map", "Map validation failed: No start room");
-        return false;
-    }
-    
-    // Find boss room
-    int bossRoomId = -1;
-    int maxFloor = 0;
-    for (const auto& [id, room] : rooms_) {
-        if (room.y > maxFloor) {
-            maxFloor = room.y;
-        }
-        if (room.type == RoomType::BOSS) {
-            bossRoomId = id;
-        }
-    }
-    
-    if (bossRoomId == -1) {
-        LOG_ERROR("map", "Map validation failed: No boss room");
-        return false;
-    }
-    
-    // Log detailed map structure for debugging
-    LOG_INFO("map", "===== DEBUG: Map Structure =====");
-    for (const auto& [id, room] : rooms_) {
-        LOG_INFO("map", "Room #" + std::to_string(id) + 
-                 ": Type=" + std::to_string(static_cast<int>(room.type)) + 
-                 ", Floor=" + std::to_string(room.y) + 
-                 ", X=" + std::to_string(room.x) +
-                 ", Visited=" + (room.visited ? "true" : "false"));
-        
-        LOG_INFO("map", "  Connected to next rooms: ");
-        for (int nextId : room.nextRooms) {
-            auto nextIt = rooms_.find(nextId);
-            if (nextIt != rooms_.end()) {
-                LOG_INFO("map", "    -> Room #" + std::to_string(nextId) + 
-                        ": Type=" + std::to_string(static_cast<int>(nextIt->second.type)) + 
-                        ", Floor=" + std::to_string(nextIt->second.y));
-            } else {
-                LOG_INFO("map", "    -> Room #" + std::to_string(nextId) + " [NOT FOUND]");
+    bool is_sole_child_of_start_monster = false;
+    if (y == 1 && room.prevRooms.size() == 1) {
+        if (rooms_.count(room.prevRooms[0])) {
+            const Room& prevRoomOnFloor0 = rooms_.at(room.prevRooms[0]);
+            if (prevRoomOnFloor0.y == 0 && prevRoomOnFloor0.type == RoomType::MONSTER) {
+                is_sole_child_of_start_monster = true;
             }
         }
-        
-        LOG_INFO("map", "  Connected from previous rooms: ");
+    }
+
+    if (is_sole_child_of_start_monster) {
+        std::vector<RoomType> restricted_types = {RoomType::MONSTER, RoomType::EVENT};
+        std::vector<double> restricted_weights = {0.7, 0.3};
+        std::discrete_distribution<> dist(restricted_weights.begin(), restricted_weights.end());
+        room.type = restricted_types[dist(rng_)];
+        LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " (y:1) is sole child of start MONSTER. Forced to " + getRoomTypeString(room.type));
+        return;
+    }
+    
+    // 2. Determine possible types based on constraints
+    bool canBeElite = (y >= STS_ELITE_MIN_FLOOR_Y);
+    bool canBeRest = (y != (STS_PRE_BOSS_REST_FLOOR_Y - 1));
+    bool canBeShop = true;
+    bool prevWasElite = false;
+    bool prevWasEvent = false;
+
+    bool canBeMonster = true;
+    if (y == 1) {
         for (int prevId : room.prevRooms) {
-            auto prevIt = rooms_.find(prevId);
-            if (prevIt != rooms_.end()) {
-                LOG_INFO("map", "    <- Room #" + std::to_string(prevId) + 
-                        ": Type=" + std::to_string(static_cast<int>(prevIt->second.type)) + 
-                        ", Floor=" + std::to_string(prevIt->second.y));
-            } else {
-                LOG_INFO("map", "    <- Room #" + std::to_string(prevId) + " [NOT FOUND]");
-            }
-        }
-    }
-    LOG_INFO("map", "================================");
-    
-    // Check if boss room is reachable (breadth-first search)
-    std::unordered_set<int> visited;
-    std::queue<int> queue;
-    
-    // Start from the start room
-    queue.push(startRoomId);
-    visited.insert(startRoomId);
-    
-    bool canReachBoss = false;
-    while (!queue.empty()) {
-        int currentId = queue.front();
-        queue.pop();
-        
-        if (currentId == bossRoomId) {
-            canReachBoss = true;
-            break;
-        }
-        
-        // Add all connected rooms
-        auto it = rooms_.find(currentId);
-        if (it != rooms_.end()) {
-            for (int nextId : it->second.nextRooms) {
-                if (visited.find(nextId) == visited.end()) {
-                    visited.insert(nextId);
-                    queue.push(nextId);
+            if (rooms_.count(prevId)) {
+                const Room& prevRoomOnFloor0 = rooms_.at(prevId);
+                if (prevRoomOnFloor0.y == 0) {
+                    canBeMonster = false;
+                    LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " (y:1) connected from floor 0. Cannot be MONSTER.");
+                    break;
                 }
             }
         }
     }
-    
-    if (!canReachBoss) {
-        LOG_ERROR("map", "Map validation failed: Boss not reachable from start");
+
+    if (!room.prevRooms.empty()) {
+        int firstPrevRoomId = room.prevRooms[0];
+        if (rooms_.count(firstPrevRoomId)) {
+            const Room& prevRoom = rooms_.at(firstPrevRoomId);
+            if (prevRoom.type == RoomType::ELITE) prevWasElite = true;
+            if (prevRoom.type == RoomType::SHOP) { canBeShop = false; }
+            if (prevRoom.type == RoomType::REST) { canBeRest = false; }
+            if (prevRoom.type == RoomType::EVENT) { prevWasEvent = true; }
+        }
+    }
+
+    // 3. Weighted Random Selection from allowed types
+    std::vector<RoomType> possible_types;
+    std::vector<double> weights;
+
+    if (canBeMonster) {
+        possible_types.push_back(RoomType::MONSTER);
+        weights.push_back(prevWasElite ? 0.30 : (prevWasEvent ? 0.55 : 0.45)); // Increased weight if prev was Event
+    }
+
+    possible_types.push_back(RoomType::EVENT);
+    weights.push_back(prevWasEvent ? 0.15 : 0.25);
+
+    if (canBeShop) {
+        possible_types.push_back(RoomType::SHOP);
+        weights.push_back(0.15);
+    }
+    if (canBeElite && !prevWasElite) {
+        possible_types.push_back(RoomType::ELITE);
+        weights.push_back(0.10);
+    }
+    if (canBeRest && y > 0 && y < (STS_PRE_BOSS_REST_FLOOR_Y - 1)) {
+        possible_types.push_back(RoomType::REST);
+        weights.push_back(0.05);
+    }
+
+    if (possible_types.empty()) {
+        LOG_WARNING("map", "Room #" + std::to_string(roomId) + " y:" + std::to_string(y) + ": No possible types in weighted list, defaulting to EVENT.");
+            room.type = RoomType::EVENT;
+        return;
+    }
+
+    std::discrete_distribution<> dist(weights.begin(), weights.end());
+    room.type = possible_types[dist(rng_)];
+
+    if (y == (STS_PRE_BOSS_REST_FLOOR_Y - 1) && room.type == RoomType::REST) {
+        LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " on floor y=" + std::to_string(y) + " (pre-pre-boss) became REST, changing to MONSTER.");
+        room.type = RoomType::MONSTER;
+    }
+
+    if ((room.type == RoomType::SHOP || room.type == RoomType::REST) && room.prevRooms.size() == 1) {
+        if (rooms_.count(room.prevRooms[0])) {
+            const Room& predecessor = rooms_.at(room.prevRooms[0]);
+            if (predecessor.type == RoomType::MONSTER) {
+                std::string roomTypeStr = getRoomTypeString(room.type);
+                LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " (" + roomTypeStr + ") is sole child of MONSTER #" + std::to_string(predecessor.id) + ". Changing to EVENT.");
+                room.type = RoomType::EVENT;
+            }
+        }
+    }
+
+    LOG_DEBUG("map_detail", "Room #" + std::to_string(roomId) + " y:" + std::to_string(y) + " final type: " + getRoomTypeString(room.type));
+}
+
+bool GameMap::validateMap() {
+    if (rooms_.empty() || !rooms_.count(currentRoomId_)) {
+        LOG_ERROR("map_validate", "Validation failed: No rooms or currentRoomId_ is invalid.");
         return false;
     }
     
-    LOG_INFO("map", "Map validation passed");
+    const Room* startNode = getRoom(currentRoomId_);
+    if (!startNode) {
+        LOG_ERROR("map_validate", "Validation failed: Start node is null.");
+        return false;
+    }
+    
+    int bossNodeId = -1;
+    for(const auto& pair : rooms_) {
+        if (pair.second.type == RoomType::BOSS) {
+            bossNodeId = pair.first;
+            break;
+        }
+    }
+    if (bossNodeId == -1) {
+        LOG_ERROR("map_validate", "Validation failed: No boss node found.");
+        return false;
+    }
+    
+    std::queue<int> q;
+    std::unordered_set<int> visited_nodes;
+    
+    q.push(currentRoomId_);
+    visited_nodes.insert(currentRoomId_);
+    
+    bool boss_reached = false;
+    while(!q.empty()) {
+        int u_id = q.front();
+        q.pop();
+        
+        if (u_id == bossNodeId) {
+            boss_reached = true;
+            break;
+        }
+        
+        const Room* u_room = getRoom(u_id);
+        if (!u_room) continue;
+
+        for (int v_id : u_room->nextRooms) {
+            if (visited_nodes.find(v_id) == visited_nodes.end()) {
+                visited_nodes.insert(v_id);
+                q.push(v_id);
+            }
+        }
+    }
+
+    if (!boss_reached) {
+        LOG_ERROR("map_validate", "Validation failed: Boss room #" + std::to_string(bossNodeId) + " is not reachable from start room #" + std::to_string(currentRoomId_));
+        for(const auto& pair : rooms_) {
+            std::string conns = "";
+            for(int nid : pair.second.nextRooms) conns += std::to_string(nid) + ",";
+            LOG_DEBUG("map_validate", "Room #" + std::to_string(pair.first) + " (y:"+std::to_string(pair.second.y)+",x:"+std::to_string(pair.second.x)+", type:"+getRoomTypeString(pair.second.type)+") -> [" + conns + "]");
+        }
+        return false;
+    }
+    LOG_INFO("map_validate", "Map validation successful: Boss is reachable.");
     return true;
 }
 
 bool GameMap::canMoveTo(int roomId) const {
-    // Check if room exists
     auto roomIt = rooms_.find(roomId);
     if (roomIt == rooms_.end()) {
         return false;
     }
     
-    // Check if current room has a link to the target room
     if (currentRoomId_ < 0) {
-        // No current room, can only move to starting room
-        // Find the first room on the first floor
         for (const auto& room : rooms_) {
             if (room.second.y == 0) {
                 return roomId == room.first;
@@ -614,7 +665,6 @@ bool GameMap::canMoveTo(int roomId) const {
         return false;
     }
     
-    // Check if target room is in the next rooms list
     return std::find(currentRoomIt->second.nextRooms.begin(),
                     currentRoomIt->second.nextRooms.end(),
                     roomId) != currentRoomIt->second.nextRooms.end();
@@ -660,7 +710,6 @@ std::vector<int> GameMap::getAvailableRooms() const {
     LOG_INFO("map", "Current room #" + std::to_string(currentRoomId_) + 
              " has " + std::to_string(currentRoomIt->second.nextRooms.size()) + " connected rooms");
     
-    // Add all connected rooms that haven't been visited yet
     for (int nextRoomId : currentRoomIt->second.nextRooms) {
         auto nextRoomIt = rooms_.find(nextRoomId);
         if (nextRoomIt != rooms_.end()) {
@@ -696,7 +745,6 @@ void GameMap::markCurrentRoomVisited() {
         if (it != rooms_.end()) {
             it->second.visited = true;
             
-            // Check if it's a boss room
             if (it->second.type == RoomType::BOSS) {
                 bossDefeated_ = true;
             }
@@ -705,7 +753,6 @@ void GameMap::markCurrentRoomVisited() {
 }
 
 bool GameMap::isMapCompleted() const {
-    // Map is completed if all rooms have been visited or if the boss has been defeated
     if (bossDefeated_) {
         return true;
     }
@@ -739,43 +786,16 @@ int GameMap::getEnemyFloorRange() const {
     
     const Room& room = currentRoomIt->second;
     
-    // Base the floor range on a combination of:
-    // - Current floor/distance from start
-    // - Act number
-    // - Path difficulty
+    int floorRange = room.y;
     
-    int floorRange = room.distanceFromStart;
-    
-    // Factor 1: Act number (each act increases difficulty)
     floorRange += (act_ - 1) * 3;
     
-    // Factor 2: Path difficulty
-    switch (room.pathType) {
-        case PathType::SAFE:
-            // Easier enemies on safe path
-            floorRange -= 1;
-            break;
-        case PathType::NORMAL:
-            // No adjustment for normal path
-            break;
-        case PathType::RISKY:
-            // Harder enemies on risky path
-            floorRange += 1;
-            break;
-        case PathType::ELITE:
-            // Much harder enemies on elite path
-            floorRange += 2;
-            break;
-        default:
-            break;
-    }
-    
-    // Ensure the floor range is within reasonable bounds (0-15)
-    floorRange = std::max(0, std::min(15, floorRange));
+    floorRange = std::max(0, std::min(STS_NUM_FLOORS, floorRange)); 
     
     LOG_INFO("map", "Calculated enemy floor range: " + std::to_string(floorRange) + 
-             " for room at floor " + std::to_string(room.y) + 
-             " on path type " + std::to_string(static_cast<int>(room.pathType)));
+             " for room #" + std::to_string(room.id) +
+             " at floor " + std::to_string(room.y) +
+             " in act " + std::to_string(act_));
     
     return floorRange;
 }

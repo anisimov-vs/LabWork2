@@ -1,0 +1,25 @@
+{
+    "id": "piercing_shiv",
+    "name": "Piercing Shiv",
+    "description": "Deal 5 damage. Apply 1 Vulnerable.",
+    "type": "ATTACK",
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY",
+    "cost": 1,
+    "upgradable": true,
+    "class": "SILENT",
+    "effects": [
+        {
+            "type": "damage",
+            "value": 5,
+            "target": "enemy",
+            "upgraded_value": 7
+        },
+        {
+            "type": "apply_vulnerable",
+            "value": 1,
+            "target": "enemy",
+            "upgraded_value": 2
+        }
+    ]
+} 

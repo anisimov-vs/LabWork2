@@ -34,16 +34,32 @@ void Logger::setTestingMode(bool enabled) {
     if (enabled) {
         instance_->setConsoleEnabled(false);
         instance_->setConsoleLevel(LogLevel::Fatal);
+        instance_->testingMode_ = true;
+    } else {
+        instance_->testingMode_ = false;
     }
 }
 
+bool Logger::isInitialized() {
+    return static_cast<bool>(instance_);
+}
+
+bool Logger::isTestingMode() {
+    if (!instance_) {
+        return false;
+    }
+    return instance_->testingMode_;
+}
+
+bool Logger::isConsoleEnabled() const {
+    return consoleEnabled_;
+}
+
 Logger::Logger() {
-    // Create log directory if it doesn't exist
     std::filesystem::create_directories(logDirectory_);
 }
 
 Logger::~Logger() {
-    // Close all open log files
     for (auto& file : logFiles_) {
         if (file.second.is_open()) {
             file.second.close();
@@ -57,13 +73,11 @@ void Logger::log(LogLevel level, const std::string& category, const std::string&
     std::string timestamp = getTimestamp();
     std::string levelStr = getLevelString(level);
     
-    // Log to console if enabled and level is sufficient
     if (consoleEnabled_ && level >= consoleLevel_) {
         std::string colorCode = getLevelColor(level);
         std::cout << colorCode << timestamp << " [" << levelStr << "] " << category << ": " << message << "\033[0m" << std::endl;
     }
     
-    // Log to file if enabled and level is sufficient
     if (fileEnabled_ && level >= fileLevel_) {
         openLogFile(category);
         logFiles_[category] << timestamp << " [" << levelStr << "] " << message << std::endl;
@@ -89,6 +103,10 @@ void Logger::setFileEnabled(bool enabled) {
 void Logger::setLogDirectory(const std::string& directory) {
     logDirectory_ = directory;
     std::filesystem::create_directories(directory);
+}
+
+std::string Logger::getLogDirectory() const {
+    return logDirectory_;
 }
 
 std::string Logger::getLevelString(LogLevel level) {

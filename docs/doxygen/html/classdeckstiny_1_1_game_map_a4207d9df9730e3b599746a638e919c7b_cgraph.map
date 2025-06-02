@@ -1,0 +1,7 @@
+<map id="deckstiny::GameMap::validateMap" name="deckstiny::GameMap::validateMap">
+<area shape="rect" id="Node000001" title="Validate map to ensure it&#39;s completable." alt="" coords="5,39,151,79"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game_map.html#a0d085d14aff548c8054f298e60fa234d" title="Get a specific room." alt="" coords="199,5,344,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,44,183,38,183,44,151,49"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="199,71,344,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,68,183,74,183,79,150,74"/>
+</map>

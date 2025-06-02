@@ -105,8 +105,10 @@ $(function(){initNavTree('classdeckstiny_1_1_text_u_i.html',''); initResizable(t
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classdeckstiny_1_1_text_u_i-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">deckstiny::TextUI Class Reference</div></div>
 </div><!--header-->
@@ -222,6 +224,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad0ff19a76f167ff87a68c0ddd10646c2" id="r_ad0ff19a76f167ff87a68c0ddd10646c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0ff19a76f167ff87a68c0ddd10646c2">showEventResult</a> (const std::string &amp;resultText) override</td></tr>
 <tr class="memdesc:ad0ff19a76f167ff87a68c0ddd10646c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show an event result.  <br /></td></tr>
 <tr class="separator:ad0ff19a76f167ff87a68c0ddd10646c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb60bcaad0bf2651a6c2d7ddbad36436" id="r_afb60bcaad0bf2651a6c2d7ddbad36436"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb60bcaad0bf2651a6c2d7ddbad36436">showShop</a> (const std::vector&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> * &gt; &amp;cards, const std::vector&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> * &gt; &amp;relics, int playerGold) override</td></tr>
+<tr class="memdesc:afb60bcaad0bf2651a6c2d7ddbad36436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show the shop UI.  <br /></td></tr>
+<tr class="separator:afb60bcaad0bf2651a6c2d7ddbad36436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e60882142c82a133a18338e376cb6ce" id="r_a3e60882142c82a133a18338e376cb6ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e60882142c82a133a18338e376cb6ce">showShop</a> (const std::vector&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> * &gt; &amp;cards, const std::vector&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> * &gt; &amp;relics, const std::unordered_map&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> *, int &gt; &amp;relicPrices, int playerGold) override</td></tr>
+<tr class="memdesc:a3e60882142c82a133a18338e376cb6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show the shop UI with relic prices.  <br /></td></tr>
+<tr class="separator:a3e60882142c82a133a18338e376cb6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71feea77ca210a2bae1a95e66359c15a" id="r_a71feea77ca210a2bae1a95e66359c15a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71feea77ca210a2bae1a95e66359c15a">printDivider</a> (int width=80)</td></tr>
 <tr class="memdesc:a71feea77ca210a2bae1a95e66359c15a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a line of equals signs (useful for section dividers)  <br /></td></tr>
 <tr class="separator:a71feea77ca210a2bae1a95e66359c15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,14 +238,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5ab881a36bd32b7f7d975ea09fcbd247 inherit pub_methods_classdeckstiny_1_1_u_i_interface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <br /></td></tr>
 <tr class="separator:a5ab881a36bd32b7f7d975ea09fcbd247 inherit pub_methods_classdeckstiny_1_1_u_i_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af78be41b217cb98d0bab386d6834b70c" id="r_af78be41b217cb98d0bab386d6834b70c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af78be41b217cb98d0bab386d6834b70c">setTestingMode</a> (bool enabled)</td></tr>
+<tr class="memdesc:af78be41b217cb98d0bab386d6834b70c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the testing mode for <a class="el" href="classdeckstiny_1_1_text_u_i.html" title="Text-based implementation of UIInterface.">TextUI</a>. In testing mode, <a class="el" href="classdeckstiny_1_1_text_u_i.html" title="Text-based implementation of UIInterface.">TextUI</a> will not start its input thread or print to console.  <br /></td></tr>
+<tr class="separator:af78be41b217cb98d0bab386d6834b70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72e57f1fa6511106542e36181196d8a0" id="r_a72e57f1fa6511106542e36181196d8a0"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72e57f1fa6511106542e36181196d8a0">isTestingMode</a> ()</td></tr>
+<tr class="memdesc:a72e57f1fa6511106542e36181196d8a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <a class="el" href="classdeckstiny_1_1_text_u_i.html" title="Text-based implementation of UIInterface.">TextUI</a> is currently in testing mode.  <br /></td></tr>
+<tr class="separator:a72e57f1fa6511106542e36181196d8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a67c2872a32ad501a737d041a419012c9" id="r_a67c2872a32ad501a737d041a419012c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67c2872a32ad501a737d041a419012c9">inputThreadFunc</a> ()</td></tr>
 <tr class="memdesc:a67c2872a32ad501a737d041a419012c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input thread function.  <br /></td></tr>
 <tr class="separator:a67c2872a32ad501a737d041a419012c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afef7212d84a73d1c85bfc4fed46046cb" id="r_afef7212d84a73d1c85bfc4fed46046cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afef7212d84a73d1c85bfc4fed46046cb">processInput</a> ()</td></tr>
-<tr class="memdesc:afef7212d84a73d1c85bfc4fed46046cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process pending input.  <br /></td></tr>
-<tr class="separator:afef7212d84a73d1c85bfc4fed46046cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad58085971df7458b5c39dc9e6c2189d9" id="r_ad58085971df7458b5c39dc9e6c2189d9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad58085971df7458b5c39dc9e6c2189d9">getRoomTypeString</a> (<a class="el" href="namespacedeckstiny.html#a9b7f7429ce718f7d113f2e693936366d">RoomType</a> type) const</td></tr>
 <tr class="memdesc:ad58085971df7458b5c39dc9e6c2189d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get room type as string.  <br /></td></tr>
 <tr class="separator:ad58085971df7458b5c39dc9e6c2189d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,6 +304,11 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac96416a5f5079cc33c1ac894eb3fd085"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee9e4f0850e603819000894f9118bb3" id="r_a9ee9e4f0850e603819000894f9118bb3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ee9e4f0850e603819000894f9118bb3">lastInputPrompt</a></td></tr>
 <tr class="separator:a9ee9e4f0850e603819000894f9118bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:af662e6100c54bf863fd05e6b2f32e917" id="r_af662e6100c54bf863fd05e6b2f32e917"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af662e6100c54bf863fd05e6b2f32e917">testingModeEnabled_</a></td></tr>
+<tr class="separator:af662e6100c54bf863fd05e6b2f32e917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Text-based implementation of <a class="el" href="classdeckstiny_1_1_u_i_interface.html" title="Abstract interface for UI implementations.">UIInterface</a>. </p>
@@ -389,29 +408,41 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Centered string </dd></dl>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a3b10e1e1f729bcb4fe4d3258faf919a3_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a3b10e1e1f729bcb4fe4d3258faf919a3_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a3b10e1e1f729bcb4fe4d3258faf919a3_cgraph" id="aclassdeckstiny_1_1_text_u_i_a3b10e1e1f729bcb4fe4d3258faf919a3_cgraph">
+<area shape="rect" title="Center a string in a field." alt="" coords="5,5,138,46"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="186,5,318,46"/>
+<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a3b10e1e1f729bcb4fe4d3258faf919a3_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a3b10e1e1f729bcb4fe4d3258faf919a3_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a3b10e1e1f729bcb4fe4d3258faf919a3_icgraph" id="aclassdeckstiny_1_1_text_u_i_a3b10e1e1f729bcb4fe4d3258faf919a3_icgraph">
-<area shape="rect" title="Center a string in a field." alt="" coords="233,267,365,307"/>
+<area shape="rect" title="Center a string in a field." alt="" coords="233,300,365,341"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad032fbeeefead3ba7113448f2af1a057" title="Display the character selection screen." alt="" coords="13,5,177,46"/>
-<area shape="poly" title=" " alt="" coords="286,252,272,209,251,158,221,106,183,61,165,49,168,44,186,57,226,103,256,155,277,207,291,251"/>
+<area shape="poly" title=" " alt="" coords="289,285,277,236,256,176,225,114,206,86,183,61,166,49,169,44,186,57,210,83,230,112,261,174,282,234,294,284"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="29,71,161,111"/>
-<area shape="poly" title=" " alt="" coords="280,255,241,190,214,156,183,126,160,113,163,108,186,122,218,152,245,187,284,252"/>
+<area shape="poly" title=" " alt="" coords="283,287,268,249,246,206,218,164,183,126,160,112,163,107,186,122,222,160,251,204,273,247,288,284"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a8a9e64a0c2b686978b2342d9a6ac94cb" title="Display an enemy selection menu." alt="" coords="5,136,185,177"/>
-<area shape="poly" title=" " alt="" coords="266,258,228,224,183,192,159,180,161,175,186,187,231,220,269,254"/>
+<area shape="poly" title=" " alt="" coords="274,289,235,239,210,214,183,192,162,180,164,175,186,187,214,210,239,235,278,285"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2ba3c38d1cf810f7ffbce3a12aa8b429" title="Show an event." alt="" coords="29,201,161,242"/>
-<area shape="poly" title=" " alt="" coords="218,264,160,245,162,240,220,259"/>
+<area shape="poly" title=" " alt="" coords="251,294,184,257,155,245,157,240,186,253,253,289"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad0ff19a76f167ff87a68c0ddd10646c2" title="Show an event result." alt="" coords="29,267,161,307"/>
-<area shape="poly" title=" " alt="" coords="217,290,162,290,162,284,217,284"/>
+<area shape="poly" title=" " alt="" coords="217,310,161,300,162,295,218,304"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6c8e0ee2c83620e69ac9df7237de902c" title="Display game over screen." alt="" coords="29,332,161,373"/>
-<area shape="poly" title=" " alt="" coords="220,315,162,334,160,329,218,310"/>
+<area shape="poly" title=" " alt="" coords="218,336,162,345,161,339,217,330"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3ccd1d05f51874ddb606f8fe5a20fc3f" title="Display the main menu." alt="" coords="29,397,161,438"/>
-<area shape="poly" title=" " alt="" coords="269,320,231,354,186,387,161,399,159,394,183,382,228,350,266,316"/>
+<area shape="poly" title=" " alt="" coords="252,351,186,387,157,399,155,394,184,382,250,347"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a7e3a4a0473a44c567caf384ff313e4d9" title="Show the game map." alt="" coords="29,463,161,503"/>
-<area shape="poly" title=" " alt="" coords="284,322,245,387,218,422,186,452,163,466,160,461,183,448,214,418,241,384,280,319"/>
+<area shape="poly" title=" " alt="" coords="278,355,239,404,214,430,186,452,163,465,160,460,183,447,210,426,235,401,274,352"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="29,528,161,569"/>
-<area shape="poly" title=" " alt="" coords="291,323,277,367,256,419,226,471,186,517,163,532,160,528,183,513,221,468,251,416,272,365,286,322"/>
+<area shape="poly" title=" " alt="" coords="288,356,273,393,251,436,222,479,186,517,163,532,160,527,183,513,218,476,246,433,268,391,283,354"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3e60882142c82a133a18338e376cb6ce" title="Show the shop UI with relic prices." alt="" coords="29,593,161,634"/>
+<area shape="poly" title=" " alt="" coords="294,356,282,406,261,466,230,528,210,557,186,582,163,598,160,594,183,578,205,553,225,525,256,464,276,405,289,355"/>
 </map>
 </div>
 
@@ -444,28 +475,42 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="classdeckstiny_1_1_u_i_interface.html#af05c9dbcd902de94e7629de7bf88f749">deckstiny::UIInterface</a>.</p>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a6fd91abd11bd7fcfd51d6800eb160ec5_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a6fd91abd11bd7fcfd51d6800eb160ec5_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a6fd91abd11bd7fcfd51d6800eb160ec5_cgraph" id="aclassdeckstiny_1_1_text_u_i_a6fd91abd11bd7fcfd51d6800eb160ec5_cgraph">
+<area shape="rect" title="Clear the screen." alt="" coords="5,5,138,46"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="186,5,318,46"/>
+<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a6fd91abd11bd7fcfd51d6800eb160ec5_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a6fd91abd11bd7fcfd51d6800eb160ec5_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a6fd91abd11bd7fcfd51d6800eb160ec5_icgraph" id="aclassdeckstiny_1_1_text_u_i_a6fd91abd11bd7fcfd51d6800eb160ec5_icgraph">
-<area shape="rect" title="Clear the screen." alt="" coords="413,235,545,275"/>
+<area shape="rect" title="Clear the screen." alt="" coords="413,300,545,341"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad032fbeeefead3ba7113448f2af1a057" title="Display the character selection screen." alt="" coords="194,5,357,46"/>
-<area shape="poly" title=" " alt="" coords="464,221,448,184,427,141,398,98,363,61,345,49,348,44,367,57,402,95,431,138,453,182,469,219"/>
+<area shape="poly" title=" " alt="" coords="469,285,457,236,436,176,405,114,386,86,363,61,347,49,350,44,367,57,390,83,410,112,441,174,462,234,474,284"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="209,71,342,111"/>
-<area shape="poly" title=" " alt="" coords="454,223,415,174,390,149,363,127,340,114,343,109,367,122,394,145,419,170,458,220"/>
+<area shape="poly" title=" " alt="" coords="464,287,448,249,427,206,398,164,363,126,340,112,343,107,367,122,402,160,431,204,453,247,469,284"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a8a9e64a0c2b686978b2342d9a6ac94cb" title="Display an enemy selection menu." alt="" coords="186,136,365,177"/>
-<area shape="poly" title=" " alt="" coords="431,229,364,192,335,180,337,175,366,187,434,224"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6c8e0ee2c83620e69ac9df7237de902c" title="Display game over screen." alt="" coords="209,201,342,242"/>
-<area shape="poly" title=" " alt="" coords="397,244,342,235,342,230,398,239"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3ccd1d05f51874ddb606f8fe5a20fc3f" title="Display the main menu." alt="" coords="209,267,342,307"/>
-<area shape="poly" title=" " alt="" coords="398,270,342,279,342,274,397,265"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a7e3a4a0473a44c567caf384ff313e4d9" title="Show the game map." alt="" coords="209,332,342,373"/>
-<area shape="poly" title=" " alt="" coords="433,286,366,321,337,334,335,329,364,317,430,281"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="5,419,138,459"/>
-<area shape="poly" title=" " alt="" coords="460,290,421,341,395,366,366,387,325,402,266,415,138,434,138,429,265,410,323,397,364,382,392,362,417,337,456,287"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2e7e17009a97cc71e45490f018946f4a" title="Wait for a key press." alt="" coords="209,447,342,487"/>
-<area shape="poly" title=" " alt="" coords="465,291,426,360,399,397,367,430,339,448,336,444,363,426,395,394,422,357,461,288"/>
-<area shape="poly" title=" " alt="" coords="193,458,138,451,139,445,194,453"/>
+<area shape="poly" title=" " alt="" coords="454,289,415,239,390,214,363,192,342,180,344,175,367,187,394,210,419,235,458,285"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad0ff19a76f167ff87a68c0ddd10646c2" title="Show an event result." alt="" coords="209,201,342,242"/>
+<area shape="poly" title=" " alt="" coords="431,294,364,257,335,245,337,240,366,253,434,289"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6c8e0ee2c83620e69ac9df7237de902c" title="Display game over screen." alt="" coords="209,267,342,307"/>
+<area shape="poly" title=" " alt="" coords="397,310,342,300,342,295,398,304"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3ccd1d05f51874ddb606f8fe5a20fc3f" title="Display the main menu." alt="" coords="209,332,342,373"/>
+<area shape="poly" title=" " alt="" coords="398,336,342,345,342,339,397,330"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a7e3a4a0473a44c567caf384ff313e4d9" title="Show the game map." alt="" coords="209,397,342,438"/>
+<area shape="poly" title=" " alt="" coords="433,351,366,387,337,399,335,394,364,382,430,347"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="5,516,138,557"/>
+<area shape="poly" title=" " alt="" coords="459,355,420,405,395,430,366,452,320,475,279,485,238,491,186,503,138,518,136,513,185,498,237,486,278,480,318,470,364,447,391,426,416,402,455,352"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3e60882142c82a133a18338e376cb6ce" title="Show the shop UI with relic prices." alt="" coords="209,512,342,553"/>
+<area shape="poly" title=" " alt="" coords="465,356,426,426,399,463,367,496,339,514,336,509,363,492,395,459,422,423,461,353"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2e7e17009a97cc71e45490f018946f4a" title="Wait for a key press." alt="" coords="209,577,342,618"/>
+<area shape="poly" title=" " alt="" coords="473,357,460,403,439,459,408,516,389,543,367,566,343,582,340,578,363,562,385,539,404,513,434,457,455,402,468,355"/>
+<area shape="poly" title=" " alt="" coords="193,576,137,559,139,554,195,571"/>
 </map>
 </div>
 
@@ -499,25 +544,39 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a55a6e2bb5b5b6ba2c07661307bd8159b_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a55a6e2bb5b5b6ba2c07661307bd8159b_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a55a6e2bb5b5b6ba2c07661307bd8159b_cgraph" id="aclassdeckstiny_1_1_text_u_i_a55a6e2bb5b5b6ba2c07661307bd8159b_cgraph">
+<area shape="rect" title="Draw a horizontal line." alt="" coords="5,5,138,46"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="186,5,318,46"/>
+<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a55a6e2bb5b5b6ba2c07661307bd8159b_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a55a6e2bb5b5b6ba2c07661307bd8159b_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a55a6e2bb5b5b6ba2c07661307bd8159b_icgraph" id="aclassdeckstiny_1_1_text_u_i_a55a6e2bb5b5b6ba2c07661307bd8159b_icgraph">
-<area shape="rect" title="Draw a horizontal line." alt="" coords="233,201,365,242"/>
+<area shape="rect" title="Draw a horizontal line." alt="" coords="233,267,365,307"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad032fbeeefead3ba7113448f2af1a057" title="Display the character selection screen." alt="" coords="13,5,177,46"/>
-<area shape="poly" title=" " alt="" coords="280,189,241,124,214,91,183,61,163,49,166,44,186,57,218,87,245,121,284,187"/>
+<area shape="poly" title=" " alt="" coords="286,252,272,209,251,158,221,106,183,61,165,49,168,44,186,57,226,103,256,155,277,207,291,251"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="29,71,161,111"/>
-<area shape="poly" title=" " alt="" coords="266,193,228,159,183,127,159,114,161,109,186,122,231,154,269,189"/>
+<area shape="poly" title=" " alt="" coords="280,255,241,190,214,156,183,126,160,113,163,108,186,122,218,152,245,187,284,252"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a8a9e64a0c2b686978b2342d9a6ac94cb" title="Display an enemy selection menu." alt="" coords="5,136,185,177"/>
-<area shape="poly" title=" " alt="" coords="218,199,160,180,162,175,220,194"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6c8e0ee2c83620e69ac9df7237de902c" title="Display game over screen." alt="" coords="29,201,161,242"/>
-<area shape="poly" title=" " alt="" coords="217,224,162,224,162,219,217,219"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3ccd1d05f51874ddb606f8fe5a20fc3f" title="Display the main menu." alt="" coords="29,267,161,307"/>
-<area shape="poly" title=" " alt="" coords="220,250,162,269,160,263,218,245"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a7e3a4a0473a44c567caf384ff313e4d9" title="Show the game map." alt="" coords="29,332,161,373"/>
-<area shape="poly" title=" " alt="" coords="269,255,231,289,186,321,161,334,159,329,183,317,228,285,266,251"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="29,397,161,438"/>
-<area shape="poly" title=" " alt="" coords="284,257,245,322,218,356,186,386,163,401,160,396,183,382,214,353,241,319,280,254"/>
+<area shape="poly" title=" " alt="" coords="266,258,228,224,183,192,159,180,161,175,186,187,231,220,269,254"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad0ff19a76f167ff87a68c0ddd10646c2" title="Show an event result." alt="" coords="29,201,161,242"/>
+<area shape="poly" title=" " alt="" coords="218,264,160,245,162,240,220,259"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6c8e0ee2c83620e69ac9df7237de902c" title="Display game over screen." alt="" coords="29,267,161,307"/>
+<area shape="poly" title=" " alt="" coords="217,290,162,290,162,284,217,284"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3ccd1d05f51874ddb606f8fe5a20fc3f" title="Display the main menu." alt="" coords="29,332,161,373"/>
+<area shape="poly" title=" " alt="" coords="220,315,162,334,160,329,218,310"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a7e3a4a0473a44c567caf384ff313e4d9" title="Show the game map." alt="" coords="29,397,161,438"/>
+<area shape="poly" title=" " alt="" coords="269,320,231,354,186,387,161,399,159,394,183,382,228,350,266,316"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="29,463,161,503"/>
+<area shape="poly" title=" " alt="" coords="284,322,245,387,218,422,186,452,163,466,160,461,183,448,214,418,241,384,280,319"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3e60882142c82a133a18338e376cb6ce" title="Show the shop UI with relic prices." alt="" coords="29,528,161,569"/>
+<area shape="poly" title=" " alt="" coords="291,323,277,367,256,419,226,471,186,517,163,532,160,528,183,513,221,468,251,416,272,365,286,322"/>
 </map>
 </div>
 
@@ -645,14 +704,16 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a4a932ec86db4dee32c4e1c8c108284e7_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a4a932ec86db4dee32c4e1c8c108284e7_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a4a932ec86db4dee32c4e1c8c108284e7_cgraph" id="aclassdeckstiny_1_1_text_u_i_a4a932ec86db4dee32c4e1c8c108284e7_cgraph">
-<area shape="rect" title="Display a prompt and get input." alt="" coords="5,71,138,111"/>
-<area shape="poly" title=" " alt="" coords="37,71,35,61,41,52,53,46,72,44,91,46,103,53,100,57,90,52,71,49,55,51,44,56,40,62,42,70"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ab1e7ed646845e8228b814915df2dfb82" title="Show help for combat commands." alt="" coords="186,5,318,46"/>
-<area shape="poly" title=" " alt="" coords="129,68,179,49,180,54,130,73"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ab48e6f4f767c4d7b1f0357cffaa49620" title="Show help for event commands." alt="" coords="186,71,318,111"/>
-<area shape="poly" title=" " alt="" coords="138,88,170,88,170,94,138,94"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a8e708d00421a2010bcc127908702803c" title="Show help for map commands." alt="" coords="186,136,318,177"/>
-<area shape="poly" title=" " alt="" coords="130,109,180,128,179,133,129,114"/>
+<area shape="rect" title="Display a prompt and get input." alt="" coords="5,104,138,145"/>
+<area shape="poly" title=" " alt="" coords="37,104,35,94,41,85,53,79,72,77,91,80,103,86,100,91,90,85,71,83,55,85,44,89,40,95,42,103"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="186,5,318,46"/>
+<area shape="poly" title=" " alt="" coords="106,101,184,57,195,51,197,56,187,61,109,106"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ab1e7ed646845e8228b814915df2dfb82" title="Show help for combat commands." alt="" coords="186,71,318,111"/>
+<area shape="poly" title=" " alt="" coords="137,109,170,103,171,109,138,115"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ab48e6f4f767c4d7b1f0357cffaa49620" title="Show help for event commands." alt="" coords="186,136,318,177"/>
+<area shape="poly" title=" " alt="" coords="138,133,171,139,170,145,138,139"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a8e708d00421a2010bcc127908702803c" title="Show help for map commands." alt="" coords="186,201,318,242"/>
+<area shape="poly" title=" " alt="" coords="110,143,187,186,197,191,195,196,184,191,107,148"/>
 </map>
 </div>
 <div class="dynheader">
@@ -797,9 +858,12 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a052e08d4e7d9e4c25df74b8ace5ea45b_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a052e08d4e7d9e4c25df74b8ace5ea45b_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a052e08d4e7d9e4c25df74b8ace5ea45b_cgraph" id="aclassdeckstiny_1_1_text_u_i_a052e08d4e7d9e4c25df74b8ace5ea45b_cgraph">
-<area shape="rect" title="Initialize the UI." alt="" coords="5,5,138,46"/>
+<area shape="rect" title="Initialize the UI." alt="" coords="5,35,138,75"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a67c2872a32ad501a737d041a419012c9" title="Input thread function." alt="" coords="186,5,318,46"/>
-<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+<area shape="poly" title=" " alt="" coords="138,42,170,36,171,42,138,47"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="366,35,498,75"/>
+<area shape="poly" title=" " alt="" coords="138,54,186,55,318,55,350,54,351,60,318,60,186,60,138,59"/>
+<area shape="poly" title=" " alt="" coords="319,34,351,39,350,44,318,39"/>
 </map>
 </div>
 
@@ -830,6 +894,16 @@ Here is the call graph for this function:</div>
 
 <p>Input thread function. </p>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a67c2872a32ad501a737d041a419012c9_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a67c2872a32ad501a737d041a419012c9_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a67c2872a32ad501a737d041a419012c9_cgraph" id="aclassdeckstiny_1_1_text_u_i_a67c2872a32ad501a737d041a419012c9_cgraph">
+<area shape="rect" title="Input thread function." alt="" coords="5,5,138,46"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="186,5,318,46"/>
+<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a67c2872a32ad501a737d041a419012c9_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a67c2872a32ad501a737d041a419012c9_icgraph" alt=""/></div>
@@ -837,6 +911,135 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Input thread function." alt="" coords="186,5,318,46"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a052e08d4e7d9e4c25df74b8ace5ea45b" title="Initialize the UI." alt="" coords="5,5,138,46"/>
 <area shape="poly" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a72e57f1fa6511106542e36181196d8a0" name="a72e57f1fa6511106542e36181196d8a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72e57f1fa6511106542e36181196d8a0">&#9670;&#160;</a></span>isTestingMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deckstiny::TextUI::isTestingMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if <a class="el" href="classdeckstiny_1_1_text_u_i.html" title="Text-based implementation of UIInterface.">TextUI</a> is currently in testing mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if in testing mode, false otherwise. </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a72e57f1fa6511106542e36181196d8a0_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a72e57f1fa6511106542e36181196d8a0_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a72e57f1fa6511106542e36181196d8a0_icgraph" id="aclassdeckstiny_1_1_text_u_i_a72e57f1fa6511106542e36181196d8a0_icgraph">
+<area shape="rect" title="Checks if TextUI is currently in testing mode." alt="" coords="593,678,726,719"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="413,312,545,352"/>
+<area shape="poly" title=" " alt="" coords="651,663,641,603,621,526,589,446,568,407,543,372,523,355,527,351,547,369,573,405,594,443,626,525,646,601,657,662"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad032fbeeefead3ba7113448f2af1a057" title="Display the character selection screen." alt="" coords="194,341,357,382"/>
+<area shape="poly" title=" " alt="" coords="651,663,637,575,614,465,600,412,583,364,564,326,544,302,512,285,483,283,452,291,414,302,390,315,366,330,337,343,335,338,364,325,387,310,412,297,450,286,483,278,514,280,547,298,569,323,588,362,605,410,619,464,642,574,656,663"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="209,766,342,807"/>
+<area shape="poly" title=" " alt="" coords="654,735,641,779,621,829,590,877,570,898,547,915,511,933,479,939,447,933,412,915,399,905,391,894,385,870,379,845,373,833,363,822,341,807,344,803,367,818,378,830,384,843,390,868,396,892,403,902,414,911,449,928,479,933,510,928,544,911,566,894,585,874,616,827,636,777,649,733"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a8a9e64a0c2b686978b2342d9a6ac94cb" title="Display an enemy selection menu." alt="" coords="186,701,365,742"/>
+<area shape="poly" title=" " alt="" coords="578,698,545,697,479,695,413,697,366,704,365,699,413,692,479,689,545,692,578,693"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2ba3c38d1cf810f7ffbce3a12aa8b429" title="Show an event." alt="" coords="209,45,342,86"/>
+<area shape="poly" title=" " alt="" coords="655,663,650,523,635,332,621,236,601,149,576,80,560,54,544,35,518,19,490,11,459,8,428,11,368,26,317,47,315,42,366,21,428,5,459,3,491,5,520,14,547,31,565,51,580,77,606,148,626,235,640,331,656,522,661,663"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad0ff19a76f167ff87a68c0ddd10646c2" title="Show an event result." alt="" coords="209,406,342,447"/>
+<area shape="poly" title=" " alt="" coords="653,663,645,606,627,537,613,502,595,470,572,441,544,417,520,404,493,395,438,390,383,396,334,408,333,403,382,391,438,385,495,390,522,399,547,412,576,437,599,467,618,500,632,535,651,605,659,662"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6c8e0ee2c83620e69ac9df7237de902c" title="Display game over screen." alt="" coords="209,276,342,316"/>
+<area shape="poly" title=" " alt="" coords="652,663,639,569,616,451,602,393,585,341,565,300,544,274,530,267,510,264,458,264,399,272,343,283,342,277,398,267,458,259,511,258,531,262,547,270,570,297,590,339,607,391,622,449,644,568,657,662"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3ccd1d05f51874ddb606f8fe5a20fc3f" title="Display the main menu." alt="" coords="209,210,342,251"/>
+<area shape="poly" title=" " alt="" coords="652,663,639,565,618,439,603,378,586,323,566,278,544,250,522,235,498,224,445,213,391,212,342,218,342,212,391,207,445,207,499,219,524,230,547,246,570,276,591,321,608,376,623,438,645,564,657,662"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a7e3a4a0473a44c567caf384ff313e4d9" title="Show the game map." alt="" coords="209,586,342,627"/>
+<area shape="poly" title=" " alt="" coords="578,682,341,625,342,620,579,677"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="5,644,138,684"/>
+<area shape="poly" title=" " alt="" coords="652,663,640,559,617,423,603,355,585,294,566,244,543,211,523,193,503,181,484,174,464,171,420,170,365,166,312,155,269,144,249,142,229,144,209,152,187,166,174,180,161,200,139,253,121,320,106,394,86,540,77,643,72,643,81,540,101,394,116,319,134,252,157,197,170,177,184,162,207,147,228,139,249,137,269,139,313,150,365,161,420,164,464,166,485,169,505,176,526,189,547,207,570,242,590,292,608,354,623,422,645,558,657,663"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3e60882142c82a133a18338e376cb6ce" title="Show the shop UI with relic prices." alt="" coords="209,521,342,562"/>
+<area shape="poly" title=" " alt="" coords="644,665,629,631,608,593,579,558,544,531,520,521,495,514,442,510,390,514,343,523,342,518,389,508,442,504,496,509,522,516,547,527,583,555,612,590,634,628,649,663"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="413,541,545,582"/>
+<area shape="poly" title=" " alt="" coords="624,670,544,602,517,584,520,580,547,598,628,666"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2e7e17009a97cc71e45490f018946f4a" title="Wait for a key press." alt="" coords="209,832,342,872"/>
+<area shape="poly" title=" " alt="" coords="661,735,656,801,640,883,625,925,605,964,580,1000,547,1030,513,1048,481,1053,448,1046,412,1030,393,1017,383,1002,375,985,363,965,291,874,296,871,367,962,380,982,388,999,397,1013,414,1026,450,1041,481,1048,511,1043,544,1026,576,997,601,962,620,923,634,881,651,800,656,734"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="413,426,545,467"/>
+<area shape="poly" title=" " alt="" coords="644,665,606,579,578,531,543,487,521,469,525,465,547,483,582,528,611,576,649,663"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a4a932ec86db4dee32c4e1c8c108284e7" title="Display a prompt and get input." alt="" coords="413,796,545,836"/>
+<area shape="poly" title=" " alt="" coords="615,730,513,797,511,793,612,725"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a052e08d4e7d9e4c25df74b8ace5ea45b" title="Initialize the UI." alt="" coords="209,1349,342,1390"/>
+<area shape="poly" title=" " alt="" coords="661,735,656,877,641,1071,626,1169,607,1257,581,1328,565,1355,547,1375,523,1391,497,1401,470,1407,441,1409,385,1404,335,1393,336,1388,386,1399,441,1404,469,1402,496,1396,521,1386,544,1371,561,1352,576,1326,602,1255,621,1168,635,1070,651,876,655,734"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a67c2872a32ad501a737d041a419012c9" title="Input thread function." alt="" coords="413,1321,545,1362"/>
+<area shape="poly" title=" " alt="" coords="658,735,646,859,624,1027,609,1113,591,1191,571,1257,547,1304,528,1323,525,1319,543,1301,566,1255,586,1190,604,1112,619,1026,641,858,653,734"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a71feea77ca210a2bae1a95e66359c15a" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="413,45,545,86"/>
+<area shape="poly" title=" " alt="" coords="653,663,640,541,618,376,603,292,586,215,566,151,543,105,525,88,528,84,547,102,571,149,591,213,608,291,623,375,646,540,658,663"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="413,976,545,1016"/>
+<area shape="poly" title=" " alt="" coords="653,735,639,783,617,842,587,903,547,959,526,977,522,973,543,955,582,900,612,840,634,781,648,733"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6712c5f811b74e5d2b7c5a7cac3b0654" title="Display a list of cards." alt="" coords="209,976,342,1016"/>
+<area shape="poly" title=" " alt="" coords="662,735,659,806,644,895,629,941,609,985,582,1025,547,1058,517,1073,485,1080,452,1079,418,1072,355,1047,306,1019,308,1014,357,1042,419,1067,452,1073,485,1074,515,1068,544,1054,578,1022,605,983,624,940,639,894,654,805,657,734"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a31b45e014a6211c4df53dda67a80230d" title="Display enemy stats." alt="" coords="413,706,545,747"/>
+<area shape="poly" title=" " alt="" coords="578,714,546,719,545,714,578,709"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a461f5c4953f1abc5c53626d6d6ad1a6a" title="Display a message." alt="" coords="413,1206,545,1247"/>
+<area shape="poly" title=" " alt="" coords="657,735,642,839,619,975,587,1106,568,1158,547,1195,534,1208,530,1204,543,1192,563,1156,582,1104,614,974,637,838,651,734"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a9e36b39033de41d2022279da95ee3883" title="Display player stats." alt="" coords="413,861,545,902"/>
+<area shape="poly" title=" " alt="" coords="641,734,602,791,576,822,547,850,529,862,526,858,544,846,572,818,597,788,637,731"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2cfab4e3e6939e1432e34ac29cf0a239" title="Display a relic." alt="" coords="413,1141,545,1182"/>
+<area shape="poly" title=" " alt="" coords="660,735,654,811,637,913,623,968,603,1023,579,1076,547,1124,528,1142,524,1138,543,1121,574,1073,598,1021,617,966,632,912,649,811,655,734"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a98ca955c6fb22db0b75b0ab2b6caf61c" title="Display a list of relics." alt="" coords="209,1141,342,1182"/>
+<area shape="poly" title=" " alt="" coords="659,735,651,855,632,1014,618,1094,599,1165,576,1223,562,1244,547,1261,516,1278,481,1282,446,1276,411,1263,377,1245,346,1224,297,1184,300,1180,349,1220,379,1240,413,1258,447,1271,481,1277,514,1273,544,1256,558,1241,571,1220,594,1163,612,1092,627,1013,646,854,654,734"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a4ea9ca2266a48f3d99206319a3aa97f8" title="Update the display." alt="" coords="413,1436,545,1476"/>
+<area shape="poly" title=" " alt="" coords="659,734,650,880,630,1082,615,1186,597,1281,574,1361,562,1393,547,1419,529,1437,525,1433,543,1416,557,1391,569,1360,592,1280,610,1185,625,1081,645,879,654,734"/>
+<area shape="poly" title=" " alt="" coords="398,346,358,352,357,347,397,341"/>
+<area shape="poly" title=" " alt="" coords="449,365,430,389,415,416,400,465,396,510,399,552,405,591,409,631,407,670,394,711,367,755,344,773,340,769,363,751,389,709,402,669,404,631,400,592,394,552,391,510,395,464,411,413,426,386,445,362"/>
+<area shape="poly" title=" " alt="" coords="449,366,431,389,415,416,403,448,397,476,394,528,390,580,382,608,367,640,340,675,309,702,305,698,336,671,363,637,377,606,385,579,389,528,392,476,398,446,411,413,426,386,445,362"/>
+<area shape="poly" title=" " alt="" coords="457,299,416,231,363,156,330,119,298,88,302,84,334,115,367,153,420,228,461,296"/>
+<area shape="poly" title=" " alt="" coords="431,362,366,396,337,408,335,403,364,391,428,358"/>
+<area shape="poly" title=" " alt="" coords="397,320,342,310,342,305,398,315"/>
+<area shape="poly" title=" " alt="" coords="433,305,364,266,336,254,338,249,366,261,435,300"/>
+<area shape="poly" title=" " alt="" coords="450,366,415,416,406,439,401,460,398,498,391,536,382,555,367,575,343,592,340,588,363,571,378,552,386,534,392,498,396,459,401,437,411,413,446,363"/>
+<area shape="poly" title=" " alt="" coords="458,299,420,245,394,220,364,201,314,180,271,170,251,171,231,176,210,185,187,201,175,214,163,232,141,281,123,343,108,412,87,547,77,644,72,643,82,547,103,411,118,342,136,279,158,229,171,210,184,196,207,181,229,170,251,165,272,165,316,175,366,196,397,216,424,242,463,296"/>
+<area shape="poly" title=" " alt="" coords="453,366,367,460,302,522,298,518,363,457,449,362"/>
+<area shape="poly" title=" " alt="" coords="448,530,411,480,398,455,390,435,381,416,363,397,345,384,348,380,367,392,385,413,395,433,402,453,415,477,453,527"/>
+<area shape="poly" title=" " alt="" coords="464,597,416,686,390,727,367,755,343,770,340,766,363,751,386,724,412,683,459,594"/>
+<area shape="poly" title=" " alt="" coords="455,596,416,641,367,685,335,703,332,698,363,680,412,637,451,592"/>
+<area shape="poly" title=" " alt="" coords="433,534,307,450,310,445,436,530"/>
+<area shape="poly" title=" " alt="" coords="446,530,411,480,401,457,396,437,392,400,386,366,377,349,363,331,341,315,344,311,367,327,382,346,391,364,397,399,401,436,406,456,415,477,450,527"/>
+<area shape="poly" title=" " alt="" coords="445,531,426,507,411,480,399,448,394,418,395,366,395,341,391,317,381,292,363,266,340,248,343,244,367,262,386,289,396,315,400,341,400,366,400,418,404,446,415,477,431,504,449,527"/>
+<area shape="poly" title=" " alt="" coords="398,582,343,594,341,589,397,577"/>
+<area shape="poly" title=" " alt="" coords="445,594,409,620,366,641,307,657,247,666,138,670,138,665,246,661,306,652,364,636,406,615,442,589"/>
+<area shape="poly" title=" " alt="" coords="397,556,342,550,342,545,398,551"/>
+<area shape="poly" title=" " alt="" coords="462,597,415,695,404,732,398,762,389,790,367,820,343,837,340,832,363,817,385,788,393,761,399,730,411,694,458,595"/>
+<area shape="poly" title=" " alt="" coords="194,828,184,821,149,788,120,751,80,686,85,683,124,748,153,785,187,816,197,823"/>
+<area shape="poly" title=" " alt="" coords="419,422,364,397,333,385,335,380,366,392,422,417"/>
+<area shape="poly" title=" " alt="" coords="449,480,431,504,415,530,404,563,399,592,400,647,401,673,397,699,387,726,367,755,343,773,340,769,363,751,382,724,392,698,395,673,395,647,394,592,399,561,411,528,426,501,445,477"/>
+<area shape="poly" title=" " alt="" coords="452,480,415,531,401,560,393,586,384,611,367,640,337,675,306,702,302,698,333,671,363,637,379,608,388,584,396,558,411,528,447,477"/>
+<area shape="poly" title=" " alt="" coords="397,441,342,436,342,430,398,436"/>
+<area shape="poly" title=" " alt="" coords="451,415,412,372,364,331,341,319,343,314,366,327,416,368,455,412"/>
+<area shape="poly" title=" " alt="" coords="448,416,411,365,397,336,390,311,382,289,363,266,340,251,343,246,367,262,386,286,395,310,402,334,415,362,452,413"/>
+<area shape="poly" title=" " alt="" coords="454,481,408,535,367,575,343,588,341,584,363,571,404,531,450,477"/>
+<area shape="poly" title=" " alt="" coords="399,460,278,481,224,496,187,511,152,541,122,578,100,614,84,644,80,642,95,611,118,574,148,538,184,507,222,491,276,476,398,454"/>
+<area shape="poly" title=" " alt="" coords="424,477,366,505,327,523,324,518,364,500,422,472"/>
+<area shape="poly" title=" " alt="" coords="508,782,497,776,479,774,462,776,452,781,448,787,450,794,445,795,443,786,449,777,461,771,479,769,499,771,511,778"/>
+<area shape="poly" title=" " alt="" coords="398,1355,342,1363,342,1357,397,1350"/>
+<area shape="poly" title=" " alt="" coords="397,68,342,68,342,63,397,63"/>
+<area shape="poly" title=" " alt="" coords="420,968,411,959,399,940,392,922,388,887,383,855,376,838,363,822,340,806,344,801,367,818,381,836,388,853,393,887,397,920,403,938,415,956,424,964"/>
+<area shape="poly" title=" " alt="" coords="397,999,342,999,342,993,397,993"/>
+<area shape="poly" title=" " alt="" coords="244,965,183,885,121,774,79,686,84,683,126,772,188,882,248,962"/>
+<area shape="poly" title=" " alt="" coords="399,753,343,770,341,764,397,748"/>
+<area shape="poly" title=" " alt="" coords="397,727,365,726,365,721,397,722"/>
+<area shape="poly" title=" " alt="" coords="422,856,412,850,364,822,335,810,337,805,366,817,414,846,424,851"/>
+<area shape="poly" title=" " alt="" coords="397,1164,342,1164,342,1159,397,1159"/>
+<area shape="poly" title=" " alt="" coords="246,1130,214,1083,183,1029,143,931,111,832,75,685,80,684,116,830,148,929,188,1027,219,1081,251,1127"/>
 </map>
 </div>
 
@@ -865,44 +1068,25 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a71feea77ca210a2bae1a95e66359c15a_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a71feea77ca210a2bae1a95e66359c15a_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a71feea77ca210a2bae1a95e66359c15a_cgraph" id="aclassdeckstiny_1_1_text_u_i_a71feea77ca210a2bae1a95e66359c15a_cgraph">
+<area shape="rect" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="5,5,138,46"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="186,5,318,46"/>
+<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a71feea77ca210a2bae1a95e66359c15a_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a71feea77ca210a2bae1a95e66359c15a_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a71feea77ca210a2bae1a95e66359c15a_icgraph" id="aclassdeckstiny_1_1_text_u_i_a71feea77ca210a2bae1a95e66359c15a_icgraph">
-<area shape="rect" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="186,39,318,79"/>
+<area shape="rect" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="186,5,318,46"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2ba3c38d1cf810f7ffbce3a12aa8b429" title="Show an event." alt="" coords="5,5,138,46"/>
-<area shape="poly" title=" " alt="" coords="170,47,137,41,138,35,171,41"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad0ff19a76f167ff87a68c0ddd10646c2" title="Show an event result." alt="" coords="5,71,138,111"/>
-<area shape="poly" title=" " alt="" coords="171,76,138,82,138,77,170,71"/>
+<area shape="poly" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="afef7212d84a73d1c85bfc4fed46046cb" name="afef7212d84a73d1c85bfc4fed46046cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afef7212d84a73d1c85bfc4fed46046cb">&#9670;&#160;</a></span>processInput()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void deckstiny::TextUI::processInput </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Process pending input. </p>
 
 </div>
 </div>
@@ -970,6 +1154,39 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="af78be41b217cb98d0bab386d6834b70c" name="af78be41b217cb98d0bab386d6834b70c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af78be41b217cb98d0bab386d6834b70c">&#9670;&#160;</a></span>setTestingMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deckstiny::TextUI::setTestingMode </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the testing mode for <a class="el" href="classdeckstiny_1_1_text_u_i.html" title="Text-based implementation of UIInterface.">TextUI</a>. In testing mode, <a class="el" href="classdeckstiny_1_1_text_u_i.html" title="Text-based implementation of UIInterface.">TextUI</a> will not start its input thread or print to console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enabled</td><td>True to enable testing mode, false otherwise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a22077073ee4227c8ace2af46dea2ab4a" name="a22077073ee4227c8ace2af46dea2ab4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22077073ee4227c8ace2af46dea2ab4a">&#9670;&#160;</a></span>showCard()</h2>
 
@@ -1018,19 +1235,21 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a22077073ee4227c8ace2af46dea2ab4a_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a22077073ee4227c8ace2af46dea2ab4a_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a22077073ee4227c8ace2af46dea2ab4a_cgraph" id="aclassdeckstiny_1_1_text_u_i_a22077073ee4227c8ace2af46dea2ab4a_cgraph">
-<area shape="rect" title="Display a card." alt="" coords="5,141,138,182"/>
+<area shape="rect" title="Display a card." alt="" coords="5,169,138,210"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="222,5,354,46"/>
-<area shape="poly" title=" " alt="" coords="88,139,129,97,156,75,184,55,207,44,209,49,187,60,159,79,133,101,92,143"/>
+<area shape="poly" title=" " alt="" coords="83,168,123,112,152,82,184,55,206,44,209,48,187,60,155,86,127,115,87,171"/>
 <area shape="rect" href="classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="205,70,372,96"/>
-<area shape="poly" title=" " alt="" coords="109,138,185,105,206,98,207,103,187,109,112,143"/>
+<area shape="poly" title=" " alt="" coords="94,167,134,135,184,105,199,99,201,104,187,109,137,139,97,171"/>
 <area shape="rect" href="classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="186,120,391,145"/>
-<area shape="poly" title=" " alt="" coords="138,150,173,145,174,151,139,155"/>
+<area shape="poly" title=" " alt="" coords="137,168,185,155,216,147,218,152,186,160,138,173"/>
 <area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="225,169,352,210"/>
-<area shape="poly" title=" " alt="" coords="139,168,210,177,209,182,138,173"/>
+<area shape="poly" title=" " alt="" coords="138,187,209,187,209,192,138,192"/>
 <area shape="rect" href="classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="205,234,372,260"/>
-<area shape="poly" title=" " alt="" coords="108,180,145,201,187,219,210,227,208,232,185,224,143,205,106,185"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="195,284,382,309"/>
-<area shape="poly" title=" " alt="" coords="90,180,131,226,157,250,187,270,197,275,195,280,184,275,154,254,127,230,86,184"/>
+<area shape="poly" title=" " alt="" coords="138,206,186,219,218,227,216,232,185,224,137,211"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="222,284,354,325"/>
+<area shape="poly" title=" " alt="" coords="98,208,138,240,187,270,209,280,207,285,184,275,135,244,95,213"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="195,349,382,374"/>
+<area shape="poly" title=" " alt="" coords="85,209,124,272,153,306,187,334,198,340,195,345,184,339,149,309,120,275,81,212"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1098,21 +1317,24 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a6712c5f811b74e5d2b7c5a7cac3b0654_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a6712c5f811b74e5d2b7c5a7cac3b0654_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a6712c5f811b74e5d2b7c5a7cac3b0654_cgraph" id="aclassdeckstiny_1_1_text_u_i_a6712c5f811b74e5d2b7c5a7cac3b0654_cgraph">
-<area shape="rect" title="Display a list of cards." alt="" coords="5,141,138,182"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="186,141,318,182"/>
-<area shape="poly" title=" " alt="" coords="138,159,170,159,170,164,138,164"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="402,5,535,46"/>
-<area shape="poly" title=" " alt="" coords="269,139,310,97,336,75,365,55,387,44,389,49,367,60,339,79,313,101,273,143"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="385,70,552,96"/>
-<area shape="poly" title=" " alt="" coords="290,138,365,105,386,98,388,103,367,109,292,143"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="366,120,571,145"/>
-<area shape="poly" title=" " alt="" coords="318,150,353,145,354,151,319,155"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="405,169,532,210"/>
-<area shape="poly" title=" " alt="" coords="319,168,390,177,389,182,318,173"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="385,234,552,260"/>
-<area shape="poly" title=" " alt="" coords="288,180,326,201,367,219,390,227,388,232,365,224,323,205,286,185"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="375,284,562,309"/>
-<area shape="poly" title=" " alt="" coords="270,180,311,226,338,250,367,270,378,275,375,280,365,275,334,254,307,230,266,184"/>
+<area shape="rect" title="Display a list of cards." alt="" coords="5,125,138,166"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="402,5,535,46"/>
+<area shape="poly" title=" " alt="" coords="137,123,387,47,388,53,139,128"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="186,153,318,194"/>
+<area shape="poly" title=" " alt="" coords="138,153,171,158,170,164,138,159"/>
+<area shape="poly" title=" " alt="" coords="266,151,307,104,335,79,365,57,387,45,389,50,367,61,338,83,311,108,270,155"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="402,71,535,111"/>
+<area shape="poly" title=" " alt="" coords="296,150,365,121,387,113,389,118,367,125,298,155"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="385,136,552,161"/>
+<area shape="poly" title=" " alt="" coords="318,163,369,157,370,163,319,169"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="366,185,571,210"/>
+<area shape="poly" title=" " alt="" coords="319,178,351,182,350,187,318,184"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="405,235,532,275"/>
+<area shape="poly" title=" " alt="" coords="299,192,367,221,392,229,390,234,365,225,297,197"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="385,300,552,325"/>
+<area shape="poly" title=" " alt="" coords="270,193,311,240,338,264,367,285,381,291,378,296,365,289,334,268,307,243,266,196"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="375,349,562,374"/>
+<area shape="poly" title=" " alt="" coords="264,193,279,225,302,264,331,303,368,336,374,339,371,344,364,340,327,307,297,267,274,228,259,196"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1165,13 +1387,18 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_ad032fbeeefead3ba7113448f2af1a057_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_ad032fbeeefead3ba7113448f2af1a057_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_ad032fbeeefead3ba7113448f2af1a057_cgraph" id="aclassdeckstiny_1_1_text_u_i_ad032fbeeefead3ba7113448f2af1a057_cgraph">
-<area shape="rect" title="Display the character selection screen." alt="" coords="5,71,169,111"/>
+<area shape="rect" title="Display the character selection screen." alt="" coords="5,92,169,133"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="217,5,349,46"/>
-<area shape="poly" title=" " alt="" coords="149,68,204,49,206,54,151,73"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="217,71,349,111"/>
-<area shape="poly" title=" " alt="" coords="169,88,201,88,201,94,169,94"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="217,136,349,177"/>
-<area shape="poly" title=" " alt="" coords="151,109,206,128,204,133,149,114"/>
+<area shape="poly" title=" " alt="" coords="134,89,220,50,222,55,136,94"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="397,92,529,133"/>
+<area shape="poly" title=" " alt="" coords="169,107,217,106,349,106,382,106,381,112,349,111,217,111,169,112"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="217,120,349,161"/>
+<area shape="poly" title=" " alt="" coords="170,121,202,126,201,131,169,127"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="217,185,349,226"/>
+<area shape="poly" title=" " alt="" coords="133,131,226,176,224,181,131,136"/>
+<area shape="poly" title=" " alt="" coords="328,44,407,83,404,87,326,49"/>
+<area shape="poly" title=" " alt="" coords="349,127,381,122,382,128,350,133"/>
+<area shape="poly" title=" " alt="" coords="324,182,348,170,408,138,411,143,350,175,326,187"/>
 </map>
 </div>
 
@@ -1214,65 +1441,73 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a751ef9c4cbd42b8b9102279cfbb32a42_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a751ef9c4cbd42b8b9102279cfbb32a42_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a751ef9c4cbd42b8b9102279cfbb32a42_cgraph" id="aclassdeckstiny_1_1_text_u_i_a751ef9c4cbd42b8b9102279cfbb32a42_cgraph">
-<area shape="rect" title="Display combat state." alt="" coords="5,397,138,438"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="191,5,323,46"/>
-<area shape="poly" title=" " alt="" coords="71,396,78,333,95,243,109,195,128,146,153,99,184,57,187,54,190,58,188,61,158,102,133,148,114,196,100,245,83,334,76,397"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="191,71,323,111"/>
-<area shape="poly" title=" " alt="" coords="73,396,83,343,103,271,135,193,157,156,184,123,187,119,191,123,188,126,162,159,140,195,108,273,88,344,78,397"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="191,136,323,177"/>
-<area shape="poly" title=" " alt="" coords="75,397,89,354,111,299,142,240,184,188,188,184,192,188,188,191,146,243,115,301,94,356,81,398"/>
-<area shape="rect" href="classdeckstiny_1_1_combat.html#a605144860de37c936a27e128d2922d6a" title="Get enemy at index." alt="" coords="187,201,326,242"/>
-<area shape="poly" title=" " alt="" coords="80,396,120,328,149,288,184,253,189,249,193,253,187,257,153,292,124,330,85,398"/>
-<area shape="rect" href="classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="187,267,326,307"/>
-<area shape="poly" title=" " alt="" coords="92,395,133,357,184,318,192,313,195,318,187,323,136,361,95,399"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a4d5dc59067bc80957a5b39d81a45a21b" title="Get the player&#39;s hand." alt="" coords="192,332,322,373"/>
-<area shape="poly" title=" " alt="" coords="130,394,182,376,184,381,132,399"/>
-<area shape="rect" href="classdeckstiny_1_1_combat.html#a4da9a24de1c570d79b23a2e5f40a3b53" title="Get the player character." alt="" coords="187,397,326,438"/>
-<area shape="poly" title=" " alt="" coords="138,415,172,415,172,420,138,420"/>
-<area shape="rect" href="classdeckstiny_1_1_combat.html#a86129bf98a776cad5995ccaa2cf49c63" title="Get current turn number." alt="" coords="187,463,326,503"/>
-<area shape="poly" title=" " alt="" coords="132,436,184,455,182,460,130,441"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="186,528,328,569"/>
-<area shape="poly" title=" " alt="" coords="95,437,136,474,187,513,195,518,192,522,184,517,133,478,92,440"/>
-<area shape="rect" href="classdeckstiny_1_1_combat.html#a8e430adc6a55d580e113f8730699f390" title="Get whether it&#39;s currently the player&#39;s turn." alt="" coords="187,593,326,634"/>
-<area shape="poly" title=" " alt="" coords="85,437,124,505,153,544,187,578,193,582,189,587,184,582,149,547,120,508,80,440"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="191,659,323,699"/>
-<area shape="poly" title=" " alt="" coords="81,437,94,479,115,534,146,592,188,644,192,648,188,651,184,647,142,595,111,536,89,481,75,439"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a31b45e014a6211c4df53dda67a80230d" title="Display enemy stats." alt="" coords="191,867,323,907"/>
-<area shape="poly" title=" " alt="" coords="83,437,188,710,244,852,239,854,183,712,78,439"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a9e36b39033de41d2022279da95ee3883" title="Display player stats." alt="" coords="191,964,323,1005"/>
-<area shape="poly" title=" " alt="" coords="76,438,81,520,97,642,111,712,131,783,156,852,188,918,216,952,212,955,183,920,151,854,125,784,106,713,92,643,76,520,71,438"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="412,687,545,727"/>
-<area shape="poly" title=" " alt="" coords="324,685,397,694,397,699,323,690"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="395,489,562,514"/>
-<area shape="poly" title=" " alt="" coords="311,656,326,644,337,629,343,614,348,584,353,553,361,538,374,524,380,519,383,524,378,528,365,541,358,555,353,584,349,615,342,631,330,648,315,660"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="376,538,581,564"/>
-<area shape="poly" title=" " alt="" coords="309,656,326,644,341,626,349,608,357,590,374,573,381,569,384,573,378,577,362,593,354,610,346,629,330,648,312,660"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="415,801,542,842"/>
-<area shape="poly" title=" " alt="" coords="277,698,320,743,347,767,377,787,401,799,399,804,375,792,344,771,316,747,273,702"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="395,588,562,613"/>
-<area shape="poly" title=" " alt="" coords="301,656,375,622,396,615,398,620,377,627,303,661"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="385,637,572,662"/>
-<area shape="poly" title=" " alt="" coords="323,668,369,661,370,667,324,673"/>
-<area shape="poly" title=" " alt="" coords="323,865,399,842,401,847,324,870"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="408,932,550,973"/>
-<area shape="poly" title=" " alt="" coords="324,904,394,925,392,930,323,909"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="408,997,550,1038"/>
-<area shape="poly" title=" " alt="" coords="280,906,323,944,377,982,394,990,392,995,375,987,320,949,277,910"/>
-<area shape="rect" href="classdeckstiny_1_1_enemy.html#aec86f62bb424ed791b43ec2e5afa9f33" title="Get the enemy&#39;s current intent." alt="" coords="386,752,571,777"/>
-<area shape="poly" title=" " alt="" coords="276,864,319,825,346,805,375,787,391,780,393,785,377,792,349,809,322,829,279,868"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="408,1063,550,1103"/>
-<area shape="poly" title=" " alt="" coords="286,906,309,926,330,951,345,978,352,1003,360,1025,378,1048,395,1059,392,1064,374,1052,355,1028,347,1004,340,980,326,954,305,930,283,910"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="408,867,550,907"/>
-<area shape="poly" title=" " alt="" coords="323,884,392,884,392,890,323,890"/>
-<area shape="poly" title=" " alt="" coords="281,962,326,917,339,899,348,883,358,868,374,853,399,839,402,844,378,857,362,872,352,886,344,902,330,921,284,965"/>
-<area shape="poly" title=" " alt="" coords="323,972,392,962,393,967,324,977"/>
-<area shape="poly" title=" " alt="" coords="324,992,393,1002,392,1007,323,997"/>
-<area shape="poly" title=" " alt="" coords="293,1003,377,1047,395,1054,393,1059,375,1052,291,1008"/>
-<area shape="poly" title=" " alt="" coords="291,961,375,918,393,911,395,916,377,923,294,966"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#afa74e032423a811509d332d7592ba76e" title="Get base energy per turn." alt="" coords="408,1193,550,1234"/>
-<area shape="poly" title=" " alt="" coords="267,1004,282,1041,306,1088,337,1137,378,1178,395,1189,392,1194,374,1182,333,1140,301,1091,277,1043,262,1006"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a32a8f1be9b718b07e6a9fca5e6abe8a5" title="Get current energy." alt="" coords="408,1128,550,1169"/>
-<area shape="poly" title=" " alt="" coords="274,1003,316,1058,345,1087,377,1113,394,1122,392,1127,375,1117,341,1091,312,1061,270,1007"/>
+<area shape="rect" title="Display combat state." alt="" coords="5,497,138,538"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="191,185,323,226"/>
+<area shape="poly" title=" " alt="" coords="73,496,84,445,104,377,137,303,158,269,184,237,187,234,191,237,188,241,163,272,141,306,109,379,89,447,79,497"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="412,17,545,58"/>
+<area shape="poly" title=" " alt="" coords="71,497,77,435,94,348,108,301,127,255,152,211,184,172,201,157,219,148,253,142,288,137,307,131,326,121,341,108,350,95,359,81,374,67,397,56,399,60,378,72,363,85,354,98,345,111,330,125,309,136,289,143,254,147,221,153,204,161,188,176,157,214,132,257,113,303,99,349,82,435,76,497"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="191,5,323,46"/>
+<area shape="poly" title=" " alt="" coords="69,497,71,418,84,303,98,239,118,175,146,113,184,57,186,55,190,58,188,61,151,116,123,176,103,240,89,304,76,419,75,497"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="191,71,323,111"/>
+<area shape="poly" title=" " alt="" coords="71,497,77,429,93,333,108,280,127,226,152,175,184,128,192,119,196,123,188,131,157,178,132,228,113,281,99,334,82,430,76,497"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a605144860de37c936a27e128d2922d6a" title="Get enemy at index." alt="" coords="187,529,326,570"/>
+<area shape="poly" title=" " alt="" coords="139,527,173,532,172,538,138,532"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="187,595,326,635"/>
+<area shape="poly" title=" " alt="" coords="109,536,187,579,198,585,196,590,184,584,107,541"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a4d5dc59067bc80957a5b39d81a45a21b" title="Get the player&#39;s hand." alt="" coords="192,660,322,701"/>
+<area shape="poly" title=" " alt="" coords="89,537,130,589,157,619,187,645,194,649,191,654,184,649,153,622,126,593,85,540"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a4da9a24de1c570d79b23a2e5f40a3b53" title="Get the player character." alt="" coords="187,725,326,766"/>
+<area shape="poly" title=" " alt="" coords="83,538,97,574,120,620,150,668,188,710,192,714,188,718,184,714,146,671,115,622,93,576,78,540"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a86129bf98a776cad5995ccaa2cf49c63" title="Get current turn number." alt="" coords="187,791,326,831"/>
+<area shape="poly" title=" " alt="" coords="79,538,91,586,112,649,143,716,164,747,188,776,191,779,187,783,184,779,160,751,139,718,107,651,86,587,74,539"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="186,856,328,897"/>
+<area shape="poly" title=" " alt="" coords="77,538,85,596,104,676,118,720,137,763,160,804,188,841,190,844,187,848,184,845,155,807,132,765,113,722,99,678,80,597,72,539"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a8e430adc6a55d580e113f8730699f390" title="Get whether it&#39;s currently the player&#39;s turn." alt="" coords="187,921,326,962"/>
+<area shape="poly" title=" " alt="" coords="76,538,81,607,97,704,111,757,130,810,155,861,188,907,190,909,186,913,184,910,151,864,125,813,106,759,91,705,75,607,70,539"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="191,251,323,291"/>
+<area shape="poly" title=" " alt="" coords="86,495,229,302,233,305,90,499"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a31b45e014a6211c4df53dda67a80230d" title="Display enemy stats." alt="" coords="191,399,323,439"/>
+<area shape="poly" title=" " alt="" coords="106,495,184,450,195,444,198,449,187,455,108,499"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a9e36b39033de41d2022279da95ee3883" title="Display player stats." alt="" coords="191,464,323,505"/>
+<area shape="poly" title=" " alt="" coords="138,503,175,496,176,502,139,508"/>
+<area shape="poly" title=" " alt="" coords="304,183,326,165,342,140,348,116,355,92,374,68,397,53,400,58,378,72,360,94,353,118,347,143,330,169,307,187"/>
+<area shape="poly" title=" " alt="" coords="323,27,397,31,397,36,323,32"/>
+<area shape="poly" title=" " alt="" coords="323,73,397,55,398,60,324,78"/>
+<area shape="poly" title=" " alt="" coords="312,248,326,236,340,215,346,194,348,152,350,111,358,89,374,68,396,52,399,56,378,72,363,92,355,112,353,152,352,195,345,217,330,239,316,252"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="412,181,545,222"/>
+<area shape="poly" title=" " alt="" coords="323,248,375,231,397,224,399,229,377,236,324,253"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="395,246,562,272"/>
+<area shape="poly" title=" " alt="" coords="323,265,379,262,380,267,323,270"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="376,296,581,321"/>
+<area shape="poly" title=" " alt="" coords="324,279,384,290,383,295,323,285"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="415,345,542,386"/>
+<area shape="poly" title=" " alt="" coords="295,290,377,331,401,341,400,346,375,336,292,294"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="395,82,562,108"/>
+<area shape="poly" title=" " alt="" coords="311,248,326,236,337,221,343,206,348,176,353,146,361,132,374,117,380,113,383,117,378,121,365,135,358,148,353,177,348,208,342,224,330,240,314,252"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="385,132,572,157"/>
+<area shape="poly" title=" " alt="" coords="308,248,326,236,341,218,349,201,357,184,374,168,384,162,387,166,378,172,362,187,354,204,345,221,330,240,312,252"/>
+<area shape="poly" title=" " alt="" coords="271,397,299,354,326,302,336,267,339,236,337,179,337,152,341,125,353,97,374,68,397,51,400,55,378,72,357,100,347,126,342,152,343,179,344,236,341,268,330,304,304,357,276,400"/>
+<area shape="poly" title=" " alt="" coords="323,401,399,382,401,387,324,406"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="408,460,550,501"/>
+<area shape="poly" title=" " alt="" coords="324,435,394,454,392,459,323,440"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="408,525,550,566"/>
+<area shape="poly" title=" " alt="" coords="310,438,330,450,345,466,354,482,363,496,378,510,395,520,392,525,374,514,358,499,349,484,341,470,326,454,308,442"/>
+<area shape="rect" href="classdeckstiny_1_1_enemy.html#aec86f62bb424ed791b43ec2e5afa9f33" title="Get the enemy&#39;s current intent." alt="" coords="386,410,571,436"/>
+<area shape="poly" title=" " alt="" coords="323,418,370,418,370,424,323,423"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="408,591,550,631"/>
+<area shape="poly" title=" " alt="" coords="315,438,330,451,342,467,349,484,354,516,359,546,365,561,378,576,395,588,392,593,374,580,361,564,353,548,348,516,344,485,338,470,326,454,311,442"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="408,656,550,697"/>
+<area shape="poly" title=" " alt="" coords="316,438,330,451,346,476,353,501,353,549,352,572,354,595,361,618,378,641,395,655,392,659,374,645,357,620,349,596,347,572,348,549,348,502,341,478,326,454,312,442"/>
+<area shape="poly" title=" " alt="" coords="314,462,326,449,341,424,352,399,360,351,356,304,346,258,336,212,334,165,337,141,344,117,356,93,374,68,397,50,400,55,378,72,361,95,349,119,342,142,339,165,342,211,351,257,361,304,365,352,357,401,346,427,330,453,317,465"/>
+<area shape="poly" title=" " alt="" coords="307,461,326,449,340,435,349,422,359,409,375,395,399,383,401,388,377,400,363,412,354,425,345,439,330,453,309,466"/>
+<area shape="poly" title=" " alt="" coords="323,480,392,479,392,485,323,486"/>
+<area shape="poly" title=" " alt="" coords="324,500,394,519,392,525,323,505"/>
+<area shape="poly" title=" " alt="" coords="310,503,330,516,345,532,354,547,363,561,378,576,395,586,392,590,374,580,358,565,349,550,341,535,326,520,308,507"/>
+<area shape="poly" title=" " alt="" coords="315,503,330,516,342,533,349,549,354,581,359,611,365,626,378,641,395,654,392,658,374,645,361,629,353,613,348,582,344,551,338,535,326,519,311,507"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#afa74e032423a811509d332d7592ba76e" title="Get base energy per turn." alt="" coords="408,721,550,762"/>
+<area shape="poly" title=" " alt="" coords="316,503,330,516,346,542,353,567,353,614,352,638,354,661,361,683,378,706,395,720,392,724,374,710,357,686,349,662,347,638,348,614,348,567,341,544,326,519,312,507"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a32a8f1be9b718b07e6a9fca5e6abe8a5" title="Get current energy." alt="" coords="408,787,550,827"/>
+<area shape="poly" title=" " alt="" coords="316,503,330,516,350,550,357,584,357,616,353,648,349,679,349,709,357,740,378,772,395,786,392,790,374,775,353,743,344,710,343,678,347,647,351,616,352,584,345,552,326,519,313,507"/>
 </map>
 </div>
 
@@ -1358,33 +1593,39 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a8a9e64a0c2b686978b2342d9a6ac94cb_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a8a9e64a0c2b686978b2342d9a6ac94cb_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a8a9e64a0c2b686978b2342d9a6ac94cb_cgraph" id="aclassdeckstiny_1_1_text_u_i_a8a9e64a0c2b686978b2342d9a6ac94cb_cgraph">
-<area shape="rect" title="Display an enemy selection menu." alt="" coords="5,201,185,242"/>
+<area shape="rect" title="Display an enemy selection menu." alt="" coords="5,219,185,259"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="238,5,370,46"/>
-<area shape="poly" title=" " alt="" coords="107,199,157,131,192,92,231,57,237,52,241,57,234,61,196,96,161,135,112,202"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="238,71,370,111"/>
-<area shape="poly" title=" " alt="" coords="121,199,171,161,231,122,241,117,243,121,234,127,174,166,124,203"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="238,136,370,177"/>
-<area shape="poly" title=" " alt="" coords="161,198,222,179,224,184,163,203"/>
-<area shape="rect" href="classdeckstiny_1_1_combat.html#a605144860de37c936a27e128d2922d6a" title="Get enemy at index." alt="" coords="234,201,374,242"/>
-<area shape="poly" title=" " alt="" coords="185,219,219,219,219,224,185,224"/>
-<area shape="rect" href="classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="234,267,374,307"/>
-<area shape="poly" title=" " alt="" coords="163,240,223,259,221,264,161,245"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="233,332,375,373"/>
-<area shape="poly" title=" " alt="" coords="124,240,174,277,234,317,243,322,241,327,231,321,171,282,121,245"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a31b45e014a6211c4df53dda67a80230d" title="Display enemy stats." alt="" coords="238,397,370,438"/>
-<area shape="poly" title=" " alt="" coords="112,241,161,309,196,347,234,382,241,387,237,391,231,386,192,351,157,312,107,244"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="444,245,587,286"/>
-<area shape="poly" title=" " alt="" coords="357,395,373,382,389,361,396,340,404,319,421,297,429,291,433,295,425,301,408,321,401,342,394,364,377,386,360,399"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="444,311,587,351"/>
-<area shape="poly" title=" " alt="" coords="348,394,422,361,437,355,439,360,424,365,350,399"/>
-<area shape="rect" href="classdeckstiny_1_1_enemy.html#aec86f62bb424ed791b43ec2e5afa9f33" title="Get the enemy&#39;s current intent." alt="" coords="423,376,608,401"/>
-<area shape="poly" title=" " alt="" coords="370,406,407,401,408,406,371,411"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="444,425,587,466"/>
-<area shape="poly" title=" " alt="" coords="371,424,429,432,429,437,370,429"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="452,491,579,531"/>
-<area shape="poly" title=" " alt="" coords="345,436,424,475,441,482,439,487,422,480,342,441"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="444,556,587,597"/>
-<area shape="poly" title=" " alt="" coords="322,437,364,488,393,516,425,541,434,546,431,551,421,545,389,520,360,492,318,440"/>
+<area shape="poly" title=" " alt="" coords="106,217,156,144,191,102,231,62,244,53,247,57,234,66,195,105,160,148,111,220"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="450,120,582,161"/>
+<area shape="poly" title=" " alt="" coords="108,217,129,189,157,158,192,128,232,106,287,92,344,92,399,100,447,112,446,117,398,105,343,97,287,98,234,111,195,133,161,162,133,193,112,220"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="238,120,370,161"/>
+<area shape="poly" title=" " alt="" coords="139,216,232,171,244,166,246,170,234,176,141,220"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="238,185,370,226"/>
+<area shape="poly" title=" " alt="" coords="185,222,222,216,223,221,185,227"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a605144860de37c936a27e128d2922d6a" title="Get enemy at index." alt="" coords="234,251,374,291"/>
+<area shape="poly" title=" " alt="" coords="185,250,219,255,218,261,185,255"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="234,316,374,357"/>
+<area shape="poly" title=" " alt="" coords="142,257,246,307,244,311,139,262"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="233,381,375,422"/>
+<area shape="poly" title=" " alt="" coords="116,258,167,310,234,366,242,371,239,376,231,370,163,314,113,262"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a31b45e014a6211c4df53dda67a80230d" title="Display enemy stats." alt="" coords="238,447,370,487"/>
+<area shape="poly" title=" " alt="" coords="109,258,156,341,192,389,234,432,240,436,236,440,231,436,188,392,152,344,104,261"/>
+<area shape="poly" title=" " alt="" coords="344,44,464,110,462,115,342,49"/>
+<area shape="poly" title=" " alt="" coords="370,138,434,138,434,143,370,143"/>
+<area shape="poly" title=" " alt="" coords="369,183,434,163,435,168,371,188"/>
+<area shape="poly" title=" " alt="" coords="359,444,373,432,387,413,395,396,402,362,407,325,421,282,454,222,487,172,492,175,458,225,425,284,412,326,408,363,400,398,391,416,377,435,362,448"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="444,295,587,335"/>
+<area shape="poly" title=" " alt="" coords="357,444,373,432,389,411,396,390,404,368,421,346,429,340,433,344,425,350,408,371,401,391,394,413,377,436,360,448"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="444,360,587,401"/>
+<area shape="poly" title=" " alt="" coords="348,444,422,410,437,404,439,409,424,415,350,448"/>
+<area shape="rect" href="classdeckstiny_1_1_enemy.html#aec86f62bb424ed791b43ec2e5afa9f33" title="Get the enemy&#39;s current intent." alt="" coords="423,425,608,450"/>
+<area shape="poly" title=" " alt="" coords="370,455,407,450,408,455,371,461"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="444,475,587,515"/>
+<area shape="poly" title=" " alt="" coords="371,473,429,481,429,486,370,478"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="452,540,579,581"/>
+<area shape="poly" title=" " alt="" coords="345,486,424,525,441,532,439,536,422,529,342,490"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="444,605,587,646"/>
+<area shape="poly" title=" " alt="" coords="322,486,364,538,393,566,425,590,434,596,431,600,421,595,389,570,360,541,318,489"/>
 </map>
 </div>
 
@@ -1427,19 +1668,21 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a31b45e014a6211c4df53dda67a80230d_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a31b45e014a6211c4df53dda67a80230d_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a31b45e014a6211c4df53dda67a80230d_cgraph" id="aclassdeckstiny_1_1_text_u_i_a31b45e014a6211c4df53dda67a80230d_cgraph">
-<area shape="rect" title="Display enemy stats." alt="" coords="5,157,138,198"/>
+<area shape="rect" title="Display enemy stats." alt="" coords="5,185,138,226"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="207,5,350,46"/>
-<area shape="poly" title=" " alt="" coords="86,155,127,106,154,80,184,57,194,51,197,55,187,61,158,84,131,110,90,159"/>
+<area shape="poly" title=" " alt="" coords="81,184,121,122,150,87,184,57,192,52,195,56,187,61,154,91,126,125,86,187"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="207,71,350,111"/>
-<area shape="poly" title=" " alt="" coords="112,154,185,121,199,115,201,120,187,125,114,159"/>
+<area shape="poly" title=" " alt="" coords="95,183,136,151,184,121,195,115,197,120,187,125,139,156,99,187"/>
 <area shape="rect" href="classdeckstiny_1_1_enemy.html#aec86f62bb424ed791b43ec2e5afa9f33" title="Get the enemy&#39;s current intent." alt="" coords="186,136,371,161"/>
-<area shape="poly" title=" " alt="" coords="138,166,170,161,171,166,138,171"/>
+<area shape="poly" title=" " alt="" coords="137,185,185,171,213,163,214,168,186,176,139,190"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="207,185,350,226"/>
-<area shape="poly" title=" " alt="" coords="138,184,192,191,192,197,138,189"/>
+<area shape="poly" title=" " alt="" coords="138,203,192,203,192,208,138,208"/>
 <area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="215,251,342,291"/>
-<area shape="poly" title=" " alt="" coords="110,196,187,235,203,242,201,247,185,240,108,201"/>
+<area shape="poly" title=" " alt="" coords="139,224,201,244,199,249,137,229"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="207,316,350,357"/>
-<area shape="poly" title=" " alt="" coords="89,197,129,248,157,276,187,301,196,306,193,311,184,305,153,280,125,252,84,200"/>
+<area shape="poly" title=" " alt="" coords="94,224,135,263,187,301,198,307,196,312,184,305,132,267,90,228"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="212,381,344,422"/>
+<area shape="poly" title=" " alt="" coords="84,225,123,294,152,333,187,366,200,374,197,379,184,370,148,336,119,297,80,227"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1499,19 +1742,23 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a2ba3c38d1cf810f7ffbce3a12aa8b429_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a2ba3c38d1cf810f7ffbce3a12aa8b429_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a2ba3c38d1cf810f7ffbce3a12aa8b429_cgraph" id="aclassdeckstiny_1_1_text_u_i_a2ba3c38d1cf810f7ffbce3a12aa8b429_cgraph">
-<area shape="rect" title="Show an event." alt="" coords="5,169,138,210"/>
+<area shape="rect" title="Show an event." alt="" coords="5,185,138,226"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="210,5,342,46"/>
-<area shape="poly" title=" " alt="" coords="84,167,125,113,153,83,184,57,194,51,197,55,187,61,156,87,129,116,88,170"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#ae55197880cba0f0c73251a53be41d22e" title="Get the player&#39;s gold." alt="" coords="211,71,341,111"/>
-<area shape="poly" title=" " alt="" coords="104,166,184,122,200,115,202,120,187,127,107,171"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="205,136,347,177"/>
-<area shape="poly" title=" " alt="" coords="138,176,189,168,190,173,139,181"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="205,201,347,242"/>
-<area shape="poly" title=" " alt="" coords="139,197,190,206,189,211,138,203"/>
-<area shape="rect" href="classdeckstiny_1_1_event.html#a66b601f92c3f80de12f0410a6f17cf97" title="Get the name of the event." alt="" coords="186,266,366,292"/>
-<area shape="poly" title=" " alt="" coords="106,208,144,230,187,251,206,258,204,263,185,256,142,235,104,213"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a71feea77ca210a2bae1a95e66359c15a" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="210,316,342,357"/>
-<area shape="poly" title=" " alt="" coords="90,208,131,255,158,280,187,302,197,308,194,312,184,307,154,284,127,259,86,212"/>
+<area shape="poly" title=" " alt="" coords="83,183,123,125,152,92,184,62,200,51,203,56,187,66,155,95,127,128,87,186"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="414,63,546,103"/>
+<area shape="poly" title=" " alt="" coords="88,183,128,142,155,122,185,106,238,89,294,79,349,74,398,74,398,80,349,80,295,84,240,94,187,111,158,126,132,146,91,187"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#ae55197880cba0f0c73251a53be41d22e" title="Get the player&#39;s gold." alt="" coords="211,120,341,161"/>
+<area shape="poly" title=" " alt="" coords="136,182,195,163,196,168,138,187"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="205,185,347,226"/>
+<area shape="poly" title=" " alt="" coords="138,203,189,203,189,208,138,208"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="205,251,347,291"/>
+<area shape="poly" title=" " alt="" coords="138,224,196,243,194,248,136,229"/>
+<area shape="rect" href="classdeckstiny_1_1_event.html#a66b601f92c3f80de12f0410a6f17cf97" title="Get the name of the event." alt="" coords="186,316,366,341"/>
+<area shape="poly" title=" " alt="" coords="93,225,134,263,187,301,201,307,199,312,184,305,131,268,90,228"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a71feea77ca210a2bae1a95e66359c15a" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="210,365,342,406"/>
+<area shape="poly" title=" " alt="" coords="86,225,125,287,154,322,187,352,197,358,194,363,184,356,150,325,121,290,81,228"/>
+<area shape="poly" title=" " alt="" coords="343,42,399,58,398,63,342,47"/>
+<area shape="poly" title=" " alt="" coords="341,367,364,352,388,326,408,296,439,232,459,170,471,118,476,119,464,171,444,234,412,299,392,329,368,356,344,372"/>
 </map>
 </div>
 
@@ -1592,11 +1839,18 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_ad0ff19a76f167ff87a68c0ddd10646c2_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_ad0ff19a76f167ff87a68c0ddd10646c2_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_ad0ff19a76f167ff87a68c0ddd10646c2_cgraph" id="aclassdeckstiny_1_1_text_u_i_ad0ff19a76f167ff87a68c0ddd10646c2_cgraph">
-<area shape="rect" title="Show an event result." alt="" coords="5,39,138,79"/>
+<area shape="rect" title="Show an event result." alt="" coords="5,92,138,133"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="186,5,318,46"/>
-<area shape="poly" title=" " alt="" coords="137,44,170,38,171,43,138,49"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a71feea77ca210a2bae1a95e66359c15a" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="186,71,318,111"/>
-<area shape="poly" title=" " alt="" coords="138,68,171,74,170,79,138,73"/>
+<area shape="poly" title=" " alt="" coords="115,89,193,51,195,55,117,94"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="366,92,498,133"/>
+<area shape="poly" title=" " alt="" coords="138,107,186,106,318,106,351,106,350,112,318,111,186,111,138,112"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,120,318,161"/>
+<area shape="poly" title=" " alt="" coords="138,120,171,125,170,130,138,125"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="186,185,318,226"/>
+<area shape="poly" title=" " alt="" coords="113,131,187,170,197,175,195,180,184,175,111,136"/>
+<area shape="poly" title=" " alt="" coords="297,44,376,83,373,87,295,49"/>
+<area shape="poly" title=" " alt="" coords="318,127,350,122,351,128,319,133"/>
+<area shape="poly" title=" " alt="" coords="293,182,317,170,377,138,380,143,319,175,295,187"/>
 </map>
 </div>
 
@@ -1644,13 +1898,18 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a6c8e0ee2c83620e69ac9df7237de902c_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a6c8e0ee2c83620e69ac9df7237de902c_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a6c8e0ee2c83620e69ac9df7237de902c_cgraph" id="aclassdeckstiny_1_1_text_u_i_a6c8e0ee2c83620e69ac9df7237de902c_cgraph">
-<area shape="rect" title="Display game over screen." alt="" coords="5,71,138,111"/>
+<area shape="rect" title="Display game over screen." alt="" coords="5,92,138,133"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="186,5,318,46"/>
-<area shape="poly" title=" " alt="" coords="129,68,179,49,180,54,130,73"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,71,318,111"/>
-<area shape="poly" title=" " alt="" coords="138,88,170,88,170,94,138,94"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="186,136,318,177"/>
-<area shape="poly" title=" " alt="" coords="130,109,180,128,179,133,129,114"/>
+<area shape="poly" title=" " alt="" coords="115,89,193,51,195,55,117,94"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="366,92,498,133"/>
+<area shape="poly" title=" " alt="" coords="138,107,186,106,318,106,351,106,350,112,318,111,186,111,138,112"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,120,318,161"/>
+<area shape="poly" title=" " alt="" coords="138,120,171,125,170,130,138,125"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="186,185,318,226"/>
+<area shape="poly" title=" " alt="" coords="113,131,187,170,197,175,195,180,184,175,111,136"/>
+<area shape="poly" title=" " alt="" coords="297,44,376,83,373,87,295,49"/>
+<area shape="poly" title=" " alt="" coords="318,127,350,122,351,128,319,133"/>
+<area shape="poly" title=" " alt="" coords="293,182,317,170,377,138,380,143,319,175,295,187"/>
 </map>
 </div>
 
@@ -1687,13 +1946,18 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a3ccd1d05f51874ddb606f8fe5a20fc3f_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a3ccd1d05f51874ddb606f8fe5a20fc3f_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a3ccd1d05f51874ddb606f8fe5a20fc3f_cgraph" id="aclassdeckstiny_1_1_text_u_i_a3ccd1d05f51874ddb606f8fe5a20fc3f_cgraph">
-<area shape="rect" title="Display the main menu." alt="" coords="5,71,138,111"/>
+<area shape="rect" title="Display the main menu." alt="" coords="5,92,138,133"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="186,5,318,46"/>
-<area shape="poly" title=" " alt="" coords="129,68,179,49,180,54,130,73"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,71,318,111"/>
-<area shape="poly" title=" " alt="" coords="138,88,170,88,170,94,138,94"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="186,136,318,177"/>
-<area shape="poly" title=" " alt="" coords="130,109,180,128,179,133,129,114"/>
+<area shape="poly" title=" " alt="" coords="115,89,193,51,195,55,117,94"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="366,92,498,133"/>
+<area shape="poly" title=" " alt="" coords="138,107,186,106,318,106,351,106,350,112,318,111,186,111,138,112"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,120,318,161"/>
+<area shape="poly" title=" " alt="" coords="138,120,171,125,170,130,138,125"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="186,185,318,226"/>
+<area shape="poly" title=" " alt="" coords="113,131,187,170,197,175,195,180,184,175,111,136"/>
+<area shape="poly" title=" " alt="" coords="297,44,376,83,373,87,295,49"/>
+<area shape="poly" title=" " alt="" coords="318,127,350,122,351,128,319,133"/>
+<area shape="poly" title=" " alt="" coords="293,182,317,170,377,138,380,143,319,175,295,187"/>
 </map>
 </div>
 
@@ -1747,15 +2011,20 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a7e3a4a0473a44c567caf384ff313e4d9_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a7e3a4a0473a44c567caf384ff313e4d9_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a7e3a4a0473a44c567caf384ff313e4d9_cgraph" id="aclassdeckstiny_1_1_text_u_i_a7e3a4a0473a44c567caf384ff313e4d9_cgraph">
-<area shape="rect" title="Show the game map." alt="" coords="5,104,138,145"/>
+<area shape="rect" title="Show the game map." alt="" coords="5,120,138,161"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="188,5,320,46"/>
-<area shape="poly" title=" " alt="" coords="106,101,184,57,195,51,197,56,187,61,109,106"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="188,71,320,111"/>
-<area shape="poly" title=" " alt="" coords="138,110,172,103,173,108,139,115"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="188,136,320,177"/>
-<area shape="poly" title=" " alt="" coords="139,133,173,139,172,145,138,139"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad58085971df7458b5c39dc9e6c2189d9" title="Get room type as string." alt="" coords="186,201,322,242"/>
-<area shape="poly" title=" " alt="" coords="110,143,187,186,198,192,195,196,184,191,107,148"/>
+<area shape="poly" title=" " alt="" coords="101,117,184,62,201,52,204,56,187,67,104,122"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="370,92,502,133"/>
+<area shape="poly" title=" " alt="" coords="134,117,185,106,273,100,355,102,355,107,273,105,186,111,135,122"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="188,120,320,161"/>
+<area shape="poly" title=" " alt="" coords="138,138,172,138,172,143,138,143"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="188,185,320,226"/>
+<area shape="poly" title=" " alt="" coords="131,159,182,177,180,182,129,164"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#ad58085971df7458b5c39dc9e6c2189d9" title="Get room type as string." alt="" coords="186,251,322,291"/>
+<area shape="poly" title=" " alt="" coords="95,159,136,197,187,235,195,241,193,245,184,240,133,201,92,163"/>
+<area shape="poly" title=" " alt="" coords="300,44,379,83,377,87,298,49"/>
+<area shape="poly" title=" " alt="" coords="320,128,354,122,355,127,321,133"/>
+<area shape="poly" title=" " alt="" coords="296,182,321,170,382,138,384,143,323,175,299,187"/>
 </map>
 </div>
 
@@ -1836,6 +2105,16 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p>Implements <a class="el" href="classdeckstiny_1_1_u_i_interface.html#a551591c22c0b5617c1674690ded1433e">deckstiny::UIInterface</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a461f5c4953f1abc5c53626d6d6ad1a6a_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a461f5c4953f1abc5c53626d6d6ad1a6a_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a461f5c4953f1abc5c53626d6d6ad1a6a_cgraph" id="aclassdeckstiny_1_1_text_u_i_a461f5c4953f1abc5c53626d6d6ad1a6a_cgraph">
+<area shape="rect" title="Display a message." alt="" coords="5,5,138,46"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="186,5,318,46"/>
+<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -1876,21 +2155,23 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a9e36b39033de41d2022279da95ee3883_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a9e36b39033de41d2022279da95ee3883_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a9e36b39033de41d2022279da95ee3883_cgraph" id="aclassdeckstiny_1_1_text_u_i_a9e36b39033de41d2022279da95ee3883_cgraph">
-<area shape="rect" title="Display player stats." alt="" coords="5,201,138,242"/>
+<area shape="rect" title="Display player stats." alt="" coords="5,235,138,275"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#afa74e032423a811509d332d7592ba76e" title="Get base energy per turn." alt="" coords="186,5,328,46"/>
-<area shape="poly" title=" " alt="" coords="80,200,120,132,149,92,184,57,189,53,193,57,187,61,153,96,124,134,85,202"/>
+<area shape="poly" title=" " alt="" coords="77,234,92,197,115,150,146,101,184,57,188,53,192,57,188,61,150,104,120,153,97,199,82,236"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a79ed36e78d3c4c81aa8efc4fd9bf48f3" title="Get current block amount." alt="" coords="186,71,328,111"/>
-<area shape="poly" title=" " alt="" coords="92,199,133,161,184,122,192,117,195,122,187,127,136,165,95,203"/>
+<area shape="poly" title=" " alt="" coords="85,232,126,179,153,149,184,122,191,118,194,122,187,126,157,153,130,182,89,236"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a32a8f1be9b718b07e6a9fca5e6abe8a5" title="Get current energy." alt="" coords="186,136,328,177"/>
-<area shape="poly" title=" " alt="" coords="130,198,182,180,184,185,132,203"/>
+<area shape="poly" title=" " alt="" coords="106,232,184,187,195,182,198,186,187,192,108,237"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a03bc8a17e51b9169722067ceb4fa247d" title="Get current health." alt="" coords="186,201,328,242"/>
-<area shape="poly" title=" " alt="" coords="138,219,170,219,170,224,138,224"/>
+<area shape="poly" title=" " alt="" coords="138,240,170,234,171,240,139,246"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a37049aaf3199ee9be55bca7b15d38bea" title="Get maximum health." alt="" coords="186,267,328,307"/>
-<area shape="poly" title=" " alt="" coords="132,240,184,259,182,264,130,245"/>
+<area shape="poly" title=" " alt="" coords="139,264,171,270,170,275,138,269"/>
 <area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="193,332,320,373"/>
-<area shape="poly" title=" " alt="" coords="95,241,136,278,187,317,195,322,192,326,184,321,133,282,92,244"/>
+<area shape="poly" title=" " alt="" coords="109,273,187,317,198,322,196,327,184,321,107,278"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a3206feae35c1108f21c4b2088fed48f0" title="Get all status effects." alt="" coords="186,397,328,438"/>
-<area shape="poly" title=" " alt="" coords="85,241,124,309,153,348,187,382,193,386,189,391,184,386,149,351,120,312,80,244"/>
+<area shape="poly" title=" " alt="" coords="89,274,130,327,157,356,187,382,194,387,191,391,184,386,153,360,126,330,85,277"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="191,463,323,503"/>
+<area shape="poly" title=" " alt="" coords="83,275,97,311,120,357,150,405,188,448,192,451,188,455,184,452,146,408,115,360,93,313,78,277"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1943,17 +2224,19 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a2cfab4e3e6939e1432e34ac29cf0a239_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a2cfab4e3e6939e1432e34ac29cf0a239_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a2cfab4e3e6939e1432e34ac29cf0a239_cgraph" id="aclassdeckstiny_1_1_text_u_i_a2cfab4e3e6939e1432e34ac29cf0a239_cgraph">
-<area shape="rect" title="Display a relic." alt="" coords="5,104,138,145"/>
+<area shape="rect" title="Display a relic." alt="" coords="5,134,138,174"/>
 <area shape="rect" href="classdeckstiny_1_1_relic.html#af4be78c5be239853bac2f87f26eae3b9" title="Get the relic&#39;s description." alt="" coords="186,5,393,31"/>
-<area shape="poly" title=" " alt="" coords="94,102,134,70,184,40,199,34,201,39,187,45,137,74,97,106"/>
+<area shape="poly" title=" " alt="" coords="86,132,127,85,154,60,184,40,195,35,197,39,187,44,157,65,130,89,90,135"/>
 <area shape="rect" href="classdeckstiny_1_1_relic.html#acf6adaf258cfcf9c0ba2634b21251eac" title="Get the relic&#39;s flavor text." alt="" coords="188,55,390,80"/>
-<area shape="poly" title=" " alt="" coords="137,103,185,90,217,82,218,87,186,95,138,109"/>
+<area shape="poly" title=" " alt="" coords="105,131,142,110,185,90,207,83,209,88,187,95,145,115,107,136"/>
 <area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="226,104,353,145"/>
-<area shape="poly" title=" " alt="" coords="138,122,210,122,210,128,138,128"/>
+<area shape="poly" title=" " alt="" coords="138,143,210,133,210,138,138,148"/>
 <area shape="rect" href="classdeckstiny_1_1_relic.html#a0c9cbc3e09eaf291295e00dab05907bd" title="Get the relic&#39;s rarity." alt="" coords="201,169,378,195"/>
-<area shape="poly" title=" " alt="" coords="138,141,186,154,218,162,217,168,185,159,137,146"/>
+<area shape="poly" title=" " alt="" coords="138,160,186,166,186,172,138,165"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a99d03f1370eec3eafc8ba14c1e5878c8" title="Get relic rarity as string." alt="" coords="220,219,358,260"/>
-<area shape="poly" title=" " alt="" coords="98,144,138,175,187,205,207,214,204,219,184,210,135,179,95,148"/>
+<area shape="poly" title=" " alt="" coords="115,173,187,205,207,212,205,217,185,210,112,177"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="223,284,356,325"/>
+<area shape="poly" title=" " alt="" coords="90,173,130,221,157,247,187,269,210,281,208,286,184,274,154,251,127,225,86,177"/>
 </map>
 </div>
 <div class="dynheader">
@@ -2013,19 +2296,22 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a98ca955c6fb22db0b75b0ab2b6caf61c_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a98ca955c6fb22db0b75b0ab2b6caf61c_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a98ca955c6fb22db0b75b0ab2b6caf61c_cgraph" id="aclassdeckstiny_1_1_text_u_i_a98ca955c6fb22db0b75b0ab2b6caf61c_cgraph">
-<area shape="rect" title="Display a list of relics." alt="" coords="5,104,138,145"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2cfab4e3e6939e1432e34ac29cf0a239" title="Display a relic." alt="" coords="186,104,318,145"/>
-<area shape="poly" title=" " alt="" coords="138,122,170,122,170,128,138,128"/>
-<area shape="rect" href="classdeckstiny_1_1_relic.html#af4be78c5be239853bac2f87f26eae3b9" title="Get the relic&#39;s description." alt="" coords="366,5,573,31"/>
-<area shape="poly" title=" " alt="" coords="274,102,314,70,365,40,380,34,382,39,367,45,318,74,277,106"/>
-<area shape="rect" href="classdeckstiny_1_1_relic.html#acf6adaf258cfcf9c0ba2634b21251eac" title="Get the relic&#39;s flavor text." alt="" coords="368,55,571,80"/>
-<area shape="poly" title=" " alt="" coords="317,103,365,90,397,82,398,87,367,95,319,109"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="406,104,533,145"/>
-<area shape="poly" title=" " alt="" coords="318,122,390,122,390,128,318,128"/>
-<area shape="rect" href="classdeckstiny_1_1_relic.html#a0c9cbc3e09eaf291295e00dab05907bd" title="Get the relic&#39;s rarity." alt="" coords="382,169,558,195"/>
-<area shape="poly" title=" " alt="" coords="319,141,367,154,398,162,397,168,365,159,317,146"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a99d03f1370eec3eafc8ba14c1e5878c8" title="Get relic rarity as string." alt="" coords="400,219,539,260"/>
-<area shape="poly" title=" " alt="" coords="278,144,319,175,367,205,387,214,385,219,365,210,316,179,275,148"/>
+<area shape="rect" title="Display a list of relics." alt="" coords="5,84,138,125"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="404,5,536,46"/>
+<area shape="poly" title=" " alt="" coords="138,89,388,39,389,44,139,94"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2cfab4e3e6939e1432e34ac29cf0a239" title="Display a relic." alt="" coords="186,112,318,153"/>
+<area shape="poly" title=" " alt="" coords="138,112,171,117,170,122,138,117"/>
+<area shape="poly" title=" " alt="" coords="278,109,318,82,365,55,388,46,390,51,367,60,321,86,281,114"/>
+<area shape="rect" href="classdeckstiny_1_1_relic.html#af4be78c5be239853bac2f87f26eae3b9" title="Get the relic&#39;s description." alt="" coords="366,70,573,96"/>
+<area shape="poly" title=" " alt="" coords="318,115,394,97,396,102,319,120"/>
+<area shape="rect" href="classdeckstiny_1_1_relic.html#acf6adaf258cfcf9c0ba2634b21251eac" title="Get the relic&#39;s flavor text." alt="" coords="368,120,571,145"/>
+<area shape="poly" title=" " alt="" coords="318,130,353,130,353,135,318,135"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="406,169,533,210"/>
+<area shape="poly" title=" " alt="" coords="319,147,392,167,390,172,318,152"/>
+<area shape="rect" href="classdeckstiny_1_1_relic.html#a0c9cbc3e09eaf291295e00dab05907bd" title="Get the relic&#39;s rarity." alt="" coords="382,234,558,260"/>
+<area shape="poly" title=" " alt="" coords="275,151,316,186,367,219,384,226,382,231,365,224,313,191,272,155"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a99d03f1370eec3eafc8ba14c1e5878c8" title="Get relic rarity as string." alt="" coords="400,284,539,325"/>
+<area shape="poly" title=" " alt="" coords="267,152,306,211,335,243,368,270,388,281,385,286,364,275,331,247,302,214,262,155"/>
 </map>
 </div>
 <div class="dynheader">
@@ -2089,47 +2375,202 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_acf2e834e6fb734d05579545f3b180703_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_acf2e834e6fb734d05579545f3b180703_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_acf2e834e6fb734d05579545f3b180703_cgraph" id="aclassdeckstiny_1_1_text_u_i_acf2e834e6fb734d05579545f3b180703_cgraph">
-<area shape="rect" title="Display rewards after combat." alt="" coords="5,185,138,226"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="186,5,318,46"/>
-<area shape="poly" title=" " alt="" coords="84,183,125,126,153,93,184,62,196,53,199,57,187,66,157,96,129,129,88,187"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="366,120,498,161"/>
-<area shape="poly" title=" " alt="" coords="87,183,128,141,155,121,185,106,231,95,278,95,324,102,365,112,364,117,323,107,278,100,231,101,187,111,157,126,131,145,91,187"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="186,120,318,161"/>
-<area shape="poly" title=" " alt="" coords="129,182,179,164,180,169,130,187"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#ae55197880cba0f0c73251a53be41d22e" title="Get the player&#39;s gold." alt="" coords="187,185,317,226"/>
-<area shape="poly" title=" " alt="" coords="138,203,171,203,171,208,138,208"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6712c5f811b74e5d2b7c5a7cac3b0654" title="Display a list of cards." alt="" coords="186,316,318,357"/>
-<area shape="poly" title=" " alt="" coords="95,224,137,262,187,301,195,306,192,310,184,305,133,266,92,228"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a98ca955c6fb22db0b75b0ab2b6caf61c" title="Display a list of relics." alt="" coords="186,405,318,446"/>
-<area shape="poly" title=" " alt="" coords="87,225,129,290,188,367,214,393,211,397,184,370,125,293,83,228"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2e7e17009a97cc71e45490f018946f4a" title="Wait for a key press." alt="" coords="186,251,318,291"/>
-<area shape="poly" title=" " alt="" coords="130,224,180,242,179,247,129,229"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="366,267,498,307"/>
-<area shape="poly" title=" " alt="" coords="318,316,350,307,352,312,319,321"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="584,111,716,151"/>
-<area shape="poly" title=" " alt="" coords="445,265,486,213,514,185,545,161,568,149,571,153,548,165,517,189,490,216,449,268"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="566,176,734,201"/>
-<area shape="poly" title=" " alt="" coords="458,264,498,236,545,210,561,204,563,209,547,215,500,240,461,268"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="547,225,753,250"/>
-<area shape="poly" title=" " alt="" coords="498,269,575,252,576,257,499,275"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="586,373,714,414"/>
-<area shape="poly" title=" " alt="" coords="462,305,501,333,548,359,572,370,570,375,545,364,498,337,459,310"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="566,274,734,300"/>
-<area shape="poly" title=" " alt="" coords="499,284,550,284,550,290,499,290"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="556,324,744,349"/>
-<area shape="poly" title=" " alt="" coords="499,299,576,317,575,322,498,305"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2cfab4e3e6939e1432e34ac29cf0a239" title="Display a relic." alt="" coords="366,455,498,495"/>
-<area shape="poly" title=" " alt="" coords="319,441,352,450,350,455,318,446"/>
-<area shape="poly" title=" " alt="" coords="477,452,545,423,571,414,573,419,547,428,479,457"/>
-<area shape="rect" href="classdeckstiny_1_1_relic.html#af4be78c5be239853bac2f87f26eae3b9" title="Get the relic&#39;s description." alt="" coords="546,438,754,464"/>
-<area shape="poly" title=" " alt="" coords="498,465,531,461,531,467,499,470"/>
-<area shape="rect" href="classdeckstiny_1_1_relic.html#acf6adaf258cfcf9c0ba2634b21251eac" title="Get the relic&#39;s flavor text." alt="" coords="549,488,751,513"/>
-<area shape="poly" title=" " alt="" coords="499,480,534,484,533,489,498,485"/>
-<area shape="rect" href="classdeckstiny_1_1_relic.html#a0c9cbc3e09eaf291295e00dab05907bd" title="Get the relic&#39;s rarity." alt="" coords="562,537,738,562"/>
-<area shape="poly" title=" " alt="" coords="476,494,547,523,569,530,568,535,545,528,474,498"/>
-<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a99d03f1370eec3eafc8ba14c1e5878c8" title="Get relic rarity as string." alt="" coords="581,587,719,627"/>
-<area shape="poly" title=" " alt="" coords="454,494,495,534,548,573,567,582,565,587,545,577,491,538,450,498"/>
-<area shape="poly" title=" " alt="" coords="296,248,317,235,360,202,398,169,401,173,363,207,319,240,299,252"/>
+<area shape="rect" title="Display rewards after combat." alt="" coords="5,182,138,222"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="366,30,498,70"/>
+<area shape="poly" title=" " alt="" coords="91,179,132,142,184,108,225,90,268,76,350,58,351,63,270,81,227,95,187,112,135,147,94,183"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="584,154,716,194"/>
+<area shape="poly" title=" " alt="" coords="83,180,123,124,152,94,184,68,231,42,271,29,366,15,434,4,463,4,499,16,541,40,578,72,608,107,631,139,626,142,604,110,574,76,538,44,497,20,463,10,434,9,366,21,272,34,233,47,187,72,155,98,127,127,87,183"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="366,95,498,136"/>
+<area shape="poly" title=" " alt="" coords="102,179,140,157,185,138,269,120,350,113,350,118,270,125,186,143,143,161,105,183"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="366,210,498,250"/>
+<area shape="poly" title=" " alt="" coords="138,204,351,221,350,226,138,210"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#ae55197880cba0f0c73251a53be41d22e" title="Get the player&#39;s gold." alt="" coords="187,398,317,438"/>
+<area shape="poly" title=" " alt="" coords="83,221,122,298,152,343,188,383,192,386,188,390,184,387,147,346,117,301,79,224"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6712c5f811b74e5d2b7c5a7cac3b0654" title="Display a list of cards." alt="" coords="186,267,318,308"/>
+<area shape="poly" title=" " alt="" coords="117,220,194,257,192,262,115,225"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a98ca955c6fb22db0b75b0ab2b6caf61c" title="Display a list of relics." alt="" coords="186,332,318,373"/>
+<area shape="poly" title=" " alt="" coords="91,221,132,268,187,317,194,322,191,326,184,321,129,271,87,224"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2e7e17009a97cc71e45490f018946f4a" title="Wait for a key press." alt="" coords="186,152,318,193"/>
+<area shape="poly" title=" " alt="" coords="138,189,170,183,171,189,138,194"/>
+<area shape="poly" title=" " alt="" coords="476,69,500,81,604,143,601,147,497,86,474,73"/>
+<area shape="poly" title=" " alt="" coords="499,130,570,150,568,155,498,136"/>
+<area shape="poly" title=" " alt="" coords="498,210,568,192,569,197,499,216"/>
+<area shape="poly" title=" " alt="" coords="318,291,360,291,406,287,453,277,497,260,512,248,521,234,529,219,545,204,568,191,571,196,548,208,533,222,525,236,516,251,500,264,455,282,407,292,361,296,318,296"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="366,375,498,416"/>
+<area shape="poly" title=" " alt="" coords="297,306,319,318,390,364,387,368,317,323,294,310"/>
+<area shape="poly" title=" " alt="" coords="476,373,496,355,508,335,515,316,517,279,521,242,529,223,545,204,568,188,571,192,548,208,534,226,527,243,523,279,520,317,513,338,500,358,480,377"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a73350d75f49c378bc28eed568264b17f" title="Get card type as string." alt="" coords="584,318,716,358"/>
+<area shape="poly" title=" " alt="" coords="498,375,568,357,569,362,499,381"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="566,382,734,408"/>
+<area shape="poly" title=" " alt="" coords="499,393,550,393,550,398,499,398"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="547,432,753,457"/>
+<area shape="poly" title=" " alt="" coords="499,408,576,425,575,430,498,413"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="586,482,714,522"/>
+<area shape="poly" title=" " alt="" coords="462,414,501,441,548,468,572,478,570,483,545,472,498,446,459,418"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a4bdd457700f4097b9f5aa7481f1e5856" title="Get the card&#39;s type." alt="" coords="566,218,734,244"/>
+<area shape="poly" title=" " alt="" coords="475,372,496,355,512,329,518,303,525,278,544,253,551,249,554,253,548,257,530,280,523,305,517,331,500,358,478,377"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a2d53b4daa99cf41535a5475b936fd6e0" title="Check if card is upgraded." alt="" coords="556,268,744,293"/>
+<area shape="poly" title=" " alt="" coords="471,372,497,355,510,341,519,328,529,316,545,304,558,297,560,302,548,308,533,320,523,331,514,344,500,359,474,377"/>
+<area shape="poly" title=" " alt="" coords="318,350,361,346,408,337,455,320,497,296,514,275,520,252,527,228,545,204,568,189,571,194,548,208,531,230,525,253,519,277,500,300,457,325,410,342,362,351,319,355"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a2cfab4e3e6939e1432e34ac29cf0a239" title="Display a relic." alt="" coords="366,539,498,580"/>
+<area shape="poly" title=" " alt="" coords="303,371,320,384,351,417,378,455,418,524,413,526,374,458,347,421,316,388,300,376"/>
+<area shape="poly" title=" " alt="" coords="443,537,470,488,496,426,504,393,508,363,507,309,507,283,512,258,524,232,544,204,568,187,571,191,548,208,528,234,517,259,513,284,512,309,513,363,510,394,501,428,474,490,448,540"/>
+<area shape="poly" title=" " alt="" coords="498,539,571,520,572,525,499,545"/>
+<area shape="rect" href="classdeckstiny_1_1_relic.html#af4be78c5be239853bac2f87f26eae3b9" title="Get the relic&#39;s description." alt="" coords="546,661,754,687"/>
+<area shape="poly" title=" " alt="" coords="456,578,496,613,548,646,564,653,562,658,545,651,493,618,452,582"/>
+<area shape="rect" href="classdeckstiny_1_1_relic.html#acf6adaf258cfcf9c0ba2634b21251eac" title="Get the relic&#39;s flavor text." alt="" coords="549,710,751,736"/>
+<area shape="poly" title=" " alt="" coords="447,579,486,638,514,670,548,697,556,702,553,706,545,702,511,674,482,642,442,582"/>
+<area shape="rect" href="classdeckstiny_1_1_relic.html#a0c9cbc3e09eaf291295e00dab05907bd" title="Get the relic&#39;s rarity." alt="" coords="562,546,738,572"/>
+<area shape="poly" title=" " alt="" coords="499,557,547,557,547,562,499,562"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a99d03f1370eec3eafc8ba14c1e5878c8" title="Get relic rarity as string." alt="" coords="581,596,719,637"/>
+<area shape="poly" title=" " alt="" coords="499,574,567,592,565,597,498,579"/>
+<area shape="poly" title=" " alt="" coords="318,170,568,171,568,176,318,176"/>
+<area shape="poly" title=" " alt="" coords="317,149,351,138,352,143,319,154"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3e60882142c82a133a18338e376cb6ce" name="a3e60882142c82a133a18338e376cb6ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e60882142c82a133a18338e376cb6ce">&#9670;&#160;</a></span>showShop() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deckstiny::TextUI::showShop </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>cards</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>relics</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> *, int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>relicPrices</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>playerGold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Show the shop UI with relic prices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cards</td><td>Cards for sale </td></tr>
+    <tr><td class="paramname">relics</td><td>Relics for sale </td></tr>
+    <tr><td class="paramname">relicPrices</td><td>Map of relics to their prices </td></tr>
+    <tr><td class="paramname">playerGold</td><td>Current player gold </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classdeckstiny_1_1_u_i_interface.html#a36ce15c94eb7745e1ae5f3cd440789ff">deckstiny::UIInterface</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a3e60882142c82a133a18338e376cb6ce_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a3e60882142c82a133a18338e376cb6ce_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a3e60882142c82a133a18338e376cb6ce_cgraph" id="aclassdeckstiny_1_1_text_u_i_a3e60882142c82a133a18338e376cb6ce_cgraph">
+<area shape="rect" title="Show the shop UI with relic prices." alt="" coords="5,243,138,283"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="223,5,356,46"/>
+<area shape="poly" title=" " alt="" coords="77,242,91,204,113,156,144,106,184,62,208,47,211,51,187,66,148,109,118,159,96,206,82,243"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="441,92,573,133"/>
+<area shape="poly" title=" " alt="" coords="78,241,93,209,116,171,146,134,184,106,214,94,245,85,308,78,370,81,426,89,425,94,370,86,308,83,246,90,215,99,187,111,150,138,120,174,98,212,83,243"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="223,120,356,161"/>
+<area shape="poly" title=" " alt="" coords="92,240,133,205,184,171,207,161,210,166,187,176,136,210,96,244"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="223,185,356,226"/>
+<area shape="poly" title=" " alt="" coords="137,243,207,224,209,230,139,248"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="206,250,373,276"/>
+<area shape="poly" title=" " alt="" coords="138,260,190,260,190,266,138,266"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a27107f35cf377410d4d286f7786d23df" title="Get the card&#39;s description." alt="" coords="187,300,392,325"/>
+<area shape="poly" title=" " alt="" coords="139,275,215,293,214,298,137,281"/>
+<area shape="rect" href="classdeckstiny_1_1_relic.html#af4be78c5be239853bac2f87f26eae3b9" title="Get the relic&#39;s description." alt="" coords="186,349,393,374"/>
+<area shape="poly" title=" " alt="" coords="100,282,140,310,187,335,202,341,201,346,185,340,137,314,97,286"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="226,399,353,439"/>
+<area shape="poly" title=" " alt="" coords="88,282,129,334,156,361,187,385,212,398,210,402,184,389,153,365,125,337,84,285"/>
+<area shape="rect" href="classdeckstiny_1_1_relic.html#a0c9cbc3e09eaf291295e00dab05907bd" title="Get the relic&#39;s rarity." alt="" coords="201,464,378,489"/>
+<area shape="poly" title=" " alt="" coords="82,283,96,319,118,364,148,410,187,449,195,454,192,459,184,453,144,414,113,367,91,321,77,285"/>
+<area shape="poly" title=" " alt="" coords="348,44,394,62,445,83,443,88,392,67,346,49"/>
+<area shape="poly" title=" " alt="" coords="355,129,425,120,426,125,356,135"/>
+<area shape="poly" title=" " alt="" coords="355,184,392,170,456,138,459,143,394,175,357,189"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afb60bcaad0bf2651a6c2d7ddbad36436" name="afb60bcaad0bf2651a6c2d7ddbad36436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb60bcaad0bf2651a6c2d7ddbad36436">&#9670;&#160;</a></span>showShop() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deckstiny::TextUI::showShop </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>cards</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>relics</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>playerGold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Show the shop UI. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cards</td><td>Cards for sale </td></tr>
+    <tr><td class="paramname">relics</td><td>Relics for sale </td></tr>
+    <tr><td class="paramname">playerGold</td><td>Current player gold </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classdeckstiny_1_1_u_i_interface.html#af8b18bbd44f1691f920b3258728a885c">deckstiny::UIInterface</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_afb60bcaad0bf2651a6c2d7ddbad36436_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_afb60bcaad0bf2651a6c2d7ddbad36436_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_afb60bcaad0bf2651a6c2d7ddbad36436_cgraph" id="aclassdeckstiny_1_1_text_u_i_afb60bcaad0bf2651a6c2d7ddbad36436_cgraph">
+<area shape="rect" title="Show the shop UI." alt="" coords="5,29,138,70"/>
+<area shape="poly" title=" " alt="" coords="45,29,44,20,48,11,58,5,72,3,86,5,95,12,92,16,84,10,71,8,59,10,52,14,49,20,51,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_afb60bcaad0bf2651a6c2d7ddbad36436_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_afb60bcaad0bf2651a6c2d7ddbad36436_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_afb60bcaad0bf2651a6c2d7ddbad36436_icgraph" id="aclassdeckstiny_1_1_text_u_i_afb60bcaad0bf2651a6c2d7ddbad36436_icgraph">
+<area shape="rect" title="Show the shop UI." alt="" coords="5,29,138,70"/>
+<area shape="poly" title=" " alt="" coords="92,16,84,10,71,8,59,10,52,14,49,20,51,28,45,29,44,20,48,11,58,5,72,3,86,5,95,12"/>
 </map>
 </div>
 
@@ -2200,6 +2641,16 @@ Here is the caller graph for this function:</div>
 <p>Update the display. </p>
 
 <p>Implements <a class="el" href="classdeckstiny_1_1_u_i_interface.html#a3345c6ddb7caf168fda82d99157d468d">deckstiny::UIInterface</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_text_u_i_a4ea9ca2266a48f3d99206319a3aa97f8_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a4ea9ca2266a48f3d99206319a3aa97f8_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_text_u_i_a4ea9ca2266a48f3d99206319a3aa97f8_cgraph" id="aclassdeckstiny_1_1_text_u_i_a4ea9ca2266a48f3d99206319a3aa97f8_cgraph">
+<area shape="rect" title="Update the display." alt="" coords="5,5,138,46"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="186,5,318,46"/>
+<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -2224,9 +2675,12 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_text_u_i_a2e7e17009a97cc71e45490f018946f4a_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_text_u_i_a2e7e17009a97cc71e45490f018946f4a_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_text_u_i_a2e7e17009a97cc71e45490f018946f4a_cgraph" id="aclassdeckstiny_1_1_text_u_i_a2e7e17009a97cc71e45490f018946f4a_cgraph">
-<area shape="rect" title="Wait for a key press." alt="" coords="5,5,138,46"/>
+<area shape="rect" title="Wait for a key press." alt="" coords="5,35,138,75"/>
 <area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,5,318,46"/>
-<area shape="poly" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+<area shape="poly" title=" " alt="" coords="138,42,170,36,171,42,138,47"/>
+<area shape="rect" href="classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="366,35,498,75"/>
+<area shape="poly" title=" " alt="" coords="138,54,186,55,318,55,350,54,351,60,318,60,186,60,138,59"/>
+<area shape="poly" title=" " alt="" coords="319,34,351,39,350,44,318,39"/>
 </map>
 </div>
 <div class="dynheader">
@@ -2452,6 +2906,28 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Whether the UI is running. </p>
+
+</div>
+</div>
+<a id="af662e6100c54bf863fd05e6b2f32e917" name="af662e6100c54bf863fd05e6b2f32e917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af662e6100c54bf863fd05e6b2f32e917">&#9670;&#160;</a></span>testingModeEnabled_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt; bool &gt; deckstiny::TextUI::testingModeEnabled_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

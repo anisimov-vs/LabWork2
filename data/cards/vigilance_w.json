@@ -1,19 +1,19 @@
 {
-    "id": "defend_g",
-    "name": "Defend",
-    "description": "Gain 5 Block.",
+    "id": "vigilance_w",
+    "name": "Vigilance",
+    "description": "Gain 8 Block.",
     "type": "SKILL",
     "rarity": "BASIC",
     "target": "SELF",
     "cost": 1,
     "upgradable": true,
-    "class": "SILENT",
+    "class": "WATCHER",
     "effects": [
         {
             "type": "block",
-            "value": 5,
+            "value": 8,
             "target": "self",
-            "upgraded_value": 8
+            "upgraded_value": 12
         }
     ]
 } 

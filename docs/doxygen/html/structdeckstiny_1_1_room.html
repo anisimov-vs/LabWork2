@@ -133,7 +133,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a5663a99d87012ae2afa1be221a3f98bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether room has been visited.  <br /></td></tr>
 <tr class="separator:a5663a99d87012ae2afa1be221a3f98bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3c133043096ec20437df35d8ab5a87d" id="r_ab3c133043096ec20437df35d8ab5a87d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3c133043096ec20437df35d8ab5a87d">x</a> = 0</td></tr>
-<tr class="memdesc:ab3c133043096ec20437df35d8ab5a87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">X position for display.  <br /></td></tr>
+<tr class="memdesc:ab3c133043096ec20437df35d8ab5a87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">X position for display (column)  <br /></td></tr>
 <tr class="separator:ab3c133043096ec20437df35d8ab5a87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a059877276badb1b874f42d9e37202b1f" id="r_a059877276badb1b874f42d9e37202b1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a059877276badb1b874f42d9e37202b1f">y</a> = 0</td></tr>
 <tr class="memdesc:a059877276badb1b874f42d9e37202b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y position for display (floor level)  <br /></td></tr>
@@ -141,21 +141,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a2aeeb591e220081d9b4099471b17f98a" id="r_a2aeeb591e220081d9b4099471b17f98a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2aeeb591e220081d9b4099471b17f98a">data</a></td></tr>
 <tr class="memdesc:a2aeeb591e220081d9b4099471b17f98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional room data (JSON)  <br /></td></tr>
 <tr class="separator:a2aeeb591e220081d9b4099471b17f98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c1c13bc975987bb5957c2c4537159f7" id="r_a2c1c13bc975987bb5957c2c4537159f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c1c13bc975987bb5957c2c4537159f7">pathId</a> = 0</td></tr>
-<tr class="memdesc:a2c1c13bc975987bb5957c2c4537159f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID of the path this room belongs to.  <br /></td></tr>
-<tr class="separator:a2c1c13bc975987bb5957c2c4537159f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcab3b553816ca5d107b9e74891fc463" id="r_abcab3b553816ca5d107b9e74891fc463"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0a">PathType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcab3b553816ca5d107b9e74891fc463">pathType</a> = <a class="el" href="namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0aa1e23852820b9154316c7c06e2b7ba051">PathType::NORMAL</a></td></tr>
-<tr class="memdesc:abcab3b553816ca5d107b9e74891fc463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of path this room is on.  <br /></td></tr>
-<tr class="separator:abcab3b553816ca5d107b9e74891fc463"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63a7a89a5ed95dc4e5227023fc7025b4" id="r_a63a7a89a5ed95dc4e5227023fc7025b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63a7a89a5ed95dc4e5227023fc7025b4">distanceFromStart</a> = 0</td></tr>
-<tr class="memdesc:a63a7a89a5ed95dc4e5227023fc7025b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance from starting room (used for enemy selection)  <br /></td></tr>
+<tr class="memdesc:a63a7a89a5ed95dc4e5227023fc7025b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance from starting room (used for enemy selection, effectively 'y')  <br /></td></tr>
 <tr class="separator:a63a7a89a5ed95dc4e5227023fc7025b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2eed49fd681fa11b83400f3e6fc8ae2" id="r_ae2eed49fd681fa11b83400f3e6fc8ae2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2eed49fd681fa11b83400f3e6fc8ae2">distanceFromBoss</a> = 0</td></tr>
-<tr class="memdesc:ae2eed49fd681fa11b83400f3e6fc8ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance from boss room (used for difficulty scaling)  <br /></td></tr>
-<tr class="separator:ae2eed49fd681fa11b83400f3e6fc8ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7431b8da1c85a8411772d1a85e22c27b" id="r_a7431b8da1c85a8411772d1a85e22c27b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7431b8da1c85a8411772d1a85e22c27b">isCheckpoint</a> = false</td></tr>
-<tr class="memdesc:a7431b8da1c85a8411772d1a85e22c27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether this room is a mandatory checkpoint.  <br /></td></tr>
-<tr class="separator:a7431b8da1c85a8411772d1a85e22c27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a single room on the map. </p>
@@ -176,22 +164,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae2eed49fd681fa11b83400f3e6fc8ae2" name="ae2eed49fd681fa11b83400f3e6fc8ae2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2eed49fd681fa11b83400f3e6fc8ae2">&#9670;&#160;</a></span>distanceFromBoss</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int deckstiny::Room::distanceFromBoss = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Distance from boss room (used for difficulty scaling) </p>
-
-</div>
-</div>
 <a id="a63a7a89a5ed95dc4e5227023fc7025b4" name="a63a7a89a5ed95dc4e5227023fc7025b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63a7a89a5ed95dc4e5227023fc7025b4">&#9670;&#160;</a></span>distanceFromStart</h2>
 
@@ -204,7 +176,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Distance from starting room (used for enemy selection) </p>
+<p>Distance from starting room (used for enemy selection, effectively 'y') </p>
 
 </div>
 </div>
@@ -224,22 +196,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7431b8da1c85a8411772d1a85e22c27b" name="a7431b8da1c85a8411772d1a85e22c27b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7431b8da1c85a8411772d1a85e22c27b">&#9670;&#160;</a></span>isCheckpoint</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool deckstiny::Room::isCheckpoint = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Whether this room is a mandatory checkpoint. </p>
-
-</div>
-</div>
 <a id="a9a74a05ea5ff40221ebb39888b2c5340" name="a9a74a05ea5ff40221ebb39888b2c5340"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a74a05ea5ff40221ebb39888b2c5340">&#9670;&#160;</a></span>nextRooms</h2>
 
@@ -253,38 +209,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>IDs of connected rooms. </p>
-
-</div>
-</div>
-<a id="a2c1c13bc975987bb5957c2c4537159f7" name="a2c1c13bc975987bb5957c2c4537159f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c1c13bc975987bb5957c2c4537159f7">&#9670;&#160;</a></span>pathId</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int deckstiny::Room::pathId = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ID of the path this room belongs to. </p>
-
-</div>
-</div>
-<a id="abcab3b553816ca5d107b9e74891fc463" name="abcab3b553816ca5d107b9e74891fc463"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcab3b553816ca5d107b9e74891fc463">&#9670;&#160;</a></span>pathType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0a">PathType</a> deckstiny::Room::pathType = <a class="el" href="namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0aa1e23852820b9154316c7c06e2b7ba051">PathType::NORMAL</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Type of path this room is on. </p>
 
 </div>
 </div>
@@ -348,7 +272,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>X position for display. </p>
+<p>X position for display (column) </p>
 
 </div>
 </div>

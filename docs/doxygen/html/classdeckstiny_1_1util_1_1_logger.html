@@ -138,6 +138,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a924d997a67367c3a3f30c7c6cf4080e3" id="r_a924d997a67367c3a3f30c7c6cf4080e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a924d997a67367c3a3f30c7c6cf4080e3">setLogDirectory</a> (const std::string &amp;directory)</td></tr>
 <tr class="memdesc:a924d997a67367c3a3f30c7c6cf4080e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the log directory.  <br /></td></tr>
 <tr class="separator:a924d997a67367c3a3f30c7c6cf4080e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a82c54ff8039648530cc67564ede92c" id="r_a1a82c54ff8039648530cc67564ede92c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a82c54ff8039648530cc67564ede92c">isConsoleEnabled</a> () const</td></tr>
+<tr class="memdesc:a1a82c54ff8039648530cc67564ede92c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if console output is enabled.  <br /></td></tr>
+<tr class="separator:a1a82c54ff8039648530cc67564ede92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91eca26c82cbf3795ec7cb46df5a9a1d" id="r_a91eca26c82cbf3795ec7cb46df5a9a1d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91eca26c82cbf3795ec7cb46df5a9a1d">getLogDirectory</a> () const</td></tr>
+<tr class="memdesc:a91eca26c82cbf3795ec7cb46df5a9a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the log directory.  <br /></td></tr>
+<tr class="separator:a91eca26c82cbf3795ec7cb46df5a9a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -150,6 +156,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a92642c39d3781a26398a71e751f19e6b" id="r_a92642c39d3781a26398a71e751f19e6b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92642c39d3781a26398a71e751f19e6b">setTestingMode</a> (bool enabled)</td></tr>
 <tr class="memdesc:a92642c39d3781a26398a71e751f19e6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the testing mode.  <br /></td></tr>
 <tr class="separator:a92642c39d3781a26398a71e751f19e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f3024ebc4e07a9395f164f33e593ed1" id="r_a0f3024ebc4e07a9395f164f33e593ed1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f3024ebc4e07a9395f164f33e593ed1">isInitialized</a> ()</td></tr>
+<tr class="memdesc:a0f3024ebc4e07a9395f164f33e593ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the logger is initialized.  <br /></td></tr>
+<tr class="separator:a0f3024ebc4e07a9395f164f33e593ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f6134daec15ea1a05a8480bbae48b33" id="r_a8f6134daec15ea1a05a8480bbae48b33"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f6134daec15ea1a05a8480bbae48b33">isTestingMode</a> ()</td></tr>
+<tr class="memdesc:a8f6134daec15ea1a05a8480bbae48b33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if testing mode is enabled.  <br /></td></tr>
+<tr class="separator:a8f6134daec15ea1a05a8480bbae48b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -185,8 +197,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:afc462ce21c53fa832d24c68e2df2f680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab597ac4379e91b85f6d623272d378bf8" id="r_ab597ac4379e91b85f6d623272d378bf8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab597ac4379e91b85f6d623272d378bf8">fileEnabled_</a> = true</td></tr>
 <tr class="separator:ab597ac4379e91b85f6d623272d378bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9d0cdcb172c855731cc6f095f1f8f04" id="r_aa9d0cdcb172c855731cc6f095f1f8f04"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9d0cdcb172c855731cc6f095f1f8f04">logDirectory_</a> = &quot;logs&quot;</td></tr>
+<tr class="memitem:aa9d0cdcb172c855731cc6f095f1f8f04" id="r_aa9d0cdcb172c855731cc6f095f1f8f04"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9d0cdcb172c855731cc6f095f1f8f04">logDirectory_</a> = &quot;logs/deckstiny&quot;</td></tr>
 <tr class="separator:aa9d0cdcb172c855731cc6f095f1f8f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc4e289a639ebe9e4bd79ac7f0808e54" id="r_acc4e289a639ebe9e4bd79ac7f0808e54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc4e289a639ebe9e4bd79ac7f0808e54">testingMode_</a> = false</td></tr>
+<tr class="separator:acc4e289a639ebe9e4bd79ac7f0808e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a9b95707b4b615189f69b4f13e24f01" id="r_a8a9b95707b4b615189f69b4f13e24f01"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::ofstream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a9b95707b4b615189f69b4f13e24f01">logFiles_</a></td></tr>
 <tr class="separator:a8a9b95707b4b615189f69b4f13e24f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -253,27 +267,29 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1util_1_1_logger_a5aee353b23b46197d4bcc921833c92cb_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1util_1_1_logger_a5aee353b23b46197d4bcc921833c92cb_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1util_1_1_logger_a5aee353b23b46197d4bcc921833c92cb_icgraph" id="aclassdeckstiny_1_1util_1_1_logger_a5aee353b23b46197d4bcc921833c92cb_icgraph">
-<area shape="rect" title=" " alt="" coords="647,170,797,210"/>
-<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#ac81e9e238abf86fa6fddf7d35304cd91" title="Get the singleton instance." alt="" coords="229,47,378,88"/>
-<area shape="poly" title=" " alt="" coords="690,161,649,125,625,108,598,95,543,78,485,69,429,65,378,65,378,60,429,60,485,64,544,73,600,90,627,104,652,121,694,157"/>
-<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a57cd88b468afdb727287f5ab6af4a9d8" title="Initialize the logger system." alt="" coords="438,104,587,145"/>
-<area shape="poly" title=" " alt="" coords="640,167,580,148,581,143,641,162"/>
-<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a354ccf88ce99c57d523d14382e0bc61c" title=" " alt="" coords="438,170,587,210"/>
-<area shape="poly" title=" " alt="" coords="632,193,588,193,588,188,632,188"/>
-<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a874bf89a5a4c4eef4ac8e3e83621c699" title=" " alt="" coords="438,235,587,276"/>
-<area shape="poly" title=" " alt="" coords="641,218,581,237,580,232,640,213"/>
-<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#ad5c5137507221b918a563c5e3160c1e2" title=" " alt="" coords="426,300,599,341"/>
-<area shape="poly" title=" " alt="" coords="689,223,648,257,601,290,575,302,573,298,598,285,645,253,686,219"/>
-<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="5,104,181,145"/>
-<area shape="poly" title=" " alt="" coords="214,95,171,106,170,101,213,89"/>
-<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="68,55,118,80"/>
-<area shape="poly" title=" " alt="" coords="213,70,118,70,118,65,213,65"/>
-<area shape="rect" href="classdeckstiny_1_1_game.html#a194d75a570b290d0d1b4034ef99ef3b8" title="Virtual destructor." alt="" coords="7,5,179,31"/>
-<area shape="poly" title=" " alt="" coords="213,49,150,34,152,29,214,44"/>
-<area shape="poly" title=" " alt="" coords="422,103,378,91,379,85,424,98"/>
-<area shape="poly" title=" " alt="" coords="423,128,181,128,181,122,423,122"/>
-<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a92642c39d3781a26398a71e751f19e6b" title="Set the testing mode." alt="" coords="229,162,378,202"/>
-<area shape="poly" title=" " alt="" coords="424,152,379,164,378,159,422,147"/>
+<area shape="rect" title=" " alt="" coords="871,170,1020,210"/>
+<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#ac81e9e238abf86fa6fddf7d35304cd91" title="Get the singleton instance." alt="" coords="452,47,601,88"/>
+<area shape="poly" title=" " alt="" coords="914,161,873,125,848,108,822,95,766,78,708,69,652,65,602,65,602,60,652,60,709,64,767,73,824,90,851,104,876,121,917,157"/>
+<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a57cd88b468afdb727287f5ab6af4a9d8" title="Initialize the logger system." alt="" coords="661,104,811,145"/>
+<area shape="poly" title=" " alt="" coords="863,167,803,148,805,143,865,162"/>
+<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a354ccf88ce99c57d523d14382e0bc61c" title=" " alt="" coords="661,170,811,210"/>
+<area shape="poly" title=" " alt="" coords="855,193,811,193,811,188,855,188"/>
+<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a874bf89a5a4c4eef4ac8e3e83621c699" title=" " alt="" coords="661,235,811,276"/>
+<area shape="poly" title=" " alt="" coords="865,218,805,237,803,232,863,213"/>
+<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#ad5c5137507221b918a563c5e3160c1e2" title=" " alt="" coords="649,300,823,341"/>
+<area shape="poly" title=" " alt="" coords="913,223,872,257,824,290,799,302,796,298,821,285,869,253,909,219"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,104,404,145"/>
+<area shape="poly" title=" " alt="" coords="437,95,394,106,393,101,436,89"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="292,55,341,80"/>
+<area shape="poly" title=" " alt="" coords="436,70,341,70,341,65,436,65"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a194d75a570b290d0d1b4034ef99ef3b8" title="Virtual destructor." alt="" coords="231,5,402,31"/>
+<area shape="poly" title=" " alt="" coords="436,49,374,34,375,29,438,44"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,112,181,138"/>
+<area shape="poly" title=" " alt="" coords="213,128,181,128,181,122,213,122"/>
+<area shape="poly" title=" " alt="" coords="646,103,601,91,603,85,647,98"/>
+<area shape="poly" title=" " alt="" coords="646,128,405,128,405,122,646,122"/>
+<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a92642c39d3781a26398a71e751f19e6b" title="Set the testing mode." alt="" coords="452,162,601,202"/>
+<area shape="poly" title=" " alt="" coords="647,152,603,164,601,159,646,147"/>
 </map>
 </div>
 
@@ -358,13 +374,15 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1util_1_1_logger_ac81e9e238abf86fa6fddf7d35304cd91_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1util_1_1_logger_ac81e9e238abf86fa6fddf7d35304cd91_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1util_1_1_logger_ac81e9e238abf86fa6fddf7d35304cd91_icgraph" id="aclassdeckstiny_1_1util_1_1_logger_ac81e9e238abf86fa6fddf7d35304cd91_icgraph">
-<area shape="rect" title="Get the singleton instance." alt="" coords="229,63,378,103"/>
-<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="5,5,181,46"/>
-<area shape="poly" title=" " alt="" coords="213,61,170,49,171,44,214,56"/>
-<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="68,70,118,96"/>
-<area shape="poly" title=" " alt="" coords="213,86,118,86,118,80,213,80"/>
-<area shape="rect" href="classdeckstiny_1_1_game.html#a194d75a570b290d0d1b4034ef99ef3b8" title="Virtual destructor." alt="" coords="7,120,179,145"/>
-<area shape="poly" title=" " alt="" coords="214,107,152,121,150,116,213,101"/>
+<area shape="rect" title="Get the singleton instance." alt="" coords="452,63,601,103"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,5,404,46"/>
+<area shape="poly" title=" " alt="" coords="436,61,393,49,394,44,437,56"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="292,70,341,96"/>
+<area shape="poly" title=" " alt="" coords="436,86,341,86,341,80,436,80"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a194d75a570b290d0d1b4034ef99ef3b8" title="Virtual destructor." alt="" coords="231,120,402,145"/>
+<area shape="poly" title=" " alt="" coords="438,107,375,121,374,116,436,101"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
 </map>
 </div>
 
@@ -444,6 +462,26 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a91eca26c82cbf3795ec7cb46df5a9a1d" name="a91eca26c82cbf3795ec7cb46df5a9a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91eca26c82cbf3795ec7cb46df5a9a1d">&#9670;&#160;</a></span>getLogDirectory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string deckstiny::util::Logger::getLogDirectory </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the log directory. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current log directory </dd></dl>
+
+</div>
+</div>
 <a id="aba289a59c4a99b8d787761d392600c13" name="aba289a59c4a99b8d787761d392600c13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba289a59c4a99b8d787761d392600c13">&#9670;&#160;</a></span>getTimestamp()</h2>
 
@@ -520,20 +558,98 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1util_1_1_logger_a57cd88b468afdb727287f5ab6af4a9d8_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1util_1_1_logger_a57cd88b468afdb727287f5ab6af4a9d8_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1util_1_1_logger_a57cd88b468afdb727287f5ab6af4a9d8_icgraph" id="aclassdeckstiny_1_1util_1_1_logger_a57cd88b468afdb727287f5ab6af4a9d8_icgraph">
-<area shape="rect" title="Initialize the logger system." alt="" coords="426,63,575,103"/>
-<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#ac81e9e238abf86fa6fddf7d35304cd91" title="Get the singleton instance." alt="" coords="229,63,378,103"/>
-<area shape="poly" title=" " alt="" coords="411,86,378,86,378,80,411,80"/>
-<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="5,5,181,46"/>
-<area shape="poly" title=" " alt="" coords="413,61,378,54,276,40,181,32,181,27,276,35,378,48,414,56"/>
-<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a92642c39d3781a26398a71e751f19e6b" title="Set the testing mode." alt="" coords="229,128,378,169"/>
-<area shape="poly" title=" " alt="" coords="424,111,368,130,366,125,422,106"/>
-<area shape="poly" title=" " alt="" coords="213,61,170,49,171,44,214,56"/>
-<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="68,70,118,96"/>
-<area shape="poly" title=" " alt="" coords="213,86,118,86,118,80,213,80"/>
-<area shape="rect" href="classdeckstiny_1_1_game.html#a194d75a570b290d0d1b4034ef99ef3b8" title="Virtual destructor." alt="" coords="7,120,179,145"/>
-<area shape="poly" title=" " alt="" coords="214,107,152,121,150,116,213,101"/>
+<area shape="rect" title="Initialize the logger system." alt="" coords="649,63,799,103"/>
+<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#ac81e9e238abf86fa6fddf7d35304cd91" title="Get the singleton instance." alt="" coords="452,63,601,103"/>
+<area shape="poly" title=" " alt="" coords="634,86,602,86,602,80,634,80"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,5,404,46"/>
+<area shape="poly" title=" " alt="" coords="636,61,601,54,499,40,404,32,405,27,500,35,602,48,637,56"/>
+<area shape="rect" href="classdeckstiny_1_1util_1_1_logger.html#a92642c39d3781a26398a71e751f19e6b" title="Set the testing mode." alt="" coords="452,128,601,169"/>
+<area shape="poly" title=" " alt="" coords="647,111,591,130,590,125,645,106"/>
+<area shape="poly" title=" " alt="" coords="436,61,393,49,394,44,437,56"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="292,70,341,96"/>
+<area shape="poly" title=" " alt="" coords="436,86,341,86,341,80,436,80"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a194d75a570b290d0d1b4034ef99ef3b8" title="Virtual destructor." alt="" coords="231,120,402,145"/>
+<area shape="poly" title=" " alt="" coords="438,107,375,121,374,116,436,101"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a1a82c54ff8039648530cc67564ede92c" name="a1a82c54ff8039648530cc67564ede92c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a82c54ff8039648530cc67564ede92c">&#9670;&#160;</a></span>isConsoleEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deckstiny::util::Logger::isConsoleEnabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if console output is enabled. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if console output is enabled, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a0f3024ebc4e07a9395f164f33e593ed1" name="a0f3024ebc4e07a9395f164f33e593ed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f3024ebc4e07a9395f164f33e593ed1">&#9670;&#160;</a></span>isInitialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deckstiny::util::Logger::isInitialized </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the logger is initialized. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if initialized, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a8f6134daec15ea1a05a8480bbae48b33" name="a8f6134daec15ea1a05a8480bbae48b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f6134daec15ea1a05a8480bbae48b33">&#9670;&#160;</a></span>isTestingMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deckstiny::util::Logger::isTestingMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if testing mode is enabled. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if testing mode is enabled, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -693,6 +809,18 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1util_1_1_logger_a5f7c8bee3cbc896159ee480ac3aa206e_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1util_1_1_logger_a5f7c8bee3cbc896159ee480ac3aa206e_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1util_1_1_logger_a5f7c8bee3cbc896159ee480ac3aa206e_icgraph" id="aclassdeckstiny_1_1util_1_1_logger_a5f7c8bee3cbc896159ee480ac3aa206e_icgraph">
+<area shape="rect" title="Enable or disable console output." alt="" coords="452,5,601,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,5,404,46"/>
+<area shape="poly" title=" " alt="" coords="436,28,404,28,404,23,436,23"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -718,6 +846,18 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1util_1_1_logger_abd62a37bb757b5847f1498a0d897cf02_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1util_1_1_logger_abd62a37bb757b5847f1498a0d897cf02_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1util_1_1_logger_abd62a37bb757b5847f1498a0d897cf02_icgraph" id="aclassdeckstiny_1_1util_1_1_logger_abd62a37bb757b5847f1498a0d897cf02_icgraph">
+<area shape="rect" title="Set the minimum log level for console output." alt="" coords="452,5,601,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,5,404,46"/>
+<area shape="poly" title=" " alt="" coords="436,28,404,28,404,23,436,23"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -743,6 +883,18 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1util_1_1_logger_a7bb975bd108935d25e75612075acca49_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1util_1_1_logger_a7bb975bd108935d25e75612075acca49_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1util_1_1_logger_a7bb975bd108935d25e75612075acca49_icgraph" id="aclassdeckstiny_1_1util_1_1_logger_a7bb975bd108935d25e75612075acca49_icgraph">
+<area shape="rect" title="Enable or disable file output." alt="" coords="452,5,601,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,5,404,46"/>
+<area shape="poly" title=" " alt="" coords="436,28,404,28,404,23,436,23"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -768,6 +920,18 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1util_1_1_logger_a53d4aa82360c18a7e5dc183a4477b48c_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1util_1_1_logger_a53d4aa82360c18a7e5dc183a4477b48c_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1util_1_1_logger_a53d4aa82360c18a7e5dc183a4477b48c_icgraph" id="aclassdeckstiny_1_1util_1_1_logger_a53d4aa82360c18a7e5dc183a4477b48c_icgraph">
+<area shape="rect" title="Set the minimum log level for file output." alt="" coords="452,5,601,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,5,404,46"/>
+<area shape="poly" title=" " alt="" coords="436,28,404,28,404,23,436,23"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -793,6 +957,18 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1util_1_1_logger_a924d997a67367c3a3f30c7c6cf4080e3_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1util_1_1_logger_a924d997a67367c3a3f30c7c6cf4080e3_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1util_1_1_logger_a924d997a67367c3a3f30c7c6cf4080e3_icgraph" id="aclassdeckstiny_1_1util_1_1_logger_a924d997a67367c3a3f30c7c6cf4080e3_icgraph">
+<area shape="rect" title="Set the log directory." alt="" coords="452,5,601,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,5,404,46"/>
+<area shape="poly" title=" " alt="" coords="436,28,404,28,404,23,436,23"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -985,7 +1161,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string deckstiny::util::Logger::logDirectory_ = &quot;logs&quot;</td>
+          <td class="memname">std::string deckstiny::util::Logger::logDirectory_ = &quot;logs/deckstiny&quot;</td>
         </tr>
       </table>
   </td>
@@ -1030,6 +1206,28 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::mutex deckstiny::util::Logger::mutex_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc4e289a639ebe9e4bd79ac7f0808e54" name="acc4e289a639ebe9e4bd79ac7f0808e54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc4e289a639ebe9e4bd79ac7f0808e54">&#9670;&#160;</a></span>testingMode_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deckstiny::util::Logger::testingMode_ = false</td>
         </tr>
       </table>
   </td>

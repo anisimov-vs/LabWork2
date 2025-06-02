@@ -1,0 +1,5 @@
+<map id="deckstiny::Game::getRandomCardFromMasterList" name="deckstiny::Game::getRandomCardFromMasterList">
+<area shape="rect" id="Node000001" title="Get a random card from the master list, optionally filtered by rarity." alt="" coords="5,5,201,46"/>
+<area shape="rect" id="Node000002" href="$namespacedeckstiny.html#a48306ce5cf431e48687778676231f5ab" title=" " alt="" coords="249,13,443,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,23,233,23,233,28,201,28"/>
+</map>

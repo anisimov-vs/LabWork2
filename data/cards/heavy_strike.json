@@ -1,19 +1,19 @@
 {
-    "id": "strike_g",
-    "name": "Strike",
-    "description": "Deal 6 damage.",
+    "id": "heavy_strike",
+    "name": "Heavy Strike",
+    "description": "Deal 10 damage. Costs 2.",
     "type": "ATTACK",
     "rarity": "BASIC",
     "target": "SINGLE_ENEMY",
-    "cost": 1,
+    "cost": 2,
     "upgradable": true,
-    "class": "SILENT",
+    "class": "IRONCLAD",
     "effects": [
         {
             "type": "damage",
-            "value": 6,
+            "value": 10,
             "target": "enemy",
-            "upgraded_value": 9
+            "upgraded_value": 14
         }
     ]
 } 

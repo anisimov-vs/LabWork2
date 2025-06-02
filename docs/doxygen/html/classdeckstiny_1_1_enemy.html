@@ -105,7 +105,6 @@ $(function(){initNavTree('classdeckstiny_1_1_enemy.html',''); initResizable(true
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdeckstiny_1_1_enemy-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">deckstiny::Enemy Class Reference</div></div>
@@ -297,12 +296,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a77b3f55b19186b773b75250666ce14c3 inherit pub_methods_classdeckstiny_1_1_entity" id="r_a77b3f55b19186b773b75250666ce14c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdeckstiny_1_1_entity.html#a77b3f55b19186b773b75250666ce14c3">setName</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:a77b3f55b19186b773b75250666ce14c3 inherit pub_methods_classdeckstiny_1_1_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the entity's name.  <br /></td></tr>
 <tr class="separator:a77b3f55b19186b773b75250666ce14c3 inherit pub_methods_classdeckstiny_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a52c262c65e7b01dcfdc1663db97718a7" id="r_a52c262c65e7b01dcfdc1663db97718a7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52c262c65e7b01dcfdc1663db97718a7">executeMove</a> (const std::string &amp;moveId, <a class="el" href="classdeckstiny_1_1_combat.html">Combat</a> *combat, <a class="el" href="classdeckstiny_1_1_player.html">Player</a> *player)</td></tr>
-<tr class="memdesc:a52c262c65e7b01dcfdc1663db97718a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a specific move.  <br /></td></tr>
-<tr class="separator:a52c262c65e7b01dcfdc1663db97718a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -648,68 +641,6 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="378,88,410,88,410,94,378,94"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="425,136,567,177"/>
 <area shape="poly" title=" " alt="" coords="368,109,422,128,420,133,366,114"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a52c262c65e7b01dcfdc1663db97718a7" name="a52c262c65e7b01dcfdc1663db97718a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52c262c65e7b01dcfdc1663db97718a7">&#9670;&#160;</a></span>executeMove()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool deckstiny::Enemy::executeMove </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>moveId</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classdeckstiny_1_1_combat.html">Combat</a> *</td>          <td class="paramname"><span class="paramname"><em>combat</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classdeckstiny_1_1_player.html">Player</a> *</td>          <td class="paramname"><span class="paramname"><em>player</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Execute a specific move. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">moveId</td><td>ID of the move to execute </td></tr>
-    <tr><td class="paramname">combat</td><td>Current combat instance </td></tr>
-    <tr><td class="paramname">player</td><td><a class="el" href="classdeckstiny_1_1_player.html" title="Represents the player character in the game.">Player</a> character </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if move executed successfully, false otherwise </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_enemy_a52c262c65e7b01dcfdc1663db97718a7_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_enemy_a52c262c65e7b01dcfdc1663db97718a7_cgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_enemy_a52c262c65e7b01dcfdc1663db97718a7_cgraph" id="aclassdeckstiny_1_1_enemy_a52c262c65e7b01dcfdc1663db97718a7_cgraph">
-<area shape="rect" title="Execute a specific move." alt="" coords="5,78,218,104"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a58d05fc7d49fa1b1187f998fa3fdbbe1" title="Add block to the character." alt="" coords="266,5,408,46"/>
-<area shape="poly" title=" " alt="" coords="158,75,250,48,252,53,159,80"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="266,71,408,111"/>
-<area shape="poly" title=" " alt="" coords="218,88,250,88,250,94,218,94"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="266,136,408,177"/>
-<area shape="poly" title=" " alt="" coords="159,102,252,129,250,134,158,107"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="456,71,583,111"/>
-<area shape="poly" title=" " alt="" coords="397,44,448,63,446,68,395,49"/>
-<area shape="poly" title=" " alt="" coords="395,133,446,114,448,119,397,138"/>
 </map>
 </div>
 
@@ -1073,19 +1004,20 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_enemy_a1b88024f36ca803dc9b701803b29db2f_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_enemy_a1b88024f36ca803dc9b701803b29db2f_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_enemy_a1b88024f36ca803dc9b701803b29db2f_cgraph" id="aclassdeckstiny_1_1_enemy_a1b88024f36ca803dc9b701803b29db2f_cgraph">
-<area shape="rect" title="Start of turn processing." alt="" coords="5,112,192,137"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="240,104,382,145"/>
-<area shape="poly" title=" " alt="" coords="192,122,224,122,224,127,192,127"/>
+<area shape="rect" title="Start of turn processing." alt="" coords="5,108,192,133"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="240,100,382,141"/>
+<area shape="poly" title=" " alt="" coords="192,118,224,118,224,123,192,123"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="430,5,572,46"/>
-<area shape="poly" title=" " alt="" coords="347,101,429,57,440,51,442,56,431,61,350,106"/>
+<area shape="poly" title=" " alt="" coords="350,97,429,57,441,51,443,56,431,61,352,102"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#ac5801197a907c315eed27ee293f7c9ed" title="Get status effect stacks." alt="" coords="430,71,572,111"/>
-<area shape="poly" title=" " alt="" coords="382,109,414,104,415,109,383,114"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="430,136,572,177"/>
-<area shape="poly" title=" " alt="" coords="383,134,415,139,414,144,382,139"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="430,201,572,242"/>
-<area shape="poly" title=" " alt="" coords="351,143,431,186,442,192,440,196,429,191,348,148"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="620,201,748,242"/>
-<area shape="poly" title=" " alt="" coords="573,219,605,219,605,224,573,224"/>
+<area shape="poly" title=" " alt="" coords="382,107,414,102,415,107,383,112"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="620,128,763,169"/>
+<area shape="poly" title=" " alt="" coords="383,123,605,139,604,145,382,128"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="430,185,572,226"/>
+<area shape="poly" title=" " alt="" coords="359,139,441,176,439,181,357,144"/>
+<area shape="poly" title=" " alt="" coords="570,182,606,171,608,176,572,187"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="628,193,755,234"/>
+<area shape="poly" title=" " alt="" coords="573,206,612,208,612,213,573,211"/>
 </map>
 </div>
 
@@ -1131,19 +1063,30 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_enemy_af03aa6f850faabc1162ad0d138a3a36f_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_enemy_af03aa6f850faabc1162ad0d138a3a36f_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_enemy_af03aa6f850faabc1162ad0d138a3a36f_cgraph" id="aclassdeckstiny_1_1_enemy_af03aa6f850faabc1162ad0d138a3a36f_cgraph">
-<area shape="rect" title="Execute the enemy&#39;s turn." alt="" coords="5,128,191,153"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a58d05fc7d49fa1b1187f998fa3fdbbe1" title="Add block to the character." alt="" coords="239,5,381,46"/>
-<area shape="poly" title=" " alt="" coords="122,125,256,51,259,56,125,129"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="429,63,556,103"/>
-<area shape="poly" title=" " alt="" coords="150,124,238,106,329,94,413,86,414,91,330,99,239,111,151,130"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="239,120,381,161"/>
-<area shape="poly" title=" " alt="" coords="191,138,223,138,223,143,191,143"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="239,185,381,226"/>
-<area shape="poly" title=" " alt="" coords="143,151,228,178,226,183,141,156"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="239,251,381,291"/>
-<area shape="poly" title=" " alt="" coords="118,151,171,191,240,235,250,241,247,246,237,240,168,195,115,156"/>
-<area shape="poly" title=" " alt="" coords="378,44,415,56,413,61,376,49"/>
-<area shape="poly" title=" " alt="" coords="361,248,379,236,408,207,433,176,472,116,476,118,438,179,412,211,383,240,364,252"/>
+<area shape="rect" title="Execute the enemy&#39;s turn." alt="" coords="5,292,191,317"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a58d05fc7d49fa1b1187f998fa3fdbbe1" title="Add block to the character." alt="" coords="264,5,406,46"/>
+<area shape="poly" title=" " alt="" coords="101,290,117,247,145,186,185,121,209,90,237,62,251,52,255,56,240,66,213,93,189,124,150,189,122,249,106,292"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="488,63,615,103"/>
+<area shape="poly" title=" " alt="" coords="102,290,118,252,146,201,186,148,210,125,237,106,295,82,357,70,417,67,472,69,472,75,418,72,357,75,297,87,240,111,213,129,190,152,150,204,123,255,106,292"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#acd16485e80048ea86eb917f9da01f648" title="Add an enemy to the combat." alt="" coords="266,120,405,161"/>
+<area shape="poly" title=" " alt="" coords="108,289,160,233,197,200,237,171,250,164,253,169,240,176,200,204,164,237,112,293"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="264,185,406,226"/>
+<area shape="poly" title=" " alt="" coords="125,289,238,237,256,229,258,234,240,241,127,293"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a664e2452d402d1c67c9482cc5ec0aaef" title="Get number of enemies." alt="" coords="266,251,405,291"/>
+<area shape="poly" title=" " alt="" coords="191,289,250,280,251,286,191,294"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a45b95e9c4963041cfde8a21a583e0d6a" title="Get the game instance." alt="" coords="266,316,405,357"/>
+<area shape="poly" title=" " alt="" coords="191,314,251,322,250,328,191,319"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="480,468,622,509"/>
+<area shape="poly" title=" " alt="" coords="105,317,117,364,142,429,160,463,183,496,209,524,240,547,266,560,289,568,332,571,376,562,431,547,470,533,506,514,509,519,473,538,433,552,378,567,332,576,288,573,264,565,237,552,205,528,178,499,156,466,138,431,112,366,99,318"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="264,447,406,487"/>
+<area shape="poly" title=" " alt="" coords="112,316,164,371,200,403,240,431,251,438,249,442,237,436,197,407,160,375,108,319"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html#a967348f90b62e4e51fd27a92cddc2e20" title="Load an enemy template." alt="" coords="239,512,432,537"/>
+<area shape="poly" title=" " alt="" coords="107,316,125,353,153,402,192,453,215,477,240,497,249,502,247,507,237,501,211,481,188,457,149,405,120,355,103,319"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="264,381,406,422"/>
+<area shape="poly" title=" " alt="" coords="127,315,240,366,259,373,257,378,238,371,125,320"/>
+<area shape="poly" title=" " alt="" coords="408,42,473,60,472,65,406,47"/>
+<area shape="poly" title=" " alt="" coords="405,383,430,366,455,339,477,307,509,239,530,173,542,118,547,119,535,174,514,241,481,310,459,342,434,370,408,387"/>
+<area shape="poly" title=" " alt="" coords="400,420,433,433,494,459,492,464,431,437,398,425"/>
 </map>
 </div>
 

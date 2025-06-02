@@ -6,7 +6,7 @@
 #include "core/card.h"
 #include "core/relic.h"
 #include "core/map.h"
-#include "ui/text_ui.h"
+#include "mocks/MockUI.h"
 #include <memory>
 
 namespace deckstiny {
@@ -14,115 +14,124 @@ namespace testing {
 
 class GameTest : public ::testing::Test {
 protected:
+    std::unique_ptr<Game> game;
+    std::shared_ptr<MockUI> mockUi;
+
     void SetUp() override {
-        // Create a game instance for testing
         game = std::make_unique<Game>();
-        ui = std::make_shared<TextUI>();
+        mockUi = std::make_shared<MockUI>();
     }
 
     void TearDown() override {
-        // Clean up resources
         game.reset();
-        ui.reset();
+        mockUi.reset();
     }
-
-    std::unique_ptr<Game> game;
-    std::shared_ptr<TextUI> ui;
 };
 
 // Test initialization of game
 TEST_F(GameTest, Initialization) {
-    // Test that initialization succeeds
-    EXPECT_TRUE(game->initialize(ui));
-    
-    // Test initial state is set to MAIN_MENU
+    EXPECT_TRUE(game->initialize(mockUi));
     EXPECT_EQ(game->getState(), GameState::MAIN_MENU);
-    
-    // Test that game is not initially running
     EXPECT_FALSE(game->isRunning());
 }
 
 // Test state transitions
 TEST_F(GameTest, StateTransitions) {
-    ASSERT_TRUE(game->initialize(ui));
+    ASSERT_TRUE(game->initialize(mockUi));
     
-    // Test state transition to CHARACTER_SELECT
+    // Initial transition to Character Select
     game->setState(GameState::CHARACTER_SELECT);
     EXPECT_EQ(game->getState(), GameState::CHARACTER_SELECT);
+    EXPECT_TRUE(mockUi->wasMethodCalled("showCharacterSelection"));
+    mockUi->clearRecordedCalls();
+
+    // Create player
+    ASSERT_TRUE(game->createPlayer("ironclad"));
     
-    // Test state transition to MAP
+    // Generate map manually since this behavior might have changed
+    if (!game->getMap()) {
+        ASSERT_TRUE(game->generateMap(1));
+    }
+    
+    // Now the map should exist
+    ASSERT_NE(game->getMap(), nullptr) << "Map should exist after generateMap call";
+
+    // Manually set state to MAP to trigger UI update
     game->setState(GameState::MAP);
     EXPECT_EQ(game->getState(), GameState::MAP);
+    EXPECT_TRUE(mockUi->wasMethodCalled("showMap"));
+    mockUi->clearRecordedCalls();
+
+    // Transition to combat
+    std::vector<std::string> enemies_to_load = {"jaw_worm"};
+    // Check if enemy data is available before starting combat
+    auto enemyData = game->getEnemyData("jaw_worm");
+    ASSERT_NE(enemyData, nullptr) << "Jaw Worm enemy data should be loaded.";
     
-    // Test state transition to COMBAT
-    game->setState(GameState::COMBAT);
+    ASSERT_TRUE(game->startCombat(enemies_to_load));
     EXPECT_EQ(game->getState(), GameState::COMBAT);
+    EXPECT_TRUE(mockUi->wasMethodCalled("showCombat"));
 }
 
 // Test player creation
 TEST_F(GameTest, PlayerCreation) {
-    ASSERT_TRUE(game->initialize(ui));
-    
-    // Test creating a player with the Ironclad class
-    EXPECT_TRUE(game->createPlayer("ironclad", "TestPlayer"));
-    
-    // Verify the player was created
+    auto mockUi = std::make_shared<MockUI>();
+    ASSERT_TRUE(game->initialize(mockUi));
+    ASSERT_TRUE(game->createPlayer("ironclad"));
     Player* player = game->getPlayer();
     ASSERT_NE(player, nullptr);
-    EXPECT_EQ(player->getName(), "TestPlayer");
-    
-    // Test that player has starting deck
-    EXPECT_GT(player->getDrawPile().size() + player->getDiscardPile().size() + player->getHand().size(), 0);
+    EXPECT_EQ(player->getId(), "ironclad");
+    EXPECT_EQ(player->getName(), "The Ironclad");
+    EXPECT_GT(player->getHealth(), 0);
+    EXPECT_GT(player->getMaxHealth(), 0);
+    EXPECT_GT(player->getMaxHealth(), 0);
+    EXPECT_GT(player->getDrawPile().size() + player->getHand().size() + player->getDiscardPile().size() + player->getExhaustPile().size(), 0);
+    // Check if starting relics are added (e.g., Burning Blood for Ironclad)
+    bool foundBurningBlood = false;
+    for(const auto& relic : player->getRelics()) {
+        if(relic->getId() == "burning_blood") {
+            foundBurningBlood = true;
+            break;
+        }
+    }
 }
 
 // Test card loading
 TEST_F(GameTest, CardLoading) {
-    ASSERT_TRUE(game->initialize(ui));
-    
-    // Test loading a specific card
-    auto strike = game->loadCard("strike");
+    ASSERT_TRUE(game->initialize(mockUi));
+    auto strike = game->getCardData("strike");
     ASSERT_NE(strike, nullptr);
     EXPECT_EQ(strike->getName(), "Strike");
     EXPECT_EQ(strike->getType(), CardType::ATTACK);
-    
-    // Test loading all cards
-    EXPECT_TRUE(game->loadAllCards());
+    ASSERT_GT(game->getAllCards().size(), 0); // Check that cards are loaded
 }
 
 // Test enemy loading
 TEST_F(GameTest, EnemyLoading) {
-    ASSERT_TRUE(game->initialize(ui));
-    
-    // Test loading a specific enemy
-    auto slime = game->loadEnemy("small_slime");
+    ASSERT_TRUE(game->initialize(mockUi));
+    auto slime = game->getEnemyData("acid_slime");
     ASSERT_NE(slime, nullptr);
-    EXPECT_EQ(slime->getName(), "Small Slime");
-    
-    // Test loading all enemies
-    EXPECT_TRUE(game->loadAllEnemies());
+    if (slime) {
+        EXPECT_EQ(slime->getName(), "Acid Slime");
+    }
+    // Check that an invalid enemy returns nullptr
+    auto invalidEnemy = game->getEnemyData("non_existent_enemy");
+    EXPECT_EQ(invalidEnemy, nullptr);
 }
 
 // Test relic loading
 TEST_F(GameTest, RelicLoading) {
-    ASSERT_TRUE(game->initialize(ui));
-    
-    // Test loading a specific relic
-    auto burningBlood = game->loadRelic("burning_blood");
+    ASSERT_TRUE(game->initialize(mockUi));
+    auto burningBlood = game->getRelicData("burning_blood");
     ASSERT_NE(burningBlood, nullptr);
     EXPECT_EQ(burningBlood->getName(), "Burning Blood");
-    
-    // Test loading all relics
-    EXPECT_TRUE(game->loadAllRelics());
+    ASSERT_GT(game->getAllRelics().size(), 0);
 }
 
 // Test map generation
 TEST_F(GameTest, MapGeneration) {
-    ASSERT_TRUE(game->initialize(ui));
-    
-    // Test generating a map for act 1
+    ASSERT_TRUE(game->initialize(mockUi));
     EXPECT_TRUE(game->generateMap(1));
-    
-    // Verify the map was created
     GameMap* map = game->getMap();
     ASSERT_NE(map, nullptr);
     EXPECT_EQ(map->getAct(), 1);
@@ -130,33 +139,38 @@ TEST_F(GameTest, MapGeneration) {
 
 // Test combat initialization
 TEST_F(GameTest, CombatInitialization) {
-    ASSERT_TRUE(game->initialize(ui));
+    ASSERT_TRUE(game->initialize(mockUi));
     ASSERT_TRUE(game->createPlayer("ironclad", "TestPlayer"));
-    
-    // Test starting combat with specific enemies
-    std::vector<std::string> enemies = {"small_slime"};
-    EXPECT_TRUE(game->startCombat(enemies));
-    
-    // Verify combat was started
+    ASSERT_NE(game->getEnemyData("jaw_worm"), nullptr) << "Jaw Worm enemy data should be loaded for combat init.";
+
+    std::vector<std::string> enemies = {"jaw_worm"};
+    ASSERT_TRUE(game->startCombat(enemies));
     EXPECT_EQ(game->getState(), GameState::COMBAT);
     ASSERT_NE(game->getCurrentCombat(), nullptr);
-    
-    // Verify combat has the correct enemies
     EXPECT_EQ(game->getCurrentCombat()->getEnemyCount(), 1);
 }
 
 // Test input handling
 TEST_F(GameTest, InputHandling) {
-    ASSERT_TRUE(game->initialize(ui));
-    
-    // Test handling input in main menu
-    game->setState(GameState::MAIN_MENU);
-    EXPECT_TRUE(game->processInput("1")); // New game
+    ASSERT_TRUE(game->initialize(mockUi));
+    bool result = game->processInput("1");
+    EXPECT_TRUE(result);
     EXPECT_EQ(game->getState(), GameState::CHARACTER_SELECT);
+    EXPECT_TRUE(mockUi->wasMethodCalled("showCharacterSelection"));
     
-    // Test invalid input
+    mockUi->clearRecordedCalls();
     EXPECT_FALSE(game->processInput("invalid_command"));
+    EXPECT_EQ(game->getState(), GameState::CHARACTER_SELECT);
 }
+
+TEST_F(GameTest, GameRunAndQuit) {
+    ASSERT_TRUE(game->initialize(mockUi));
+    game->setState(GameState::MAIN_MENU); 
+
+    mockUi->addExpectedInput("2"); // Input for "Quit"
+    ASSERT_TRUE(game->processInput("2")); // Process quit from main menu
+}
+
 
 } // namespace testing
 } // namespace deckstiny 

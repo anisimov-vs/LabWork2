@@ -1,21 +1,23 @@
 <map id="deckstiny::TextUI::centerString" name="deckstiny::TextUI::centerString">
-<area shape="rect" id="Node000001" title="Center a string in a field." alt="" coords="233,267,365,307"/>
+<area shape="rect" id="Node000001" title="Center a string in a field." alt="" coords="233,300,365,341"/>
 <area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#ad032fbeeefead3ba7113448f2af1a057" title="Display the character selection screen." alt="" coords="13,5,177,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="286,252,272,209,251,158,221,106,183,61,165,49,168,44,186,57,226,103,256,155,277,207,291,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="289,285,277,236,256,176,225,114,206,86,183,61,166,49,169,44,186,57,210,83,230,112,261,174,282,234,294,284"/>
 <area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="29,71,161,111"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="280,255,241,190,214,156,183,126,160,113,163,108,186,122,218,152,245,187,284,252"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,287,268,249,246,206,218,164,183,126,160,112,163,107,186,122,222,160,251,204,273,247,288,284"/>
 <area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#a8a9e64a0c2b686978b2342d9a6ac94cb" title="Display an enemy selection menu." alt="" coords="5,136,185,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="266,258,228,224,183,192,159,180,161,175,186,187,231,220,269,254"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="274,289,235,239,210,214,183,192,162,180,164,175,186,187,214,210,239,235,278,285"/>
 <area shape="rect" id="Node000005" href="$classdeckstiny_1_1_text_u_i.html#a2ba3c38d1cf810f7ffbce3a12aa8b429" title="Show an event." alt="" coords="29,201,161,242"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="218,264,160,245,162,240,220,259"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="251,294,184,257,155,245,157,240,186,253,253,289"/>
 <area shape="rect" id="Node000006" href="$classdeckstiny_1_1_text_u_i.html#ad0ff19a76f167ff87a68c0ddd10646c2" title="Show an event result." alt="" coords="29,267,161,307"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="217,290,162,290,162,284,217,284"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="217,310,161,300,162,295,218,304"/>
 <area shape="rect" id="Node000007" href="$classdeckstiny_1_1_text_u_i.html#a6c8e0ee2c83620e69ac9df7237de902c" title="Display game over screen." alt="" coords="29,332,161,373"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="220,315,162,334,160,329,218,310"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="218,336,162,345,161,339,217,330"/>
 <area shape="rect" id="Node000008" href="$classdeckstiny_1_1_text_u_i.html#a3ccd1d05f51874ddb606f8fe5a20fc3f" title="Display the main menu." alt="" coords="29,397,161,438"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="269,320,231,354,186,387,161,399,159,394,183,382,228,350,266,316"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="252,351,186,387,157,399,155,394,184,382,250,347"/>
 <area shape="rect" id="Node000009" href="$classdeckstiny_1_1_text_u_i.html#a7e3a4a0473a44c567caf384ff313e4d9" title="Show the game map." alt="" coords="29,463,161,503"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="284,322,245,387,218,422,186,452,163,466,160,461,183,448,214,418,241,384,280,319"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="278,355,239,404,214,430,186,452,163,465,160,460,183,447,210,426,235,401,274,352"/>
 <area shape="rect" id="Node000010" href="$classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="29,528,161,569"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="291,323,277,367,256,419,226,471,186,517,163,532,160,528,183,513,221,468,251,416,272,365,286,322"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="288,356,273,393,251,436,222,479,186,517,163,532,160,527,183,513,218,476,246,433,268,391,283,354"/>
+<area shape="rect" id="Node000011" href="$classdeckstiny_1_1_text_u_i.html#a3e60882142c82a133a18338e376cb6ce" title="Show the shop UI with relic prices." alt="" coords="29,593,161,634"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="294,356,282,406,261,466,230,528,210,557,186,582,163,598,160,594,183,578,205,553,225,525,256,464,276,405,289,355"/>
 </map>

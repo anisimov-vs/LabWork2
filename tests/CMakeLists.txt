@@ -11,23 +11,29 @@ FetchContent_MakeAvailable(googletest)
 
 # Include project directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/tests) # For mocks header
 
 # Create test executable
 add_executable(deckstiny_tests
   # Custom main file that disables console logging
   test_main.cpp
   
+  # Mock UI files
+  mocks/MockUI.cpp
+  
   # Main test files
   character_test.cpp
-  # Disabled until fixed:
-  # card_test.cpp
-  # relic_test.cpp
-  # event_test.cpp
-  # combat_test.cpp
-  # map_test.cpp
-  # game_test.cpp
-  # ui_test.cpp
+  card_test.cpp
+  relic_test.cpp
+  event_test.cpp
+  combat_test.cpp
+  map_test.cpp
+  game_test.cpp
+  ui_test.cpp
 )
+
+# Add a definition for the test environment
+target_compile_definitions(deckstiny_tests PRIVATE DECKSTINY_TESTING_ENV)
 
 # Link test executable with Google Test and project libraries
 target_link_libraries(deckstiny_tests

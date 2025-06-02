@@ -7,18 +7,18 @@
     "class": "DEFECT",
     "description": "A malfunctioning combat automaton that learned to harness the power of orbs.",
     "starting_deck": [
-        "strike_b",
-        "strike_b",
-        "strike_b",
-        "strike_b",
-        "defend_b",
-        "defend_b",
-        "defend_b",
-        "defend_b",
+        "beam_cell",
+        "beam_cell",
+        "beam_cell",
+        "beam_cell",
+        "force_field",
+        "force_field",
+        "force_field",
+        "force_field",
         "zap",
         "dualcast"
     ],
     "starting_relics": [
-        "cracked_core"
+        "burning_blood"
     ]
 }

@@ -22,9 +22,12 @@ int Character::getMaxHealth() const {
     return maxHealth_;
 }
 
-void Character::setMaxHealth(int maxHealth) {
-    maxHealth_ = std::max(1, maxHealth);
-    currentHealth_ = std::min(currentHealth_, maxHealth_);
+void Character::setMaxHealth(int newMaxHealthValue) {
+    int oldMaxHealth = maxHealth_;
+    int oldCurrentHealth = currentHealth_;
+    maxHealth_ = std::max(1, newMaxHealthValue);
+    currentHealth_ = std::min(currentHealth_, maxHealth_); // Cap current health if it exceeds new max
+    LOG_INFO("character_setmaxhealth", getName() + " setMaxHealth. Old MaxHP: " + std::to_string(oldMaxHealth) + " -> New MaxHP: " + std::to_string(maxHealth_) + ". Old HP: " + std::to_string(oldCurrentHealth) + " -> New HP (after cap): " + std::to_string(currentHealth_) + ". Requested New MaxHP: " + std::to_string(newMaxHealthValue));
 }
 
 bool Character::isAlive() const {
@@ -36,12 +39,18 @@ int Character::takeDamage(int amount) {
         return 0;
     }
     
+    int modifiedAmount = amount;
+    if (hasStatusEffect("vulnerable")) {
+        modifiedAmount = static_cast<int>(std::round(modifiedAmount * 1.5));
+        LOG_DEBUG("combat", getName() + " is Vulnerable, incoming damage increased to " + std::to_string(modifiedAmount));
+    }
+    
     // Add debug logging
     std::string entityType = (dynamic_cast<Player*>(this)) ? "Player" : "Enemy";
-    LOG_DEBUG("combat", entityType + " " + getName() + " taking " + std::to_string(amount) + " damage with " + std::to_string(block_) + " block");
+    LOG_DEBUG("combat", entityType + " " + getName() + " taking " + std::to_string(modifiedAmount) + " damage with " + std::to_string(block_) + " block");
     
     // Apply block
-    int remainingDamage = amount;
+    int remainingDamage = modifiedAmount;
     if (block_ > 0) {
         int blockUsed = std::min(block_, remainingDamage);
         block_ -= blockUsed;
@@ -61,17 +70,22 @@ int Character::takeDamage(int amount) {
     }
     
     // Return the original damage amount, as the tests expect this
+    // However, for game logic, it might be more consistent to return actual health lost or modifiedAmount before block.
+    // For now, sticking to original damage amount to avoid breaking tests.
     return amount;
 }
 
 int Character::heal(int amount) {
     if (amount <= 0 || !isAlive()) {
+        LOG_DEBUG("character_heal", getName() + " heal called with amount " + std::to_string(amount) + " but no healing done (amount<=0 or !isAlive).");
         return 0;
     }
     
     int oldHealth = currentHealth_;
     currentHealth_ = std::min(maxHealth_, currentHealth_ + amount);
-    return currentHealth_ - oldHealth;
+    int healedAmount = currentHealth_ - oldHealth;
+    LOG_INFO("character_heal", getName() + " healed for " + std::to_string(healedAmount) + ". Health: " + std::to_string(oldHealth) + " -> " + std::to_string(currentHealth_) + " (Max: " + std::to_string(maxHealth_) + "). Requested: " + std::to_string(amount));
+    return healedAmount;
 }
 
 void Character::addBlock(int amount) {

@@ -1,18 +1,19 @@
 <map id="deckstiny::Game::loadCard" name="deckstiny::Game::loadCard">
-<area shape="rect" id="Node000001" title="Load a card template." alt="" coords="741,78,922,104"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#ad18b41869af13703866bbda828811562" title="Add a card to the player&#39;s deck." alt="" coords="504,9,681,50"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="763,76,674,53,675,48,764,71"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#a0170165f0ef77b073f35485635de7c6c" title="Create a new player." alt="" coords="492,78,693,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="726,94,694,94,694,88,726,88"/>
-<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game.html#a220d855c09154facccc1ca3f6198ff8b" title="Load all card templates." alt="" coords="509,128,676,169"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="761,111,677,131,676,126,759,105"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="250,5,423,46"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="489,31,424,30,424,24,489,25"/>
-<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="249,71,424,111"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="476,94,424,94,424,88,476,88"/>
-<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,108,181,133"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="233,106,181,112,181,107,233,101"/>
-<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_game.html#acc7fa912d453b7513bddc09557355e4a" title="Load data from JSON files." alt="" coords="229,136,444,161"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="493,151,444,151,444,146,493,146"/>
-<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="213,137,181,133,181,128,213,131"/>
+<area shape="rect" id="Node000001" title="Load a card template." alt="" coords="701,77,882,102"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#ad18b41869af13703866bbda828811562" title="Add a card to the player&#39;s deck." alt="" coords="464,8,641,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="723,75,634,52,635,47,724,70"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#a0170165f0ef77b073f35485635de7c6c" title="Create a new player." alt="" coords="452,77,653,102"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="686,92,654,92,654,87,686,87"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game.html#a5846cd61e796127f56b0d16d7a8b499e" title=" " alt="" coords="452,127,653,167"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="721,109,641,129,640,123,719,104"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="230,5,403,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="449,30,403,29,404,24,449,24"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="229,71,404,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="436,93,405,93,405,88,436,88"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,112,181,137"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="214,109,181,114,181,109,213,104"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="449,125,404,114,405,109,450,120"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_game.html#adc93138f082b628f488630a534affd92" title="Process input for the current state." alt="" coords="229,136,404,177"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="437,154,404,156,404,150,437,149"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="214,144,181,140,182,134,215,139"/>
 </map>

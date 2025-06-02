@@ -1,0 +1,7 @@
+<map id="deckstiny::GameMap::getRoom" name="deckstiny::GameMap::getRoom">
+<area shape="rect" id="Node000001" title="Get a specific room." alt="" coords="392,5,537,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="199,5,344,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="377,28,345,28,345,23,377,23"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
+</map>

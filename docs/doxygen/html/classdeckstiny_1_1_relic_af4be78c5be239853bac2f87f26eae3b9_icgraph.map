@@ -1,7 +1,9 @@
 <map id="deckstiny::Relic::getDescription" name="deckstiny::Relic::getDescription">
-<area shape="rect" id="Node000001" title="Get the relic&#39;s description." alt="" coords="546,13,754,38"/>
+<area shape="rect" id="Node000001" title="Get the relic&#39;s description." alt="" coords="546,46,754,72"/>
 <area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a2cfab4e3e6939e1432e34ac29cf0a239" title="Display a relic." alt="" coords="366,5,498,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="531,28,498,28,498,23,531,23"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="546,46,498,38,499,33,547,41"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_text_u_i.html#a3e60882142c82a133a18338e376cb6ce" title="Show the shop UI with relic prices." alt="" coords="366,71,498,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="543,77,499,84,498,79,543,72"/>
 <area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a98ca955c6fb22db0b75b0ab2b6caf61c" title="Display a list of relics." alt="" coords="186,5,318,46"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,28,318,28,318,23,351,23"/>
 <area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="5,5,138,46"/>

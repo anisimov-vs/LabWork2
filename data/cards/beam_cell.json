@@ -1,0 +1,19 @@
+{
+    "id": "beam_cell",
+    "name": "Beam Cell",
+    "description": "Deal 7 damage.", 
+    "type": "ATTACK",
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY",
+    "cost": 1,
+    "upgradable": true,
+    "class": "DEFECT",
+    "effects": [
+        {
+            "type": "damage",
+            "value": 7,
+            "target": "enemy",
+            "upgraded_value": 10
+        }
+    ]
+} 

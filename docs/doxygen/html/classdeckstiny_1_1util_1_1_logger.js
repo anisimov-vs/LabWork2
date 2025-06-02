@@ -5,7 +5,9 @@ var classdeckstiny_1_1util_1_1_logger =
     [ "Logger", "classdeckstiny_1_1util_1_1_logger.html#a354ccf88ce99c57d523d14382e0bc61c", null ],
     [ "getLevelColor", "classdeckstiny_1_1util_1_1_logger.html#adae603e7ca2b06376fe0b86ff2cf9595", null ],
     [ "getLevelString", "classdeckstiny_1_1util_1_1_logger.html#a165b1b9c623879e88c56c994828381ea", null ],
+    [ "getLogDirectory", "classdeckstiny_1_1util_1_1_logger.html#a91eca26c82cbf3795ec7cb46df5a9a1d", null ],
     [ "getTimestamp", "classdeckstiny_1_1util_1_1_logger.html#aba289a59c4a99b8d787761d392600c13", null ],
+    [ "isConsoleEnabled", "classdeckstiny_1_1util_1_1_logger.html#a1a82c54ff8039648530cc67564ede92c", null ],
     [ "log", "classdeckstiny_1_1util_1_1_logger.html#a0911fa960f0dae76588e09cd10a5a4d7", null ],
     [ "openLogFile", "classdeckstiny_1_1util_1_1_logger.html#ae2da7a3abe89af9cf57679977bf8a685", null ],
     [ "operator=", "classdeckstiny_1_1util_1_1_logger.html#a874bf89a5a4c4eef4ac8e3e83621c699", null ],
@@ -21,5 +23,6 @@ var classdeckstiny_1_1util_1_1_logger =
     [ "fileLevel_", "classdeckstiny_1_1util_1_1_logger.html#ab75e1e518d8bc0a00bd3d093aaa2281e", null ],
     [ "logDirectory_", "classdeckstiny_1_1util_1_1_logger.html#aa9d0cdcb172c855731cc6f095f1f8f04", null ],
     [ "logFiles_", "classdeckstiny_1_1util_1_1_logger.html#a8a9b95707b4b615189f69b4f13e24f01", null ],
-    [ "mutex_", "classdeckstiny_1_1util_1_1_logger.html#aac749ee0adfda51f8caa50c0e71dd825", null ]
+    [ "mutex_", "classdeckstiny_1_1util_1_1_logger.html#aac749ee0adfda51f8caa50c0e71dd825", null ],
+    [ "testingMode_", "classdeckstiny_1_1util_1_1_logger.html#acc4e289a639ebe9e4bd79ac7f0808e54", null ]
 ];

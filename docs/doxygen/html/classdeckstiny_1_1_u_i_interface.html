@@ -199,6 +199,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a58f1b71ec27746e423f9983a09e0aeb4" id="r_a58f1b71ec27746e423f9983a09e0aeb4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58f1b71ec27746e423f9983a09e0aeb4">showEventResult</a> (const std::string &amp;resultText)=0</td></tr>
 <tr class="memdesc:a58f1b71ec27746e423f9983a09e0aeb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show an event result.  <br /></td></tr>
 <tr class="separator:a58f1b71ec27746e423f9983a09e0aeb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8b18bbd44f1691f920b3258728a885c" id="r_af8b18bbd44f1691f920b3258728a885c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8b18bbd44f1691f920b3258728a885c">showShop</a> (const std::vector&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> * &gt; &amp;cardsForSale, const std::vector&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> * &gt; &amp;relicsForSale, int playerGold)=0</td></tr>
+<tr class="memdesc:af8b18bbd44f1691f920b3258728a885c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the shop interface.  <br /></td></tr>
+<tr class="separator:af8b18bbd44f1691f920b3258728a885c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36ce15c94eb7745e1ae5f3cd440789ff" id="r_a36ce15c94eb7745e1ae5f3cd440789ff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36ce15c94eb7745e1ae5f3cd440789ff">showShop</a> (const std::vector&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> * &gt; &amp;cards, const std::vector&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> * &gt; &amp;relics, const std::unordered_map&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> *, int &gt; &amp;relicPrices, int playerGold)</td></tr>
+<tr class="memdesc:a36ce15c94eb7745e1ae5f3cd440789ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show the shop UI with relic prices.  <br /></td></tr>
+<tr class="separator:a36ce15c94eb7745e1ae5f3cd440789ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract interface for UI implementations. </p>
@@ -1017,6 +1023,124 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p>Implemented in <a class="el" href="classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703">deckstiny::TextUI</a>.</p>
+
+</div>
+</div>
+<a id="a36ce15c94eb7745e1ae5f3cd440789ff" name="a36ce15c94eb7745e1ae5f3cd440789ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36ce15c94eb7745e1ae5f3cd440789ff">&#9670;&#160;</a></span>showShop() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void deckstiny::UIInterface::showShop </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>cards</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>relics</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> *, int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>relicPrices</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>playerGold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Show the shop UI with relic prices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cards</td><td>Cards for sale </td></tr>
+    <tr><td class="paramname">relics</td><td>Relics for sale </td></tr>
+    <tr><td class="paramname">relicPrices</td><td>Map of relics to their prices </td></tr>
+    <tr><td class="paramname">playerGold</td><td>Current player gold </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classdeckstiny_1_1_text_u_i.html#a3e60882142c82a133a18338e376cb6ce">deckstiny::TextUI</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_u_i_interface_a36ce15c94eb7745e1ae5f3cd440789ff_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_u_i_interface_a36ce15c94eb7745e1ae5f3cd440789ff_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_u_i_interface_a36ce15c94eb7745e1ae5f3cd440789ff_cgraph" id="aclassdeckstiny_1_1_u_i_interface_a36ce15c94eb7745e1ae5f3cd440789ff_cgraph">
+<area shape="rect" title="Show the shop UI with relic prices." alt="" coords="5,5,156,46"/>
+<area shape="rect" href="classdeckstiny_1_1_u_i_interface.html#af8b18bbd44f1691f920b3258728a885c" title="Display the shop interface." alt="" coords="204,5,354,46"/>
+<area shape="poly" title=" " alt="" coords="156,23,188,23,188,28,156,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af8b18bbd44f1691f920b3258728a885c" name="af8b18bbd44f1691f920b3258728a885c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b18bbd44f1691f920b3258728a885c">&#9670;&#160;</a></span>showShop() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void deckstiny::UIInterface::showShop </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>cardsForSale</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classdeckstiny_1_1_relic.html">Relic</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>relicsForSale</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>playerGold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display the shop interface. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cardsForSale</td><td>List of cards available for purchase </td></tr>
+    <tr><td class="paramname">relicsForSale</td><td>List of relics available for purchase </td></tr>
+    <tr><td class="paramname">playerGold</td><td>Current gold of the player </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classdeckstiny_1_1_text_u_i.html#afb60bcaad0bf2651a6c2d7ddbad36436">deckstiny::TextUI</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_u_i_interface_af8b18bbd44f1691f920b3258728a885c_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_u_i_interface_af8b18bbd44f1691f920b3258728a885c_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_u_i_interface_af8b18bbd44f1691f920b3258728a885c_icgraph" id="aclassdeckstiny_1_1_u_i_interface_af8b18bbd44f1691f920b3258728a885c_icgraph">
+<area shape="rect" title="Display the shop interface." alt="" coords="204,5,354,46"/>
+<area shape="rect" href="classdeckstiny_1_1_u_i_interface.html#a36ce15c94eb7745e1ae5f3cd440789ff" title="Show the shop UI with relic prices." alt="" coords="5,5,156,46"/>
+<area shape="poly" title=" " alt="" coords="188,28,156,28,156,23,188,23"/>
+</map>
+</div>
 
 </div>
 </div>

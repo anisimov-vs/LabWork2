@@ -1,10 +1,29 @@
 <map id="deckstiny::Game::startEvent" name="deckstiny::Game::startEvent">
-<area shape="rect" id="Node000001" title="Start an event." alt="" coords="5,43,194,68"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a62dcda03476c9f1bf43201a33617bd7c" title="Load an event template." alt="" coords="242,5,428,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,39,234,31,235,37,185,45"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#a4e2cf91aa39ad612f9ef49c8f7173b73" title="Change the game state." alt="" coords="246,79,424,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,66,232,73,231,78,187,72"/>
-<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="297,80,289,70,293,60,309,54,335,52,363,55,377,62,375,66,362,60,335,57,310,59,297,64,294,69,301,77"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#aa304486f1c821211f7a4499b6a0f513b" title="Calculate the player&#39;s score based on their progress." alt="" coords="476,71,656,112"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="424,89,460,89,460,94,424,94"/>
+<area shape="rect" id="Node000001" title="Start an event." alt="" coords="5,100,194,125"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a62dcda03476c9f1bf43201a33617bd7c" title="Load an event template." alt="" coords="242,26,428,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,96,241,60,264,54,265,59,242,66,137,101"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#a4e2cf91aa39ad612f9ef49c8f7173b73" title="Change the game state." alt="" coords="246,100,424,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,119,231,119,231,124,194,124"/>
+<area shape="poly" id="edge8_Node000003_Node000001" title=" " alt="" coords="246,106,209,106,209,101,246,101"/>
+<area shape="poly" id="edge7_Node000003_Node000003" title=" " alt="" coords="296,101,288,91,293,81,309,75,335,73,364,76,378,82,376,87,362,81,335,78,310,80,296,85,293,90,300,97"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#aa304486f1c821211f7a4499b6a0f513b" title="Calculate the player&#39;s score based on their progress." alt="" coords="486,5,666,46"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="368,96,475,55,493,49,495,54,477,60,370,101"/>
+<area shape="rect" id="Node000005" href="$namespacedeckstiny.html#a74014585c265e84de8ffdd0e846424ea" title=" " alt="" coords="476,70,675,96"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="424,99,460,94,461,100,424,104"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#adbf6207f3b8024d22ee043ae1aa5b1be" title=" " alt="" coords="492,120,659,161"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="424,120,477,126,476,131,424,125"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_game.html#a0669d9f43882d6ab2607611fe9f745c2" title=" " alt="" coords="484,224,668,249"/>
+<area shape="poly" id="edge9_Node000003_Node000008" title=" " alt="" coords="363,123,536,214,534,218,360,128"/>
+<area shape="rect" id="Node000007" href="$path__util_8cpp.html#a8eaa5e5197544de1074728717645442a" title=" " alt="" coords="740,88,883,113"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="659,123,724,112,725,118,660,129"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_card.html#a1b3fcbe5da9a8028a384d371678ee32e" title="Get the card&#39;s energy cost." alt="" coords="728,137,895,162"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="605,220,722,172,745,165,747,170,724,178,607,225"/>
+<area shape="rect" id="Node000010" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="748,187,875,227"/>
+<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="668,222,732,214,732,219,669,227"/>
+<area shape="rect" id="Node000011" href="$classdeckstiny_1_1_card.html#a4274275dd9113d2fd2355fb8c4d575a5" title="Get the card&#39;s rarity." alt="" coords="724,252,899,277"/>
+<area shape="poly" id="edge12_Node000008_Node000011" title=" " alt="" coords="669,245,709,250,709,255,668,250"/>
+<area shape="rect" id="Node000012" href="$classdeckstiny_1_1_relic.html#a0c9cbc3e09eaf291295e00dab05907bd" title="Get the relic&#39;s rarity." alt="" coords="723,301,900,326"/>
+<area shape="poly" id="edge13_Node000008_Node000012" title=" " alt="" coords="612,247,724,287,745,294,744,299,722,292,610,252"/>
+<area shape="rect" id="Node000013" href="$classdeckstiny_1_1_card.html#aba8af83ac44e4bb510d66e01662f7308" title="Set the card&#39;s energy cost." alt="" coords="728,350,895,376"/>
+<area shape="poly" id="edge14_Node000008_Node000013" title=" " alt="" coords="594,248,649,291,686,315,724,337,737,342,735,347,722,341,683,320,646,295,590,252"/>
 </map>

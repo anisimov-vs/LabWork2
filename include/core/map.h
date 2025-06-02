@@ -24,17 +24,6 @@ enum class RoomType {
 };
 
 /**
- * @enum PathType
- * @brief Represents the type/difficulty of a path
- */
-enum class PathType {
-    NORMAL,   // Standard path
-    ELITE,    // Path with more elites and better rewards
-    SAFE,     // Path with more rest sites
-    RISKY     // Path with more monsters but better treasures
-};
-
-/**
  * @struct Room
  * @brief Represents a single room on the map
  */
@@ -44,28 +33,12 @@ struct Room {
     std::vector<int> nextRooms;     ///< IDs of connected rooms
     std::vector<int> prevRooms;     ///< IDs of rooms that lead to this one
     bool visited = false;           ///< Whether room has been visited
-    int x = 0;                      ///< X position for display
+    int x = 0;                      ///< X position for display (column)
     int y = 0;                      ///< Y position for display (floor level)
     std::string data;               ///< Additional room data (JSON)
     
     // Properties for enhanced map generation
-    int pathId = 0;                  ///< ID of the path this room belongs to
-    PathType pathType = PathType::NORMAL; ///< Type of path this room is on
-    int distanceFromStart = 0;       ///< Distance from starting room (used for enemy selection)
-    int distanceFromBoss = 0;        ///< Distance from boss room (used for difficulty scaling)
-    bool isCheckpoint = false;       ///< Whether this room is a mandatory checkpoint
-};
-
-/**
- * @struct Path
- * @brief Represents a path through the map
- */
-struct Path {
-    int id = 0;                      ///< Unique path ID
-    PathType type = PathType::NORMAL;///< Type of path
-    std::vector<int> roomIds;        ///< IDs of rooms on this path
-    int difficultyRating = 0;        ///< Overall difficulty rating
-    int rewardsRating = 0;           ///< Overall rewards rating
+    int distanceFromStart = 0;       ///< Distance from starting room (used for enemy selection, effectively 'y')
 };
 
 /**
@@ -177,48 +150,25 @@ public:
      */
     std::string getRoomTypeString(RoomType type) const;
 
+    // For testing purposes
+    void setCurrentRoomId_TestHelper(int roomId) { currentRoomId_ = roomId; }
+
 private:
     int act_ = 0;                               ///< Current act
     int currentRoomId_ = -1;                    ///< ID of the current room
     std::unordered_map<int, Room> rooms_;       ///< Map of rooms by ID
-    std::unordered_map<int, Path> paths_;       ///< Map of paths by ID
     bool bossDefeated_ = false;                 ///< Whether the boss has been defeated
     unsigned mapSeed_;                          ///< Random seed for map generation
     std::mt19937 rng_;                          ///< RNG for map generation
-    
-    /**
-     * @brief Generate an Act 1 map (simpler, more linear)
-     * @param numFloors Number of floors in the act
-     * @return True if generation succeeded
-     */
-    bool generateAct1Map(int numFloors);
-    
-    /**
-     * @brief Generate an Act 2 map (more branching, wider)
-     * @param numFloors Number of floors in the act
-     * @return True if generation succeeded
-     */
-    bool generateAct2Map(int numFloors);
-    
-    /**
-     * @brief Generate an Act 3 map (complex with interesting paths)
-     * @param numFloors Number of floors in the act
-     * @return True if generation succeeded
-     */
-    bool generateAct3Map(int numFloors);
+    int nextRoomId_ = 0;                        ///< Counter for unique room IDs, reset per generation
     
     /**
      * @brief Create a new room
-     * @param floor Floor number
-     * @param x Horizontal position
-     * @param distFromStart Distance from start
-     * @param distFromBoss Distance from boss
-     * @param pathId Path ID this room belongs to
-     * @param pathType Type of path
+     * @param y Floor number (y-coordinate)
+     * @param x Horizontal position (x-coordinate/column)
      * @return Room ID
      */
-    int createRoom(int floor, int x, int distFromStart, int distFromBoss, 
-                  int pathId, PathType pathType);
+    int createRoom(int y, int x);
     
     /**
      * @brief Create a link between two rooms
@@ -228,17 +178,13 @@ private:
     void createRoomLink(int fromId, int toId);
     
     /**
-     * @brief Set room type based on position and strategic rules
-     * @param roomId Room ID to set type for
+     * @brief Set the type of a room based on various constraints and probabilities
+     * @param roomId ID of the room to set type for
+     * @param y Y-coordinate of the room
+     * @param x X-coordinate of the room
+     * @param numPathsFromNode Number of paths leading from this node (influences type)
      */
-    void setRoomType(int roomId);
-    
-    /**
-     * @brief Create a path through the map
-     * @param pathType Type of path to create
-     * @return Path ID
-     */
-    int createPath(PathType pathType);
+    void setRoomType(int roomId, int y, int x, int numPathsFromNode);
     
     /**
      * @brief Validate map to ensure it's completable

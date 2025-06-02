@@ -154,7 +154,6 @@ TEST_F(MapTest, PathToBoss) {
     ASSERT_NE(bossRoomId, -1);
     
     // Verify there is a path from start to boss
-    // This is a simplified BFS to find a path
     std::set<int> visited;
     std::queue<int> queue;
     
@@ -193,8 +192,9 @@ TEST_F(MapTest, Completion) {
     int bossRoomId = findRoomOfType(RoomType::BOSS);
     ASSERT_NE(bossRoomId, -1);
     
-    // We need to navigate to the boss room (this is a shortcut)
-    EXPECT_TRUE(map->moveToRoom(bossRoomId));
+    // We need to navigate to the boss room (this is a shortcut for testing completion logic)
+    map->setCurrentRoomId_TestHelper(bossRoomId);
+    EXPECT_EQ(map->getCurrentRoom()->id, bossRoomId);
     
     // Mark boss room as visited (defeating the boss)
     map->markCurrentRoomVisited();

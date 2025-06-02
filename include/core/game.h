@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <vector>
 #include <functional>
+#include <random> // Required for std::mt19937
+#include <map> // Required for std::map
 
 namespace deckstiny {
 
@@ -17,6 +19,22 @@ class Relic;
 class GameMap;
 class UIInterface;
 class Event;
+
+/**
+ * @struct CharacterData
+ * @brief Holds the data for a character class, loaded from JSON.
+ */
+struct CharacterData {
+    std::string id;
+    std::string name;
+    int max_health;
+    int base_energy;
+    int initial_hand_size;
+    std::string description;
+    std::vector<std::string> starting_deck;
+    std::vector<std::string> starting_relics;
+    // PlayerClass class_enum; // May need to map string to enum if PlayerClass is used directly
+};
 
 /**
  * @enum GameState
@@ -219,26 +237,70 @@ public:
      */
     int calculateScore() const;
 
+    // Add getters for loaded data for testing and other purposes
+    const std::unordered_map<std::string, std::shared_ptr<Card>>& getAllCards() const { return allCards_; }
+    std::shared_ptr<Card> getCardData(const std::string& id) const;
+
+    const std::unordered_map<std::string, std::shared_ptr<Enemy>>& getAllEnemies() const { return allEnemies_; }
+    std::shared_ptr<Enemy> getEnemyData(const std::string& id) const;
+
+    const std::unordered_map<std::string, std::shared_ptr<Relic>>& getAllRelics() const { return allRelics_; }
+    std::shared_ptr<Relic> getRelicData(const std::string& id) const;
+    
+    const std::unordered_map<std::string, std::shared_ptr<Event>>& getAllEvents() const { return allEvents_; }
+    std::shared_ptr<Event> getEventData(const std::string& id) const;
+
+    /**
+     * @brief Get a random card from the master list, optionally filtered by rarity.
+     * @param rarity_filter Optional rarity to filter by. If empty, any rarity can be chosen.
+     * @return Shared pointer to a random card, or nullptr if no card matches.
+     */
+    std::shared_ptr<Card> getRandomCardFromMasterList(const std::string& rarity_filter = "");
+
+    /**
+     * @brief Get a random relic from the master list.
+     * @return Shared pointer to a random relic, or nullptr if no relics are loaded.
+     */
+    std::shared_ptr<Relic> getRandomRelicFromMasterList();
+
+    // Getter for all loaded character data
+    const std::map<std::string, CharacterData>& getAllCharacterData() const { return allCharacters_; }
+
 private:
-    GameState state_ = GameState::MAIN_MENU;           ///< Current game state
     std::shared_ptr<UIInterface> ui_;                  ///< User interface
     std::shared_ptr<Player> player_;                   ///< Player character
     std::unique_ptr<Combat> currentCombat_;            ///< Current combat
     std::unique_ptr<GameMap> map_;                     ///< Game map
     std::shared_ptr<Event> currentEvent_;              ///< Current event (if in event state)
     bool running_ = false;                             ///< Whether the game is running
+    GameState state_ = GameState::MAIN_MENU;           ///< Current game state
+    
+    // Data stores for game assets
+    std::unordered_map<std::string, std::shared_ptr<Card>> allCards_;
+    std::unordered_map<std::string, std::shared_ptr<Enemy>> allEnemies_;
+    std::unordered_map<std::string, std::shared_ptr<Relic>> allRelics_;
+    std::unordered_map<std::string, std::shared_ptr<Event>> allEvents_;
+    std::map<std::string, CharacterData> allCharacters_; // Stores loaded character data
+
+    int failedLoads_ = 0; // Counter for failed data loads (used by multiple loaders)
     
     // Card selection state for two-step targeting
     bool awaitingEnemySelection_ = false;              ///< Whether we're waiting for enemy selection
     int selectedCardIndex_ = -1;                       ///< Index of the selected card
     bool transitioningFromCombat_ = false;             ///< Whether we're transitioning from combat to rewards
     
-    std::unordered_map<std::string, std::shared_ptr<Card>> cardTemplates_;    ///< Card templates
-    std::unordered_map<std::string, std::shared_ptr<Enemy>> enemyTemplates_;  ///< Enemy templates
-    std::unordered_map<std::string, std::shared_ptr<Relic>> relicTemplates_;  ///< Relic templates
-    std::unordered_map<std::string, std::shared_ptr<Event>> eventTemplates_;  ///< Event templates
+    bool developerMode_; // From config, determines if dev features are available at all
+    bool developerModeEnabled_ = false; // Runtime toggle for active developer features; initialize to false
     
     std::unordered_map<GameState, std::function<bool(const std::string&)>> inputHandlers_;  ///< Input handlers
+    
+    // Input handlers
+    bool handleMainMenuInput(const std::string& input);
+    bool handleCharacterSelectInput(const std::string& input);
+    bool handleMapInput(const std::string& input);
+    bool handleCombatInput(const std::string& input);
+    bool handleEventInput(const std::string& input);
+    bool handleShopInput(const std::string& input);
     
     /**
      * @brief Initialize the logging system
@@ -249,27 +311,6 @@ private:
      * @brief Initialize input handlers
      */
     void initializeInputHandlers();
-    
-    /**
-     * @brief Handle main menu input
-     * @param input Input string
-     * @return True if input was handled, false otherwise
-     */
-    bool handleMainMenuInput(const std::string& input);
-    
-    /**
-     * @brief Handle map input
-     * @param input Input string
-     * @return True if input was handled, false otherwise
-     */
-    bool handleMapInput(const std::string& input);
-    
-    /**
-     * @brief Handle combat input
-     * @param input Input string
-     * @return True if input was handled, false otherwise
-     */
-    bool handleCombatInput(const std::string& input);
     
     /**
      * @brief Load data from JSON files
@@ -302,12 +343,16 @@ private:
      */
     void endEvent();
     
-    /**
-     * @brief Handle event input
-     * @param input Input string
-     * @return True if input was handled, false otherwise
-     */
-    bool handleEventInput(const std::string& input);
+    void startShop(); // Method to initialize shop inventory
+
+    std::vector<Card*> shopCardsForSale_; // Added for shop inventory
+    std::vector<Relic*> shopRelicsForSale_; // Added for shop inventory
+    std::unordered_map<Relic*, int> shopRelicPrices_; // Map to store relic prices
+
+    std::mt19937 rng_; // Random number generator
+
+    // Specific data loaders
+    bool loadAllCharacters();
 };
 
 } // namespace deckstiny 

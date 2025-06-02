@@ -1,0 +1,25 @@
+{
+    "id": "nimble_dodge",
+    "name": "Nimble Dodge",
+    "description": "Gain 5 Block. Draw 1 card.",
+    "type": "SKILL",
+    "rarity": "BASIC",
+    "target": "SELF",
+    "cost": 1,
+    "upgradable": true,
+    "class": "SILENT",
+    "effects": [
+        {
+            "type": "block",
+            "value": 5,
+            "target": "self",
+            "upgraded_value": 7
+        },
+        {
+            "type": "draw",
+            "value": 1,
+            "target": "self",
+            "upgraded_value": 2 
+        }
+    ]
+} 

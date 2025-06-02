@@ -3,6 +3,10 @@
 #include "core/player.h"
 #include "core/enemy.h"
 #include "core/card.h"
+#include "core/game.h"
+#include "ui/ui_interface.h"
+#include "mocks/MockUI.h"
+#include "util/logger.h"
 #include <memory>
 
 namespace deckstiny {
@@ -11,51 +15,54 @@ namespace testing {
 class CombatTest : public ::testing::Test {
 protected:
     void SetUp() override {
+        game = std::make_unique<Game>();
+        mockUi = std::make_shared<MockUI>();
+        ASSERT_TRUE(game->initialize(mockUi));
+
         // Create a player for testing
         player = std::make_shared<Player>(
-            "player1",           // id
+            "ironclad",           // id
             "Test Player",       // name
-            PlayerClass::IRONCLAD, // class
-            80,                  // max health
+            75,                  // max health
             3,                   // base energy
             5                    // initial hand size
         );
         
-        // Give the player some cards
-        auto strike = std::make_shared<Card>(
-            "strike",            // id
-            "Strike",            // name
-            "Deal 6 damage.",    // description
-            CardType::ATTACK,    // type
-            CardRarity::COMMON,  // rarity
-            CardTarget::SINGLE_ENEMY, // target
-            1,                   // cost
-            true                 // upgradable
-        );
-        player->addCardToDeck(strike);
+        // Give the player some cards (loaded from game data)
+        strikeCard = game->getCardData("strike");
+        ASSERT_NE(strikeCard, nullptr) << "Strike card failed to load from game data";
+        player->addCardToDeck(strikeCard->cloneCard());
         
-        auto defend = std::make_shared<Card>(
-            "defend",            // id
-            "Defend",            // name
-            "Gain 5 Block.",     // description
-            CardType::SKILL,     // type
-            CardRarity::COMMON,  // rarity
-            CardTarget::SELF,    // target
-            1,                   // cost
-            true                 // upgradable
-        );
-        player->addCardToDeck(defend);
+        // Try to load defend card, if not available create a test defend card
+        defendCard = game->getCardData("defend");
+        if (!defendCard) {
+            util::Logger::getInstance().log(util::LogLevel::Info, "test", "Creating test defend card as game data doesn't have one");
+            defendCard = std::make_shared<Card>(
+                "test_defend",
+                "Test Defend",
+                "Gain 5 Block.",
+                CardType::SKILL,
+                CardRarity::BASIC,
+                CardTarget::SELF,
+                1,
+                true
+            );
+        }
+        player->addCardToDeck(defendCard->cloneCard());
         
-        // Create a test enemy
         enemy = std::make_shared<Enemy>(
-            "enemy1",            // id
-            "Test Enemy",        // name
-            40                   // health
+            "test_louse_small",            // id
+            "Small Louse",        // name
+            15                   // health
         );
         
         // Create the combat instance
-        combat = std::make_unique<Combat>(player.get());
+        combat = std::make_unique<Combat>(player.get()); // Construct with player
+        combat->setGame(game.get()); // Set the game instance
         combat->addEnemy(enemy);
+
+        // Initialize player for combat (draws initial hand, sets energy)
+        player->beginCombat();
     }
 
     void TearDown() override {
@@ -63,11 +70,30 @@ protected:
         combat.reset();
         player.reset();
         enemy.reset();
+        strikeCard.reset();
+        defendCard.reset();
+        game.reset();
+        mockUi.reset();
     }
 
+    // Helper to find a card in hand by ID
+    int findCardInHand(const std::string& cardId) {
+        const auto& hand = player->getHand();
+        for (size_t i = 0; i < hand.size(); ++i) {
+            if (hand[i] && hand[i]->getId() == cardId) {
+                return static_cast<int>(i);
+            }
+        }
+        return -1;
+    }
+
+    std::unique_ptr<Game> game;
+    std::shared_ptr<MockUI> mockUi;
     std::shared_ptr<Player> player;
     std::shared_ptr<Enemy> enemy;
     std::unique_ptr<Combat> combat;
+    std::shared_ptr<Card> strikeCard;
+    std::shared_ptr<Card> defendCard;
 };
 
 // Test combat initialization
@@ -79,10 +105,15 @@ TEST_F(CombatTest, Initialization) {
     EXPECT_EQ(combat->getEnemyCount(), 1);
     EXPECT_EQ(combat->getEnemy(0), enemy.get());
     
-    // Verify initial combat state
-    EXPECT_FALSE(combat->isCombatOver());
+    // Verify initial combat state (before combat->start())
     EXPECT_FALSE(combat->areAllEnemiesDefeated());
     EXPECT_FALSE(combat->isPlayerDefeated());
+
+    combat->start(); // Start the combat
+
+    // Verify combat state after start
+    EXPECT_TRUE(combat->isInCombat());
+    EXPECT_FALSE(combat->isCombatOver());
 }
 
 // Test starting combat
@@ -203,6 +234,84 @@ TEST_F(CombatTest, DelayedActions) {
     // Process delayed actions again (should execute now)
     combat->processDelayedActions();
     EXPECT_TRUE(delayedActionExecuted);
+}
+
+TEST_F(CombatTest, PlayerDealsDamageWithStrike) {
+    combat->start(); // Start combat, player draws, enemy picks intent
+    ASSERT_TRUE(player->getHand().size() > 0) << "Player should have cards in hand.";
+
+    int strikeIdx = findCardInHand("strike");
+    ASSERT_NE(strikeIdx, -1) << "Strike card not found in hand.";
+
+    Card* cardToPlay = player->getHand()[strikeIdx].get();
+    ASSERT_NE(cardToPlay, nullptr);
+    ASSERT_EQ(cardToPlay->getId(), "strike");
+    ASSERT_TRUE(cardToPlay->getCost() <= player->getEnergy()) << "Not enough energy for Strike";
+
+    int enemyInitialHealth = enemy->getHealth();
+    // From strike.json: "value": 6 for damage effect
+    // From card.cpp, currentValue is sourced from effect's JSON value
+    int expectedDamage = 6; 
+
+    bool played = combat->playCard(strikeIdx, 0); // Play Strike on the first enemy
+    ASSERT_TRUE(played) << "Failed to play Strike card. Energy: " << player->getEnergy() 
+                        << ", Cost: " << cardToPlay->getCost();
+
+    EXPECT_EQ(enemy->getHealth(), enemyInitialHealth - expectedDamage);
+}
+
+TEST_F(CombatTest, PlayerDealsLethalDamageWithStrike) {
+    combat->start();
+    ASSERT_TRUE(player->getHand().size() > 0);
+
+    int strikeIdx = findCardInHand("strike");
+    ASSERT_NE(strikeIdx, -1) << "Strike card not found in hand.";
+    
+    // From strike.json: "value": 6 for damage effect
+    int strikeDamage = 6;
+    enemy->setHealth(strikeDamage -1); // Set enemy health to be just below lethal
+    int enemyInitialHealth = enemy->getHealth();
+    ASSERT_LT(enemyInitialHealth, strikeDamage) << "Test setup error: enemy health not less than strike damage";
+
+    bool played = combat->playCard(strikeIdx, 0);
+    ASSERT_TRUE(played) << "Failed to play Strike card.";
+
+    EXPECT_LE(enemy->getHealth(), 0);
+    EXPECT_FALSE(enemy->isAlive());
+    EXPECT_TRUE(combat->areAllEnemiesDefeated());
+    EXPECT_TRUE(combat->isCombatOver());
+}
+
+TEST_F(CombatTest, PlayerPlaysUpgradedStrike) {
+    player->clearDrawPile();
+    player->clearDiscardPile();
+    player->clearHand();
+
+    std::shared_ptr<Card> freshStrike = game->getCardData("strike");
+    ASSERT_TRUE(freshStrike->isUpgradable());
+    freshStrike->upgrade();
+    ASSERT_TRUE(freshStrike->isUpgraded());
+    player->addCardToDeck(freshStrike); // Add the upgraded one
+
+    player->startTurn();
+
+    combat->start(); // Start combat to set up enemy intents and ensure player turn is active.
+
+    int strikeIdx = findCardInHand("strike");
+    ASSERT_NE(strikeIdx, -1) << "Upgraded Strike card not found in hand.";
+
+    Card* cardToPlay = player->getHand()[strikeIdx].get();
+    ASSERT_NE(cardToPlay, nullptr);
+    ASSERT_TRUE(cardToPlay->isUpgraded()) << "Strike card in hand is not upgraded.";
+
+    int enemyInitialHealth = enemy->getHealth();
+    // From strike.json: "upgraded_value": 9 for damage effect
+    int expectedUpgradedDamage = 9;
+
+    bool played = combat->playCard(strikeIdx, 0);
+    ASSERT_TRUE(played) << "Failed to play upgraded Strike card.";
+
+    EXPECT_EQ(enemy->getHealth(), enemyInitialHealth - expectedUpgradedDamage);
 }
 
 } // namespace testing

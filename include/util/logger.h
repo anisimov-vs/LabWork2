@@ -75,6 +75,30 @@ public:
      */
     static void setTestingMode(bool enabled);
     
+    /**
+     * @brief Check if the logger is initialized
+     * @return True if initialized, false otherwise
+     */
+    static bool isInitialized();
+    
+    /**
+     * @brief Check if testing mode is enabled
+     * @return True if testing mode is enabled, false otherwise
+     */
+    static bool isTestingMode();
+    
+    /**
+     * @brief Check if console output is enabled
+     * @return True if console output is enabled, false otherwise
+     */
+    bool isConsoleEnabled() const;
+    
+    /**
+     * @brief Get the log directory
+     * @return The current log directory
+     */
+    std::string getLogDirectory() const;
+    
 protected:
     ~Logger();
     
@@ -110,7 +134,8 @@ private:
     LogLevel fileLevel_ = LogLevel::Debug;
     bool consoleEnabled_ = true;
     bool fileEnabled_ = true;
-    std::string logDirectory_ = "logs";
+    std::string logDirectory_ = "logs/deckstiny";
+    bool testingMode_ = false;
     
     // Log files
     std::map<std::string, std::ofstream> logFiles_;

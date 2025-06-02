@@ -1,19 +1,19 @@
 {
-    "id": "defend_r",
-    "name": "Defend",
-    "description": "Gain 5 Block.",
+    "id": "force_field",
+    "name": "Force Field",
+    "description": "Gain 6 Block.",
     "type": "SKILL",
     "rarity": "BASIC",
     "target": "SELF",
     "cost": 1,
     "upgradable": true,
-    "class": "IRONCLAD",
+    "class": "DEFECT",
     "effects": [
         {
             "type": "block",
-            "value": 5,
+            "value": 6,
             "target": "self",
-            "upgraded_value": 8
+            "upgraded_value": 9
         }
     ]
 } 

@@ -7,18 +7,15 @@
 
 namespace deckstiny {
 
-// Constructor implementation
 Event::Event(const std::string& id, const std::string& name, const std::string& description)
     : id_(id), name_(name), description_(description) {
     LOG_INFO("event", "Created event: " + name);
 }
 
-// getId implementation
 const std::string& Event::getId() const {
     return id_;
 }
 
-// getImagePath implementation
 const std::string& Event::getImagePath() const {
     return imagePath_;
 }
@@ -26,27 +23,22 @@ const std::string& Event::getImagePath() const {
 const std::vector<EventChoice>& Event::getAvailableChoices(Player* player) const {
     if (!player) {
         LOG_ERROR("event", "Invalid player");
-        return choices_; // Return all choices if no player
+        return choices_;
     }
     
-    // Clear previous available choices
     availableChoices_.clear();
     
-    // Check each choice against player state
     for (const auto& choice : choices_) {
         bool available = true;
         
-        // Check gold requirements
         if (choice.goldCost > 0 && player->getGold() < choice.goldCost) {
             available = false;
         }
         
-        // Check health requirements
         if (choice.healthCost > 0 && player->getHealth() < choice.healthCost) {
             available = false;
         }
         
-        // If all requirements are met, add to available choices
         if (available) {
             availableChoices_.push_back(choice);
         }
@@ -61,7 +53,6 @@ std::string Event::processChoice(int choiceIndex, Game* game) {
         return "Error: Cannot process choice without game instance.";
     }
     
-    // Check if choice is valid
     if (choiceIndex < 0 || choiceIndex >= static_cast<int>(choices_.size())) {
         LOG_ERROR("event", "Invalid choice index: " + std::to_string(choiceIndex));
         return "Invalid choice.";
@@ -75,12 +66,9 @@ std::string Event::processChoice(int choiceIndex, Game* game) {
         return "Error: Cannot process choice without player.";
     }
     
-    // Build detailed result text
     std::string resultText = choice.resultText + "\n\n";
     
-    // Apply effects and build detailed result text
     for (const auto& effect : choice.effects) {
-        // Process different effect types
         if (effect.type == "GAIN_GOLD") {
             player->addGold(effect.value);
             resultText += "You gained " + std::to_string(effect.value) + " gold.\n";
@@ -104,25 +92,20 @@ std::string Event::processChoice(int choiceIndex, Game* game) {
             resultText += "Your max health increased by " + std::to_string(effect.value) + ".\n";
             LOG_INFO("event", "Player's max health increased by " + std::to_string(effect.value));
         } else if (effect.type == "ADD_CARD") {
-            // Add card to player's deck
             game->addCardToDeck(effect.target);
             resultText += "You added " + effect.target + " to your deck.\n";
             LOG_INFO("event", "Added card to player's deck: " + effect.target);
         } else if (effect.type == "REMOVE_CARD") {
-            // Remove card from player's deck (not yet implemented)
             resultText += "You removed a card from your deck.\n";
             LOG_INFO("event", "Not implemented: Remove card from deck");
         } else if (effect.type == "ADD_RELIC") {
-            // Add relic to player
             game->addRelic(effect.target);
             resultText += "You gained the " + effect.target + " relic.\n";
             LOG_INFO("event", "Added relic to player: " + effect.target);
         } else if (effect.type == "RANDOM_RELIC") {
-            // Add random relic (not fully implemented)
             resultText += "You gained a random relic.\n";
-            LOG_INFO("event", "Not fully implemented: Add random relic");
+            LOG_INFO("event", "Add random relic");
         } else if (effect.type == "UPGRADE_CARD") {
-            // Upgrade a card
             std::string upgradedCard = game->upgradeCard();
             resultText += "You upgraded " + upgradedCard + ".\n";
             LOG_INFO("event", "Player upgraded a card: " + upgradedCard);
@@ -136,12 +119,10 @@ std::string Event::processChoice(int choiceIndex, Game* game) {
 
 bool Event::loadFromJson(const nlohmann::json& json) {
     try {
-        // Load basic event info
         id_ = json["id"];
         name_ = json["name"];
         description_ = json["description"];
         
-        // Load choices
         choices_.clear();
         
         if (json.contains("choices") && json["choices"].is_array()) {
@@ -149,12 +130,10 @@ bool Event::loadFromJson(const nlohmann::json& json) {
                 EventChoice choice;
                 choice.text = choiceJson["text"];
                 
-                // Load result text
                 if (choiceJson.contains("resultText")) {
                     choice.resultText = choiceJson["resultText"];
                 }
                 
-                // Load requirements
                 if (choiceJson.contains("requiresGold")) {
                     choice.goldCost = choiceJson["requiresGold"];
                 }
@@ -163,7 +142,6 @@ bool Event::loadFromJson(const nlohmann::json& json) {
                     choice.healthCost = choiceJson["requiresHealth"];
                 }
                 
-                // Load effects
                 if (choiceJson.contains("effects") && choiceJson["effects"].is_array()) {
                     for (const auto& effectJson : choiceJson["effects"]) {
                         EventEffect effect;

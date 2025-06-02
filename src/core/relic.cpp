@@ -50,55 +50,40 @@ void Relic::resetCounter() {
 }
 
 void Relic::onObtain(Player* player) {
-    // Mark parameter as used
     (void)player;
-    // Default implementation does nothing
 }
 
 void Relic::onCombatStart(Player* player, Combat* combat) {
-    // Mark parameters as used
     (void)player;
     (void)combat;
-    // Default implementation does nothing
 }
 
 void Relic::onTurnStart(Player* player, Combat* combat) {
-    // Mark parameters as used
     (void)player;
     (void)combat;
-    // Default implementation does nothing
 }
 
 void Relic::onTurnEnd(Player* player, Combat* combat) {
-    // Mark parameters as used
     (void)player;
     (void)combat;
-    // Default implementation does nothing
 }
 
 int Relic::onTakeDamage(Player* player, int damage, Combat* combat) {
-    // Mark parameters as used
     (void)player;
     (void)combat;
-    // Default implementation doesn't modify damage
     return damage;
 }
 
 int Relic::onDealDamage(Player* player, int damage, int targetIndex, Combat* combat) {
-    // Mark parameters as used
     (void)player;
     (void)targetIndex;
     (void)combat;
-    // Default implementation doesn't modify damage
     return damage;
 }
 
 void Relic::onCombatEnd(Player* player, bool victorious, Combat* combat) {
-    // Mark parameter as used
     (void)combat;
     
-    // Default implementation does nothing
-    // For Burning Blood, this would heal the player
     if (getId() == "burning_blood" && victorious && player) {
         player->heal(6);
     }
@@ -143,7 +128,6 @@ bool Relic::loadFromJson(const nlohmann::json& json) {
         
         return true;
     } catch (const std::exception& e) {
-        std::cerr << "Error loading relic from JSON: " << e.what() << std::endl;
         return false;
     }
 }

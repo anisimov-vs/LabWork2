@@ -4,10 +4,12 @@
 #include "core/combat.h"
 #include "core/game.h"
 #include "util/logger.h"
+#include "util/path_util.h"
 
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include <sys/stat.h>
 
 namespace deckstiny {
 
@@ -60,10 +62,32 @@ bool Card::upgrade() {
     
     upgraded_ = true;
     
-    // Default upgrade behavior - override in subclasses for specific effects
-    // For now, just reduce cost by 1 if possible
+    if (hasUpgradeDetails_) {
+        if (!nameUpgraded_.empty() && nameUpgraded_ != getName()) {
+            setName(nameUpgraded_);
+        }
+        if (!descriptionUpgraded_.empty()) {
+            description_ = descriptionUpgraded_;
+        }
+        if (costUpgraded_ != -1 && costUpgraded_ != cost_) {
+            cost_ = costUpgraded_;
+        }
+        if (damageUpgraded_ != -1) {
+            damage_ = damageUpgraded_;
+        }
+        if (blockUpgraded_ != -1) {
+            block_ = blockUpgraded_;
+        }
+        if (magicNumberUpgraded_ != -1) {
+            magicNumber_ = magicNumberUpgraded_;
+        }
+    } else {
     if (cost_ > 0) {
         cost_--;
+        }
+        if (getName().rfind('+') == std::string::npos) {
+             setName(getName() + "+");
+        }
     }
     
     return true;
@@ -71,57 +95,72 @@ bool Card::upgrade() {
 
 bool Card::canPlay(Player* player, int targetIndex, Combat* combat) const {
     if (!player || !combat) {
+        LOG_DEBUG("card_canPlay", "Called with null player or combat. Card: " + getName());
         return false;
     }
     
-    // Check if player has enough energy
-    if (player->getEnergy() < cost_) {
+    int currentEnergy = player->getEnergy();
+    LOG_DEBUG("card_canPlay", "Card: " + getName() + ", Player Energy: " + std::to_string(currentEnergy) + ", Card Cost: " + std::to_string(cost_));
+    
+    if (currentEnergy < cost_) {
+        LOG_DEBUG("card_canPlay", "Energy check FAILED for " + getName() + ". Player Energy: " + std::to_string(currentEnergy) + " < Card Cost: " + std::to_string(cost_));
         return false;
     }
+    LOG_DEBUG("card_canPlay", "Energy check PASSED for " + getName() + ". Player Energy: " + std::to_string(currentEnergy) + " >= Card Cost: " + std::to_string(cost_));
     
-    // Check if target is valid
     switch (target_) {
         case CardTarget::NONE:
-            // No target needed
+            LOG_DEBUG("card_canPlay", "Target check PASSED for " + getName() + " (NONE target). Returning true.");
             return true;
             
         case CardTarget::SELF:
-            // Target should be -1 or 0 (self)
-            return targetIndex < 0 || targetIndex == 0;
+            LOG_DEBUG("card_canPlay", "Target check PASSED for " + getName() + " (SELF target, index: " + std::to_string(targetIndex) + "). Returning true.");
+            return true;
             
-        case CardTarget::SINGLE_ENEMY:
-            // Target should be a valid enemy index
-            return targetIndex >= 0 && targetIndex < static_cast<int>(combat->getEnemyCount()) &&
+        case CardTarget::SINGLE_ENEMY: {
+            bool targetValid = targetIndex >= 0 && targetIndex < static_cast<int>(combat->getEnemyCount()) &&
                    combat->getEnemy(targetIndex) && combat->getEnemy(targetIndex)->isAlive();
+            LOG_DEBUG("card_canPlay", "Target check (SINGLE_ENEMY) for " + getName() + ": targetIndex=" + std::to_string(targetIndex) +
+                                     ", enemyCount=" + std::to_string(combat->getEnemyCount()) +
+                                     ", getEnemy(idx) valid=" + (combat->getEnemy(targetIndex) ? "true" : "false") +
+                                     ", isAlive=" + (combat->getEnemy(targetIndex) && combat->getEnemy(targetIndex)->isAlive() ? "true" : "false") +
+                                     ". Result: " + (targetValid ? "PASSED" : "FAILED"));
+            return targetValid;
+        }
             
         case CardTarget::ALL_ENEMIES:
-            // No specific target needed
+            LOG_DEBUG("card_canPlay", "Target check PASSED for " + getName() + " (ALL_ENEMIES target). Returning true.");
             return true;
             
         case CardTarget::SINGLE_ALLY:
-            // Not implemented yet
+            LOG_DEBUG("card_canPlay", "Target check FAILED for " + getName() + " (SINGLE_ALLY target - Not Implemented). Returning false.");
             return false;
             
         case CardTarget::ALL_ALLIES:
-            // Not implemented yet
+            LOG_DEBUG("card_canPlay", "Target check FAILED for " + getName() + " (ALL_ALLIES target - Not Implemented). Returning false.");
             return false;
             
         default:
+            LOG_DEBUG("card_canPlay", "Target check FAILED for " + getName() + " (UNKNOWN target type). Returning false.");
             return false;
     }
 }
 
 bool Card::play(Player* player, int targetIndex, Combat* combat) {
+    LOG_DEBUG("card_play", "Attempting to play card: " + getName());
     if (!canPlay(player, targetIndex, combat)) {
+        LOG_ERROR("card_play", "Pre-check canPlay() failed for " + getName() + ". Aborting play.");
         return false;
     }
     
-    // Use energy
+    LOG_DEBUG("card_play", getName() + " canPlay() passed. Player energy before useEnergy: " + std::to_string(player->getEnergy()) + ", Card cost: " + std::to_string(cost_));
+
     if (!player->useEnergy(cost_)) {
+        LOG_ERROR("card_play", getName() + " player->useEnergy(" + std::to_string(cost_) + ") FAILED. Player energy was: " + std::to_string(player->getEnergy()) + " (This should not happen if canPlay passed for positive cost cards).");
         return false;
     }
+    LOG_DEBUG("card_play", getName() + " player->useEnergy(" + std::to_string(cost_) + ") SUCCEEDED. Player energy after useEnergy: " + std::to_string(player->getEnergy()));
     
-    // Find this card's index in the player's hand
     const auto& hand = player->getHand();
     int cardIndex = -1;
     
@@ -137,11 +176,11 @@ bool Card::play(Player* player, int targetIndex, Combat* combat) {
         return false;
     }
     
-    // Execute card effect
-    bool success = onPlay(player, targetIndex, combat);
+    LOG_DEBUG("card_play", "Calling onPlay for " + getName());
+    bool successOnPlay = onPlay(player, targetIndex, combat);
+    LOG_DEBUG("card_play", "onPlay for " + getName() + " returned: " + (successOnPlay ? "true" : "false"));
     
-    if (success) {
-        // If it's not a POWER card, move it to discard pile
+    if (successOnPlay) {
         if (type_ != CardType::POWER) {
             std::vector<int> indices = {cardIndex};
             player->discardCards(indices);
@@ -152,7 +191,8 @@ bool Card::play(Player* player, int targetIndex, Combat* combat) {
         }
     }
     
-    return success;
+    LOG_DEBUG("card_play", getName() + " play() finished. Overall success: " + (successOnPlay ? "true" : "false"));
+    return successOnPlay;
 }
 
 bool Card::loadFromJson(const nlohmann::json& json) {
@@ -224,10 +264,18 @@ bool Card::loadFromJson(const nlohmann::json& json) {
             upgraded_ = json["upgraded"].get<bool>();
         }
         
-        // Load class restriction if present
+        if (json.contains("damage")) {
+            damage_ = json["damage"].get<int>();
+        }
+        if (json.contains("block")) {
+            block_ = json["block"].get<int>();
+        }
+        if (json.contains("magic_number")) {
+            magicNumber_ = json["magic_number"].get<int>();
+        }
+
         if (json.contains("class")) {
             classRestriction_ = json["class"].get<std::string>();
-            // Convert to uppercase for consistency
             std::transform(classRestriction_.begin(), classRestriction_.end(), 
                          classRestriction_.begin(), ::toupper);
             // Special case: "ALL" means available to all classes
@@ -238,9 +286,20 @@ bool Card::loadFromJson(const nlohmann::json& json) {
             }
         }
         
+        if (json.contains("upgrade_details") && json["upgrade_details"].is_object()) {
+            const auto& upgradeJson = json["upgrade_details"];
+            hasUpgradeDetails_ = true;
+            nameUpgraded_ = upgradeJson.value("name", getName() + "+"); 
+            descriptionUpgraded_ = upgradeJson.value("description", description_);
+            costUpgraded_ = upgradeJson.value("cost", cost_);
+            damageUpgraded_ = upgradeJson.value("damage", damage_); 
+            blockUpgraded_ = upgradeJson.value("block", block_);
+            magicNumberUpgraded_ = upgradeJson.value("magic_number", magicNumber_);
+        }
+        
         return true;
     } catch (const std::exception& e) {
-        std::cerr << "Error loading card from JSON: " << e.what() << std::endl;
+        LOG_ERROR("card", "Error loading card from JSON: " + std::string(e.what()));
         return false;
     }
 }
@@ -254,12 +313,15 @@ std::shared_ptr<Card> Card::cloneCard() const {
 }
 
 bool Card::onPlay(Player* player, int targetIndex, Combat* combat) {
-    // We need to process the card effects from the card's JSON data
-    // First, let's try to find the card in the file
+    std::string prefix = get_data_path_prefix();
+
     try {
-        std::ifstream file("data/cards/" + getId() + ".json");
+        std::string jsonFilePath = prefix + "data/cards/" + getId() + ".json";
+        LOG_DEBUG("card_onPlay", "Attempting to open card JSON with get_data_path_prefix: " + jsonFilePath);
+
+        std::ifstream file(jsonFilePath);
         if (!file.is_open()) {
-            // Fall back to hardcoded effects if JSON not found
+            LOG_ERROR("card_onPlay", "Failed to open card JSON: " + jsonFilePath);
             return fallbackCardEffect(player, targetIndex, combat);
         }
         
@@ -267,154 +329,205 @@ bool Card::onPlay(Player* player, int targetIndex, Combat* combat) {
         file >> cardData;
         
         if (!cardData.contains("effects") || !cardData["effects"].is_array()) {
-            // No effects found in JSON, use fallback
+            LOG_WARNING("card_onPlay", "No 'effects' array in JSON for card: " + getId());
             return fallbackCardEffect(player, targetIndex, combat);
         }
         
-        bool success = false;
+        bool overallSuccess = true;
         
-        // Process each effect in the order defined
-        for (const auto& effect : cardData["effects"]) {
-            std::string effectType = effect.value("type", "");
-            std::string effectTarget = effect.value("target", "");
-            int effectValue = effect.value("value", 0);
-            
-            // Apply upgraded value if card is upgraded
-            if (upgraded_ && effect.contains("upgraded_value")) {
-                effectValue = effect.value("upgraded_value", effectValue);
+        for (const auto& effectJson : cardData["effects"]) {
+            std::string effectType = effectJson.value("type", "");
+            std::string effectTargetType = effectJson.value("target", "");
+
+            int currentValue = 0;
+            if (effectType == "damage" || effectType == "block") {
+                currentValue = effectJson.value("value", 0);
+                if (this->upgraded_ && effectJson.contains("upgraded_value")) {
+                    currentValue = effectJson.value("upgraded_value", currentValue);
+                }
+            } else if (effectType == "apply_vulnerable" || effectType == "apply_weak" || effectType == "gain_strength") {
+                currentValue = effectJson.value("value", 0);
+                if (this->upgraded_) {
+                    if (effectJson.contains("upgraded_value")) {
+                        currentValue = effectJson.value("upgraded_value", currentValue);
+                    } else if (magicNumberUpgraded_ != -1) {
+                        currentValue = magicNumberUpgraded_;
+                    } 
+                } else if (effectJson.contains("value")){
+                     currentValue = effectJson.value("value", 0);
+                } else {
+                     currentValue = magicNumber_;
+                }
+            } else if (effectType == "draw") {
+                currentValue = effectJson.value("value", 0);
+                if (this->upgraded_ && effectJson.contains("upgraded_value")) {
+                    currentValue = effectJson.value("upgraded_value", currentValue);
+                }
+            } else {
+                currentValue = effectJson.value("value", 0);
+                if (this->upgraded_ && effectJson.contains("upgraded_value")) {
+                    currentValue = effectJson.value("upgraded_value", currentValue);
+                }
             }
-            
+
+            bool effectSuccess = false;
             if (effectType == "damage") {
-                // Apply damage effect
-                if (effectTarget == "enemy" && target_ == CardTarget::SINGLE_ENEMY) {
+                if (target_ == CardTarget::SINGLE_ENEMY) {
                     Enemy* enemy = combat->getEnemy(targetIndex);
                     if (enemy) {
-                        enemy->takeDamage(effectValue);
-                        success = true;
-                        
-                        // Check if enemy was defeated and handle death
+                        int finalDamage = currentValue;
+                        if (player && player->hasStatusEffect("weak")) {
+                            finalDamage = static_cast<int>(std::round(finalDamage * 0.75));
+                            LOG_DEBUG("card_onPlay", "Player is Weak, damage reduced to " + std::to_string(finalDamage));
+                        }
+                        enemy->takeDamage(finalDamage); 
+                        effectSuccess = true;
                         if (!enemy->isAlive()) {
-                            // Find the index of this enemy in the combat
                             for (size_t idx = 0; idx < combat->getEnemyCount(); ++idx) {
                                 if (combat->getEnemy(idx) == enemy) {
                                     combat->handleEnemyDeath(idx);
                                     break;
                                 }
                             }
-                            
-                            // Check if all enemies are defeated
                             if (combat->areAllEnemiesDefeated()) {
-                                // Mark combat as over
                                 if (!combat->isCombatOver()) {
                                     combat->end(true);
-                                    
-                                    // If the game instance is available, call endCombat directly
-                                    // but only if we haven't already transitioned
-                                    if (auto game = combat->getGame()) {
-                                        LOG_INFO("card", "All enemies defeated, game pointer available, calling endCombat");
-                                        game->endCombat(true);
-                                    } else {
-                                        LOG_WARNING("card", "All enemies defeated but game pointer not available!");
-                                    }
-                                } else {
-                                    LOG_INFO("card", "Combat already marked as over, not calling endCombat again");
+                                    if (auto game = combat->getGame()) game->endCombat(true);
                                 }
                             }
                         }
                     }
-                } else if (effectTarget == "all_enemies" || target_ == CardTarget::ALL_ENEMIES) {
+                } else if (target_ == CardTarget::ALL_ENEMIES) {
                     bool anyEnemyDefeated = false;
-                    
                     for (size_t i = 0; i < combat->getEnemyCount(); ++i) {
                         Enemy* enemy = combat->getEnemy(i);
                         if (enemy && enemy->isAlive()) {
-                            enemy->takeDamage(effectValue);
-                            
-                            // Check if this enemy was just defeated
+                            int finalDamage = currentValue;
+                            if (player && player->hasStatusEffect("weak")) {
+                                finalDamage = static_cast<int>(std::round(finalDamage * 0.75));
+                                LOG_DEBUG("card_onPlay", "Player is Weak (AOE), damage reduced to " + std::to_string(finalDamage) + " for enemy " + enemy->getName());
+                            }
+                            enemy->takeDamage(finalDamage);
                             if (!enemy->isAlive()) {
                                 combat->handleEnemyDeath(i);
                                 anyEnemyDefeated = true;
                             }
                         }
                     }
-                    
-                    // If any enemy was defeated, check if all are defeated now
                     if (anyEnemyDefeated && combat->areAllEnemiesDefeated()) {
-                        // Mark combat as over
                         if (!combat->isCombatOver()) {
                             combat->end(true);
-                            
-                            // If the game instance is available, call endCombat directly
-                            // but only if we haven't already transitioned
-                            if (auto game = combat->getGame()) {
-                                LOG_INFO("card", "All enemies defeated, game pointer available, calling endCombat");
-                                game->endCombat(true);
-                            } else {
-                                LOG_WARNING("card", "All enemies defeated but game pointer not available!");
-                            }
-                        } else {
-                            LOG_INFO("card", "Combat already marked as over, not calling endCombat again");
+                            if (auto game = combat->getGame()) game->endCombat(true);
                         }
                     }
-                    
-                    success = true;
+                    effectSuccess = true;
                 }
             } else if (effectType == "block") {
-                // Apply block effect
-                if (effectTarget == "self" || effectTarget == "player") {
-                    player->addBlock(effectValue);
-                    success = true;
+                if (player) {
+                    player->addBlock(currentValue);
+                    effectSuccess = true;
                 }
-            } else if (effectType == "status_effect") {
-                // Apply status effect
-                std::string statusEffect = effect.value("effect", "");
-                if (statusEffect.empty()) continue;
-                
-                if (effectTarget == "enemy" && target_ == CardTarget::SINGLE_ENEMY) {
+            } else if (effectType == "apply_vulnerable" || effectType == "apply_weak" || effectType == "gain_strength") {
+                std::string statusId = effectType.substr(std::string("apply_").length());
+                 if (effectType == "gain_strength") statusId = "strength";
+
+                if (target_ == CardTarget::SINGLE_ENEMY && (statusId == "vulnerable" || statusId == "weak")) {
                     Enemy* enemy = combat->getEnemy(targetIndex);
-                    if (enemy) {
-                        enemy->addStatusEffect(statusEffect, effectValue);
-                        success = true;
+                    if (enemy && enemy->isAlive()) {
+                        enemy->addStatusEffect(statusId, currentValue);
+                        effectSuccess = true; 
+                    } else if (enemy && !enemy->isAlive()) {
+                        LOG_DEBUG("card_onPlay", "Target for " + statusId + " (" + getName() + ") is dead. Effect considered vacuously successful.");
+                        effectSuccess = true; 
+                    } else if (!enemy) {
+                        LOG_DEBUG("card_onPlay", "Target enemy for " + statusId + " (" + getName() + ") does not exist (targetIndex=" + std::to_string(targetIndex) + "). Effect considered vacuously successful as combat might have ended.");
+                        effectSuccess = true; 
                     }
-                } else if (effectTarget == "all_enemies" || target_ == CardTarget::ALL_ENEMIES) {
+                } else if (target_ == CardTarget::SELF && statusId == "strength") {
+                     if(player) {
+                        player->addStatusEffect(statusId, currentValue);
+                        effectSuccess = true;
+                     }
+                }
+            } else if (effectType == "draw") {
+                if (player) {
+                    player->drawCards(currentValue);
+                    effectSuccess = true;
+                }
+            } else if (effectType == "status_effect") { 
+                std::string statusId = effectJson.value("effect", "");
+                std::string actualEffectTargetType = effectJson.value("target", "self"); 
+                
+                currentValue = effectJson.value("value", 0);
+                if (this->upgraded_ && effectJson.contains("upgraded_value")) {
+                    currentValue = effectJson.value("upgraded_value", currentValue);
+                }
+
+                if (statusId.empty()) {
+                    LOG_WARNING("card_onPlay", "status_effect type missing 'effect' field in JSON for card '" + getId() + "'");
+                } else {
+                    if (actualEffectTargetType == "enemy" || actualEffectTargetType == "SINGLE_ENEMY") {
+                        if (target_ == CardTarget::SINGLE_ENEMY) {
+                            Enemy* enemy = combat->getEnemy(targetIndex);
+                            if (enemy && enemy->isAlive()) {
+                                enemy->addStatusEffect(statusId, currentValue);
+                                effectSuccess = true;
+                            } else if (enemy && !enemy->isAlive()) {
+                                LOG_DEBUG("card_onPlay", "Target for generic status_effect '" + statusId + "' (" + getName() + ") is dead. Effect considered vacuously successful.");
+                                effectSuccess = true;
+                            } else if (!enemy) {
+                                LOG_DEBUG("card_onPlay", "Target enemy for generic status_effect '" + statusId + "' (" + getName() + ") does not exist. Effect considered vacuously successful as combat might have ended.");
+                                effectSuccess = true;
+                            }
+                        } else if (target_ == CardTarget::ALL_ENEMIES) {
+                             for (size_t i = 0; i < combat->getEnemyCount(); ++i) {
+                                Enemy* enemy = combat->getEnemy(i);
+                                if (enemy && enemy->isAlive()) {
+                                    enemy->addStatusEffect(statusId, currentValue);
+                                }
+                            }
+                            effectSuccess = true; 
+                        }
+                    } else if (actualEffectTargetType == "self" || actualEffectTargetType == "SELF") {
+                        if (player) {
+                            player->addStatusEffect(statusId, currentValue);
+                            effectSuccess = true;
+                        }
+                    } else if (actualEffectTargetType == "all_enemies" || actualEffectTargetType == "ALL_ENEMIES") {
                     for (size_t i = 0; i < combat->getEnemyCount(); ++i) {
                         Enemy* enemy = combat->getEnemy(i);
                         if (enemy && enemy->isAlive()) {
-                            enemy->addStatusEffect(statusEffect, effectValue);
+                                enemy->addStatusEffect(statusId, currentValue);
                         }
                     }
-                    success = true;
-                } else if (effectTarget == "self" || effectTarget == "player") {
-                    player->addStatusEffect(statusEffect, effectValue);
-                    success = true;
+                        effectSuccess = true; 
+                    }
                 }
             }
-            // Add more effect types as needed
+            
+            if (!effectSuccess && effectType != "") {
+                LOG_WARNING("card_onPlay", "Effect type '" + effectType + "' for card '" + getId() + "' failed or not handled.");
+                overallSuccess = false;
+            }
         }
         
-        return success;
+        return overallSuccess;
     } catch (const std::exception& e) {
-        std::cerr << "Error processing card effects for " << getId() << ": " << e.what() << std::endl;
-        // Fall back to hardcoded effects if JSON processing fails
+        LOG_ERROR("card_onPlay", "Error processing card effects for " + getId() + ": " + std::string(e.what()));
         return fallbackCardEffect(player, targetIndex, combat);
     }
 }
 
-// Fallback method for basic card effects
 bool Card::fallbackCardEffect(Player* player, int targetIndex, Combat* combat) {
-    // For now, just handle basic attack and block effects
     if (type_ == CardType::ATTACK) {
-        // Deal damage to target
         if (target_ == CardTarget::SINGLE_ENEMY) {
             Enemy* enemy = combat->getEnemy(targetIndex);
             if (enemy) {
-                // For now, just deal 6 damage (or 9 if upgraded)
                 int damage = upgraded_ ? 9 : 6;
                 enemy->takeDamage(damage);
                 return true;
             }
         } else if (target_ == CardTarget::ALL_ENEMIES) {
-            // Deal damage to all enemies
             int damage = upgraded_ ? 9 : 6;
             for (size_t i = 0; i < combat->getEnemyCount(); ++i) {
                 Enemy* enemy = combat->getEnemy(i);
@@ -425,9 +538,7 @@ bool Card::fallbackCardEffect(Player* player, int targetIndex, Combat* combat) {
             return true;
         }
     } else if (type_ == CardType::SKILL) {
-        // Apply block or other effects
         if (target_ == CardTarget::SELF) {
-            // For now, just add 5 block (or 8 if upgraded)
             int block = upgraded_ ? 8 : 5;
             player->addBlock(block);
             return true;
@@ -438,7 +549,6 @@ bool Card::fallbackCardEffect(Player* player, int targetIndex, Combat* combat) {
 }
 
 bool Card::needsTarget() const {
-    // Check if the card targets a single enemy
     return target_ == CardTarget::SINGLE_ENEMY;
 }
 

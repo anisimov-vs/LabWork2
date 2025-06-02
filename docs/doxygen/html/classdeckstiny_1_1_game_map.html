@@ -170,30 +170,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a83ca168be03f1fb26188debd45a18a06" id="r_a83ca168be03f1fb26188debd45a18a06"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83ca168be03f1fb26188debd45a18a06">getRoomTypeString</a> (<a class="el" href="namespacedeckstiny.html#a9b7f7429ce718f7d113f2e693936366d">RoomType</a> type) const</td></tr>
 <tr class="memdesc:a83ca168be03f1fb26188debd45a18a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a <a class="el" href="namespacedeckstiny.html#a9b7f7429ce718f7d113f2e693936366d" title="Represents the type of a room on the map.">RoomType</a> enum to a string representation.  <br /></td></tr>
 <tr class="separator:a83ca168be03f1fb26188debd45a18a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a729666902b47188311fdc99d509b0186" id="r_a729666902b47188311fdc99d509b0186"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a729666902b47188311fdc99d509b0186">setCurrentRoomId_TestHelper</a> (int roomId)</td></tr>
+<tr class="separator:a729666902b47188311fdc99d509b0186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ae3737937df0e8454f85d8ce2094f11ab" id="r_ae3737937df0e8454f85d8ce2094f11ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3737937df0e8454f85d8ce2094f11ab">generateAct1Map</a> (int numFloors)</td></tr>
-<tr class="memdesc:ae3737937df0e8454f85d8ce2094f11ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate an Act 1 map (simpler, more linear)  <br /></td></tr>
-<tr class="separator:ae3737937df0e8454f85d8ce2094f11ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0e81dfa01e485c9216c753c328fa49e" id="r_ae0e81dfa01e485c9216c753c328fa49e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0e81dfa01e485c9216c753c328fa49e">generateAct2Map</a> (int numFloors)</td></tr>
-<tr class="memdesc:ae0e81dfa01e485c9216c753c328fa49e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate an Act 2 map (more branching, wider)  <br /></td></tr>
-<tr class="separator:ae0e81dfa01e485c9216c753c328fa49e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a041cf2c85ab11ecdc5ce5717cafa6deb" id="r_a041cf2c85ab11ecdc5ce5717cafa6deb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a041cf2c85ab11ecdc5ce5717cafa6deb">generateAct3Map</a> (int numFloors)</td></tr>
-<tr class="memdesc:a041cf2c85ab11ecdc5ce5717cafa6deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate an Act 3 map (complex with interesting paths)  <br /></td></tr>
-<tr class="separator:a041cf2c85ab11ecdc5ce5717cafa6deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa227fb2b9f4f2f2d8f0f4fe3af64c92b" id="r_aa227fb2b9f4f2f2d8f0f4fe3af64c92b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa227fb2b9f4f2f2d8f0f4fe3af64c92b">createRoom</a> (int floor, int x, int distFromStart, int distFromBoss, int pathId, <a class="el" href="namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0a">PathType</a> pathType)</td></tr>
-<tr class="memdesc:aa227fb2b9f4f2f2d8f0f4fe3af64c92b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new room.  <br /></td></tr>
-<tr class="separator:aa227fb2b9f4f2f2d8f0f4fe3af64c92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a75adb2be0021f2ed7fcdb35c49e5f" id="r_aa4a75adb2be0021f2ed7fcdb35c49e5f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4a75adb2be0021f2ed7fcdb35c49e5f">createRoom</a> (int y, int x)</td></tr>
+<tr class="memdesc:aa4a75adb2be0021f2ed7fcdb35c49e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new room.  <br /></td></tr>
+<tr class="separator:aa4a75adb2be0021f2ed7fcdb35c49e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1fc0a7e9ee7f82a9a44de83c716118a" id="r_aa1fc0a7e9ee7f82a9a44de83c716118a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1fc0a7e9ee7f82a9a44de83c716118a">createRoomLink</a> (int fromId, int toId)</td></tr>
 <tr class="memdesc:aa1fc0a7e9ee7f82a9a44de83c716118a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a link between two rooms.  <br /></td></tr>
 <tr class="separator:aa1fc0a7e9ee7f82a9a44de83c716118a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4f65ab0b8c8497c9958f6003e8b805e" id="r_ac4f65ab0b8c8497c9958f6003e8b805e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4f65ab0b8c8497c9958f6003e8b805e">setRoomType</a> (int roomId)</td></tr>
-<tr class="memdesc:ac4f65ab0b8c8497c9958f6003e8b805e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set room type based on position and strategic rules.  <br /></td></tr>
-<tr class="separator:ac4f65ab0b8c8497c9958f6003e8b805e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fb5abfbd2c835d04de264c776a3cabb" id="r_a1fb5abfbd2c835d04de264c776a3cabb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fb5abfbd2c835d04de264c776a3cabb">createPath</a> (<a class="el" href="namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0a">PathType</a> pathType)</td></tr>
-<tr class="memdesc:a1fb5abfbd2c835d04de264c776a3cabb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a path through the map.  <br /></td></tr>
-<tr class="separator:a1fb5abfbd2c835d04de264c776a3cabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a743d2500289980a087d89b1ec6df4709" id="r_a743d2500289980a087d89b1ec6df4709"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a743d2500289980a087d89b1ec6df4709">setRoomType</a> (int roomId, int y, int x, int numPathsFromNode)</td></tr>
+<tr class="memdesc:a743d2500289980a087d89b1ec6df4709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the type of a room based on various constraints and probabilities.  <br /></td></tr>
+<tr class="separator:a743d2500289980a087d89b1ec6df4709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4207d9df9730e3b599746a638e919c7b" id="r_a4207d9df9730e3b599746a638e919c7b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4207d9df9730e3b599746a638e919c7b">validateMap</a> ()</td></tr>
 <tr class="memdesc:a4207d9df9730e3b599746a638e919c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate map to ensure it's completable.  <br /></td></tr>
 <tr class="separator:a4207d9df9730e3b599746a638e919c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,9 +199,6 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a89b34ec1e76ed7080607ed085ea4a87a" id="r_a89b34ec1e76ed7080607ed085ea4a87a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, <a class="el" href="structdeckstiny_1_1_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89b34ec1e76ed7080607ed085ea4a87a">rooms_</a></td></tr>
 <tr class="memdesc:a89b34ec1e76ed7080607ed085ea4a87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of rooms by ID.  <br /></td></tr>
 <tr class="separator:a89b34ec1e76ed7080607ed085ea4a87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9b14ccd078266857f05d39e8bf8237b" id="r_ad9b14ccd078266857f05d39e8bf8237b"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, <a class="el" href="structdeckstiny_1_1_path.html">Path</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9b14ccd078266857f05d39e8bf8237b">paths_</a></td></tr>
-<tr class="memdesc:ad9b14ccd078266857f05d39e8bf8237b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of paths by ID.  <br /></td></tr>
-<tr class="separator:ad9b14ccd078266857f05d39e8bf8237b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1749acdc7b60b59cc497570609e8bbf" id="r_af1749acdc7b60b59cc497570609e8bbf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1749acdc7b60b59cc497570609e8bbf">bossDefeated_</a> = false</td></tr>
 <tr class="memdesc:af1749acdc7b60b59cc497570609e8bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the boss has been defeated.  <br /></td></tr>
 <tr class="separator:af1749acdc7b60b59cc497570609e8bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -221,6 +208,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a68e01bf63cac6dec39f6618db8a880ce" id="r_a68e01bf63cac6dec39f6618db8a880ce"><td class="memItemLeft" align="right" valign="top">std::mt19937&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68e01bf63cac6dec39f6618db8a880ce">rng_</a></td></tr>
 <tr class="memdesc:a68e01bf63cac6dec39f6618db8a880ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">RNG for map generation.  <br /></td></tr>
 <tr class="separator:a68e01bf63cac6dec39f6618db8a880ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6bc35ee273080931d74bdb79411f9a0" id="r_ab6bc35ee273080931d74bdb79411f9a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6bc35ee273080931d74bdb79411f9a0">nextRoomId_</a> = 0</td></tr>
+<tr class="memdesc:ab6bc35ee273080931d74bdb79411f9a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter for unique room IDs, reset per generation.  <br /></td></tr>
+<tr class="separator:ab6bc35ee273080931d74bdb79411f9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the progression map in the game. </p>
@@ -308,60 +298,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a1fb5abfbd2c835d04de264c776a3cabb" name="a1fb5abfbd2c835d04de264c776a3cabb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fb5abfbd2c835d04de264c776a3cabb">&#9670;&#160;</a></span>createPath()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int deckstiny::GameMap::createPath </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0a">PathType</a></td>          <td class="paramname"><span class="paramname"><em>pathType</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create a path through the map. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pathType</td><td>Type of path to create </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdeckstiny_1_1_path.html" title="Represents a path through the map.">Path</a> ID </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_a1fb5abfbd2c835d04de264c776a3cabb_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a1fb5abfbd2c835d04de264c776a3cabb_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_a1fb5abfbd2c835d04de264c776a3cabb_icgraph" id="aclassdeckstiny_1_1_game_map_a1fb5abfbd2c835d04de264c776a3cabb_icgraph">
-<area shape="rect" title="Create a path through the map." alt="" coords="585,23,731,64"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
-<area shape="poly" title=" " alt="" coords="570,46,538,46,538,41,570,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
-<area shape="poly" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
-<area shape="poly" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
-<area shape="poly" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
-<area shape="poly" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
-<area shape="poly" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aa227fb2b9f4f2f2d8f0f4fe3af64c92b" name="aa227fb2b9f4f2f2d8f0f4fe3af64c92b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa227fb2b9f4f2f2d8f0f4fe3af64c92b">&#9670;&#160;</a></span>createRoom()</h2>
+<a id="aa4a75adb2be0021f2ed7fcdb35c49e5f" name="aa4a75adb2be0021f2ed7fcdb35c49e5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4a75adb2be0021f2ed7fcdb35c49e5f">&#9670;&#160;</a></span>createRoom()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -372,32 +310,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">int deckstiny::GameMap::createRoom </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>floor</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>distFromStart</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>distFromBoss</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>pathId</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0a">PathType</a></td>          <td class="paramname"><span class="paramname"><em>pathType</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -410,12 +328,8 @@ Here is the caller graph for this function:</div>
 <p>Create a new room. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">floor</td><td>Floor number </td></tr>
-    <tr><td class="paramname">x</td><td>Horizontal position </td></tr>
-    <tr><td class="paramname">distFromStart</td><td>Distance from start </td></tr>
-    <tr><td class="paramname">distFromBoss</td><td>Distance from boss </td></tr>
-    <tr><td class="paramname">pathId</td><td><a class="el" href="structdeckstiny_1_1_path.html" title="Represents a path through the map.">Path</a> ID this room belongs to </td></tr>
-    <tr><td class="paramname">pathType</td><td>Type of path </td></tr>
+    <tr><td class="paramname">y</td><td>Floor number (y-coordinate) </td></tr>
+    <tr><td class="paramname">x</td><td>Horizontal position (x-coordinate/column) </td></tr>
   </table>
   </dd>
 </dl>
@@ -423,19 +337,11 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_aa227fb2b9f4f2f2d8f0f4fe3af64c92b_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_aa227fb2b9f4f2f2d8f0f4fe3af64c92b_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_aa227fb2b9f4f2f2d8f0f4fe3af64c92b_icgraph" id="aclassdeckstiny_1_1_game_map_aa227fb2b9f4f2f2d8f0f4fe3af64c92b_icgraph">
-<area shape="rect" title="Create a new room." alt="" coords="585,23,731,64"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
-<area shape="poly" title=" " alt="" coords="570,46,538,46,538,41,570,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
-<area shape="poly" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
-<area shape="poly" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
-<area shape="poly" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
-<area shape="poly" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
-<area shape="poly" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
+<div class="center"><img src="classdeckstiny_1_1_game_map_aa4a75adb2be0021f2ed7fcdb35c49e5f_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_aa4a75adb2be0021f2ed7fcdb35c49e5f_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_game_map_aa4a75adb2be0021f2ed7fcdb35c49e5f_icgraph" id="aclassdeckstiny_1_1_game_map_aa4a75adb2be0021f2ed7fcdb35c49e5f_icgraph">
+<area shape="rect" title="Create a new room." alt="" coords="199,5,344,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
+<area shape="poly" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
 </map>
 </div>
 
@@ -481,17 +387,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_game_map_aa1fc0a7e9ee7f82a9a44de83c716118a_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_aa1fc0a7e9ee7f82a9a44de83c716118a_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_game_map_aa1fc0a7e9ee7f82a9a44de83c716118a_icgraph" id="aclassdeckstiny_1_1_game_map_aa1fc0a7e9ee7f82a9a44de83c716118a_icgraph">
-<area shape="rect" title="Create a link between two rooms." alt="" coords="585,23,731,64"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
-<area shape="poly" title=" " alt="" coords="570,46,538,46,538,41,570,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
-<area shape="poly" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
-<area shape="poly" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
-<area shape="poly" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
-<area shape="poly" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
-<area shape="poly" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
+<area shape="rect" title="Create a link between two rooms." alt="" coords="199,5,344,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
+<area shape="poly" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
 </map>
 </div>
 
@@ -525,237 +423,21 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_game_map_a63b9200209532dabf0fe9690095dad79_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a63b9200209532dabf0fe9690095dad79_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_game_map_a63b9200209532dabf0fe9690095dad79_cgraph" id="aclassdeckstiny_1_1_game_map_a63b9200209532dabf0fe9690095dad79_cgraph">
-<area shape="rect" title="Generate a new map." alt="" coords="5,169,151,210"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,169,537,210"/>
-<area shape="poly" title=" " alt="" coords="144,166,198,155,271,149,344,155,383,162,382,168,344,160,271,154,199,160,146,171"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,169,344,210"/>
-<area shape="poly" title=" " alt="" coords="151,187,183,187,183,192,151,192"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,235,344,275"/>
-<area shape="poly" title=" " alt="" coords="141,208,196,227,194,232,139,213"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a1fb5abfbd2c835d04de264c776a3cabb" title="Create a path through the map." alt="" coords="601,5,746,46"/>
-<area shape="poly" title=" " alt="" coords="478,167,522,113,551,83,584,57,593,51,595,56,587,61,555,87,526,117,482,170"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa227fb2b9f4f2f2d8f0f4fe3af64c92b" title="Create a new room." alt="" coords="601,71,746,111"/>
-<area shape="poly" title=" " alt="" coords="500,167,584,122,599,115,602,120,586,127,502,171"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa1fc0a7e9ee7f82a9a44de83c716118a" title="Create a link between two rooms." alt="" coords="601,136,746,177"/>
-<area shape="poly" title=" " alt="" coords="537,175,585,168,586,173,538,181"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#abffb3d0f38571192d60a16aa82534654" title="Mark the current room as visited." alt="" coords="585,201,762,242"/>
-<area shape="poly" title=" " alt="" coords="538,198,570,203,569,208,537,203"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ac4f65ab0b8c8497c9958f6003e8b805e" title="Set room type based on position and strategic rules." alt="" coords="601,267,746,307"/>
-<area shape="poly" title=" " alt="" coords="503,208,586,251,602,258,600,263,584,256,501,213"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="601,332,746,373"/>
-<area shape="poly" title=" " alt="" coords="482,209,526,262,555,291,587,317,595,322,593,327,584,321,551,295,522,266,478,212"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="810,267,955,307"/>
-<area shape="poly" title=" " alt="" coords="746,284,794,284,794,290,746,290"/>
-<area shape="poly" title=" " alt="" coords="344,187,376,187,376,192,344,192"/>
-<area shape="poly" title=" " alt="" coords="333,232,387,213,389,218,334,237"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae3737937df0e8454f85d8ce2094f11ab" name="ae3737937df0e8454f85d8ce2094f11ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3737937df0e8454f85d8ce2094f11ab">&#9670;&#160;</a></span>generateAct1Map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool deckstiny::GameMap::generateAct1Map </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numFloors</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate an Act 1 map (simpler, more linear) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">numFloors</td><td>Number of floors in the act </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if generation succeeded </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_ae3737937df0e8454f85d8ce2094f11ab_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_ae3737937df0e8454f85d8ce2094f11ab_cgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_ae3737937df0e8454f85d8ce2094f11ab_cgraph" id="aclassdeckstiny_1_1_game_map_ae3737937df0e8454f85d8ce2094f11ab_cgraph">
-<area shape="rect" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="5,169,151,210"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a1fb5abfbd2c835d04de264c776a3cabb" title="Create a path through the map." alt="" coords="214,5,360,46"/>
-<area shape="poly" title=" " alt="" coords="91,167,135,113,164,83,197,57,206,51,209,56,200,61,168,87,139,117,96,170"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa227fb2b9f4f2f2d8f0f4fe3af64c92b" title="Create a new room." alt="" coords="214,71,360,111"/>
-<area shape="poly" title=" " alt="" coords="113,167,198,122,213,115,215,120,200,127,115,171"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa1fc0a7e9ee7f82a9a44de83c716118a" title="Create a link between two rooms." alt="" coords="214,136,360,177"/>
-<area shape="poly" title=" " alt="" coords="150,175,198,168,199,173,151,181"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#abffb3d0f38571192d60a16aa82534654" title="Mark the current room as visited." alt="" coords="199,201,375,242"/>
-<area shape="poly" title=" " alt="" coords="151,198,184,203,183,208,150,203"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ac4f65ab0b8c8497c9958f6003e8b805e" title="Set room type based on position and strategic rules." alt="" coords="214,267,360,307"/>
-<area shape="poly" title=" " alt="" coords="117,208,200,251,215,258,213,263,198,256,114,213"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="214,332,360,373"/>
-<area shape="poly" title=" " alt="" coords="96,209,139,262,168,291,200,317,209,322,206,327,197,321,164,295,135,266,92,212"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="423,267,568,307"/>
-<area shape="poly" title=" " alt="" coords="360,284,408,284,408,290,360,290"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_ae3737937df0e8454f85d8ce2094f11ab_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_ae3737937df0e8454f85d8ce2094f11ab_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_ae3737937df0e8454f85d8ce2094f11ab_icgraph" id="aclassdeckstiny_1_1_game_map_ae3737937df0e8454f85d8ce2094f11ab_icgraph">
-<area shape="rect" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
-<area shape="poly" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
-<area shape="poly" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
-<area shape="poly" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
-<area shape="poly" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
-<area shape="poly" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae0e81dfa01e485c9216c753c328fa49e" name="ae0e81dfa01e485c9216c753c328fa49e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0e81dfa01e485c9216c753c328fa49e">&#9670;&#160;</a></span>generateAct2Map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool deckstiny::GameMap::generateAct2Map </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numFloors</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate an Act 2 map (more branching, wider) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">numFloors</td><td>Number of floors in the act </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if generation succeeded </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_ae0e81dfa01e485c9216c753c328fa49e_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_ae0e81dfa01e485c9216c753c328fa49e_cgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_ae0e81dfa01e485c9216c753c328fa49e_cgraph" id="aclassdeckstiny_1_1_game_map_ae0e81dfa01e485c9216c753c328fa49e_cgraph">
-<area shape="rect" title="Generate an Act 2 map (more branching, wider)" alt="" coords="5,169,151,210"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="199,169,344,210"/>
-<area shape="poly" title=" " alt="" coords="151,187,183,187,183,192,151,192"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a1fb5abfbd2c835d04de264c776a3cabb" title="Create a path through the map." alt="" coords="408,5,553,46"/>
-<area shape="poly" title=" " alt="" coords="285,167,328,113,358,83,390,57,399,51,402,56,394,61,361,87,332,117,289,170"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa227fb2b9f4f2f2d8f0f4fe3af64c92b" title="Create a new room." alt="" coords="408,71,553,111"/>
-<area shape="poly" title=" " alt="" coords="306,167,391,122,406,115,408,120,393,127,309,171"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa1fc0a7e9ee7f82a9a44de83c716118a" title="Create a link between two rooms." alt="" coords="408,136,553,177"/>
-<area shape="poly" title=" " alt="" coords="344,175,392,168,392,173,345,181"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#abffb3d0f38571192d60a16aa82534654" title="Mark the current room as visited." alt="" coords="392,201,568,242"/>
-<area shape="poly" title=" " alt="" coords="345,198,377,203,376,208,344,203"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ac4f65ab0b8c8497c9958f6003e8b805e" title="Set room type based on position and strategic rules." alt="" coords="408,267,553,307"/>
-<area shape="poly" title=" " alt="" coords="310,208,393,251,409,258,406,263,391,256,307,213"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="408,332,553,373"/>
-<area shape="poly" title=" " alt="" coords="289,209,332,262,361,291,394,317,402,322,399,327,390,321,358,295,328,266,285,212"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="616,267,762,307"/>
-<area shape="poly" title=" " alt="" coords="553,284,601,284,601,290,553,290"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_ae0e81dfa01e485c9216c753c328fa49e_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_ae0e81dfa01e485c9216c753c328fa49e_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_ae0e81dfa01e485c9216c753c328fa49e_icgraph" id="aclassdeckstiny_1_1_game_map_ae0e81dfa01e485c9216c753c328fa49e_icgraph">
-<area shape="rect" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,5,344,46"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
-<area shape="poly" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a041cf2c85ab11ecdc5ce5717cafa6deb" name="a041cf2c85ab11ecdc5ce5717cafa6deb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a041cf2c85ab11ecdc5ce5717cafa6deb">&#9670;&#160;</a></span>generateAct3Map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool deckstiny::GameMap::generateAct3Map </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numFloors</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate an Act 3 map (complex with interesting paths) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">numFloors</td><td>Number of floors in the act </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if generation succeeded </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_a041cf2c85ab11ecdc5ce5717cafa6deb_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a041cf2c85ab11ecdc5ce5717cafa6deb_cgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_a041cf2c85ab11ecdc5ce5717cafa6deb_cgraph" id="aclassdeckstiny_1_1_game_map_a041cf2c85ab11ecdc5ce5717cafa6deb_cgraph">
-<area shape="rect" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="5,169,151,210"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="199,169,344,210"/>
-<area shape="poly" title=" " alt="" coords="151,187,183,187,183,192,151,192"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a1fb5abfbd2c835d04de264c776a3cabb" title="Create a path through the map." alt="" coords="408,5,553,46"/>
-<area shape="poly" title=" " alt="" coords="285,167,328,113,358,83,390,57,399,51,402,56,394,61,361,87,332,117,289,170"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa227fb2b9f4f2f2d8f0f4fe3af64c92b" title="Create a new room." alt="" coords="408,71,553,111"/>
-<area shape="poly" title=" " alt="" coords="306,167,391,122,406,115,408,120,393,127,309,171"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa1fc0a7e9ee7f82a9a44de83c716118a" title="Create a link between two rooms." alt="" coords="408,136,553,177"/>
-<area shape="poly" title=" " alt="" coords="344,175,392,168,392,173,345,181"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#abffb3d0f38571192d60a16aa82534654" title="Mark the current room as visited." alt="" coords="392,201,568,242"/>
-<area shape="poly" title=" " alt="" coords="345,198,377,203,376,208,344,203"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ac4f65ab0b8c8497c9958f6003e8b805e" title="Set room type based on position and strategic rules." alt="" coords="408,267,553,307"/>
-<area shape="poly" title=" " alt="" coords="310,208,393,251,409,258,406,263,391,256,307,213"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="408,332,553,373"/>
-<area shape="poly" title=" " alt="" coords="289,209,332,262,361,291,394,317,402,322,399,327,390,321,358,295,328,266,285,212"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="616,267,762,307"/>
-<area shape="poly" title=" " alt="" coords="553,284,601,284,601,290,553,290"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_a041cf2c85ab11ecdc5ce5717cafa6deb_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a041cf2c85ab11ecdc5ce5717cafa6deb_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_a041cf2c85ab11ecdc5ce5717cafa6deb_icgraph" id="aclassdeckstiny_1_1_game_map_a041cf2c85ab11ecdc5ce5717cafa6deb_icgraph">
-<area shape="rect" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,5,344,46"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
-<area shape="poly" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
+<area shape="rect" title="Generate a new map." alt="" coords="5,128,151,169"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa4a75adb2be0021f2ed7fcdb35c49e5f" title="Create a new room." alt="" coords="199,5,344,46"/>
+<area shape="poly" title=" " alt="" coords="102,125,146,92,197,57,207,51,209,56,200,61,149,96,106,130"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#aa1fc0a7e9ee7f82a9a44de83c716118a" title="Create a link between two rooms." alt="" coords="199,71,344,111"/>
+<area shape="poly" title=" " alt="" coords="148,125,185,114,187,119,149,130"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="392,185,537,226"/>
+<area shape="poly" title=" " alt="" coords="151,149,244,157,344,171,379,178,378,184,344,176,243,162,151,155"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a743d2500289980a087d89b1ec6df4709" title="Set the type of a room based on various constraints and probabilities." alt="" coords="199,185,344,226"/>
+<area shape="poly" title=" " alt="" coords="149,167,187,178,185,183,148,172"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="199,251,344,291"/>
+<area shape="poly" title=" " alt="" coords="106,167,149,201,200,235,209,241,207,245,197,240,146,205,102,171"/>
+<area shape="poly" title=" " alt="" coords="344,203,376,203,376,208,344,208"/>
+<area shape="poly" title=" " alt="" coords="333,248,387,229,389,234,334,253"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a0d085d14aff548c8054f298e60fa234d" title="Get a specific room." alt="" coords="392,251,537,291"/>
+<area shape="poly" title=" " alt="" coords="344,268,376,268,376,274,344,274"/>
 </map>
 </div>
 
@@ -904,6 +586,18 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the room, nullptr if not found </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_game_map_a0d085d14aff548c8054f298e60fa234d_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a0d085d14aff548c8054f298e60fa234d_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_game_map_a0d085d14aff548c8054f298e60fa234d_icgraph" id="aclassdeckstiny_1_1_game_map_a0d085d14aff548c8054f298e60fa234d_icgraph">
+<area shape="rect" title="Get a specific room." alt="" coords="392,5,537,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="199,5,344,46"/>
+<area shape="poly" title=" " alt="" coords="377,28,345,28,345,23,377,23"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
+<area shape="poly" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -935,16 +629,12 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_game_map_a83ca168be03f1fb26188debd45a18a06_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a83ca168be03f1fb26188debd45a18a06_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_game_map_a83ca168be03f1fb26188debd45a18a06_icgraph" id="aclassdeckstiny_1_1_game_map_a83ca168be03f1fb26188debd45a18a06_icgraph">
-<area shape="rect" title="Convert a RoomType enum to a string representation." alt="" coords="779,23,924,64"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ac4f65ab0b8c8497c9958f6003e8b805e" title="Set room type based on position and strategic rules." alt="" coords="585,23,731,64"/>
-<area shape="poly" title=" " alt="" coords="763,46,731,46,731,41,763,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
-<area shape="poly" title=" " alt="" coords="570,46,538,46,538,41,570,41"/>
+<area shape="rect" title="Convert a RoomType enum to a string representation." alt="" coords="392,23,537,64"/>
 <area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
 <area shape="poly" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a743d2500289980a087d89b1ec6df4709" title="Set the type of a room based on various constraints and probabilities." alt="" coords="199,23,344,64"/>
 <area shape="poly" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a4207d9df9730e3b599746a638e919c7b" title="Validate map to ensure it&#39;s completable." alt="" coords="199,89,344,129"/>
 <area shape="poly" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
 <area shape="poly" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
 <area shape="poly" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
@@ -1028,24 +718,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Mark the current room as visited. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_abffb3d0f38571192d60a16aa82534654_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_abffb3d0f38571192d60a16aa82534654_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_abffb3d0f38571192d60a16aa82534654_icgraph" id="aclassdeckstiny_1_1_game_map_abffb3d0f38571192d60a16aa82534654_icgraph">
-<area shape="rect" title="Mark the current room as visited." alt="" coords="585,23,762,64"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
-<area shape="poly" title=" " alt="" coords="570,46,538,46,538,41,570,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
-<area shape="poly" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
-<area shape="poly" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
-<area shape="poly" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
-<area shape="poly" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
-<area shape="poly" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -1085,8 +757,33 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ac4f65ab0b8c8497c9958f6003e8b805e" name="ac4f65ab0b8c8497c9958f6003e8b805e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4f65ab0b8c8497c9958f6003e8b805e">&#9670;&#160;</a></span>setRoomType()</h2>
+<a id="a729666902b47188311fdc99d509b0186" name="a729666902b47188311fdc99d509b0186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729666902b47188311fdc99d509b0186">&#9670;&#160;</a></span>setCurrentRoomId_TestHelper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deckstiny::GameMap::setCurrentRoomId_TestHelper </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>roomId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a743d2500289980a087d89b1ec6df4709" name="a743d2500289980a087d89b1ec6df4709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a743d2500289980a087d89b1ec6df4709">&#9670;&#160;</a></span>setRoomType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1097,8 +794,22 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void deckstiny::GameMap::setRoomType </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>roomId</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>roomId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numPathsFromNode</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1108,19 +819,22 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Set room type based on position and strategic rules. </p>
+<p>Set the type of a room based on various constraints and probabilities. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">roomId</td><td><a class="el" href="structdeckstiny_1_1_room.html" title="Represents a single room on the map.">Room</a> ID to set type for </td></tr>
+    <tr><td class="paramname">roomId</td><td>ID of the room to set type for </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the room </td></tr>
+    <tr><td class="paramname">x</td><td>X-coordinate of the room </td></tr>
+    <tr><td class="paramname">numPathsFromNode</td><td>Number of paths leading from this node (influences type) </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_ac4f65ab0b8c8497c9958f6003e8b805e_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_ac4f65ab0b8c8497c9958f6003e8b805e_cgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_ac4f65ab0b8c8497c9958f6003e8b805e_cgraph" id="aclassdeckstiny_1_1_game_map_ac4f65ab0b8c8497c9958f6003e8b805e_cgraph">
-<area shape="rect" title="Set room type based on position and strategic rules." alt="" coords="5,5,151,46"/>
+<div class="center"><img src="classdeckstiny_1_1_game_map_a743d2500289980a087d89b1ec6df4709_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a743d2500289980a087d89b1ec6df4709_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_game_map_a743d2500289980a087d89b1ec6df4709_cgraph" id="aclassdeckstiny_1_1_game_map_a743d2500289980a087d89b1ec6df4709_cgraph">
+<area shape="rect" title="Set the type of a room based on various constraints and probabilities." alt="" coords="5,5,151,46"/>
 <area shape="rect" href="classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="199,5,344,46"/>
 <area shape="poly" title=" " alt="" coords="151,23,183,23,183,28,151,28"/>
 </map>
@@ -1128,19 +842,11 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_game_map_ac4f65ab0b8c8497c9958f6003e8b805e_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_ac4f65ab0b8c8497c9958f6003e8b805e_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_game_map_ac4f65ab0b8c8497c9958f6003e8b805e_icgraph" id="aclassdeckstiny_1_1_game_map_ac4f65ab0b8c8497c9958f6003e8b805e_icgraph">
-<area shape="rect" title="Set room type based on position and strategic rules." alt="" coords="585,23,731,64"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
-<area shape="poly" title=" " alt="" coords="570,46,538,46,538,41,570,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
-<area shape="poly" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
-<area shape="poly" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
-<area shape="poly" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
-<area shape="poly" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
-<area shape="poly" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
+<div class="center"><img src="classdeckstiny_1_1_game_map_a743d2500289980a087d89b1ec6df4709_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a743d2500289980a087d89b1ec6df4709_icgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_game_map_a743d2500289980a087d89b1ec6df4709_icgraph" id="aclassdeckstiny_1_1_game_map_a743d2500289980a087d89b1ec6df4709_icgraph">
+<area shape="rect" title="Set the type of a room based on various constraints and probabilities." alt="" coords="199,5,344,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
+<area shape="poly" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
 </map>
 </div>
 
@@ -1172,21 +878,25 @@ Here is the caller graph for this function:</div>
 <p>Validate map to ensure it's completable. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if map is valid </dd></dl>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_game_map_a4207d9df9730e3b599746a638e919c7b_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a4207d9df9730e3b599746a638e919c7b_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_game_map_a4207d9df9730e3b599746a638e919c7b_cgraph" id="aclassdeckstiny_1_1_game_map_a4207d9df9730e3b599746a638e919c7b_cgraph">
+<area shape="rect" title="Validate map to ensure it&#39;s completable." alt="" coords="5,39,151,79"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a0d085d14aff548c8054f298e60fa234d" title="Get a specific room." alt="" coords="199,5,344,46"/>
+<area shape="poly" title=" " alt="" coords="150,44,183,38,183,44,151,49"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a83ca168be03f1fb26188debd45a18a06" title="Convert a RoomType enum to a string representation." alt="" coords="199,71,344,111"/>
+<area shape="poly" title=" " alt="" coords="151,68,183,74,183,79,150,74"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_game_map_a4207d9df9730e3b599746a638e919c7b_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_game_map_a4207d9df9730e3b599746a638e919c7b_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_game_map_a4207d9df9730e3b599746a638e919c7b_icgraph" id="aclassdeckstiny_1_1_game_map_a4207d9df9730e3b599746a638e919c7b_icgraph">
-<area shape="rect" title="Validate map to ensure it&#39;s completable." alt="" coords="585,23,731,64"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae3737937df0e8454f85d8ce2094f11ab" title="Generate an Act 1 map (simpler, more linear)" alt="" coords="392,23,537,64"/>
-<area shape="poly" title=" " alt="" coords="570,46,538,46,538,41,570,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,23,151,64"/>
-<area shape="poly" title=" " alt="" coords="382,22,344,14,271,8,199,14,146,25,144,20,198,9,271,3,344,9,383,16"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#ae0e81dfa01e485c9216c753c328fa49e" title="Generate an Act 2 map (more branching, wider)" alt="" coords="199,23,344,64"/>
-<area shape="poly" title=" " alt="" coords="377,46,345,46,345,41,377,41"/>
-<area shape="rect" href="classdeckstiny_1_1_game_map.html#a041cf2c85ab11ecdc5ce5717cafa6deb" title="Generate an Act 3 map (complex with interesting paths)" alt="" coords="199,89,344,129"/>
-<area shape="poly" title=" " alt="" coords="389,72,334,91,333,86,387,67"/>
-<area shape="poly" title=" " alt="" coords="183,46,151,46,151,41,183,41"/>
-<area shape="poly" title=" " alt="" coords="194,86,139,67,141,62,196,81"/>
+<area shape="rect" title="Validate map to ensure it&#39;s completable." alt="" coords="199,5,344,46"/>
+<area shape="rect" href="classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
+<area shape="poly" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
 </map>
 </div>
 
@@ -1289,8 +999,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad9b14ccd078266857f05d39e8bf8237b" name="ad9b14ccd078266857f05d39e8bf8237b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9b14ccd078266857f05d39e8bf8237b">&#9670;&#160;</a></span>paths_</h2>
+<a id="ab6bc35ee273080931d74bdb79411f9a0" name="ab6bc35ee273080931d74bdb79411f9a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6bc35ee273080931d74bdb79411f9a0">&#9670;&#160;</a></span>nextRoomId_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1299,7 +1009,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;int, <a class="el" href="structdeckstiny_1_1_path.html">Path</a>&gt; deckstiny::GameMap::paths_</td>
+          <td class="memname">int deckstiny::GameMap::nextRoomId_ = 0</td>
         </tr>
       </table>
   </td>
@@ -1309,7 +1019,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Map of paths by ID. </p>
+<p>Counter for unique room IDs, reset per generation. </p>
 
 </div>
 </div>

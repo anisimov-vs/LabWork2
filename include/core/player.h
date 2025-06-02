@@ -3,24 +3,14 @@
 #include "core/character.h"
 #include <vector>
 #include <memory>
+#include <string> // Required for std::string
 
 namespace deckstiny {
 
 // Forward declarations
 class Card;
 class Relic;
-
-/**
- * @enum PlayerClass
- * @brief Represents different playable character classes
- */
-enum class PlayerClass {
-    IRONCLAD,
-    SILENT,
-    DEFECT,
-    WATCHER,
-    CUSTOM
-};
+class Combat; // Forward declaration for Combat
 
 /**
  * @class Player
@@ -40,12 +30,11 @@ public:
      * @brief Constructor with all player parameters
      * @param id Unique identifier
      * @param name Display name
-     * @param playerClass Character class
      * @param maxHealth Maximum health points
      * @param baseEnergy Base energy per turn
      * @param initialHandSize Initial number of cards to draw each turn
      */
-    Player(const std::string& id, const std::string& name, PlayerClass playerClass, 
+    Player(const std::string& id, const std::string& name,
            int maxHealth, int baseEnergy, int initialHandSize);
     
     /**
@@ -54,14 +43,8 @@ public:
     virtual ~Player() = default;
     
     /**
-     * @brief Get the player's class
-     * @return Player class enum
-     */
-    PlayerClass getPlayerClass() const;
-    
-    /**
-     * @brief Get the player's class as a string
-     * @return String representation of the player's class
+     * @brief Get the player's class (ID) as a string, converted to uppercase.
+     * @return Uppercase string representation of the player's ID.
      */
     std::string getPlayerClassString() const;
     
@@ -212,15 +195,40 @@ public:
     void increaseMaxHealth(int amount);
 
     /**
-     * @brief Add a card to player's deck
+     * @brief Add a card to player's deck (specifically to draw pile)
      * @param card Card to add
      */
     void addCardToDeck(std::shared_ptr<Card> card);
 
+    /**
+     * @brief Removes a specific card from the player's deck (all piles).
+     * @param cardId The ID of the card to remove.
+     * @param removeAllInstances If true, removes all copies. If false, removes one copy.
+     * @return True if at least one card was removed, false otherwise.
+     */
+    bool removeCardFromDeck(const std::string& cardId, bool removeAllInstances = false);
+
+    // Test-specific helpers
+    void clearDrawPile() { drawPile_.clear(); }
+    void clearDiscardPile() { discardPile_.clear(); }
+    void clearHand() { hand_.clear(); }
+
+    /**
+     * @brief Set the current combat instance for the player.
+     * @param combat Pointer to the current Combat object.
+     */
+    void setCurrentCombat(Combat* combat);
+
+    /**
+     * @brief Get the current combat instance for the player.
+     * @return Pointer to the current Combat object, or nullptr if not in combat.
+     */
+    Combat* getCurrentCombat() const;
+
 private:
-    PlayerClass playerClass_ = PlayerClass::IRONCLAD; ///< Player's class
     int gold_ = 0;                                    ///< Current gold amount
     int initialHandSize_ = 5;                         ///< Initial number of cards to draw each turn
+    Combat* currentCombat_ = nullptr;                 ///< Pointer to the current combat instance
     
     std::vector<std::shared_ptr<Card>> drawPile_;     ///< Cards in draw pile
     std::vector<std::shared_ptr<Card>> discardPile_;  ///< Cards in discard pile

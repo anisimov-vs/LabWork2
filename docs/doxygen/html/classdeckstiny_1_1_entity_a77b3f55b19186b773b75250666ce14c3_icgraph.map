@@ -1,0 +1,5 @@
+<map id="deckstiny::Entity::setName" name="deckstiny::Entity::setName">
+<area shape="rect" id="Node000001" title="Set the entity&#39;s name." alt="" coords="221,5,348,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_card.html#af0f350fddfe7b1cc84ae222d4630d60d" title="Upgrade the card." alt="" coords="5,13,173,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,28,173,28,173,23,205,23"/>
+</map>

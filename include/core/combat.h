@@ -129,6 +129,12 @@ public:
     bool isPlayerTurn() const;
     
     /**
+     * @brief Check if combat is currently active
+     * @return True if combat is active, false otherwise
+     */
+    bool isInCombat() const { return inCombat_; }
+    
+    /**
      * @brief Start the combat
      */
     void start();
@@ -176,11 +182,6 @@ public:
      * @param index Index of the dead enemy
      */
     void handleEnemyDeath(size_t index);
-    
-    /**
-     * @brief Calculate rewards for combat
-     */
-    void calculateRewards();
     
     /**
      * @brief End the combat

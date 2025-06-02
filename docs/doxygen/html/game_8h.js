@@ -1,5 +1,6 @@
 var game_8h =
 [
+    [ "deckstiny::CharacterData", "structdeckstiny_1_1_character_data.html", "structdeckstiny_1_1_character_data" ],
     [ "deckstiny::Game", "classdeckstiny_1_1_game.html", "classdeckstiny_1_1_game" ],
     [ "deckstiny::GameState", "namespacedeckstiny.html#a7bbf916d988735caec995088ae176766", [
       [ "deckstiny::GameState::MAIN_MENU", "namespacedeckstiny.html#a7bbf916d988735caec995088ae176766aa16d505f03a4b6f35486f65f6a61317e", null ],

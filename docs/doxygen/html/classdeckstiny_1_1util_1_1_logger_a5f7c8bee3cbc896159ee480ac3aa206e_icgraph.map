@@ -1,0 +1,7 @@
+<map id="deckstiny::util::Logger::setConsoleEnabled" name="deckstiny::util::Logger::setConsoleEnabled">
+<area shape="rect" id="Node000001" title="Enable or disable console output." alt="" coords="452,5,601,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a51ee48ab605a50e92ad37110236fc66d" title="Initialize the logging system." alt="" coords="229,5,404,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="436,28,404,28,404,23,436,23"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,13,181,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,28,181,28,181,23,213,23"/>
+</map>

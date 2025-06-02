@@ -1,5 +1,8 @@
 <map id="deckstiny::TextUI::waitForKeyPress" name="deckstiny::TextUI::waitForKeyPress">
-<area shape="rect" id="Node000001" title="Wait for a key press." alt="" coords="5,5,138,46"/>
+<area shape="rect" id="Node000001" title="Wait for a key press." alt="" coords="5,35,138,75"/>
 <area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,5,318,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,23,170,23,170,28,138,28"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,42,170,36,171,42,138,47"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="366,35,498,75"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="138,54,186,55,318,55,350,54,351,60,318,60,186,60,138,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="319,34,351,39,350,44,318,39"/>
 </map>

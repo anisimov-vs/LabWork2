@@ -1,0 +1,19 @@
+{
+    "id": "tranquility_w",
+    "name": "Tranquility",
+    "description": "Gain 4 Block.",
+    "type": "SKILL",
+    "rarity": "BASIC",
+    "target": "SELF",
+    "cost": 0,
+    "upgradable": true,
+    "class": "WATCHER",
+    "effects": [
+        {
+            "type": "block",
+            "value": 4,
+            "target": "self",
+            "upgraded_value": 6
+        }
+    ]
+}

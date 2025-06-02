@@ -1,9 +1,14 @@
 <map id="deckstiny::TextUI::showCharacterSelection" name="deckstiny::TextUI::showCharacterSelection">
-<area shape="rect" id="Node000001" title="Display the character selection screen." alt="" coords="5,71,169,111"/>
+<area shape="rect" id="Node000001" title="Display the character selection screen." alt="" coords="5,92,169,133"/>
 <area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="217,5,349,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,68,204,49,206,54,151,73"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="217,71,349,111"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,88,201,88,201,94,169,94"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="217,136,349,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,109,206,128,204,133,149,114"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,89,220,50,222,55,136,94"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="397,92,529,133"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="169,107,217,106,349,106,382,106,381,112,349,111,217,111,169,112"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="217,120,349,161"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,121,202,126,201,131,169,127"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="217,185,349,226"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="133,131,226,176,224,181,131,136"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="328,44,407,83,404,87,326,49"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="349,127,381,122,382,128,350,133"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="324,182,348,170,408,138,411,143,350,175,326,187"/>
 </map>

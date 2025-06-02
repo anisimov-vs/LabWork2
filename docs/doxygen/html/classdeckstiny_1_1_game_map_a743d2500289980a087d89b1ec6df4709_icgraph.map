@@ -1,0 +1,5 @@
+<map id="deckstiny::GameMap::setRoomType" name="deckstiny::GameMap::setRoomType">
+<area shape="rect" id="Node000001" title="Set the type of a room based on various constraints and probabilities." alt="" coords="199,5,344,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game_map.html#a63b9200209532dabf0fe9690095dad79" title="Generate a new map." alt="" coords="5,5,151,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,28,151,28,151,23,183,23"/>
+</map>

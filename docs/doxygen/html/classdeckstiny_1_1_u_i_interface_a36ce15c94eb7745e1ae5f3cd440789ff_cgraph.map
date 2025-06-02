@@ -1,0 +1,5 @@
+<map id="deckstiny::UIInterface::showShop" name="deckstiny::UIInterface::showShop">
+<area shape="rect" id="Node000001" title="Show the shop UI with relic prices." alt="" coords="5,5,156,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_u_i_interface.html#af8b18bbd44f1691f920b3258728a885c" title="Display the shop interface." alt="" coords="204,5,354,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,23,188,23,188,28,156,28"/>
+</map>

@@ -2,7 +2,7 @@
 
 #include <string>
 #include <memory>
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 
 namespace deckstiny {
 

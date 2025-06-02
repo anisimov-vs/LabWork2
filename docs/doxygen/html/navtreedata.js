@@ -29,6 +29,8 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
@@ -58,10 +60,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classdeckstiny_1_1_enemy.html#a8725937a23f96c73f3fc650c0e63e4f3",
-"classdeckstiny_1_1_game_map.html#af1749acdc7b60b59cc497570609e8bbf",
-"classdeckstiny_1_1_u_i_interface.html#a551591c22c0b5617c1674690ded1433e",
-"structdeckstiny_1_1_combat_1_1_action_comparator.html#aef2880474e5fb4b91aae00206389b61e"
+"classdeckstiny_1_1_enemy.html#a4140a873efdbb9728be9236bfd766f98",
+"classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13",
+"classdeckstiny_1_1_text_u_i.html#a6c8e0ee2c83620e69ac9df7237de902c",
+"map_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

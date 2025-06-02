@@ -1,0 +1,20 @@
+{
+    "id": "flex_ic",
+    "name": "Flex",
+    "description": "Gain 2 Strength.",
+    "type": "SKILL",
+    "rarity": "BASIC", 
+    "target": "SELF",
+    "cost": 0,
+    "upgradable": true,
+    "class": "IRONCLAD",
+    "effects": [
+        {
+            "type": "apply_power",
+            "power_id": "strength",
+            "value": 2,
+            "target": "self",
+            "upgraded_value": 4
+        }
+    ]
+} 

@@ -5,20 +5,18 @@
     "base_energy": 3,
     "initial_hand_size": 5,
     "class": "SILENT",
-    "description": "A deadly huntress from the foglands.",
+    "description": "A deadly huntress from the foglands. Eradicates her enemies with daggers and poisons.",
     "starting_deck": [
-        "strike_g",
-        "strike_g",
-        "strike_g",
-        "strike_g",
-        "strike_g",
-        "defend_g",
-        "defend_g",
-        "defend_g",
-        "defend_g",
-        "defend_g",
+        "piercing_shiv",
+        "piercing_shiv",
+        "piercing_shiv",
+        "piercing_shiv",
+        "nimble_dodge",
+        "nimble_dodge",
+        "nimble_dodge",
+        "nimble_dodge",
         "neutralize",
-        "survivor"
+        "poisoned_stab_s"
     ],
     "starting_relics": [
         "ring_of_the_snake"

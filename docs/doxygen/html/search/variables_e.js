@@ -2,7 +2,20 @@ var searchData=
 [
   ['secondaryvalue_0',['secondaryValue',['../structdeckstiny_1_1_intent.html#a486e8455e7fe9887207e3ada123e2738',1,'deckstiny::Intent']]],
   ['selectedcardindex_5f_1',['selectedCardIndex_',['../classdeckstiny_1_1_game.html#a251f89f6bfb5c435929939397796e33c',1,'deckstiny::Game']]],
-  ['source_2',['source',['../structdeckstiny_1_1_combat_action.html#af8d66d65270e7ef96ed33d91eba8b77b',1,'deckstiny::CombatAction']]],
-  ['state_5f_3',['state_',['../classdeckstiny_1_1_game.html#acf5fa89766231b40c03dbfb9cbf194f2',1,'deckstiny::Game']]],
-  ['statuseffects_5f_4',['statusEffects_',['../classdeckstiny_1_1_character.html#a71a13a52a312336ec9b46260c2969f35',1,'deckstiny::Character']]]
+  ['shopcardsforsale_5f_2',['shopCardsForSale_',['../classdeckstiny_1_1_game.html#ad9ac235da9d0f121eb6f2f98610013a7',1,'deckstiny::Game']]],
+  ['shoprelicprices_5f_3',['shopRelicPrices_',['../classdeckstiny_1_1_game.html#a2f49baf1edf6a8985419b65c6d1fea95',1,'deckstiny::Game']]],
+  ['shoprelicsforsale_5f_4',['shopRelicsForSale_',['../classdeckstiny_1_1_game.html#aca3f2c6d3317f98445142fc85fa51f4a',1,'deckstiny::Game']]],
+  ['source_5',['source',['../structdeckstiny_1_1_combat_action.html#af8d66d65270e7ef96ed33d91eba8b77b',1,'deckstiny::CombatAction']]],
+  ['starting_5fdeck_6',['starting_deck',['../structdeckstiny_1_1_character_data.html#a5b0463395ee2a2d799658d3797a44fd1',1,'deckstiny::CharacterData']]],
+  ['starting_5frelics_7',['starting_relics',['../structdeckstiny_1_1_character_data.html#a3680fff83a343a2656d7f266f5145c69',1,'deckstiny::CharacterData']]],
+  ['state_5f_8',['state_',['../classdeckstiny_1_1_game.html#acf5fa89766231b40c03dbfb9cbf194f2',1,'deckstiny::Game']]],
+  ['statuseffects_5f_9',['statusEffects_',['../classdeckstiny_1_1_character.html#a71a13a52a312336ec9b46260c2969f35',1,'deckstiny::Character']]],
+  ['sts_5fboss_5ffloor_5fy_10',['STS_BOSS_FLOOR_Y',['../namespacedeckstiny.html#aac0a970c864504eb000efb712ff6a309',1,'deckstiny']]],
+  ['sts_5felite_5fmin_5ffloor_5fy_11',['STS_ELITE_MIN_FLOOR_Y',['../namespacedeckstiny.html#af5911e1b2a395505b7d5c6753a5e2fb8',1,'deckstiny']]],
+  ['sts_5fmax_5fincoming_5fconnections_5fper_5fnode_12',['STS_MAX_INCOMING_CONNECTIONS_PER_NODE',['../namespacedeckstiny.html#ab2b096e0f8712d8cc0479211b2a5fb34',1,'deckstiny']]],
+  ['sts_5fmid_5fact_5ftreasure_5ffloor_5fy_13',['STS_MID_ACT_TREASURE_FLOOR_Y',['../namespacedeckstiny.html#a5ef0a0d7453c029861f62a1cb84c1f41',1,'deckstiny']]],
+  ['sts_5fmin_5fstarting_5fpaths_14',['STS_MIN_STARTING_PATHS',['../namespacedeckstiny.html#a679b3e3f37b9bb2121e9ec67175ab712',1,'deckstiny']]],
+  ['sts_5fnum_5fcolumns_15',['STS_NUM_COLUMNS',['../namespacedeckstiny.html#a9034854cabc24c52733aba616c810ba5',1,'deckstiny']]],
+  ['sts_5fnum_5ffloors_16',['STS_NUM_FLOORS',['../namespacedeckstiny.html#a87defe428b72448eab22088b168674ca',1,'deckstiny']]],
+  ['sts_5fpre_5fboss_5frest_5ffloor_5fy_17',['STS_PRE_BOSS_REST_FLOOR_Y',['../namespacedeckstiny.html#ac10a53f1c66ca697fd06e54ba38488b2',1,'deckstiny']]]
 ];
