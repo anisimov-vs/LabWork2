@@ -84,7 +84,7 @@ jobs:
           --icon-file AppDir/usr/share/icons/hicolor/256x256/apps/deckstiny.png
 
     - name: Upload AppImage Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Deckstiny-AppImage
         path: Deckstiny*.AppImage
