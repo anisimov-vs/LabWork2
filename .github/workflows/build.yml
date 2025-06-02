@@ -19,12 +19,7 @@ jobs:
     - name: Install general dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential cmake
-
-    - name: Install SFML
-      uses: oprypin/install-sfml@v1.4
-      with:
-        sfml-version: 2.6.1
+        sudo apt-get install -y build-essential cmake libsfml-dev
 
     - name: Create build directory
       run: mkdir -p build
@@ -42,4 +37,4 @@ jobs:
     - name: Test
       run: |
         cd build
-        ctest --verbose
+        ctest
