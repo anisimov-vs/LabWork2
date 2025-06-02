@@ -358,6 +358,8 @@ private:
 
     // Specific data loaders
     bool loadAllCharacters();
+
+    void prepareUserSpecificData();
 };
 
 } // namespace deckstiny 

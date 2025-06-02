@@ -15,18 +15,7 @@
 using namespace deckstiny;
 
 int main(int argc, char* argv[]) {
-    // Initialize logging
-    auto& logger = util::Logger::getInstance();
-    
-    // Configure logging
-    logger.setConsoleEnabled(false);
-    logger.setFileEnabled(true);
-    logger.setConsoleLevel(util::LogLevel::Info);
-    logger.setFileLevel(util::LogLevel::Debug);
-    logger.setLogDirectory("logs/deckstiny");
-    
-    LOG_INFO("system", "Deckstiny initialization started");
-    LOG_INFO("main", "Initializing game...");
+    // Initialize logging is now handled by Game::initializeLogging()
     
     // Create game instance
     auto game = std::make_unique<Game>();
@@ -41,11 +30,9 @@ int main(int argc, char* argv[]) {
     
     // Initialize game
     if (!game->initialize(ui)) {
-        LOG_ERROR("main", "Failed to initialize game");
+        std::cerr << "Failed to initialize game" << std::endl;
         return 1;
     }
-    
-    LOG_INFO("main", "Game initialized successfully");
     
     // Start game loop in a background thread
     std::thread gameThread([&](){ game->run(); });
@@ -56,6 +43,5 @@ int main(int argc, char* argv[]) {
         gameThread.join();
     }
     
-    LOG_INFO("main", "Game shutting down");
     return 0;
 } 

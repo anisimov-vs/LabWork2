@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #ifndef DECKSTINY_GRAPHICAL_UI_H
 #define DECKSTINY_GRAPHICAL_UI_H
 
@@ -84,10 +87,7 @@ private:
     void drawPlayerInfoGfx(sf::RenderTarget& target, const sf::FloatRect& area);
     void drawEnemyInfoGfx(sf::RenderTarget& target, const Enemy* enemy, const sf::FloatRect& area);
     std::string getEnemyIntentStringGfx(const Intent& intent);
-    // Card type string helper (already moved to .cpp globally, consider making static private if preferred)
-    // static std::string getCardTypeStringGfx(CardType type); 
-
-    void processModalCardSelectionEvent(const sf::Event& event); // Helper for modal input loop
+    void processModalCardSelectionEvent(const sf::Event& event);
 
     Game* game_ = nullptr;
     std::function<bool(const std::string&)> inputCallback_;

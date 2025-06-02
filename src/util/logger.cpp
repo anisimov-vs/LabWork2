@@ -18,8 +18,6 @@ void Logger::init() {
         instance_->setConsoleLevel(LogLevel::Info);
         instance_->setFileLevel(LogLevel::Debug);
         instance_->setConsoleEnabled(false);
-        instance_->setFileEnabled(true);
-        instance_->setLogDirectory("logs/deckstiny");
     }
 }
 
@@ -58,9 +56,7 @@ bool Logger::isConsoleEnabled() const {
     return consoleEnabled_;
 }
 
-Logger::Logger() {
-    std::filesystem::create_directories(logDirectory_);
-}
+Logger::Logger() { }
 
 Logger::~Logger() {
     for (auto& file : logFiles_) {

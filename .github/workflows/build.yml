@@ -19,7 +19,7 @@ jobs:
     - name: Install general dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential cmake libsfml-dev
+        sudo apt-get install -y build-essential cmake libsfml-dev wget libfuse2
 
     - name: Create build directory
       run: mkdir -p build
@@ -38,3 +38,53 @@ jobs:
       run: |
         cd build
         ctest
+
+    - name: Download linuxdeploy
+      run: |
+        wget -c https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+        chmod +x linuxdeploy-x86_64.AppImage
+
+    - name: Prepare AppDir
+      run: |
+        mkdir -p AppDir/usr/bin
+        mkdir -p AppDir/usr/share/applications
+        mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
+        mkdir -p AppDir/usr/share/resources
+
+        cp build/deckstiny AppDir/usr/bin/
+        # Ensure data directory exists in build before copying
+        if [ -d "build/data" ]; then
+          cp -r build/data AppDir/usr/share/resources/
+        else
+          echo "Warning: build/data directory not found. Skipping data copy for AppImage."
+        fi
+
+        # Create .desktop file
+        cat <<EOF > AppDir/usr/share/applications/deckstiny.desktop
+        [Desktop Entry]
+        Name=Deckstiny
+        Exec=deckstiny
+        Icon=deckstiny
+        Type=Application
+        Categories=Game;
+        EOF
+
+        # Copy icon (assuming deckstiny.png is in the repo root)
+        if [ -f "deckstiny.png" ]; then
+          cp deckstiny.png AppDir/usr/share/icons/hicolor/256x256/apps/deckstiny.png
+        else
+          echo "Warning: Icon deckstiny.png not found in repository root. AppImage will not have a custom icon."
+        fi
+
+    - name: Build AppImage
+      run: |
+        ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage \\
+          --executable AppDir/usr/bin/deckstiny \\
+          --desktop-file AppDir/usr/share/applications/deckstiny.desktop \\
+          --icon-file AppDir/usr/share/icons/hicolor/256x256/apps/deckstiny.png
+
+    - name: Upload AppImage Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Deckstiny-AppImage
+        path: Deckstiny*.AppImage

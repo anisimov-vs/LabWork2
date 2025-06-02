@@ -10,6 +10,7 @@
 #include "core/relic.h"
 #include "core/event.h"
 #include "util/logger.h"
+#include "util/path_util.h" 
 #include <SFML/Window/Event.hpp>
 #include <set>
 #include <vector>
@@ -19,6 +20,7 @@
 #include <algorithm>
 #include <cmath>
 #include <sstream>
+#include <filesystem>
 
 namespace deckstiny {
 
@@ -248,13 +250,25 @@ GraphicalUI::~GraphicalUI() {
 bool GraphicalUI::initialize(Game* game) {
     game_ = game;
     LOG_INFO("graphical_ui", "Initializing Graphical UI");
-    LOG_DEBUG("graphical_ui", "initialize() called, creating window");
     window_.create(sf::VideoMode(1280, 720), "Deckstiny");
     window_.setVisible(true);
     LOG_DEBUG("graphical_ui", "Window created with size: " + std::to_string(window_.getSize().x) + "x" + std::to_string(window_.getSize().y));
     window_.setFramerateLimit(60);
-    if (!font_.loadFromFile("data/assets/arial.ttf")) {
-        LOG_ERROR("graphical_ui", "Failed to load font from data/assets/arial.ttf. Text will not be displayed.");
+
+    std::string data_prefix = get_data_path_prefix();
+    std::string font_path_str = data_prefix + "data/assets/arial.ttf";
+    LOG_INFO("graphical_ui", "Attempting to load font from: " + font_path_str);
+
+    if (!font_.loadFromFile(font_path_str)) {
+        LOG_ERROR("graphical_ui", "Failed to load font from: " + font_path_str + ". Attempting fallback.");
+        std::string fallback_font_path = "arial.ttf";
+        if (!font_.loadFromFile(fallback_font_path)) {
+             LOG_ERROR("graphical_ui", "Failed to load font from fallback path: " + fallback_font_path + ". Text may not display.");
+        } else {
+            LOG_INFO("graphical_ui", "Successfully loaded font from fallback path: " + fallback_font_path);
+        }
+    } else {
+        LOG_INFO("graphical_ui", "Successfully loaded font from: " + font_path_str);
     }
     return true;
 }
@@ -304,7 +318,6 @@ void GraphicalUI::processEvent(const sf::Event& event) {
                 currentOverlay_ = OverlayType::None;
             }
         }
-        // Consume other event types (mouse, etc.) while overlay is active, except Close.
         if (event.type != sf::Event::Closed) return;
     }
 
@@ -319,7 +332,6 @@ void GraphicalUI::processEvent(const sf::Event& event) {
                 screenType_ = ScreenType::Map;
             }
         }
-        // Consume other event types (mouse, etc.) while rewards overlay is active, except Close.
         if (event.type != sf::Event::Closed) return;
     }
 
@@ -1144,7 +1156,7 @@ void GraphicalUI::draw() {
         const unsigned int overlayCharSize = 28;
         float availableWidth = winW * 0.8f; // 80% of window width for text
         float currentY = winH * 0.3f;
-        const float lineSpacing = 8.f; // Define lineSpacing here
+        const float lineSpacing = 8.f; 
 
         std::vector<std::string> allWrappedLines;
         std::string segment;
@@ -1895,7 +1907,7 @@ void GraphicalUI::draw() {
             std::string desc = cardToDisplay_->getDescription();
             std::vector<std::string> descLines;
             
-            // Simple word wrap algorithm
+            // Word wrap algorithm
             std::string currentLine;
             std::istringstream descStream(desc);
             std::string word;
@@ -2071,7 +2083,7 @@ void GraphicalUI::draw() {
             descText.setCharacterSize(14);
             descText.setFillColor(sf::Color::White);
             
-            // Simple word wrap for description
+            // Word wrap for description
             std::string desc = card->getDescription();
             std::vector<std::string> descLines;
             
@@ -2214,7 +2226,7 @@ void GraphicalUI::draw() {
             std::string desc = relicToDisplay_->getDescription();
             std::vector<std::string> descLines;
             
-            // Simple word wrap algorithm
+            // Word wrap algorithm
             std::string currentLine;
             std::istringstream descStream(desc);
             std::string word;
