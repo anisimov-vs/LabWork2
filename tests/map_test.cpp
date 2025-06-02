@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "core/map.h"
+#include <queue>
 #include <set>
 
 namespace deckstiny {
