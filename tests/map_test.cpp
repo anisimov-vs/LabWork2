@@ -40,11 +40,11 @@ protected:
 // Test map generation
 TEST_F(MapTest, Generation) {
     // Verify map was generated with correct act
-    EXPECT_EQ(map->getAct(), 1) << "Map should be generated for Act 1";
+    EXPECT_EQ(map->getAct(), 1);
     
     // Verify rooms were created
     const auto& rooms = map->getAllRooms();
-    EXPECT_GT(rooms.size(), 0) << "Map should have at least one room";
+    EXPECT_GT(rooms.size(), 0);
     
     // Try to find each important room type
     int monsterRoomId = findRoomOfType(RoomType::MONSTER);
@@ -52,21 +52,14 @@ TEST_F(MapTest, Generation) {
     int bossRoomId = findRoomOfType(RoomType::BOSS);
     int restRoomId = findRoomOfType(RoomType::REST);
     
-    // Log all found room types for debugging
-    std::cout << "Found room types - Monster: " << (monsterRoomId != -1 ? "Yes" : "No")
-              << ", Elite: " << (eliteRoomId != -1 ? "Yes" : "No")
-              << ", Boss: " << (bossRoomId != -1 ? "Yes" : "No")
-              << ", Rest: " << (restRoomId != -1 ? "Yes" : "No") << std::endl;
-    
     // Critical rooms must exist: boss and at least one of monster or elite
-    ASSERT_NE(bossRoomId, -1) << "Boss room must exist in the map";
-    EXPECT_TRUE(monsterRoomId != -1 || eliteRoomId != -1) 
-        << "Map should have at least one combat room (Monster or Elite)";
+    ASSERT_NE(bossRoomId, -1);
+    EXPECT_TRUE(monsterRoomId != -1 || eliteRoomId != -1);
     
     // If boss room exists, verify it's positioned correctly
     if (bossRoomId != -1) {
         const Room* bossRoom = map->getRoom(bossRoomId);
-        ASSERT_NE(bossRoom, nullptr) << "Boss room pointer should not be null";
+        ASSERT_NE(bossRoom, nullptr);
         
         // Find max floor
         int maxFloor = 0;
@@ -74,11 +67,7 @@ TEST_F(MapTest, Generation) {
             maxFloor = std::max(maxFloor, room.y);
         }
         
-        // Boss should be on the highest floor or one below
-        // This makes the test more resilient to implementation differences
-        EXPECT_GE(bossRoom->y, maxFloor - 1) 
-            << "Boss room should be on or near the highest floor (actual: " 
-            << bossRoom->y << ", max: " << maxFloor << ")";
+        EXPECT_GE(bossRoom->y, maxFloor - 1);
     }
 }
 
