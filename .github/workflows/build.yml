@@ -108,33 +108,20 @@ jobs:
         
         # Generate release name
         CURRENT_DATE=$(date +"%Y-%m-%d")
-        echo "release_name=Pre-release-Deckstiny-$CURRENT_DATE-$SHORT_HASH" >> $GITHUB_OUTPUT
+        BRANCH_NAME=${GITHUB_REF#refs/heads/}
+        echo "release_name=Pre-release-Deckstiny-$CURRENT_DATE-$BRANCH_NAME-$SHORT_HASH" >> $GITHUB_OUTPUT
         
-        # Check if this commit has already been released
-        git fetch --tags
-        LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-        if [ -n "$LATEST_TAG" ]; then
-          # Check if current commit is newer than the latest tag
-          if git merge-base --is-ancestor $LATEST_TAG HEAD; then
-            # Current commit is newer, should release
-            echo "should_release=true" >> $GITHUB_OUTPUT
-          else
-            # Current commit is not newer, skip release
-            echo "should_release=false" >> $GITHUB_OUTPUT
-          fi
-        else
-          # No tags yet, should release
-          echo "should_release=true" >> $GITHUB_OUTPUT
-        fi
-        
+        # Always create a release for new commits
+        echo "should_release=true" >> $GITHUB_OUTPUT
+
     - name: Create GitHub Release
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.release_info.outputs.should_release == 'true'
+      if: github.event_name == 'push' && steps.release_info.outputs.should_release == 'true'
       uses: softprops/action-gh-release@v1
       with:
         name: ${{ steps.release_info.outputs.release_name }}
         tag_name: ${{ steps.release_info.outputs.release_name }}
         body: |
-          Pre-release build from commit ${{ steps.release_info.outputs.commit_hash }}
+          Pre-release build from commit ${{ steps.release_info.outputs.commit_hash }} on branch ${{ github.ref_name }}
           
           ${{ steps.release_info.outputs.commit_message }}
           
