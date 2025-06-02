@@ -349,9 +349,10 @@ private:
     
     void startShop(); // Method to initialize shop inventory
 
-    std::vector<Card*> shopCardsForSale_; // Added for shop inventory
-    std::vector<Relic*> shopRelicsForSale_; // Added for shop inventory
-    std::unordered_map<Relic*, int> shopRelicPrices_; // Map to store relic prices
+    std::vector<Card*> shopCardsForSale_; // Cards currently in the shop
+    std::vector<Relic*> shopRelicsForSale_; // Relics currently in the shop
+    std::map<Relic*, int> shopRelicPrices_; // Prices for relics in the shop
+    std::map<Card*, int> shopCardPrices_; // Prices for cards in the shop (NEW)
 
     std::mt19937 rng_; // Random number generator
 

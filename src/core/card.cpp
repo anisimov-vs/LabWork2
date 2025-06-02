@@ -126,6 +126,7 @@ bool Card::canPlay(Player* player, int targetIndex, Combat* combat) const {
                                      ", enemyCount=" + std::to_string(combat->getEnemyCount()) +
                                      ", getEnemy(idx) valid=" + (combat->getEnemy(targetIndex) ? "true" : "false") +
                                      ", isAlive=" + (combat->getEnemy(targetIndex) && combat->getEnemy(targetIndex)->isAlive() ? "true" : "false") +
+                                     ", PlayerEnergy=" + std::to_string(player->getEnergy()) +
                                      ". Result: " + (targetValid ? "PASSED" : "FAILED"));
             return targetValid;
         }

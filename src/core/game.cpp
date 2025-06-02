@@ -127,6 +127,7 @@ void Game::setState(GameState newState) {
              " to " + GameStateToString(newState));
 
     GameState previousState = state_;
+    LOG_DEBUG("game_trace", "Game::setState called. Previous: " + GameStateToString(previousState) + ", New: " + GameStateToString(newState));
     state_ = newState;
 
     LOG_DEBUG("game", "newState value before switch: " + GameStateToString(newState) + ", current state_ after assignment: " + GameStateToString(state_));
@@ -134,7 +135,10 @@ void Game::setState(GameState newState) {
     switch (newState) {
         case GameState::MAIN_MENU: {
             LOG_DEBUG("game", "Showing main menu (switched on newState)");
-            if (ui_) ui_->showMainMenu();
+            if (ui_) {
+                LOG_DEBUG("game_trace", "Game::setState -> Calling ui_->showMainMenu()");
+                ui_->showMainMenu();
+            }
             break;
         }
         case GameState::CHARACTER_SELECT: {
@@ -160,6 +164,7 @@ void Game::setState(GameState newState) {
         case GameState::MAP: {
             LOG_DEBUG("game", "Showing map (switched on newState)");
             if (ui_ && map_ && map_->getCurrentRoom()) {
+                LOG_DEBUG("game_trace", "Game::setState -> Calling ui_->showMap()");
                 ui_->showMap(map_->getCurrentRoom()->id, map_->getAvailableRooms(), map_->getAllRooms());
                 LOG_DEBUG("game", "Map shown");
             } else {
@@ -184,7 +189,7 @@ void Game::setState(GameState newState) {
             this->startShop(); 
             if (ui_ && player_) {
                 LOG_DEBUG("game_setState_shop_check", "Before calling ui_->showShop: shopCardsForSale_.size() = " + std::to_string(shopCardsForSale_.size()) + ", shopRelicsForSale_.size() = " + std::to_string(shopRelicsForSale_.size()));
-                ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+                ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
                 LOG_DEBUG("game", "Shop shown");
             } else {
                 LOG_ERROR("game", "Cannot show shop: UI or player is null");
@@ -216,6 +221,7 @@ void Game::setState(GameState newState) {
         }
         case GameState::GAME_OVER: {
             LOG_DEBUG("game", "Showing game over (switched on newState)");
+            LOG_DEBUG("game_trace", "Game::setState -> Calling ui_->showGameOver()");
             if (currentCombat_) {
                 LOG_INFO("game", "Cleaning up combat state before game over");
                 currentCombat_.reset();
@@ -224,20 +230,7 @@ void Game::setState(GameState newState) {
             int finalScore = calculateScore();
             LOG_INFO("game", "Game over - Final score: " + std::to_string(finalScore));
             if (ui_) ui_->showGameOver(map_ && map_->isBossDefeated(), finalScore);
-            LOG_DEBUG("game", "Game over shown, awaiting transition to main menu");
-            
-            LOG_INFO("game", "Scheduling automatic transition to main menu in 5 seconds");
-            std::thread([this]() {
-                std::this_thread::sleep_for(std::chrono::seconds(5));
-                LOG_INFO("game", "Auto-executing game over handler to return to main menu");
-                currentCombat_.reset();
-                transitioningFromCombat_ = false;
-                currentEvent_.reset();
-                map_.reset();
-                player_.reset();
-                setState(GameState::MAIN_MENU);
-                LOG_INFO("game", "Auto-returned to main menu after game over");
-            }).detach();
+            LOG_DEBUG("game", "Game over shown, awaiting player input to transition to main menu");
             break;
         }
         case GameState::REWARD: {
@@ -648,6 +641,7 @@ bool Game::processInput(const std::string& input) {
     }
 
     bool result = false;
+    LOG_DEBUG("game_trace", "Game::processInput: Current state: " + GameStateToString(state_) + ", Input: '" + input + "'");
     switch (state_) {
         case GameState::MAIN_MENU:
             result = handleMainMenuInput(input);
@@ -666,12 +660,14 @@ bool Game::processInput(const std::string& input) {
             break;
         case GameState::REWARD:
             LOG_INFO("game", "Input received in REWARD state: " + input + ". Transitioning to MAP.");
+            LOG_DEBUG("game_trace", "Game::processInput (REWARD) received: '" + input + "'. Transitioning to MAP.");
             currentCombat_.reset();
             setState(GameState::MAP);
             result = true;
             break;
         case GameState::GAME_OVER:
             LOG_INFO("game", "Input received in GAME_OVER state: " + input + ". Transitioning to MAIN_MENU.");
+            LOG_DEBUG("game_trace", "Game::processInput (GAME_OVER) received: '" + input + "'. Transitioning to MAIN_MENU.");
             setState(GameState::MAIN_MENU);
             result = true;
             break;
@@ -764,6 +760,7 @@ void Game::initializeInputHandlers() {
     
     inputHandlers_[GameState::GAME_OVER] = [this](const std::string& input) {
         LOG_INFO("game", "Game over handler activated with input: '" + input + "'");
+        LOG_DEBUG("game_trace", "InputHandler (GAME_OVER) received: '" + input + "'. Transitioning to MAIN_MENU.");
         
         int score = calculateScore();
         LOG_INFO("game", "Final score: " + std::to_string(score));
@@ -1289,27 +1286,16 @@ bool Game::handleMapInput(const std::string& input) {
                                 break;
                             }
                             case RoomType::SHOP: {
-                                LOG_INFO("game", "Player entered SHOP room #" + std::to_string(room->id));
-                                std::vector<Card*> cardsForSale; 
-                                std::vector<Relic*> relicsForSale;
-                                if (allCards_.size() >= 3) {
-                                    auto it = allCards_.begin();
-                                    std::advance(it, rand() % (allCards_.size() - 2));
-                                    cardsForSale.push_back(it->second.get()); it++;
-                                    cardsForSale.push_back(it->second.get()); it++;
-                                    cardsForSale.push_back(it->second.get());
-                                }
-                                if (!allRelics_.empty()) {
-                                    auto it = allRelics_.begin();
-                                    std::advance(it, rand() % allRelics_.size());
-                                    relicsForSale.push_back(it->second.get());
-                                }
+                                LOG_INFO("game", "Player entered SHOP room #" + std::to_string(room->id) + " via map. Initializing shop.");
+                                this->startShop();
 
                                 if (player_) {
-                                    ui_->showShop(cardsForSale, relicsForSale, shopRelicPrices_, player_->getGold());
-                                    setState(GameState::SHOP);
+                                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
+                                    if (state_ != GameState::SHOP) {
+                                       setState(GameState::SHOP);
+                                    }
                                 } else {
-                                    LOG_ERROR("game", "Player is null when trying to enter SHOP room.");
+                                    LOG_ERROR("game", "Player is null when trying to enter SHOP room from map.");
                                     setState(GameState::MAP);
                                 }
                                 break;
@@ -1696,6 +1682,16 @@ bool Game::handleEventInput(const std::string& input) {
             } else {
                 resultText += " Failed to obtain a random relic.";
             }
+        } else if (effect.type == "RANDOM_RELIC") {
+            std::shared_ptr<Relic> relic = this->getRandomRelicFromMasterList(); 
+            if (relic) {
+                player_->addRelic(relic);
+                resultText += " You found a random relic: " + relic->getName() + ".";
+                LOG_INFO("game", "Event effect RANDOM_RELIC: Gave player relic: " + relic->getName());
+            } else {
+                resultText += " Failed to find a random relic for you.";
+                LOG_WARNING("game", "Event effect RANDOM_RELIC: getRandomRelicFromMasterList returned nullptr.");
+            }
         } else if (effect.type == "START_COMBAT" || effect.type == "COMBAT") {
             std::vector<std::string> enemyIds;
             std::stringstream ss(effect.target);
@@ -1980,7 +1976,7 @@ bool Game::handleShopInput(const std::string& input) {
 
     if (trimmed_input.empty()) {
         ui_->showMessage("Please enter an item to buy (e.g., C1, R1) or 'leave'.", true);
-        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
         return true;
     }
 
@@ -1990,7 +1986,7 @@ bool Game::handleShopInput(const std::string& input) {
 
     if ((item_type_char != 'c' && item_type_char != 'r') || item_number_str.empty()) {
         ui_->showMessage("Invalid format. Use C<number> for cards, R<number> for relics, or 'leave'.", true);
-        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
         return true;
     }
 
@@ -1998,7 +1994,7 @@ bool Game::handleShopInput(const std::string& input) {
         item_idx = std::stoi(item_number_str) - 1;
     } catch (const std::exception& e) {
         ui_->showMessage("Invalid item number. Please use format C<number> or R<number>.", true);
-        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
         return true;
     }
 
@@ -2006,15 +2002,30 @@ bool Game::handleShopInput(const std::string& input) {
         LOG_DEBUG("game_shop", "Checking card purchase. item_idx: " + std::to_string(item_idx) + ", shopCardsForSale_.size(): " + std::to_string(shopCardsForSale_.size()));
         if (item_idx >= 0 && item_idx < static_cast<int>(shopCardsForSale_.size())) {
             Card* selectedCard = shopCardsForSale_[item_idx];
-            int cardCost = selectedCard->getCost();
             
-            if (player_->getGold() >= cardCost) {
-                if (player_->spendGold(cardCost)) {
-                    player_->addCardToDeck(std::make_shared<Card>(*selectedCard));
-                    ui_->showMessage("You bought " + selectedCard->getName() + " for " + std::to_string(cardCost) + " gold!", true);
+            // Retrieve gold cost from the new map
+            int cardGoldCost = 0;
+            auto priceIt = shopCardPrices_.find(selectedCard);
+            if (priceIt != shopCardPrices_.end()) {
+                cardGoldCost = priceIt->second;
+            } else {
+                LOG_ERROR("game_shop", "Could not find price for card: " + selectedCard->getName() + ". Defaulting to high price to prevent free purchase.");
+                cardGoldCost = 999; // Fallback, should not happen
+            }
+            
+            if (player_->getGold() >= cardGoldCost) {
+                if (player_->spendGold(cardGoldCost)) {
+                    player_->addCardToDeck(std::make_shared<Card>(*selectedCard)); // Now correctly copies original energy cost
+                    ui_->showMessage("You bought " + selectedCard->getName() + " for " + std::to_string(cardGoldCost) + " gold!", true);
                     LOG_INFO("game", "Player bought card: " + selectedCard->getName());
+                    
+                    // Remove from shopCardPrices_ as well
+                    shopCardPrices_.erase(selectedCard);
                     shopCardsForSale_.erase(shopCardsForSale_.begin() + item_idx);
-                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold()); 
+                    
+                    delete selectedCard;
+
+                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold()); 
                 } else {
                      ui_->showMessage("Something went wrong with spending gold.", true);
                 }
@@ -2048,7 +2059,7 @@ bool Game::handleShopInput(const std::string& input) {
 
                     shopRelicPrices_.erase(selectedRelic);
                     shopRelicsForSale_.erase(shopRelicsForSale_.begin() + item_idx);
-                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
                 } else {
                      ui_->showMessage("Something went wrong with spending gold.", true);
                 }
@@ -2063,7 +2074,7 @@ bool Game::handleShopInput(const std::string& input) {
     }
     
     if (state_ == GameState::SHOP) {
-        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
     }
     return true;
 }
@@ -2130,6 +2141,7 @@ void Game::startShop() {
     shopCardsForSale_.clear();
     shopRelicsForSale_.clear();
     shopRelicPrices_.clear();
+    shopCardPrices_.clear(); 
 
     // --- Populate Cards ---
     LOG_DEBUG("game_shop", "Total cards in allCards_: " + std::to_string(allCards_.size()));
@@ -2175,13 +2187,16 @@ void Game::startShop() {
             int price = 50;
 
             if      (shopCardInstance->getRarity() == CardRarity::COMMON) price = 20 + (rng_() % 9);    // 20-29
-            else if (shopCardInstance->getRarity() == CardRarity::BASIC) price = 25 + (rng_() % 11);    // 35-46
-            else if (shopCardInstance->getRarity() == CardRarity::UNCOMMON) price = 45 + (rng_() % 21); // 65-86
-            else if (shopCardInstance->getRarity() == CardRarity::RARE) price = 70 + (rng_() % 31);     // 100-131
+            else if (shopCardInstance->getRarity() == CardRarity::BASIC) price = 25 + (rng_() % 11);    // 25-35
+            else if (shopCardInstance->getRarity() == CardRarity::UNCOMMON) price = 45 + (rng_() % 21); // 45-65
+            else if (shopCardInstance->getRarity() == CardRarity::RARE) price = 70 + (rng_() % 31);     // 70-100
             
-            shopCardInstance->setCost(price);
+            shopCardPrices_[shopCardInstance] = price;
+
             shopCardsForSale_.push_back(shopCardInstance);
-            LOG_DEBUG("game_shop", "Added card to shop: " + shopCardInstance->getName() + " for " + std::to_string(shopCardInstance->getCost()) + "G");
+            LOG_DEBUG("game_shop", "Added card to shop: " + shopCardInstance->getName() + 
+                                   " (Energy: " + std::to_string(shopCardInstance->getCost()) + ")" +
+                                   " for " + std::to_string(price) + "G");
         }
     }
 
