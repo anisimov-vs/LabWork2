@@ -1,9 +1,10 @@
 <map id="deckstiny::Player::endCombat" name="deckstiny::Player::endCombat">
-<area shape="rect" id="Node000001" title="End combat cleanup." alt="" coords="5,39,136,79"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#ad93eddac0d809502ace95118a5ec3fa4" title="Reset block to zero (used at end of turn)" alt="" coords="184,5,326,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,45,168,39,169,44,136,50"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_character.html#a99c0f2cb18062e3a56e69976589c0a88" title="Set current energy." alt="" coords="184,71,326,111"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="136,68,169,73,168,79,135,73"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="374,5,501,46"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,23,359,23,359,28,326,28"/>
+<area shape="rect" id="Node000001" title="End combat cleanup." alt="" coords="5,33,136,74"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="374,5,501,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,30,183,19,274,13,359,16,359,21,274,18,184,24,134,35"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_character.html#ad93eddac0d809502ace95118a5ec3fa4" title="Reset block to zero (used at end of turn)" alt="" coords="184,33,326,74"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,51,168,51,168,56,136,56"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_character.html#a99c0f2cb18062e3a56e69976589c0a88" title="Set current energy." alt="" coords="184,99,326,139"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="131,72,182,91,180,96,129,77"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="326,40,358,35,359,40,327,45"/>
 </map>

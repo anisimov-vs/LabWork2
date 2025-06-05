@@ -1,0 +1,25 @@
+{
+    "id": "iron_wave_ic",
+    "name": "Iron Wave",
+    "description": "Gain 4 Block. Deal 4 damage.",
+    "type": "ATTACK", 
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY",
+    "cost": 1,
+    "upgradable": true,
+    "class": "IRONCLAD",
+    "effects": [
+        {
+            "type": "block",
+            "value": 4,
+            "target": "self",
+            "upgraded_value": 6
+        },
+        {
+            "type": "damage",
+            "value": 4,
+            "target": "enemy",
+            "upgraded_value": 6
+        }
+    ]
+} 

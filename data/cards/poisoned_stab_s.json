@@ -1,0 +1,26 @@
+{
+    "id": "poisoned_stab_s",
+    "name": "Poisoned Stab",
+    "description": "Deal 4 damage. Apply 3 Poison.",
+    "type": "ATTACK",
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY",
+    "cost": 1,
+    "upgradable": true,
+    "class": "SILENT",
+    "effects": [
+        {
+            "type": "damage",
+            "value": 4,
+            "target": "enemy",
+            "upgraded_value": 6
+        },
+        {
+            "type": "status_effect",
+            "effect": "poison",
+            "value": 3,
+            "target": "enemy",
+            "upgraded_value": 5
+        }
+    ]
+} 

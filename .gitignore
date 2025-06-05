@@ -35,11 +35,9 @@
 .DS_Store
 
 # Temp folder
-
 tmp/
 
 # Binaries
-
 main
 test
 
@@ -48,3 +46,6 @@ build/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
+
+# VSCode
+.vscode/

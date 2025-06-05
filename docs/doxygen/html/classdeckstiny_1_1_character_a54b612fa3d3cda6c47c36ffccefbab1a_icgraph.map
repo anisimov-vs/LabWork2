@@ -1,24 +1,22 @@
 <map id="deckstiny::Character::takeDamage" name="deckstiny::Character::takeDamage">
-<area shape="rect" id="Node000001" title="Apply damage to the character." alt="" coords="881,142,1023,182"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_enemy.html#a52c262c65e7b01dcfdc1663db97718a7" title="Execute a specific move." alt="" coords="620,5,833,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="925,131,884,86,859,64,831,46,804,34,806,29,834,41,862,60,888,83,929,128"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_card.html#ab455b6238b157235a724969a27782a5d" title="Fallback implementation for basic card effects when JSON processing fails." alt="" coords="643,55,810,96"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="885,138,832,117,785,99,787,94,834,112,887,133"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="398,92,560,118"/>
-<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="865,154,560,117,561,112,865,149"/>
-<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="640,170,813,210"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="865,176,814,182,813,177,865,170"/>
-<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="655,235,798,276"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="902,192,834,225,799,237,797,232,832,220,899,187"/>
-<area shape="rect" id="Node000011" href="$classdeckstiny_1_1_enemy.html#af03aa6f850faabc1162ad0d138a3a36f" title="Execute the enemy&#39;s turn." alt="" coords="634,300,819,326"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="930,197,889,245,863,269,834,290,807,302,805,297,831,285,860,265,885,242,926,194"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="628,90,560,98,560,93,628,84"/>
-<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,92,338,118"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="383,108,339,108,339,102,383,102"/>
-<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,84,145,125"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="177,108,145,108,145,102,177,102"/>
-<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_enemy.html#a1b88024f36ca803dc9b701803b29db2f" title="Start of turn processing." alt="" coords="386,215,572,240"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="640,248,573,241,573,235,641,243"/>
-<area shape="rect" id="Node000010" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="414,264,544,305"/>
-<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="640,268,545,280,544,274,640,263"/>
+<area shape="rect" id="Node000001" title="Apply damage to the character." alt="" coords="854,120,996,161"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_card.html#ab455b6238b157235a724969a27782a5d" title="Fallback implementation for basic card effects when JSON processing fails." alt="" coords="630,5,796,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="881,113,804,67,767,49,769,44,807,62,883,109"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="398,42,560,68"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="838,119,805,111,676,86,560,68,561,63,677,81,806,106,840,114"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="626,120,800,161"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="838,143,800,143,800,138,838,138"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="642,185,784,226"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="843,168,782,187,781,182,842,163"/>
+<area shape="rect" id="Node000010" href="$classdeckstiny_1_1_enemy.html#af03aa6f850faabc1162ad0d138a3a36f" title="Execute the enemy&#39;s turn." alt="" coords="620,250,806,276"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="895,174,855,208,807,240,778,252,776,247,804,235,852,204,891,170"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="615,41,561,48,560,42,614,35"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,42,338,68"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="383,58,339,58,339,52,383,52"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,35,145,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="177,58,145,58,145,52,177,52"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_enemy.html#a1b88024f36ca803dc9b701803b29db2f" title="Start of turn processing." alt="" coords="386,165,572,190"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="626,198,573,192,573,186,627,193"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="414,215,544,255"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="627,219,545,229,544,224,626,214"/>
 </map>

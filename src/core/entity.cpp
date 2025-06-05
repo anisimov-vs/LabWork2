@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/entity.h"
 
 namespace deckstiny {
@@ -30,7 +33,6 @@ bool Entity::loadFromJson(const nlohmann::json& json) {
         
         return true;
     } catch (const std::exception& e) {
-        // TODO: Add proper error handling/logging
         return false;
     }
 }

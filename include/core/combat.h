@@ -1,4 +1,8 @@
-#pragma once
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
+#ifndef DECKSTINY_CORE_COMBAT_H
+#define DECKSTINY_CORE_COMBAT_H
 
 #include <vector>
 #include <memory>
@@ -129,6 +133,12 @@ public:
     bool isPlayerTurn() const;
     
     /**
+     * @brief Check if combat is currently active
+     * @return True if combat is active, false otherwise
+     */
+    bool isInCombat() const { return inCombat_; }
+    
+    /**
      * @brief Start the combat
      */
     void start();
@@ -178,11 +188,6 @@ public:
     void handleEnemyDeath(size_t index);
     
     /**
-     * @brief Calculate rewards for combat
-     */
-    void calculateRewards();
-    
-    /**
      * @brief End the combat
      * @param victorious Whether player was victorious
      */
@@ -213,3 +218,5 @@ private:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_CORE_COMBAT_H

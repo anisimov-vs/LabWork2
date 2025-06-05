@@ -1,18 +1,23 @@
 <map id="deckstiny::Game::loadRelic" name="deckstiny::Game::loadRelic">
-<area shape="rect" id="Node000001" title="Load a relic template." alt="" coords="741,78,924,104"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a739302a9cd247cc663fa90a1c73ee71e" title="Add a relic to the player." alt="" coords="503,21,682,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="760,77,649,50,650,45,761,71"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#a0170165f0ef77b073f35485635de7c6c" title="Create a new player." alt="" coords="492,78,693,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="726,94,694,94,694,88,726,88"/>
-<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game.html#a93210bd2549df48e9ad37f2380736e04" title="Load all relic templates." alt="" coords="509,128,676,169"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="762,111,677,131,676,126,760,105"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="250,5,423,46"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="487,33,423,31,423,26,487,28"/>
-<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="249,71,424,111"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="476,94,424,94,424,88,476,88"/>
-<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,108,181,133"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="233,106,181,112,181,107,233,101"/>
-<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_game.html#acc7fa912d453b7513bddc09557355e4a" title="Load data from JSON files." alt="" coords="229,136,444,161"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="493,151,444,151,444,146,493,146"/>
-<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="213,137,181,133,181,128,213,131"/>
+<area shape="rect" id="Node000001" title="Load a relic template." alt="" coords="701,109,884,134"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a739302a9cd247cc663fa90a1c73ee71e" title="Add a relic to the player." alt="" coords="463,14,642,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="752,104,652,59,604,43,606,38,654,54,754,99"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#a0170165f0ef77b073f35485635de7c6c" title="Create a new player." alt="" coords="452,198,653,224"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="753,145,654,188,615,200,613,195,652,183,751,140"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game.html#a5846cd61e796127f56b0d16d7a8b499e" title=" " alt="" coords="452,133,653,174"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="686,139,654,143,653,138,685,133"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_game.html#a079c10a4c4d283cf5375bd90c43e4ff3" title=" " alt="" coords="457,68,648,109"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="686,110,648,104,649,99,686,104"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="230,5,403,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="448,29,403,29,403,23,448,24"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="229,136,404,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="479,197,404,179,405,174,480,192"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,112,181,137"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="213,144,181,140,181,134,214,139"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="437,158,404,158,404,153,437,152"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_game.html#adc93138f082b628f488630a534affd92" title="Process input for the current state." alt="" coords="229,71,404,111"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="459,132,395,115,397,109,460,126"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="215,109,182,114,181,109,214,104"/>
+<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="465,116,390,138,389,133,464,111"/>
+<area shape="poly" id="edge12_Node000009_Node000008" title=" " alt="" coords="441,92,404,93,404,87,441,87"/>
 </map>

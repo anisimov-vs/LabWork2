@@ -1,0 +1,7 @@
+<map id="deckstiny::Card::upgrade" name="deckstiny::Card::upgrade">
+<area shape="rect" id="Node000001" title="Upgrade the card." alt="" coords="5,46,173,72"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="221,5,348,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,43,205,36,206,42,169,48"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html#a77b3f55b19186b773b75250666ce14c3" title="Set the entity&#39;s name." alt="" coords="221,71,348,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,70,206,75,205,81,171,75"/>
+</map>

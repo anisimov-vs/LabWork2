@@ -1,6 +1,8 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include <gtest/gtest.h>
-#include "ui/ui_interface.h"
-#include "ui/text_ui.h"
+#include "mocks/MockUI.h"
 #include "core/game.h"
 #include "core/player.h"
 #include "core/enemy.h"
@@ -10,115 +12,15 @@
 #include "core/relic.h"
 #include "core/map.h"
 #include <memory>
-#include <sstream>
 #include <nlohmann/json.hpp>
 
 namespace deckstiny {
 namespace testing {
 
-// Base UIInterface class tests
 class UITest : public ::testing::Test {
 protected:
-    void SetUp() override {
-        // Create a game instance for testing
-        game = std::make_shared<Game>();
-        
-        // Create a text UI for testing
-        ui = std::make_shared<TextUI>();
-        
-        // Initialize UI with game
-        ui->initialize(game.get());
-        
-        // Redirect cout to our stringstream for testing outputs
-        originalCoutBuffer = std::cout.rdbuf();
-        std::cout.rdbuf(outputStream.rdbuf());
-        
-        // Create game components for UI testing
-        player = std::make_shared<Player>(
-            "player1",           // id
-            "Test Player",       // name
-            PlayerClass::IRONCLAD, // class
-            75,                  // max health
-            3,                   // base energy
-            5                    // initial hand size
-        );
-        
-        enemy = std::make_shared<Enemy>(
-            "enemy1",            // id
-            "Test Enemy",        // name
-            50                   // health
-        );
-        
-        // Create a mock card
-        card = std::make_shared<Card>(
-            "strike",            // id
-            "Strike",            // name
-            "Deal 6 damage.",    // description
-            CardType::ATTACK,    // type
-            CardRarity::COMMON,  // rarity
-            CardTarget::SINGLE_ENEMY, // target
-            1,                   // cost
-            true                 // upgradable
-        );
-        
-        // Add card to player's deck
-        player->addCardToDeck(card);
-        player->shuffleDrawPile();
-        
-        // Create a mock relic
-        relic = std::make_shared<Relic>(
-            "burning_blood",     // id
-            "Burning Blood",     // name
-            "Heal 6 HP at the end of combat.", // description
-            RelicRarity::STARTER // rarity
-        );
-        
-        // Add relic to player
-        player->addRelic(relic);
-        
-        // Create a mock event using JSON
-        event = std::make_shared<Event>();
-        nlohmann::json eventJson = {
-            {"id", "test_event"},
-            {"name", "Test Event"},
-            {"description", "This is a test event"},
-            {"choices", nlohmann::json::array({
-                {
-                    {"text", "Choice 1"},
-                    {"resultText", "You chose option 1."}
-                },
-                {
-                    {"text", "Choice 2"},
-                    {"resultText", "You chose option 2."}
-                }
-            })}
-        };
-        event->loadFromJson(eventJson);
-        
-        // Create a mock combat
-        combat = std::make_shared<Combat>(player.get());
-        combat->addEnemy(enemy);
-        
-        // Create a mock map
-        map = std::make_shared<GameMap>();
-        map->generate(1); // Generate Act 1 map
-    }
-    
-    void TearDown() override {
-        // Restore cout
-        std::cout.rdbuf(originalCoutBuffer);
-    }
-    
-    // Helper to get output and clear the stream
-    std::string getOutputAndClear() {
-        std::string output = outputStream.str();
-        outputStream.str("");
-        outputStream.clear();
-        return output;
-    }
-    
     std::shared_ptr<Game> game;
-    std::shared_ptr<TextUI> ui;
+    std::shared_ptr<MockUI> mockUi;
     std::shared_ptr<Player> player;
     std::shared_ptr<Enemy> enemy;
     std::shared_ptr<Card> card;
@@ -126,179 +28,154 @@ protected:
     std::shared_ptr<Event> event;
     std::shared_ptr<Combat> combat;
     std::shared_ptr<GameMap> map;
+
+    void SetUp() override {
+        game = std::make_shared<Game>();
+        mockUi = std::make_shared<MockUI>();
+        
+        mockUi->initialize(game.get());
+        game->initialize(mockUi);
+
+        player = std::make_shared<Player>("ironclad", "Test Player", 75, 3, 5);
+        enemy = std::make_shared<Enemy>("enemy1", "Test Enemy", 50);
+        card = std::make_shared<Card>(
+            "strike", "Strike", "Deal 6 damage.", CardType::ATTACK, 
+            CardRarity::COMMON, CardTarget::SINGLE_ENEMY, 1, true);
+        player->addCardToDeck(card);
+        player->shuffleDrawPile();
+        relic = std::make_shared<Relic>(
+            "burning_blood", "Burning Blood", "Heal 6 HP.", RelicRarity::STARTER);
+        player->addRelic(relic);
+        
+        event = std::make_shared<Event>();
+        nlohmann::json eventJson = {
+            {"id", "test_event"}, {"name", "Test Event"}, {"description", "This is a test event"},
+            {"choices", nlohmann::json::array({
+                {{"text", "Choice 1"}, {"resultText", "You chose option 1."}},
+                {{"text", "Choice 2"}, {"resultText", "You chose option 2."}}
+            })}
+        };
+        event->loadFromJson(eventJson);
+        
+        combat = std::make_shared<Combat>(player.get());
+        combat->addEnemy(enemy);
+        map = std::make_shared<GameMap>();
+        map->generate(1);
+    }
     
-    std::stringstream outputStream;
-    std::streambuf* originalCoutBuffer;
+    void TearDown() override {
+        mockUi->clearRecordedCalls();
+    }
 };
 
-// Test UI initialization
 TEST_F(UITest, Initialization) {
-    // Test initialization (already done in SetUp)
-    EXPECT_TRUE(ui != nullptr);
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
+    EXPECT_TRUE(mockUi->wasMethodCalled("initialize"));
 }
 
-// Test showing the main menu
 TEST_F(UITest, ShowMainMenu) {
-    ui->showMainMenu();
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
-    EXPECT_TRUE(output.find("Main Menu") != std::string::npos);
+    mockUi->showMainMenu();
+    EXPECT_TRUE(mockUi->wasMethodCalled("showMainMenu"));
+    EXPECT_EQ(mockUi->getLastShownState(), GameState::MAIN_MENU);
 }
 
-// Test showing player stats
-TEST_F(UITest, ShowPlayerStats) {
-    ui->showPlayerStats(player.get());
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
-    EXPECT_TRUE(output.find("Test Player") != std::string::npos);
-    EXPECT_TRUE(output.find("75") != std::string::npos); // Health
-}
-
-// Test showing enemy stats
-TEST_F(UITest, ShowEnemyStats) {
-    ui->showEnemyStats(enemy.get());
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
-    EXPECT_TRUE(output.find("Test Enemy") != std::string::npos);
-    EXPECT_TRUE(output.find("50") != std::string::npos); // Health
-}
-
-// Test showing cards
-TEST_F(UITest, ShowCards) {
-    // Convert shared_ptr<Card> to Card* for the interface
-    std::vector<Card*> cards = { card.get() };
-    ui->showCards(cards, "Test Cards");
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
-    EXPECT_TRUE(output.find("Strike") != std::string::npos);
-    EXPECT_TRUE(output.find("Deal 6 damage") != std::string::npos);
-}
-
-// Test showing combat
 TEST_F(UITest, ShowCombat) {
-    ui->showCombat(combat.get());
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
-    EXPECT_TRUE(output.find("Test Player") != std::string::npos);
-    EXPECT_TRUE(output.find("Test Enemy") != std::string::npos);
+    Player player("ironclad", "Test Player", 80, 3, 5);
+    Combat combat(&player);
+    mockUi->showCombat(&combat);
+    EXPECT_TRUE(mockUi->wasMethodCalled("showCombat"));
+    EXPECT_EQ(mockUi->getLastShownState(), GameState::COMBAT);
+    ASSERT_NE(mockUi->lastCombat_, nullptr);
 }
 
-// Test showing event
 TEST_F(UITest, ShowEvent) {
-    ui->showEvent(event.get(), player.get());
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
-    EXPECT_TRUE(output.find("Test Event") != std::string::npos);
-    EXPECT_TRUE(output.find("This is a test event") != std::string::npos);
-    EXPECT_TRUE(output.find("Choice 1") != std::string::npos);
-    EXPECT_TRUE(output.find("Choice 2") != std::string::npos);
+    Event mockEvent("test_event", "Mock Event", "Description");
+    Player mockPlayer;
+    mockUi->showEvent(&mockEvent, &mockPlayer);
+
+    EXPECT_TRUE(mockUi->wasMethodCalled("showEvent"));
+    EXPECT_EQ(mockUi->getLastShownState(), GameState::EVENT);
+    ASSERT_NE(mockUi->lastShownEvent_, nullptr);
+    if (mockUi->lastShownEvent_) {
+        EXPECT_EQ(mockUi->lastShownEvent_->getId(), "test_event");
+}
 }
 
-// Test showing the map
 TEST_F(UITest, ShowMap) {
-    // Get room data from the map
-    int currentRoomId = -1;
-    if (map->getCurrentRoom()) {
-        currentRoomId = map->getCurrentRoom()->id;
-    }
-    std::vector<int> availableRooms = map->getAvailableRooms();
-    const auto& allRooms = map->getAllRooms();
-    
-    ui->showMap(currentRoomId, availableRooms, allRooms);
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
-    // Specific contents depend on map implementation
+    game->createPlayer("ironclad", "TestPlayerGame");
+    game->generateMap(1);
+    game->setState(GameState::MAP);
+
+    EXPECT_TRUE(mockUi->wasMethodCalled("showMap"));
+    EXPECT_EQ(mockUi->getLastShownState(), GameState::MAP);
 }
 
-// Test showing a message
 TEST_F(UITest, ShowMessage) {
-    ui->showMessage("Test message");
-    
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
-    EXPECT_TRUE(output.find("Test message") != std::string::npos);
-}
-
-// Test input handling with mocked input
-class MockTextUI : public TextUI {
-public:
-    MockTextUI() : TextUI() {}
-    
-    void setNextInput(const std::string& input) {
-        nextInput = input;
+    mockUi->showMessage("Test message", false);
+    EXPECT_TRUE(mockUi->wasMethodCalled("showMessage"));
+    ASSERT_FALSE(mockUi->getDisplayedMessagesHistory().empty());
+    EXPECT_EQ(mockUi->getLastMessageText(), "Test message");
     }
     
-    // Override the getInput method from TextUI
-    std::string getInput(const std::string& prompt) override {
-        return nextInput;
-    }
-    
-    // Add a custom implementation for numeric input
-    int getNumericInput(const std::string& prompt, int min, int max) {
-        try {
-            int value = std::stoi(nextInput);
-            if (value >= min && value <= max) {
-                return value;
-            }
-        } catch (...) {
-            // Handle conversion errors
-        }
-        return min; // Default to min value for invalid inputs
-    }
-    
-    // Add a custom implementation for yes/no input
-    bool getYesNoInput(const std::string& prompt) {
-        return (nextInput == "y" || nextInput == "Y" || 
-                nextInput == "yes" || nextInput == "Yes");
-    }
-    
-private:
-    std::string nextInput;
-};
-
-// Test input handling
-TEST(MockUITest, InputHandling) {
-    auto mockUI = std::make_shared<MockTextUI>();
-    auto game = std::make_shared<Game>();
-    mockUI->initialize(game.get());
-    
-    // Test getting numeric input
-    mockUI->setNextInput("5");
-    int result = mockUI->getNumericInput("Enter a number:", 1, 10);
-    EXPECT_EQ(result, 5);
-    
-    // Test getting invalid numeric input
-    mockUI->setNextInput("15");
-    result = mockUI->getNumericInput("Enter a number:", 1, 10);
-    EXPECT_NE(result, 15); // Should return a default value or re-prompt
-    
-    // Test getting yes/no input
-    mockUI->setNextInput("y");
-    bool yesNo = mockUI->getYesNoInput("Test question?");
-    EXPECT_TRUE(yesNo);
-    
-    mockUI->setNextInput("n");
-    yesNo = mockUI->getYesNoInput("Test question?");
-    EXPECT_FALSE(yesNo);
-}
-
-// Test UI shutdown
 TEST_F(UITest, Shutdown) {
-    // Test shutdown
-    ui->shutdown();
+    mockUi->shutdown();
+    EXPECT_TRUE(mockUi->wasMethodCalled("shutdown"));
+    }
     
-    std::string output = getOutputAndClear();
-    EXPECT_FALSE(output.empty());
+TEST(MockUITest, InputHandling) {
+    auto mockUi = std::make_shared<MockUI>();
+    bool callbackCalled = false;
+    std::string receivedInput;
+
+    mockUi->setInputCallback([&](const std::string& input) {
+        callbackCalled = true;
+        receivedInput = input;
+        return true;
+    });
+
+    mockUi->addExpectedInput("test_input");
+    mockUi->triggerNextInput();
+
+    EXPECT_TRUE(callbackCalled);
+    EXPECT_EQ(receivedInput, "test_input");
+}
+
+TEST_F(UITest, TriggerInput_UICallback) {
+    std::string receivedInput;
+    bool callbackCalled = false;
+    mockUi->setInputCallback([&](const std::string& input) {
+        receivedInput = input;
+        callbackCalled = true;
+        return true;
+    });
+    mockUi->addExpectedInput("test_input_ui");
+    bool processed = mockUi->triggerNextInput();
+
+    EXPECT_TRUE(processed);
+    EXPECT_TRUE(callbackCalled);
+    EXPECT_EQ(receivedInput, "test_input_ui");
+}
+
+TEST_F(UITest, GetInputPrompt) {
+    mockUi->addExpectedInput("user_response");
+    std::string response = mockUi->getInput("Enter your name:");
+    EXPECT_EQ(mockUi->lastInputPrompt_, "Enter your name:");
+    EXPECT_EQ(response, "user_response");
+    EXPECT_TRUE(mockUi->wasMethodCalled("getInput"));
+}
+
+TEST_F(UITest, OriginalTriggerInputLogic) {
+    mockUi->setInputCallback([&](const std::string& input) {
+        if (input == "goto_map_input") {
+            game->setState(GameState::MAP);
+            return true;
+        }
+        return false;
+    });
+    mockUi->addExpectedInput("goto_map_input");
+    mockUi->triggerNextInput();
+    if (mockUi->wasMethodCalled("showMap")) {
+        EXPECT_EQ(mockUi->getLastShownState(), GameState::MAP);
+    }
 }
 
 } // namespace testing

@@ -1,0 +1,5 @@
+<map id="deckstiny::Player::getPlayerClassString" name="deckstiny::Player::getPlayerClassString">
+<area shape="rect" id="Node000001" title="Get the player&#39;s class (ID) as a string, converted to uppercase." alt="" coords="5,5,150,46"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_entity.html#a7eb1d4773598c5104eb409c6cc26bfcb" title="Get the entity&#39;s id." alt="" coords="198,5,325,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,23,182,23,182,28,150,28"/>
+</map>

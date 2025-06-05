@@ -132,11 +132,16 @@ Collaboration diagram for deckstiny::Player:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player__coll__graph.png" border="0" usemap="#adeckstiny_1_1_player_coll__map" alt="Collaboration graph"/></div>
 <map name="adeckstiny_1_1_player_coll__map" id="adeckstiny_1_1_player_coll__map">
-<area shape="rect" title="Represents the player character in the game." alt="" coords="15,153,138,178"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html" title="Base class for all characters (player and enemies)" alt="" coords="5,79,148,105"/>
-<area shape="poly" title=" " alt="" coords="79,120,79,152,74,152,74,120"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html" title="Base class for all game entities." alt="" coords="17,5,136,31"/>
-<area shape="poly" title=" " alt="" coords="79,46,79,79,74,79,74,46"/>
+<area shape="rect" title="Represents the player character in the game." alt="" coords="152,155,275,181"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html" title="Manages combat between the player and enemies." alt="" coords="73,244,204,270"/>
+<area shape="poly" title=" " alt="" coords="154,191,138,206,134,225,137,243,132,244,128,224,133,204,150,187"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html" title="Base class for all characters (player and enemies)" alt="" coords="142,80,285,106"/>
+<area shape="poly" title=" " alt="" coords="216,121,216,155,211,155,211,121"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html" title="Base class for all game entities." alt="" coords="154,5,273,31"/>
+<area shape="poly" title=" " alt="" coords="216,46,216,80,211,80,211,46"/>
+<area shape="poly" title=" " alt="" coords="169,233,185,218,198,199,207,181,211,183,202,202,189,222,173,237"/>
+<area shape="rect" href="classdeckstiny_1_1_game.html" title="Main game manager class." alt="" coords="5,155,126,181"/>
+<area shape="poly" title=" " alt="" coords="63,196,69,219,81,232,97,241,94,246,78,236,64,221,58,197"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -145,17 +150,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f81636c8dee253ed9f7edb4cc102a01" id="r_a5f81636c8dee253ed9f7edb4cc102a01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f81636c8dee253ed9f7edb4cc102a01">Player</a> ()=default</td></tr>
 <tr class="memdesc:a5f81636c8dee253ed9f7edb4cc102a01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
 <tr class="separator:a5f81636c8dee253ed9f7edb4cc102a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaee80e78399c296fa33bebf9cfeeb47e" id="r_aaee80e78399c296fa33bebf9cfeeb47e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaee80e78399c296fa33bebf9cfeeb47e">Player</a> (const std::string &amp;id, const std::string &amp;name, <a class="el" href="namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660">PlayerClass</a> playerClass, int maxHealth, int baseEnergy, int initialHandSize)</td></tr>
-<tr class="memdesc:aaee80e78399c296fa33bebf9cfeeb47e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with all player parameters.  <br /></td></tr>
-<tr class="separator:aaee80e78399c296fa33bebf9cfeeb47e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaab39bd69200891d35ac0407c6e0f54c" id="r_aaab39bd69200891d35ac0407c6e0f54c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaab39bd69200891d35ac0407c6e0f54c">Player</a> (const std::string &amp;id, const std::string &amp;name, int maxHealth, int baseEnergy, int initialHandSize)</td></tr>
+<tr class="memdesc:aaab39bd69200891d35ac0407c6e0f54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with all player parameters.  <br /></td></tr>
+<tr class="separator:aaab39bd69200891d35ac0407c6e0f54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61b1331022585c750ee8859a7f994f7c" id="r_a61b1331022585c750ee8859a7f994f7c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61b1331022585c750ee8859a7f994f7c">~Player</a> ()=default</td></tr>
 <tr class="memdesc:a61b1331022585c750ee8859a7f994f7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <br /></td></tr>
 <tr class="separator:a61b1331022585c750ee8859a7f994f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4db319c13cb6ad0711774ef5fc180fdc" id="r_a4db319c13cb6ad0711774ef5fc180fdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660">PlayerClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4db319c13cb6ad0711774ef5fc180fdc">getPlayerClass</a> () const</td></tr>
-<tr class="memdesc:a4db319c13cb6ad0711774ef5fc180fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the player's class.  <br /></td></tr>
-<tr class="separator:a4db319c13cb6ad0711774ef5fc180fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1841865787da4e7496f1f3cdfd73fe34" id="r_a1841865787da4e7496f1f3cdfd73fe34"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1841865787da4e7496f1f3cdfd73fe34">getPlayerClassString</a> () const</td></tr>
-<tr class="memdesc:a1841865787da4e7496f1f3cdfd73fe34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the player's class as a string.  <br /></td></tr>
+<tr class="memdesc:a1841865787da4e7496f1f3cdfd73fe34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the player's class (ID) as a string, converted to uppercase.  <br /></td></tr>
 <tr class="separator:a1841865787da4e7496f1f3cdfd73fe34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae55197880cba0f0c73251a53be41d22e" id="r_ae55197880cba0f0c73251a53be41d22e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae55197880cba0f0c73251a53be41d22e">getGold</a> () const</td></tr>
 <tr class="memdesc:ae55197880cba0f0c73251a53be41d22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the player's gold.  <br /></td></tr>
@@ -230,8 +232,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aba89076e3460abe11db12a42392dd227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase maximum health.  <br /></td></tr>
 <tr class="separator:aba89076e3460abe11db12a42392dd227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5795b49e19e0c3661eec5ff9aa3d1b0" id="r_af5795b49e19e0c3661eec5ff9aa3d1b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5795b49e19e0c3661eec5ff9aa3d1b0">addCardToDeck</a> (std::shared_ptr&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> &gt; card)</td></tr>
-<tr class="memdesc:af5795b49e19e0c3661eec5ff9aa3d1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a card to player's deck.  <br /></td></tr>
+<tr class="memdesc:af5795b49e19e0c3661eec5ff9aa3d1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a card to player's deck (specifically to draw pile)  <br /></td></tr>
 <tr class="separator:af5795b49e19e0c3661eec5ff9aa3d1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee5125791467cedc9dcdd3f347f3312" id="r_afee5125791467cedc9dcdd3f347f3312"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afee5125791467cedc9dcdd3f347f3312">removeCardFromDeck</a> (const std::string &amp;cardId, bool removeAllInstances=false)</td></tr>
+<tr class="memdesc:afee5125791467cedc9dcdd3f347f3312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specific card from the player's deck (all piles).  <br /></td></tr>
+<tr class="separator:afee5125791467cedc9dcdd3f347f3312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addfa597505622bf93644f3e1c477076c" id="r_addfa597505622bf93644f3e1c477076c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addfa597505622bf93644f3e1c477076c">clearDrawPile</a> ()</td></tr>
+<tr class="separator:addfa597505622bf93644f3e1c477076c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae918546ea308c781c820b649b3295425" id="r_ae918546ea308c781c820b649b3295425"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae918546ea308c781c820b649b3295425">clearDiscardPile</a> ()</td></tr>
+<tr class="separator:ae918546ea308c781c820b649b3295425"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f12e812e3a2db56a3ebfd09c2b31abb" id="r_a2f12e812e3a2db56a3ebfd09c2b31abb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f12e812e3a2db56a3ebfd09c2b31abb">clearHand</a> ()</td></tr>
+<tr class="separator:a2f12e812e3a2db56a3ebfd09c2b31abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f50ffb44135ad522afa451073124a6d" id="r_a4f50ffb44135ad522afa451073124a6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f50ffb44135ad522afa451073124a6d">setCurrentCombat</a> (<a class="el" href="classdeckstiny_1_1_combat.html">Combat</a> *combat)</td></tr>
+<tr class="memdesc:a4f50ffb44135ad522afa451073124a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the current combat instance for the player.  <br /></td></tr>
+<tr class="separator:a4f50ffb44135ad522afa451073124a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4bb7f65930030a39e9108912580f9b" id="r_abf4bb7f65930030a39e9108912580f9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdeckstiny_1_1_combat.html">Combat</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf4bb7f65930030a39e9108912580f9b">getCurrentCombat</a> () const</td></tr>
+<tr class="memdesc:abf4bb7f65930030a39e9108912580f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current combat instance for the player.  <br /></td></tr>
+<tr class="separator:abf4bb7f65930030a39e9108912580f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdeckstiny_1_1_character"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classdeckstiny_1_1_character')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdeckstiny_1_1_character.html">deckstiny::Character</a></td></tr>
 <tr class="memitem:ab70b70d5d2fc31e577a3386baf42ae9c inherit pub_methods_classdeckstiny_1_1_character" id="r_ab70b70d5d2fc31e577a3386baf42ae9c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdeckstiny_1_1_character.html#ab70b70d5d2fc31e577a3386baf42ae9c">Character</a> ()=default</td></tr>
 <tr class="memdesc:ab70b70d5d2fc31e577a3386baf42ae9c inherit pub_methods_classdeckstiny_1_1_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
@@ -321,15 +338,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:af99ae6899964e50e6e59f7b43558bad2" id="r_af99ae6899964e50e6e59f7b43558bad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660">PlayerClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af99ae6899964e50e6e59f7b43558bad2">playerClass_</a> = <a class="el" href="namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660a97baa04f5e9641a552ce9ad1f8a54696">PlayerClass::IRONCLAD</a></td></tr>
-<tr class="memdesc:af99ae6899964e50e6e59f7b43558bad2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classdeckstiny_1_1_player.html" title="Represents the player character in the game.">Player</a>'s class.  <br /></td></tr>
-<tr class="separator:af99ae6899964e50e6e59f7b43558bad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa25396cf3bb857435bf65aa71b543748" id="r_aa25396cf3bb857435bf65aa71b543748"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa25396cf3bb857435bf65aa71b543748">gold_</a> = 0</td></tr>
 <tr class="memdesc:aa25396cf3bb857435bf65aa71b543748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current gold amount.  <br /></td></tr>
 <tr class="separator:aa25396cf3bb857435bf65aa71b543748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac537ad1545b05e223407928f07c66a62" id="r_ac537ad1545b05e223407928f07c66a62"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac537ad1545b05e223407928f07c66a62">initialHandSize_</a> = 5</td></tr>
 <tr class="memdesc:ac537ad1545b05e223407928f07c66a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial number of cards to draw each turn.  <br /></td></tr>
 <tr class="separator:ac537ad1545b05e223407928f07c66a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf75a860d96e31c399a8f4d0d5bb3ae" id="r_a6cf75a860d96e31c399a8f4d0d5bb3ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdeckstiny_1_1_combat.html">Combat</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cf75a860d96e31c399a8f4d0d5bb3ae">currentCombat_</a> = nullptr</td></tr>
+<tr class="memdesc:a6cf75a860d96e31c399a8f4d0d5bb3ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the current combat instance.  <br /></td></tr>
+<tr class="separator:a6cf75a860d96e31c399a8f4d0d5bb3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f8854a36822a290bf9d5f157c521be0" id="r_a3f8854a36822a290bf9d5f157c521be0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classdeckstiny_1_1_card.html">Card</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f8854a36822a290bf9d5f157c521be0">drawPile_</a></td></tr>
 <tr class="memdesc:a3f8854a36822a290bf9d5f157c521be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cards in draw pile.  <br /></td></tr>
 <tr class="separator:a3f8854a36822a290bf9d5f157c521be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -377,8 +394,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaee80e78399c296fa33bebf9cfeeb47e" name="aaee80e78399c296fa33bebf9cfeeb47e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaee80e78399c296fa33bebf9cfeeb47e">&#9670;&#160;</a></span>Player() <span class="overload">[2/2]</span></h2>
+<a id="aaab39bd69200891d35ac0407c6e0f54c" name="aaab39bd69200891d35ac0407c6e0f54c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab39bd69200891d35ac0407c6e0f54c">&#9670;&#160;</a></span>Player() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,11 +409,6 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660">PlayerClass</a></td>          <td class="paramname"><span class="paramname"><em>playerClass</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -421,7 +433,6 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">id</td><td>Unique identifier </td></tr>
     <tr><td class="paramname">name</td><td>Display name </td></tr>
-    <tr><td class="paramname">playerClass</td><td><a class="el" href="classdeckstiny_1_1_character.html" title="Base class for all characters (player and enemies)">Character</a> class </td></tr>
     <tr><td class="paramname">maxHealth</td><td>Maximum health points </td></tr>
     <tr><td class="paramname">baseEnergy</td><td>Base energy per turn </td></tr>
     <tr><td class="paramname">initialHandSize</td><td>Initial number of cards to draw each turn </td></tr>
@@ -431,8 +442,8 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_player_aaee80e78399c296fa33bebf9cfeeb47e_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_aaee80e78399c296fa33bebf9cfeeb47e_cgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_player_aaee80e78399c296fa33bebf9cfeeb47e_cgraph" id="aclassdeckstiny_1_1_player_aaee80e78399c296fa33bebf9cfeeb47e_cgraph">
+<div class="center"><img src="classdeckstiny_1_1_player_aaab39bd69200891d35ac0407c6e0f54c_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_aaab39bd69200891d35ac0407c6e0f54c_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_player_aaab39bd69200891d35ac0407c6e0f54c_cgraph" id="aclassdeckstiny_1_1_player_aaab39bd69200891d35ac0407c6e0f54c_cgraph">
 <area shape="rect" title="Constructor with all player parameters." alt="" coords="5,5,136,46"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#ab70b70d5d2fc31e577a3386baf42ae9c" title="Default constructor." alt="" coords="184,5,326,46"/>
 <area shape="poly" title=" " alt="" coords="136,23,168,23,168,28,136,28"/>
@@ -502,18 +513,10 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classdeckstiny_1_1_player_ad815f1c98ee1c295877dd71cf2565f38_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_ad815f1c98ee1c295877dd71cf2565f38_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_ad815f1c98ee1c295877dd71cf2565f38_cgraph" id="aclassdeckstiny_1_1_player_ad815f1c98ee1c295877dd71cf2565f38_cgraph">
 <area shape="rect" title="Add a card to the player&#39;s deck." alt="" coords="5,5,136,46"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a1841865787da4e7496f1f3cdfd73fe34" title="Get the player&#39;s class as a string." alt="" coords="184,5,328,46"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a1841865787da4e7496f1f3cdfd73fe34" title="Get the player&#39;s class (ID) as a string, converted to uppercase." alt="" coords="184,5,328,46"/>
 <area shape="poly" title=" " alt="" coords="136,23,168,23,168,28,136,28"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_player_ad815f1c98ee1c295877dd71cf2565f38_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_ad815f1c98ee1c295877dd71cf2565f38_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_player_ad815f1c98ee1c295877dd71cf2565f38_icgraph" id="aclassdeckstiny_1_1_player_ad815f1c98ee1c295877dd71cf2565f38_icgraph">
-<area shape="rect" title="Add a card to the player&#39;s deck." alt="" coords="184,5,314,46"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#af5795b49e19e0c3661eec5ff9aa3d1b0" title="Add a card to player&#39;s deck." alt="" coords="5,5,136,46"/>
-<area shape="poly" title=" " alt="" coords="168,28,136,28,136,23,168,23"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#a7eb1d4773598c5104eb409c6cc26bfcb" title="Get the entity&#39;s id." alt="" coords="376,5,503,46"/>
+<area shape="poly" title=" " alt="" coords="328,23,361,23,361,28,328,28"/>
 </map>
 </div>
 
@@ -534,25 +537,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Add a card to player's deck. </p>
+<p>Add a card to player's deck (specifically to draw pile) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">card</td><td><a class="el" href="classdeckstiny_1_1_card.html" title="Represents a card in the game.">Card</a> to add </td></tr>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_player_af5795b49e19e0c3661eec5ff9aa3d1b0_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_af5795b49e19e0c3661eec5ff9aa3d1b0_cgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_player_af5795b49e19e0c3661eec5ff9aa3d1b0_cgraph" id="aclassdeckstiny_1_1_player_af5795b49e19e0c3661eec5ff9aa3d1b0_cgraph">
-<area shape="rect" title="Add a card to player&#39;s deck." alt="" coords="5,5,136,46"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#ad815f1c98ee1c295877dd71cf2565f38" title="Add a card to the player&#39;s deck." alt="" coords="184,5,314,46"/>
-<area shape="poly" title=" " alt="" coords="136,23,168,23,168,28,136,28"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a1841865787da4e7496f1f3cdfd73fe34" title="Get the player&#39;s class as a string." alt="" coords="362,5,506,46"/>
-<area shape="poly" title=" " alt="" coords="315,23,346,23,346,28,315,28"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -643,22 +634,102 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_a17b93847849d33a793ec29285ce8f637_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_a17b93847849d33a793ec29285ce8f637_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_a17b93847849d33a793ec29285ce8f637_cgraph" id="aclassdeckstiny_1_1_player_a17b93847849d33a793ec29285ce8f637_cgraph">
-<area shape="rect" title="Begin combat setup." alt="" coords="5,92,136,133"/>
+<area shape="rect" title="Begin combat setup." alt="" coords="5,185,136,226"/>
 <area shape="rect" href="classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="190,5,320,46"/>
-<area shape="poly" title=" " alt="" coords="115,89,195,51,198,55,117,94"/>
+<area shape="poly" title=" " alt="" coords="82,183,123,125,151,92,182,62,195,53,198,57,185,66,155,96,127,129,87,186"/>
 <area shape="rect" href="classdeckstiny_1_1_player.html#af5921fda102a5254321fcf435a00a809" title="Shuffle the draw pile." alt="" coords="580,35,711,75"/>
-<area shape="poly" title=" " alt="" coords="136,103,564,60,565,66,136,109"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#ad93eddac0d809502ace95118a5ec3fa4" title="Reset block to zero (used at end of turn)" alt="" coords="184,120,326,161"/>
-<area shape="poly" title=" " alt="" coords="136,120,169,125,168,130,135,125"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a05f51e37b800cad182120015e0a6ebc5" title="Reset energy to base value (used at start of turn)" alt="" coords="184,185,326,226"/>
-<area shape="poly" title=" " alt="" coords="111,131,185,170,197,176,194,181,182,175,109,136"/>
+<area shape="poly" title=" " alt="" coords="87,183,127,142,154,122,183,106,214,95,255,86,356,72,565,56,565,61,357,77,256,92,215,101,185,111,157,127,131,146,91,187"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#afa74e032423a811509d332d7592ba76e" title="Get base energy per turn." alt="" coords="184,120,326,161"/>
+<area shape="poly" title=" " alt="" coords="129,182,180,164,182,169,131,187"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a32a8f1be9b718b07e6a9fca5e6abe8a5" title="Get current energy." alt="" coords="184,185,326,226"/>
+<area shape="poly" title=" " alt="" coords="136,203,168,203,168,208,136,208"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="390,271,517,311"/>
+<area shape="poly" title=" " alt="" coords="137,222,184,235,375,275,374,280,183,240,135,228"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#ad93eddac0d809502ace95118a5ec3fa4" title="Reset block to zero (used at end of turn)" alt="" coords="184,300,326,341"/>
+<area shape="poly" title=" " alt="" coords="102,224,185,279,203,290,200,294,182,284,99,229"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a99c0f2cb18062e3a56e69976589c0a88" title="Set current energy." alt="" coords="184,365,326,406"/>
+<area shape="poly" title=" " alt="" coords="86,225,126,286,154,320,185,350,191,355,188,359,182,354,150,323,121,289,81,228"/>
 <area shape="rect" href="classdeckstiny_1_1_player.html#a797a56487937b9f5d1fb917d8675f15d" title="Shuffle the discard pile into the draw pile." alt="" coords="374,5,532,46"/>
 <area shape="poly" title=" " alt="" coords="320,23,359,23,359,28,320,28"/>
 <area shape="poly" title=" " alt="" coords="533,35,565,40,565,45,532,40"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="390,120,517,161"/>
-<area shape="poly" title=" " alt="" coords="326,138,374,138,374,143,326,143"/>
+<area shape="poly" title=" " alt="" coords="326,307,374,300,375,305,327,312"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ae918546ea308c781c820b649b3295425" name="ae918546ea308c781c820b649b3295425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae918546ea308c781c820b649b3295425">&#9670;&#160;</a></span>clearDiscardPile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deckstiny::Player::clearDiscardPile </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="addfa597505622bf93644f3e1c477076c" name="addfa597505622bf93644f3e1c477076c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addfa597505622bf93644f3e1c477076c">&#9670;&#160;</a></span>clearDrawPile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deckstiny::Player::clearDrawPile </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f12e812e3a2db56a3ebfd09c2b31abb" name="a2f12e812e3a2db56a3ebfd09c2b31abb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f12e812e3a2db56a3ebfd09c2b31abb">&#9670;&#160;</a></span>clearHand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deckstiny::Player::clearHand </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -744,13 +815,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_ab22447f1e20d3aac1239e6a005352827_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_ab22447f1e20d3aac1239e6a005352827_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_ab22447f1e20d3aac1239e6a005352827_icgraph" id="aclassdeckstiny_1_1_player_ab22447f1e20d3aac1239e6a005352827_icgraph">
-<area shape="rect" title="Discard a single card from hand by index." alt="" coords="362,39,492,79"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a294b0e43d962c188b87d86aef76b4bfe" title="Discard all cards in hand." alt="" coords="184,39,314,79"/>
-<area shape="poly" title=" " alt="" coords="346,62,315,62,315,56,346,56"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a2e711b6d920a4dc939a0ecb51ed195ec" title="End of turn processing." alt="" coords="5,5,136,46"/>
-<area shape="poly" title=" " alt="" coords="168,47,136,41,137,35,169,41"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="5,71,136,111"/>
-<area shape="poly" title=" " alt="" coords="169,76,137,82,136,77,168,71"/>
+<area shape="rect" title="Discard a single card from hand by index." alt="" coords="184,5,314,46"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a294b0e43d962c188b87d86aef76b4bfe" title="Discard all cards in hand." alt="" coords="5,5,136,46"/>
+<area shape="poly" title=" " alt="" coords="168,28,136,28,136,23,168,23"/>
 </map>
 </div>
 
@@ -821,18 +888,6 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="136,23,168,23,168,28,136,28"/>
 </map>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdeckstiny_1_1_player_a294b0e43d962c188b87d86aef76b4bfe_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_a294b0e43d962c188b87d86aef76b4bfe_icgraph" alt=""/></div>
-<map name="aclassdeckstiny_1_1_player_a294b0e43d962c188b87d86aef76b4bfe_icgraph" id="aclassdeckstiny_1_1_player_a294b0e43d962c188b87d86aef76b4bfe_icgraph">
-<area shape="rect" title="Discard all cards in hand." alt="" coords="184,39,314,79"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a2e711b6d920a4dc939a0ecb51ed195ec" title="End of turn processing." alt="" coords="5,5,136,46"/>
-<area shape="poly" title=" " alt="" coords="168,47,136,41,137,35,169,41"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="5,71,136,111"/>
-<area shape="poly" title=" " alt="" coords="169,76,137,82,136,77,168,71"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -876,11 +931,17 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_a361f36d16078f153776737b333ae29c3_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_a361f36d16078f153776737b333ae29c3_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_a361f36d16078f153776737b333ae29c3_icgraph" id="aclassdeckstiny_1_1_player_a361f36d16078f153776737b333ae29c3_icgraph">
-<area shape="rect" title="Draw cards from the draw pile." alt="" coords="184,39,314,79"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a17b93847849d33a793ec29285ce8f637" title="Begin combat setup." alt="" coords="5,5,136,46"/>
-<area shape="poly" title=" " alt="" coords="168,47,136,41,137,35,169,41"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="5,71,136,111"/>
-<area shape="poly" title=" " alt="" coords="169,76,137,82,136,77,168,71"/>
+<area shape="rect" title="Draw cards from the draw pile." alt="" coords="595,63,726,103"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a17b93847849d33a793ec29285ce8f637" title="Begin combat setup." alt="" coords="402,5,532,46"/>
+<area shape="poly" title=" " alt="" coords="580,62,532,48,533,42,581,57"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="386,70,547,96"/>
+<area shape="poly" title=" " alt="" coords="580,86,548,86,548,80,580,80"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="402,120,532,161"/>
+<area shape="poly" title=" " alt="" coords="581,109,533,124,532,118,580,104"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,70,338,96"/>
+<area shape="poly" title=" " alt="" coords="371,86,339,86,339,80,371,80"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,63,145,103"/>
+<area shape="poly" title=" " alt="" coords="177,86,145,86,145,80,177,80"/>
 </map>
 </div>
 
@@ -907,13 +968,14 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_ad5ee066473971f90be6d2d6e60f79ffc_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_ad5ee066473971f90be6d2d6e60f79ffc_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_ad5ee066473971f90be6d2d6e60f79ffc_cgraph" id="aclassdeckstiny_1_1_player_ad5ee066473971f90be6d2d6e60f79ffc_cgraph">
-<area shape="rect" title="End combat cleanup." alt="" coords="5,39,136,79"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#ad93eddac0d809502ace95118a5ec3fa4" title="Reset block to zero (used at end of turn)" alt="" coords="184,5,326,46"/>
-<area shape="poly" title=" " alt="" coords="135,45,168,39,169,44,136,50"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a99c0f2cb18062e3a56e69976589c0a88" title="Set current energy." alt="" coords="184,71,326,111"/>
-<area shape="poly" title=" " alt="" coords="136,68,169,73,168,79,135,73"/>
+<area shape="rect" title="End combat cleanup." alt="" coords="5,33,136,74"/>
 <area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="374,5,501,46"/>
-<area shape="poly" title=" " alt="" coords="326,23,359,23,359,28,326,28"/>
+<area shape="poly" title=" " alt="" coords="133,30,183,19,274,13,359,16,359,21,274,18,184,24,134,35"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#ad93eddac0d809502ace95118a5ec3fa4" title="Reset block to zero (used at end of turn)" alt="" coords="184,33,326,74"/>
+<area shape="poly" title=" " alt="" coords="136,51,168,51,168,56,136,56"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a99c0f2cb18062e3a56e69976589c0a88" title="Set current energy." alt="" coords="184,99,326,139"/>
+<area shape="poly" title=" " alt="" coords="131,72,182,91,180,96,129,77"/>
+<area shape="poly" title=" " alt="" coords="326,40,358,35,359,40,327,45"/>
 </map>
 </div>
 
@@ -950,19 +1012,17 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_a2e711b6d920a4dc939a0ecb51ed195ec_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_a2e711b6d920a4dc939a0ecb51ed195ec_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_a2e711b6d920a4dc939a0ecb51ed195ec_cgraph" id="aclassdeckstiny_1_1_player_a2e711b6d920a4dc939a0ecb51ed195ec_cgraph">
-<area shape="rect" title="End of turn processing." alt="" coords="5,72,136,113"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a294b0e43d962c188b87d86aef76b4bfe" title="Discard all cards in hand." alt="" coords="190,23,320,63"/>
-<area shape="poly" title=" " alt="" coords="135,72,174,62,176,67,137,78"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#afc9c623aa8a9321246d0cb6b7a999c85" title="End of turn processing." alt="" coords="184,104,326,145"/>
-<area shape="poly" title=" " alt="" coords="136,101,169,107,168,112,135,106"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#ab22447f1e20d3aac1239e6a005352827" title="Discard a single card from hand by index." alt="" coords="380,5,510,46"/>
-<area shape="poly" title=" " alt="" coords="320,34,364,30,365,36,320,40"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="374,71,516,111"/>
-<area shape="poly" title=" " alt="" coords="326,109,358,104,359,109,327,114"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#ac5801197a907c315eed27ee293f7c9ed" title="Get status effect stacks." alt="" coords="374,136,516,177"/>
-<area shape="poly" title=" " alt="" coords="327,134,359,139,358,144,326,139"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="374,201,516,242"/>
-<area shape="poly" title=" " alt="" coords="295,143,375,186,386,192,384,196,373,191,292,148"/>
+<area shape="rect" title="End of turn processing." alt="" coords="5,104,136,145"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#afc9c623aa8a9321246d0cb6b7a999c85" title="End of turn processing." alt="" coords="184,71,326,111"/>
+<area shape="poly" title=" " alt="" coords="135,110,168,104,169,109,136,115"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="191,136,318,177"/>
+<area shape="poly" title=" " alt="" coords="136,133,176,140,175,145,135,138"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="374,5,516,46"/>
+<area shape="poly" title=" " alt="" coords="315,68,369,49,371,54,317,73"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#ac5801197a907c315eed27ee293f7c9ed" title="Get status effect stacks." alt="" coords="374,71,516,111"/>
+<area shape="poly" title=" " alt="" coords="327,88,359,88,359,94,327,94"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="374,136,516,177"/>
+<area shape="poly" title=" " alt="" coords="317,109,371,128,369,133,315,114"/>
 </map>
 </div>
 
@@ -1003,6 +1063,26 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="177,28,145,28,145,23,177,23"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="abf4bb7f65930030a39e9108912580f9b" name="abf4bb7f65930030a39e9108912580f9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf4bb7f65930030a39e9108912580f9b">&#9670;&#160;</a></span>getCurrentCombat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdeckstiny_1_1_combat.html">Combat</a> * deckstiny::Player::getCurrentCombat </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current combat instance for the player. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the current <a class="el" href="classdeckstiny_1_1_combat.html" title="Manages combat between the player and enemies.">Combat</a> object, or nullptr if not in combat. </dd></dl>
 
 </div>
 </div>
@@ -1134,26 +1214,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a4db319c13cb6ad0711774ef5fc180fdc" name="a4db319c13cb6ad0711774ef5fc180fdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4db319c13cb6ad0711774ef5fc180fdc">&#9670;&#160;</a></span>getPlayerClass()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660">PlayerClass</a> deckstiny::Player::getPlayerClass </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the player's class. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classdeckstiny_1_1_player.html" title="Represents the player character in the game.">Player</a> class enum </dd></dl>
-
-</div>
-</div>
 <a id="a1841865787da4e7496f1f3cdfd73fe34" name="a1841865787da4e7496f1f3cdfd73fe34"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1841865787da4e7496f1f3cdfd73fe34">&#9670;&#160;</a></span>getPlayerClassString()</h2>
 
@@ -1169,20 +1229,28 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Get the player's class as a string. </p>
-<dl class="section return"><dt>Returns</dt><dd>String representation of the player's class </dd></dl>
+<p>Get the player's class (ID) as a string, converted to uppercase. </p>
+<dl class="section return"><dt>Returns</dt><dd>Uppercase string representation of the player's ID. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdeckstiny_1_1_player_a1841865787da4e7496f1f3cdfd73fe34_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_a1841865787da4e7496f1f3cdfd73fe34_cgraph" alt=""/></div>
+<map name="aclassdeckstiny_1_1_player_a1841865787da4e7496f1f3cdfd73fe34_cgraph" id="aclassdeckstiny_1_1_player_a1841865787da4e7496f1f3cdfd73fe34_cgraph">
+<area shape="rect" title="Get the player&#39;s class (ID) as a string, converted to uppercase." alt="" coords="5,5,150,46"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#a7eb1d4773598c5104eb409c6cc26bfcb" title="Get the entity&#39;s id." alt="" coords="198,5,325,46"/>
+<area shape="poly" title=" " alt="" coords="150,23,182,23,182,28,150,28"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_a1841865787da4e7496f1f3cdfd73fe34_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_a1841865787da4e7496f1f3cdfd73fe34_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_a1841865787da4e7496f1f3cdfd73fe34_icgraph" id="aclassdeckstiny_1_1_player_a1841865787da4e7496f1f3cdfd73fe34_icgraph">
-<area shape="rect" title="Get the player&#39;s class as a string." alt="" coords="398,35,542,75"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#ad815f1c98ee1c295877dd71cf2565f38" title="Add a card to the player&#39;s deck." alt="" coords="202,5,332,46"/>
-<area shape="poly" title=" " alt="" coords="382,45,332,38,333,32,383,40"/>
-<area shape="rect" href="classdeckstiny_1_1_card.html#a85c1dd91f4089aae6cc99503b3beb455" title="Check if a player can use this card." alt="" coords="184,70,350,96"/>
-<area shape="poly" title=" " alt="" coords="383,70,351,74,350,69,382,64"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#af5795b49e19e0c3661eec5ff9aa3d1b0" title="Add a card to player&#39;s deck." alt="" coords="5,5,136,46"/>
-<area shape="poly" title=" " alt="" coords="186,28,136,28,136,23,186,23"/>
+<area shape="rect" title="Get the player&#39;s class (ID) as a string, converted to uppercase." alt="" coords="220,35,364,75"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#ad815f1c98ee1c295877dd71cf2565f38" title="Add a card to the player&#39;s deck." alt="" coords="23,5,154,46"/>
+<area shape="poly" title=" " alt="" coords="204,45,154,38,155,32,204,40"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a85c1dd91f4089aae6cc99503b3beb455" title="Check if a player can use this card." alt="" coords="5,70,172,96"/>
+<area shape="poly" title=" " alt="" coords="205,70,173,74,172,69,204,64"/>
 </map>
 </div>
 
@@ -1244,6 +1312,8 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="139,133,172,139,171,144,138,138"/>
 <area shape="rect" href="classdeckstiny_1_1_character.html#ae75fe5a96e8ff9b3907c94917c5e315f" title="Set maximum health." alt="" coords="187,201,329,242"/>
 <area shape="poly" title=" " alt="" coords="110,143,188,186,199,192,197,196,185,191,107,147"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="377,201,504,242"/>
+<area shape="poly" title=" " alt="" coords="329,219,362,219,362,224,329,224"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1307,6 +1377,62 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="afee5125791467cedc9dcdd3f347f3312" name="afee5125791467cedc9dcdd3f347f3312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee5125791467cedc9dcdd3f347f3312">&#9670;&#160;</a></span>removeCardFromDeck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deckstiny::Player::removeCardFromDeck </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>cardId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>removeAllInstances</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a specific card from the player's deck (all piles). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cardId</td><td>The ID of the card to remove. </td></tr>
+    <tr><td class="paramname">removeAllInstances</td><td>If true, removes all copies. If false, removes one copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if at least one card was removed, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a4f50ffb44135ad522afa451073124a6d" name="a4f50ffb44135ad522afa451073124a6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f50ffb44135ad522afa451073124a6d">&#9670;&#160;</a></span>setCurrentCombat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deckstiny::Player::setCurrentCombat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdeckstiny_1_1_combat.html">Combat</a> *</td>          <td class="paramname"><span class="paramname"><em>combat</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the current combat instance for the player. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">combat</td><td>Pointer to the current <a class="el" href="classdeckstiny_1_1_combat.html" title="Manages combat between the player and enemies.">Combat</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a797a56487937b9f5d1fb917d8675f15d" name="a797a56487937b9f5d1fb917d8675f15d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a797a56487937b9f5d1fb917d8675f15d">&#9670;&#160;</a></span>shuffleDiscardIntoDraw()</h2>
 
@@ -1338,13 +1464,19 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_a797a56487937b9f5d1fb917d8675f15d_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_a797a56487937b9f5d1fb917d8675f15d_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_a797a56487937b9f5d1fb917d8675f15d_icgraph" id="aclassdeckstiny_1_1_player_a797a56487937b9f5d1fb917d8675f15d_icgraph">
-<area shape="rect" title="Shuffle the discard pile into the draw pile." alt="" coords="362,39,520,79"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="184,39,314,79"/>
-<area shape="poly" title=" " alt="" coords="346,62,314,62,314,56,346,56"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a17b93847849d33a793ec29285ce8f637" title="Begin combat setup." alt="" coords="5,5,136,46"/>
-<area shape="poly" title=" " alt="" coords="168,47,136,41,137,35,169,41"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="5,71,136,111"/>
-<area shape="poly" title=" " alt="" coords="169,76,137,82,136,77,168,71"/>
+<area shape="rect" title="Shuffle the discard pile into the draw pile." alt="" coords="774,63,932,103"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="595,63,726,103"/>
+<area shape="poly" title=" " alt="" coords="758,86,726,86,726,80,758,80"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a17b93847849d33a793ec29285ce8f637" title="Begin combat setup." alt="" coords="402,5,532,46"/>
+<area shape="poly" title=" " alt="" coords="580,62,532,48,533,42,581,57"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="386,70,547,96"/>
+<area shape="poly" title=" " alt="" coords="580,86,548,86,548,80,580,80"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="402,120,532,161"/>
+<area shape="poly" title=" " alt="" coords="581,109,533,124,532,118,580,104"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,70,338,96"/>
+<area shape="poly" title=" " alt="" coords="371,86,339,86,339,80,371,80"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,63,145,103"/>
+<area shape="poly" title=" " alt="" coords="177,86,145,86,145,80,177,80"/>
 </map>
 </div>
 
@@ -1371,16 +1503,22 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_af5921fda102a5254321fcf435a00a809_icgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_af5921fda102a5254321fcf435a00a809_icgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_af5921fda102a5254321fcf435a00a809_icgraph" id="aclassdeckstiny_1_1_player_af5921fda102a5254321fcf435a00a809_icgraph">
-<area shape="rect" title="Shuffle the draw pile." alt="" coords="568,35,699,75"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a17b93847849d33a793ec29285ce8f637" title="Begin combat setup." alt="" coords="5,5,136,46"/>
-<area shape="poly" title=" " alt="" coords="553,54,136,32,136,26,553,48"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a797a56487937b9f5d1fb917d8675f15d" title="Shuffle the discard pile into the draw pile." alt="" coords="362,63,520,103"/>
-<area shape="poly" title=" " alt="" coords="553,69,521,74,520,69,553,64"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="184,63,314,103"/>
-<area shape="poly" title=" " alt="" coords="346,86,314,86,314,80,346,80"/>
-<area shape="poly" title=" " alt="" coords="168,60,135,49,137,44,170,55"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="5,71,136,111"/>
-<area shape="poly" title=" " alt="" coords="168,89,136,91,136,85,168,84"/>
+<area shape="rect" title="Shuffle the draw pile." alt="" coords="980,35,1110,75"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a17b93847849d33a793ec29285ce8f637" title="Begin combat setup." alt="" coords="402,5,532,46"/>
+<area shape="poly" title=" " alt="" coords="964,54,532,32,533,26,964,48"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a797a56487937b9f5d1fb917d8675f15d" title="Shuffle the discard pile into the draw pile." alt="" coords="774,63,932,103"/>
+<area shape="poly" title=" " alt="" coords="965,69,933,74,932,69,964,64"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="595,63,726,103"/>
+<area shape="poly" title=" " alt="" coords="758,86,726,86,726,80,758,80"/>
+<area shape="poly" title=" " alt="" coords="580,62,532,48,533,42,581,57"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="386,70,547,96"/>
+<area shape="poly" title=" " alt="" coords="580,86,548,86,548,80,580,80"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="402,120,532,161"/>
+<area shape="poly" title=" " alt="" coords="581,109,533,124,532,118,580,104"/>
+<area shape="rect" href="classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,70,338,96"/>
+<area shape="poly" title=" " alt="" coords="371,86,339,86,339,80,371,80"/>
+<area shape="rect" href="classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,63,145,103"/>
+<area shape="poly" title=" " alt="" coords="177,86,145,86,145,80,177,80"/>
 </map>
 </div>
 
@@ -1443,41 +1581,66 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdeckstiny_1_1_player_afee43d708f7b711b3c290633bb15fa91_cgraph.png" border="0" usemap="#aclassdeckstiny_1_1_player_afee43d708f7b711b3c290633bb15fa91_cgraph" alt=""/></div>
 <map name="aclassdeckstiny_1_1_player_afee43d708f7b711b3c290633bb15fa91_cgraph" id="aclassdeckstiny_1_1_player_afee43d708f7b711b3c290633bb15fa91_cgraph">
-<area shape="rect" title="Start of turn processing." alt="" coords="5,169,136,210"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a294b0e43d962c188b87d86aef76b4bfe" title="Discard all cards in hand." alt="" coords="190,5,320,46"/>
-<area shape="poly" title=" " alt="" coords="83,167,124,114,152,84,182,57,189,52,192,57,185,61,155,88,128,117,88,170"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="190,71,320,111"/>
-<area shape="poly" title=" " alt="" coords="104,167,182,122,193,116,196,121,185,127,107,171"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#afa74e032423a811509d332d7592ba76e" title="Get base energy per turn." alt="" coords="184,136,326,177"/>
-<area shape="poly" title=" " alt="" coords="135,175,168,169,169,175,136,181"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a32a8f1be9b718b07e6a9fca5e6abe8a5" title="Get current energy." alt="" coords="184,201,326,242"/>
-<area shape="poly" title=" " alt="" coords="136,198,169,204,168,209,135,204"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a99c0f2cb18062e3a56e69976589c0a88" title="Set current energy." alt="" coords="184,267,326,307"/>
-<area shape="poly" title=" " alt="" coords="108,208,185,251,196,257,194,262,182,256,105,213"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="184,332,326,373"/>
-<area shape="poly" title=" " alt="" coords="88,209,128,261,155,291,185,317,192,321,189,326,182,321,152,294,124,265,83,212"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#ab22447f1e20d3aac1239e6a005352827" title="Discard a single card from hand by index." alt="" coords="388,5,518,46"/>
-<area shape="poly" title=" " alt="" coords="320,23,373,23,373,28,320,28"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#a797a56487937b9f5d1fb917d8675f15d" title="Shuffle the discard pile into the draw pile." alt="" coords="374,71,532,111"/>
-<area shape="poly" title=" " alt="" coords="320,88,359,88,359,94,320,94"/>
-<area shape="rect" href="classdeckstiny_1_1_player.html#af5921fda102a5254321fcf435a00a809" title="Shuffle the draw pile." alt="" coords="580,71,711,111"/>
-<area shape="poly" title=" " alt="" coords="533,88,565,88,565,94,533,94"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="382,233,524,274"/>
-<area shape="poly" title=" " alt="" coords="301,329,325,317,373,285,384,279,387,283,375,289,327,321,304,334"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#ac5801197a907c315eed27ee293f7c9ed" title="Get status effect stacks." alt="" coords="382,299,524,339"/>
-<area shape="poly" title=" " alt="" coords="326,338,366,331,367,336,327,343"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="382,364,524,405"/>
-<area shape="poly" title=" " alt="" coords="327,361,367,368,366,373,326,366"/>
-<area shape="rect" href="classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="382,429,524,470"/>
-<area shape="poly" title=" " alt="" coords="294,371,375,414,389,420,386,425,373,419,291,375"/>
-<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="582,429,709,470"/>
-<area shape="poly" title=" " alt="" coords="525,447,566,447,566,452,525,452"/>
+<area shape="rect" title="Start of turn processing." alt="" coords="5,193,136,234"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a361f36d16078f153776737b333ae29c3" title="Draw cards from the draw pile." alt="" coords="190,5,320,46"/>
+<area shape="poly" title=" " alt="" coords="80,192,120,127,149,90,182,57,188,52,191,56,185,61,152,94,124,130,85,195"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#afa74e032423a811509d332d7592ba76e" title="Get base energy per turn." alt="" coords="184,71,326,111"/>
+<area shape="poly" title=" " alt="" coords="93,191,133,157,182,122,191,117,194,121,185,127,137,161,96,195"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a32a8f1be9b718b07e6a9fca5e6abe8a5" title="Get current energy." alt="" coords="184,136,326,177"/>
+<area shape="poly" title=" " alt="" coords="135,191,172,179,174,184,137,196"/>
+<area shape="rect" href="classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="588,251,715,291"/>
+<area shape="poly" title=" " alt="" coords="136,210,315,215,424,223,533,236,574,245,573,250,532,242,424,228,315,220,136,216"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#ad93eddac0d809502ace95118a5ec3fa4" title="Reset block to zero (used at end of turn)" alt="" coords="382,251,524,291"/>
+<area shape="poly" title=" " alt="" coords="137,222,184,230,367,257,366,262,183,235,136,227"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a99c0f2cb18062e3a56e69976589c0a88" title="Set current energy." alt="" coords="184,301,326,342"/>
+<area shape="poly" title=" " alt="" coords="106,232,185,281,203,291,200,296,182,285,103,237"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="184,381,326,422"/>
+<area shape="poly" title=" " alt="" coords="88,233,129,289,186,352,208,370,205,374,182,356,125,292,83,236"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#a797a56487937b9f5d1fb917d8675f15d" title="Shuffle the discard pile into the draw pile." alt="" coords="374,5,532,46"/>
+<area shape="poly" title=" " alt="" coords="320,23,359,23,359,28,320,28"/>
+<area shape="rect" href="classdeckstiny_1_1_player.html#af5921fda102a5254321fcf435a00a809" title="Shuffle the draw pile." alt="" coords="586,5,717,46"/>
+<area shape="poly" title=" " alt="" coords="533,23,571,23,571,28,533,28"/>
+<area shape="poly" title=" " alt="" coords="525,268,573,268,573,274,525,274"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a1e9b9d6601271d09ad3b64a99d798920" title="Add a status effect." alt="" coords="382,316,524,357"/>
+<area shape="poly" title=" " alt="" coords="318,378,374,359,376,365,319,383"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#ac5801197a907c315eed27ee293f7c9ed" title="Get status effect stacks." alt="" coords="382,381,524,422"/>
+<area shape="poly" title=" " alt="" coords="326,399,367,399,367,404,326,404"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="580,475,723,515"/>
+<area shape="poly" title=" " alt="" coords="275,421,317,462,345,482,375,496,422,509,472,513,520,513,565,509,565,514,520,518,471,519,421,514,373,502,342,486,314,466,271,424"/>
+<area shape="rect" href="classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="382,447,524,487"/>
+<area shape="poly" title=" " alt="" coords="319,420,376,439,374,444,318,425"/>
+<area shape="poly" title=" " alt="" coords="512,444,531,432,562,402,590,368,631,304,635,306,594,371,566,405,534,436,514,448"/>
+<area shape="poly" title=" " alt="" coords="525,474,565,480,565,485,524,480"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6cf75a860d96e31c399a8f4d0d5bb3ae" name="a6cf75a860d96e31c399a8f4d0d5bb3ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cf75a860d96e31c399a8f4d0d5bb3ae">&#9670;&#160;</a></span>currentCombat_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdeckstiny_1_1_combat.html">Combat</a>* deckstiny::Player::currentCombat_ = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the current combat instance. </p>
+
+</div>
+</div>
 <a id="a01155c37e4181e5773c64bc01ebc8b59" name="a01155c37e4181e5773c64bc01ebc8b59"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01155c37e4181e5773c64bc01ebc8b59">&#9670;&#160;</a></span>discardPile_</h2>
 
@@ -1619,30 +1782,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Initial number of cards to draw each turn. </p>
-
-</div>
-</div>
-<a id="af99ae6899964e50e6e59f7b43558bad2" name="af99ae6899964e50e6e59f7b43558bad2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af99ae6899964e50e6e59f7b43558bad2">&#9670;&#160;</a></span>playerClass_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660">PlayerClass</a> deckstiny::Player::playerClass_ = <a class="el" href="namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660a97baa04f5e9641a552ce9ad1f8a54696">PlayerClass::IRONCLAD</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="classdeckstiny_1_1_player.html" title="Represents the player character in the game.">Player</a>'s class. </p>
 
 </div>
 </div>

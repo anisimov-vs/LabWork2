@@ -1,0 +1,19 @@
+{
+    "id": "erupt_w",
+    "name": "Eruption",
+    "description": "Deal 9 damage.",
+    "type": "ATTACK",
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY",
+    "cost": 2,
+    "upgradable": true,
+    "class": "WATCHER",
+    "effects": [
+        {
+            "type": "damage",
+            "value": 9,
+            "target": "enemy",
+            "upgraded_value": 12
+        }
+    ]
+} 

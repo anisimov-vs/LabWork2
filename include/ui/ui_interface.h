@@ -1,4 +1,8 @@
-#pragma once
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
+#ifndef DECKSTINY_UI_INTERFACE_H
+#define DECKSTINY_UI_INTERFACE_H
 
 #include <string>
 #include <vector>
@@ -185,6 +189,36 @@ public:
      * @param resultText The text to display as a result of the event
      */
     virtual void showEventResult(const std::string& resultText) = 0;
+
+    /**
+     * @brief Display the shop interface
+     * @param cardsForSale List of cards available for purchase
+     * @param relicsForSale List of relics available for purchase
+     * @param playerGold Current gold of the player
+     */
+    virtual void showShop(const std::vector<Card*>& cardsForSale,
+                          const std::vector<Relic*>& relicsForSale,
+                          int playerGold) = 0;
+
+    /**
+     * @brief Show the shop UI with relic prices
+     * @param cards Cards for sale
+     * @param relics Relics for sale
+     * @param relicPrices Map of relics to their prices
+     * @param playerGold Current player gold
+     */
+    virtual void showShop(const std::vector<Card*>& cards, 
+                         const std::vector<Relic*>& relics,
+                         const std::unordered_map<Relic*, int>& relicPrices,
+                         int playerGold) {
+        // Prevent unused parameter warning
+        (void)relicPrices;
+        
+        // Default implementation just calls the regular showShop
+        showShop(cards, relics, playerGold);
+    }
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_UI_INTERFACE_H

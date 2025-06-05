@@ -1,5 +1,8 @@
 # Create a library for utility components
-add_library(deckstiny_util STATIC logger.cpp)
+add_library(deckstiny_util STATIC 
+    logger.cpp
+    path_util.cpp
+)
 
 # Include directories
 target_include_directories(deckstiny_util PUBLIC ${CMAKE_SOURCE_DIR}/include)

@@ -1,20 +1,22 @@
 <map id="deckstiny::Combat::getEnemyCount" name="deckstiny::Combat::getEnemyCount">
-<area shape="rect" id="Node000001" title="Get number of enemies." alt="" coords="830,108,969,149"/>
+<area shape="rect" id="Node000001" title="Get number of enemies." alt="" coords="836,138,975,178"/>
 <area shape="rect" id="Node000002" href="$classdeckstiny_1_1_card.html#a9de4bd59e6581821c00383d985ebc7b5" title="Check if card can be played in the current state." alt="" coords="386,5,554,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="866,100,828,68,781,42,724,26,664,17,607,13,555,14,555,8,607,8,665,11,725,20,783,37,831,63,870,96"/>
-<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_card.html#ab455b6238b157235a724969a27782a5d" title="Fallback implementation for basic card effects when JSON processing fails." alt="" coords="609,51,775,92"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="814,108,767,95,769,90,815,103"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="880,127,840,80,815,59,787,42,729,22,668,12,609,9,555,11,555,5,609,4,669,7,730,17,789,37,818,54,844,77,884,123"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_card.html#ab455b6238b157235a724969a27782a5d" title="Fallback implementation for basic card effects when JSON processing fails." alt="" coords="612,51,778,92"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="839,134,745,95,748,90,841,129"/>
 <area shape="rect" id="Node000006" href="$classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="390,59,551,84"/>
-<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="814,128,713,120,602,106,518,88,520,82,603,101,713,115,815,122"/>
-<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="626,166,758,206"/>
-<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="815,155,759,170,758,165,814,150"/>
-<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_text_u_i.html#a8a9e64a0c2b686978b2342d9a6ac94cb" title="Display an enemy selection menu." alt="" coords="602,231,782,272"/>
-<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="866,161,827,192,783,220,757,233,755,228,780,216,824,187,862,157"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="820,147,602,106,523,88,524,82,603,101,821,142"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="629,166,761,206"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="821,172,762,180,761,175,820,167"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_text_u_i.html#a8a9e64a0c2b686978b2342d9a6ac94cb" title="Display an enemy selection menu." alt="" coords="605,231,785,272"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="854,189,789,221,758,233,756,228,787,216,852,184"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_enemy.html#af03aa6f850faabc1162ad0d138a3a36f" title="Execute the enemy&#39;s turn." alt="" coords="602,296,788,322"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="884,193,843,241,818,265,789,286,763,298,761,293,786,281,814,261,839,237,880,189"/>
 <area shape="rect" id="Node000003" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,56,338,82"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,38,321,58,320,53,400,33"/>
 <area shape="rect" id="Node000004" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,23,145,64"/>
 <area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="371,27,145,42,145,36,370,22"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,60,145,55,145,50,178,54"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="593,74,551,74,551,69,593,69"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="597,74,551,74,551,69,597,69"/>
 <area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="374,73,338,72,338,67,374,68"/>
 </map>

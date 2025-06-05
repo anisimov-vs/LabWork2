@@ -1,11 +1,13 @@
 <map id="deckstiny::Card::getDescription" name="deckstiny::Card::getDescription">
-<area shape="rect" id="Node000001" title="Get the card&#39;s description." alt="" coords="546,46,752,72"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="366,39,498,79"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="531,62,499,62,499,56,531,56"/>
+<area shape="rect" id="Node000001" title="Get the card&#39;s description." alt="" coords="546,78,752,104"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a22077073ee4227c8ace2af46dea2ab4a" title="Display a card." alt="" coords="366,37,498,78"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="546,78,498,70,499,65,547,73"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_text_u_i.html#a3e60882142c82a133a18338e376cb6ce" title="Show the shop UI with relic prices." alt="" coords="366,103,498,143"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="543,109,499,116,498,111,542,104"/>
 <area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a6712c5f811b74e5d2b7c5a7cac3b0654" title="Display a list of cards." alt="" coords="186,5,318,46"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,47,318,41,319,35,351,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,46,318,40,319,35,351,41"/>
 <area shape="rect" id="Node000005" href="$classdeckstiny_1_1_text_u_i.html#a751ef9c4cbd42b8b9102279cfbb32a42" title="Display combat state." alt="" coords="186,71,318,111"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="351,76,319,82,318,77,350,71"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="351,75,319,81,318,76,350,70"/>
 <area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#acf2e834e6fb734d05579545f3b180703" title="Display rewards after combat." alt="" coords="5,5,138,46"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
 </map>

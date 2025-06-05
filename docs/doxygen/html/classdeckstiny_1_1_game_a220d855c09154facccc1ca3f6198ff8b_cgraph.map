@@ -1,5 +1,5 @@
 <map id="deckstiny::Game::loadAllCards" name="deckstiny::Game::loadAllCards">
 <area shape="rect" id="Node000001" title="Load all card templates." alt="" coords="5,5,173,46"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a2b04741a2aa9b52314eb405544d152f8" title="Load a card template." alt="" coords="221,13,401,38"/>
+<area shape="rect" id="Node000002" href="$path__util_8cpp.html#a8eaa5e5197544de1074728717645442a" title=" " alt="" coords="221,13,363,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,23,205,23,205,28,173,28"/>
 </map>

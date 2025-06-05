@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include <gtest/gtest.h>
 #include "core/event.h"
 #include "core/player.h"
@@ -14,7 +17,7 @@ class EventTest : public ::testing::Test {
 protected:
     void SetUp() override {
         // Create a player for testing events
-        player = std::make_shared<Player>("player1", "Test Player", PlayerClass::IRONCLAD, 75, 3, 5);
+        player = std::make_shared<Player>("ironclad", "Test Player", 75, 3, 5);
         
         // Create a basic event for testing using JSON
         event = std::make_shared<Event>();
@@ -94,10 +97,6 @@ TEST_F(EventTest, EventCloning) {
 
 // Test event effects
 TEST_F(EventTest, EventEffects) {
-    // This test would normally use the Game class to process choices
-    // Since we can't fully test the effects without a Game instance,
-    // we'll just verify the structure of the effects
-    
     const auto& choices = event->getAllChoices();
     
     // First choice: Gain 20 gold

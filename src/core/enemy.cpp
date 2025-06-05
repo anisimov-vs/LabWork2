@@ -1,6 +1,10 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/enemy.h"
 #include "core/player.h"
 #include "core/combat.h"
+#include "core/game.h"
 #include "util/logger.h"
 
 #include <random>
@@ -63,7 +67,7 @@ int Enemy::rollGoldReward() const {
 void Enemy::chooseNextMove(Combat* combat, Player* player) {
     if (moves_.empty()) {
         LOG_ERROR("combat", "Enemy " + getName() + " has no moves available");
-        // Set an unknown intent but don't crash the game
+
         currentIntent_.type = "unknown";
         currentIntent_.value = 0;
         currentIntent_.target = "player";
@@ -72,34 +76,27 @@ void Enemy::chooseNextMove(Combat* combat, Player* player) {
     
     LOG_DEBUG("combat", getName() + " selecting move from " + std::to_string(moves_.size()) + " options");
     
-    // The player's health might influence the enemy's strategy in a more advanced implementation
     int playerHealth = player ? player->getHealth() : 0;
     
-    // Choose a random move
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::mt19937 gen(seed);
     std::uniform_int_distribution<> dist(0, moves_.size() - 1);
     int moveIndex = dist(gen);
     
-    // Set intent based on move
-    // In a more advanced implementation, the move might depend on the combat state
-    (void)combat; // Mark as intentionally unused for now
-    (void)playerHealth; // Mark as intentionally unused for now
+    (void)combat;
+    (void)playerHealth;
     std::string moveId = moves_[moveIndex];
     
     LOG_DEBUG("combat", "Selected move: " + moveId + " for enemy " + getName());
     
-    // Look up the intent for this move in our stored intents
     auto it = moveIntents_.find(moveId);
     if (it != moveIntents_.end()) {
-        // Use the stored intent information
         currentIntent_ = it->second;
         LOG_DEBUG("combat", "Set intent to type=" + currentIntent_.type + 
                  ", value=" + std::to_string(currentIntent_.value) + 
                  ", target=" + currentIntent_.target + 
                  (currentIntent_.effect.empty() ? "" : ", effect=" + currentIntent_.effect));
     } else {
-        // This should never happen if loadFromJson validated correctly
         LOG_ERROR("combat", "No intent found for move " + moveId + " on enemy " + getName());
         currentIntent_.type = "unknown";
         currentIntent_.value = 0;
@@ -112,38 +109,67 @@ void Enemy::takeTurn(Combat* combat, Player* player) {
         return;
     }
     
-    // In a more advanced implementation, the combat state might influence the enemy's action
-    (void)combat; // Mark as intentionally unused for now
+    (void)combat;
     
-    // Execute move based on intent
     if (currentIntent_.type == "attack") {
-        // Deal damage to player
-        player->takeDamage(currentIntent_.value);
+        int finalDamage = currentIntent_.value;
+        if (hasStatusEffect("weak")) {
+            finalDamage = static_cast<int>(std::round(finalDamage * 0.75));
+            LOG_DEBUG("combat", getName() + " is Weak, attack damage reduced to " + std::to_string(finalDamage));
+        }
+        player->takeDamage(finalDamage);
     } else if (currentIntent_.type == "attack_defend") {
-        // Deal damage to player and gain block
-        player->takeDamage(currentIntent_.value);
+        int finalDamage = currentIntent_.value;
+        if (hasStatusEffect("weak")) {
+            finalDamage = static_cast<int>(std::round(finalDamage * 0.75));
+            LOG_DEBUG("combat", getName() + " is Weak, attack_defend damage reduced to " + std::to_string(finalDamage));
+        }
+        player->takeDamage(finalDamage);
         addBlock(currentIntent_.secondaryValue);
     } else if (currentIntent_.type == "buff") {
-        // Apply buff to self based on effect
         if (!currentIntent_.effect.empty()) {
             addStatusEffect(currentIntent_.effect, currentIntent_.value);
         }
         
-        // Also add block if secondary value is specified
         if (currentIntent_.secondaryValue > 0) {
             addBlock(currentIntent_.secondaryValue);
         }
     } else if (currentIntent_.type == "defend") {
-        // Gain block
         addBlock(currentIntent_.value);
     } else if (currentIntent_.type == "debuff") {
-        // Apply debuff to player based on effect
         if (!currentIntent_.effect.empty()) {
             player->addStatusEffect(currentIntent_.effect, currentIntent_.value);
         }
+    } else if (currentIntent_.type == "summon") {
+        LOG_DEBUG("combat", getName() + " is summoning. Intent value: " + std::to_string(currentIntent_.value));
+        std::string summonType = "";
+        int numToSummon = currentIntent_.value;
+
+        if (currentIntent_.associatedEffectsJson.is_array()) {
+            for (const auto& effectJson : currentIntent_.associatedEffectsJson) {
+                if (effectJson.is_object() && effectJson.value("type", "") == "summon") {
+                    summonType = effectJson.value("summon_type", "");
+                    break; 
+                }
+            }
+        }
+
+        if (!summonType.empty() && numToSummon > 0 && combat && combat->getGame()) {
+            LOG_INFO("combat", getName() + " attempts to summon " + std::to_string(numToSummon) + " of type '" + summonType + "'");
+            for (int i = 0; i < numToSummon; ++i) {
+                std::shared_ptr<Enemy> summonedEnemy = combat->getGame()->loadEnemy(summonType);
+                if (summonedEnemy) {
+                    combat->addEnemy(summonedEnemy);
+                    LOG_INFO("combat", "Successfully summoned a " + summonType + ". Total enemies: " + std::to_string(combat->getEnemyCount()));
+                } else {
+                    LOG_ERROR("combat", "Failed to load enemy type '" + summonType + "' for summoning.");
+                }
+            }
+        } else {
+            LOG_WARNING("combat", getName() + " summon failed. SummonType: '" + summonType + "', NumToSummon: " + std::to_string(numToSummon) + ", Combat valid: " + (combat ? "true":"false") + ", Game valid: " + (combat && combat->getGame() ? "true":"false"));
+        }
     } else {
-        std::cerr << "Warning: Unknown intent type '" << currentIntent_.type 
-                  << "' for enemy " << getName() << std::endl;
+        LOG_WARNING("combat", "Unknown intent type '" + currentIntent_.type + "' for enemy " + getName());
     }
 }
 
@@ -160,14 +186,10 @@ void Enemy::addPossibleMove(const std::string& moveId) {
 void Enemy::startTurn() {
     Character::startTurn();
     
-    // Enemy block should persist between turns, so don't reset block here
-    // Process enemy-specific start of turn effects
 }
 
 void Enemy::endTurn() {
     Character::endTurn();
-    
-    // Process enemy-specific end of turn effects
 }
 
 bool Enemy::loadFromJson(const nlohmann::json& json) {
@@ -196,11 +218,9 @@ bool Enemy::loadFromJson(const nlohmann::json& json) {
         LOG_INFO("enemy", "Created enemy: " + getName() + " with " + std::to_string(getHealth()) + "/" + 
                 std::to_string(getMaxHealth()) + " HP");
         
-        // Clear existing moves and intents
         moveIntents_.clear();
         moves_.clear();
         
-        // Load moves - this is required for enemies
         if (!json.contains("moves") || !json["moves"].is_array() || json["moves"].empty()) {
             LOG_ERROR("enemy", "Enemy " + getId() + " has no moves defined in JSON");
             return false;
@@ -218,7 +238,6 @@ bool Enemy::loadFromJson(const nlohmann::json& json) {
             addPossibleMove(moveId);
             LOG_DEBUG("enemy", "Added move: " + moveId + " for enemy " + getId());
                 
-            // Store the intent information for this move
             if (!move.contains("intent")) {
                 LOG_ERROR("enemy", "Move " + moveId + " has no intent defined for enemy " + getId());
                 return false;
@@ -249,7 +268,10 @@ bool Enemy::loadFromJson(const nlohmann::json& json) {
                 intent.effect = intentData["effect"].get<std::string>();
             }
                 
-            // Store the intent for this move
+            if (move.contains("effects") && move["effects"].is_array()) {
+                intent.associatedEffectsJson = move["effects"];
+            }
+            
             moveIntents_[moveId] = intent;
             LOG_DEBUG("enemy", "Added intent for move " + moveId + ": type=" + intent.type + 
                       ", value=" + std::to_string(intent.value) + 
@@ -274,19 +296,15 @@ std::unique_ptr<Entity> Enemy::clone() const {
     enemy->setBoss(boss_);
     enemy->setGoldReward(minGold_, maxGold_);
     
-    // Copy moves
     for (const auto& move : moves_) {
         enemy->addPossibleMove(move);
     }
     
-    // Copy move intents
     enemy->moveIntents_ = moveIntents_;
     
-    // Copy character state
     enemy->setHealth(getHealth());
     enemy->addBlock(getBlock());
     
-    // Copy status effects
     for (const auto& effect : getStatusEffects()) {
         enemy->addStatusEffect(effect.first, effect.second);
     }
@@ -300,52 +318,20 @@ std::shared_ptr<Enemy> Enemy::cloneEnemy() const {
     enemy->setBoss(boss_);
     enemy->setGoldReward(minGold_, maxGold_);
     
-    // Copy moves
     for (const auto& move : moves_) {
         enemy->addPossibleMove(move);
     }
     
-    // Copy move intents
     enemy->moveIntents_ = moveIntents_;
     
-    // Copy character state
     enemy->setHealth(getHealth());
     enemy->addBlock(getBlock());
     
-    // Copy status effects
     for (const auto& effect : getStatusEffects()) {
         enemy->addStatusEffect(effect.first, effect.second);
     }
     
     return enemy;
-}
-
-bool Enemy::executeMove(const std::string& moveId, Combat* combat, Player* player) {
-    if (!player) {
-        return false;
-    }
-    
-    // In a more advanced implementation, the combat state might influence the move execution
-    (void)combat; // Mark as intentionally unused for now
-    
-    // Execute specific move
-    if (moveId == "chomp") {
-        // Deal 11 damage to player
-        player->takeDamage(11);
-        return true;
-    } else if (moveId == "thrash") {
-        // Deal 7 damage to player and gain 5 block
-        player->takeDamage(7);
-        addBlock(5);
-        return true;
-    } else if (moveId == "bellow") {
-        // Gain 3 strength and 6 block
-        addStatusEffect("strength", 3);
-        addBlock(6);
-        return true;
-    }
-    
-    return false;
 }
 
 } // namespace deckstiny 

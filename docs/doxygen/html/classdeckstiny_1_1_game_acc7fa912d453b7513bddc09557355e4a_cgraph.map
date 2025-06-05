@@ -1,19 +1,20 @@
 <map id="deckstiny::Game::loadGameData" name="deckstiny::Game::loadGameData">
-<area shape="rect" id="Node000001" title="Load data from JSON files." alt="" coords="5,112,221,137"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a220d855c09154facccc1ca3f6198ff8b" title="Load all card templates." alt="" coords="269,5,436,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,108,268,57,284,50,286,55,270,61,147,113"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#a62722c74c062a2e2810b101b3425ba7a" title="Load all enemy templates." alt="" coords="269,71,436,111"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="210,108,252,102,253,107,210,114"/>
-<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#aa38e8d94430de43a21ea43d7051232c3" title="Load all event templates." alt="" coords="269,136,436,177"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="214,135,254,140,253,146,214,140"/>
-<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_game.html#a93210bd2549df48e9ad37f2380736e04" title="Load all relic templates." alt="" coords="269,201,436,242"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="147,135,270,186,286,193,284,198,268,191,145,140"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#a2b04741a2aa9b52314eb405544d152f8" title="Load a card template." alt="" coords="490,13,671,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="436,23,475,23,475,28,436,28"/>
-<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#a967348f90b62e4e51fd27a92cddc2e20" title="Load an enemy template." alt="" coords="484,78,677,104"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="436,88,468,88,468,94,436,94"/>
-<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game.html#a62dcda03476c9f1bf43201a33617bd7c" title="Load an event template." alt="" coords="488,144,674,169"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="436,154,472,154,472,159,436,159"/>
-<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_game.html#ab4498ca452f37c1897cb1f9e165487a4" title="Load a relic template." alt="" coords="490,209,672,234"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="436,219,474,219,474,224,436,224"/>
+<area shape="rect" id="Node000001" title="Load data from JSON files." alt="" coords="5,144,221,170"/>
+<area shape="rect" id="Node000002" href="$path__util_8cpp.html#a8eaa5e5197544de1074728717645442a" title=" " alt="" coords="484,144,626,170"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,142,145,115,179,82,220,49,268,24,314,9,353,3,392,8,437,24,471,45,501,73,524,103,542,130,537,132,520,106,497,77,468,50,435,29,390,13,353,8,315,14,270,29,223,53,182,86,149,119,126,146"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#a220d855c09154facccc1ca3f6198ff8b" title="Load all card templates." alt="" coords="269,38,436,79"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,141,268,89,284,83,286,88,270,94,147,146"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#adbf6207f3b8024d22ee043ae1aa5b1be" title=" " alt="" coords="269,104,436,144"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="210,141,252,135,253,140,210,146"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#a62722c74c062a2e2810b101b3425ba7a" title="Load all enemy templates." alt="" coords="269,169,436,210"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="214,168,254,173,253,179,214,173"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_game.html#aa38e8d94430de43a21ea43d7051232c3" title="Load all event templates." alt="" coords="269,234,436,275"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="147,168,270,219,286,226,284,230,268,224,145,173"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_game.html#a93210bd2549df48e9ad37f2380736e04" title="Load all relic templates." alt="" coords="269,300,436,340"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="129,169,187,223,227,255,270,284,281,290,278,295,267,289,224,259,184,227,125,172"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="409,77,437,89,520,134,518,139,435,94,407,82"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="437,135,469,140,468,146,436,140"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="436,173,468,168,469,173,437,179"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="407,231,435,219,517,176,519,180,437,224,409,236"/>
+<area shape="poly" id="edge11_Node000007_Node000002" title=" " alt="" coords="413,297,434,284,465,260,492,233,534,181,538,184,496,236,468,264,438,289,416,301"/>
 </map>

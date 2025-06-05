@@ -3,6 +3,7 @@ var namespacedeckstiny =
     [ "util", "namespacedeckstiny_1_1util.html", "namespacedeckstiny_1_1util" ],
     [ "Card", "classdeckstiny_1_1_card.html", "classdeckstiny_1_1_card" ],
     [ "Character", "classdeckstiny_1_1_character.html", "classdeckstiny_1_1_character" ],
+    [ "CharacterData", "structdeckstiny_1_1_character_data.html", "structdeckstiny_1_1_character_data" ],
     [ "Combat", "classdeckstiny_1_1_combat.html", "classdeckstiny_1_1_combat" ],
     [ "CombatAction", "structdeckstiny_1_1_combat_action.html", "structdeckstiny_1_1_combat_action" ],
     [ "Enemy", "classdeckstiny_1_1_enemy.html", "classdeckstiny_1_1_enemy" ],
@@ -13,7 +14,6 @@ var namespacedeckstiny =
     [ "Game", "classdeckstiny_1_1_game.html", "classdeckstiny_1_1_game" ],
     [ "GameMap", "classdeckstiny_1_1_game_map.html", "classdeckstiny_1_1_game_map" ],
     [ "Intent", "structdeckstiny_1_1_intent.html", "structdeckstiny_1_1_intent" ],
-    [ "Path", "structdeckstiny_1_1_path.html", "structdeckstiny_1_1_path" ],
     [ "Player", "classdeckstiny_1_1_player.html", "classdeckstiny_1_1_player" ],
     [ "Relic", "classdeckstiny_1_1_relic.html", "classdeckstiny_1_1_relic" ],
     [ "Room", "structdeckstiny_1_1_room.html", "structdeckstiny_1_1_room" ],
@@ -53,19 +53,6 @@ var namespacedeckstiny =
       [ "REST", "namespacedeckstiny.html#a7bbf916d988735caec995088ae176766a50780f47f6839d47d60bc4555ee00c3f", null ],
       [ "GAME_OVER", "namespacedeckstiny.html#a7bbf916d988735caec995088ae176766af8454a27e1df41397bf42444fe5aa45b", null ]
     ] ],
-    [ "PathType", "namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0a", [
-      [ "NORMAL", "namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0aa1e23852820b9154316c7c06e2b7ba051", null ],
-      [ "ELITE", "namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0aa1032484f0becd6dbc16d7347dbd0980f", null ],
-      [ "SAFE", "namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0aab18288babd4636cff34b15e0d1340fc2", null ],
-      [ "RISKY", "namespacedeckstiny.html#ac89708b8364b5cd0e12837df6ceb7c0aafaeefe4f369c350165de6442a6b46aa5", null ]
-    ] ],
-    [ "PlayerClass", "namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660", [
-      [ "IRONCLAD", "namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660a97baa04f5e9641a552ce9ad1f8a54696", null ],
-      [ "SILENT", "namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660a7e92d833d7720dbe631730a6cea03346", null ],
-      [ "DEFECT", "namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660a0d414f5ed835feeaac257c68bd8037b0", null ],
-      [ "WATCHER", "namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660a6dcfc4b2cd3943deac6608a57663fc38", null ],
-      [ "CUSTOM", "namespacedeckstiny.html#a21cf78d4d125cfd3c022825c1a6ed660a72baef04098f035e8a320b03ad197818", null ]
-    ] ],
     [ "RelicRarity", "namespacedeckstiny.html#a8cb350ca03505f9ac7dd5c539e4b9d5d", [
       [ "STARTER", "namespacedeckstiny.html#a8cb350ca03505f9ac7dd5c539e4b9d5dacc37ece0f85fb36ba4fce2e0cca5bcc6", null ],
       [ "COMMON", "namespacedeckstiny.html#a8cb350ca03505f9ac7dd5c539e4b9d5dadda4b7de10e14445366494f0a76e1435", null ],
@@ -83,5 +70,15 @@ var namespacedeckstiny =
       [ "EVENT", "namespacedeckstiny.html#a9b7f7429ce718f7d113f2e693936366da030d962d0faa148f02848881a3b4fdb6", null ],
       [ "SHOP", "namespacedeckstiny.html#a9b7f7429ce718f7d113f2e693936366da7e0e6171361a668abdf843969340dbb4", null ],
       [ "TREASURE", "namespacedeckstiny.html#a9b7f7429ce718f7d113f2e693936366daf2de7bf382e8eaf7b82632f3c91002f5", null ]
-    ] ]
+    ] ],
+    [ "GameStateToString", "namespacedeckstiny.html#a74014585c265e84de8ffdd0e846424ea", null ],
+    [ "stringToCardRarity", "namespacedeckstiny.html#a48306ce5cf431e48687778676231f5ab", null ],
+    [ "STS_BOSS_FLOOR_Y", "namespacedeckstiny.html#aac0a970c864504eb000efb712ff6a309", null ],
+    [ "STS_ELITE_MIN_FLOOR_Y", "namespacedeckstiny.html#af5911e1b2a395505b7d5c6753a5e2fb8", null ],
+    [ "STS_MAX_INCOMING_CONNECTIONS_PER_NODE", "namespacedeckstiny.html#ab2b096e0f8712d8cc0479211b2a5fb34", null ],
+    [ "STS_MID_ACT_TREASURE_FLOOR_Y", "namespacedeckstiny.html#a5ef0a0d7453c029861f62a1cb84c1f41", null ],
+    [ "STS_MIN_STARTING_PATHS", "namespacedeckstiny.html#a679b3e3f37b9bb2121e9ec67175ab712", null ],
+    [ "STS_NUM_COLUMNS", "namespacedeckstiny.html#a9034854cabc24c52733aba616c810ba5", null ],
+    [ "STS_NUM_FLOORS", "namespacedeckstiny.html#a87defe428b72448eab22088b168674ca", null ],
+    [ "STS_PRE_BOSS_REST_FLOOR_Y", "namespacedeckstiny.html#ac10a53f1c66ca697fd06e54ba38488b2", null ]
 ];

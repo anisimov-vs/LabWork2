@@ -1,9 +1,14 @@
 <map id="deckstiny::TextUI::showGameOver" name="deckstiny::TextUI::showGameOver">
-<area shape="rect" id="Node000001" title="Display game over screen." alt="" coords="5,71,138,111"/>
+<area shape="rect" id="Node000001" title="Display game over screen." alt="" coords="5,92,138,133"/>
 <area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a3b10e1e1f729bcb4fe4d3258faf919a3" title="Center a string in a field." alt="" coords="186,5,318,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,68,179,49,180,54,130,73"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,71,318,111"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,88,170,88,170,94,138,94"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="186,136,318,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="130,109,180,128,179,133,129,114"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,89,193,51,195,55,117,94"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#a72e57f1fa6511106542e36181196d8a0" title="Checks if TextUI is currently in testing mode." alt="" coords="366,92,498,133"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="138,107,186,106,318,106,351,106,350,112,318,111,186,111,138,112"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_text_u_i.html#a6fd91abd11bd7fcfd51d6800eb160ec5" title="Clear the screen." alt="" coords="186,120,318,161"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="138,120,171,125,170,130,138,125"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_text_u_i.html#a55a6e2bb5b5b6ba2c07661307bd8159b" title="Draw a horizontal line." alt="" coords="186,185,318,226"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="113,131,187,170,197,175,195,180,184,175,111,136"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,44,376,83,373,87,295,49"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="318,127,350,122,351,128,319,133"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="293,182,317,170,377,138,380,143,319,175,295,187"/>
 </map>

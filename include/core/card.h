@@ -1,4 +1,8 @@
-#pragma once
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
+#ifndef DECKSTINY_CORE_CARD_H
+#define DECKSTINY_CORE_CARD_H
 
 #include "core/entity.h"
 #include <memory>
@@ -6,7 +10,6 @@
 
 namespace deckstiny {
 
-// Forward declarations
 class Character;
 class Player;
 class Combat;
@@ -212,6 +215,19 @@ protected:
     bool upgradable_ = true;          ///< Whether card can be upgraded
     bool upgraded_ = false;           ///< Whether card is upgraded
     std::string classRestriction_;    ///< Class restriction (empty if none)
+
+    // Fields for upgraded stats, loaded from JSON "upgrade_details"
+    bool hasUpgradeDetails_ = false;
+    std::string nameUpgraded_;
+    std::string descriptionUpgraded_;
+    int costUpgraded_ = -1; // -1 indicates not set or no change
+    int damage_ = 0; // Base damage
+    int damageUpgraded_ = -1;
+    int block_ = 0; // Base block
+    int blockUpgraded_ = -1;
+    int magicNumber_ = 0; // Base magic number
+    int magicNumberUpgraded_ = -1;
+    // Add other specific stats if needed, e.g., drawUpgraded_, energyGainUpgraded_
     
     /**
      * @brief Implementation of card effect
@@ -233,3 +249,5 @@ protected:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_CORE_CARD_H

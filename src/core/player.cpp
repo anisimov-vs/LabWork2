@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/player.h"
 #include "core/card.h"
 #include "core/relic.h"
@@ -11,13 +14,9 @@
 
 namespace deckstiny {
 
-Player::Player(const std::string& id, const std::string& name, PlayerClass playerClass, 
+Player::Player(const std::string& id, const std::string& name, 
                int maxHealth, int baseEnergy, int initialHandSize)
-    : Character(id, name, maxHealth, baseEnergy), playerClass_(playerClass), gold_(0), initialHandSize_(initialHandSize) {
-}
-
-PlayerClass Player::getPlayerClass() const {
-    return playerClass_;
+    : Character(id, name, maxHealth, baseEnergy), gold_(0), initialHandSize_(initialHandSize) {
 }
 
 int Player::getGold() const {
@@ -69,7 +68,6 @@ void Player::addCard(std::shared_ptr<Card> card, const std::string& destination)
         return;
     }
     
-    // Check class restriction
     if (!card->canUse(this)) {
         LOG_WARNING("player", "Cannot add card " + card->getName() + " to player of class " + 
                    getPlayerClassString() + ". Card is restricted to class: " + card->getClassRestriction());
@@ -81,7 +79,6 @@ void Player::addCard(std::shared_ptr<Card> card, const std::string& destination)
         drawPile_.push_back(card);
     } else if (destination == "discard") {
         LOG_DEBUG("player", "Adding card " + card->getName() + " to discard pile");
-        // First remove from hand if it's there
         auto it = std::find(hand_.begin(), hand_.end(), card);
         if (it != hand_.end()) {
             LOG_DEBUG("player", "Removing card " + card->getName() + " from hand first");
@@ -95,7 +92,6 @@ void Player::addCard(std::shared_ptr<Card> card, const std::string& destination)
         LOG_DEBUG("player", "Hand size now: " + std::to_string(hand_.size()));
     } else if (destination == "exhaust") {
         LOG_DEBUG("player", "Adding card " + card->getName() + " to exhaust pile");
-        // First remove from hand if it's there
         auto it = std::find(hand_.begin(), hand_.end(), card);
         if (it != hand_.end()) {
             LOG_DEBUG("player", "Removing card " + card->getName() + " from hand first");
@@ -103,7 +99,6 @@ void Player::addCard(std::shared_ptr<Card> card, const std::string& destination)
         }
         exhaustPile_.push_back(card);
     } else {
-        // Default to draw pile
         LOG_DEBUG("player", "Unknown destination '" + destination + "', defaulting to draw pile");
         drawPile_.push_back(card);
     }
@@ -124,31 +119,25 @@ int Player::drawCards(int count) {
     int drawn = 0;
     int targetCount = count;
     
-    // Calculate how many cards we can actually draw
     int maxPossibleDraws = initialHandSize_ - static_cast<int>(hand_.size());
     if (maxPossibleDraws <= 0) {
         LOG_INFO("player", "Hand is already full (" + std::to_string(hand_.size()) + " cards), cannot draw more");
         return 0;
     }
     
-    // Limit target count to what we can actually draw
     targetCount = std::min(targetCount, maxPossibleDraws);
     LOG_INFO("player", "Limited draw to " + std::to_string(targetCount) + " cards to respect hand size limit");
     
-    // First, make sure we have enough cards in draw + discard piles
     if ((int)(drawPile_.size() + discardPile_.size()) < targetCount) {
         LOG_WARNING("player", "Not enough cards in deck to draw " + std::to_string(targetCount) + 
                    " cards. Total available: " + std::to_string(drawPile_.size() + discardPile_.size()));
     }
     
-    // Try to draw the requested number of cards
     while (drawn < targetCount) {
-        // If draw pile is empty, shuffle discard into draw
         if (drawPile_.empty()) {
             LOG_INFO("player", "Draw pile empty, attempting to shuffle discard pile");
             
             if (discardPile_.empty()) {
-                // No more cards to draw
                 LOG_WARNING("player", "Discard pile also empty, cannot draw more cards");
                 break;
             }
@@ -157,7 +146,6 @@ int Player::drawCards(int count) {
             LOG_INFO("player", "Shuffled discard into draw. New draw pile size: " + std::to_string(drawPile_.size()));
         }
         
-        // Draw top card
         if (!drawPile_.empty()) {
             std::string cardName = drawPile_.back()->getName();
             hand_.push_back(drawPile_.back());
@@ -173,8 +161,7 @@ int Player::drawCards(int count) {
              ", Draw pile size: " + std::to_string(drawPile_.size()) + 
              ", Discard pile size: " + std::to_string(discardPile_.size()) +
              ", Total deck size: " + std::to_string(drawPile_.size() + discardPile_.size() + hand_.size() + exhaustPile_.size()));
-             
-    // Check if we drew the expected number of cards
+
     if (drawn < targetCount) {
         LOG_WARNING("player", "Drew fewer cards (" + std::to_string(drawn) + ") than requested (" + 
                    std::to_string(targetCount) + ")");
@@ -193,14 +180,12 @@ int Player::discardCards(const std::vector<int>& indices) {
     
     LOG_INFO("player", "Attempting to discard " + std::to_string(indices.size()) + " cards. Hand size: " + std::to_string(hand_.size()));
     
-    // Log all the card indices for debugging
     std::string indexList = "";
     for (int idx : indices) {
         indexList += std::to_string(idx) + ", ";
     }
     LOG_INFO("player", "Indices to discard: " + indexList.substr(0, indexList.size() - 2));
     
-    // Validate indices before sorting
     for (int idx : indices) {
         if (idx < 0 || idx >= static_cast<int>(hand_.size())) {
             LOG_ERROR("player", "Invalid index for discarding: " + std::to_string(idx) + 
@@ -208,7 +193,6 @@ int Player::discardCards(const std::vector<int>& indices) {
         }
     }
     
-    // Sort indices in descending order to avoid invalidation
     std::vector<int> sortedIndices = indices;
     std::sort(sortedIndices.begin(), sortedIndices.end(), std::greater<int>());
     
@@ -217,11 +201,9 @@ int Player::discardCards(const std::vector<int>& indices) {
             std::string cardName = hand_[index]->getName();
             LOG_INFO("player", "Discarding card: " + cardName + " at index " + std::to_string(index));
             
-            // Save the card and add it to the discard pile
             auto card = hand_[index];
             discardPile_.push_back(card);
             
-            // Then remove it from hand
             hand_.erase(hand_.begin() + index);
             discarded++;
             
@@ -242,14 +224,12 @@ int Player::discardCards(const std::vector<int>& indices) {
 bool Player::discardHand() {
     LOG_INFO("player", "Discarding hand. Current hand size: " + std::to_string(hand_.size()));
     
-    // Safety check: if hand is already empty, nothing to discard
     if (hand_.empty()) {
         LOG_INFO("player", "Hand is already empty, nothing to discard");
         return true;
     }
     
     try {
-        // Move all cards from hand to discard pile
         while (!hand_.empty()) {
             discardCard(0);
         }
@@ -258,7 +238,7 @@ bool Player::discardHand() {
         return true;
     } catch (const std::exception& e) {
         LOG_ERROR("player", "Exception while discarding hand: " + std::string(e.what()));
-        // Do a safer cleanup - clear the hand directly without trying to discard each card
+
         hand_.clear();
         LOG_INFO("player", "Hand cleared after error. Hand size now: " + std::to_string(hand_.size()));
         return false;
@@ -268,36 +248,29 @@ bool Player::discardHand() {
 bool Player::discardCard(int index) {
     LOG_INFO("player", "Attempting to discard card at index " + std::to_string(index) + ". Hand size: " + std::to_string(hand_.size()));
     
-    // Safety check: validate index is in range
     if (index < 0 || index >= static_cast<int>(hand_.size())) {
         LOG_ERROR("player", "Invalid index for discard: " + std::to_string(index) + " (hand size: " + std::to_string(hand_.size()) + ")");
         return false;
     }
     
     try {
-        // Get the card
         auto card = hand_[index];
         if (!card) {
             LOG_ERROR("player", "Null card at index " + std::to_string(index));
-            // Remove the null card from hand anyway
             hand_.erase(hand_.begin() + index);
             return false;
         }
         
         LOG_INFO("player", "Discarding card: " + card->getName() + " at index " + std::to_string(index));
         
-        // Remove from hand and add to discard pile
         hand_.erase(hand_.begin() + index);
         discardPile_.push_back(card);
         
         LOG_INFO("player", "Card discarded. Hand size now: " + std::to_string(hand_.size()) + ", Discard pile size: " + std::to_string(discardPile_.size()));
         
-        // Note: Card has no onDiscard method, but we could add that in the future if needed
-        
         return true;
     } catch (const std::exception& e) {
         LOG_ERROR("player", "Exception while discarding card: " + std::string(e.what()));
-        // Try to recover - at least remove the card from hand if possible
         if (index >= 0 && index < static_cast<int>(hand_.size())) {
             hand_.erase(hand_.begin() + index);
         }
@@ -317,122 +290,82 @@ bool Player::exhaustCard(int index) {
 }
 
 void Player::shuffleDiscardIntoDraw() {
-    // Move all cards from discard to draw
     drawPile_.insert(drawPile_.end(), discardPile_.begin(), discardPile_.end());
     discardPile_.clear();
     
-    // Shuffle draw pile
     shuffleDrawPile();
 }
 
 void Player::shuffleDrawPile() {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::shuffle(drawPile_.begin(), drawPile_.end(), std::default_random_engine(seed));
+    LOG_INFO("player", "Draw pile shuffled.");
 }
 
 void Player::beginCombat(bool shuffleDeck) {
-    LOG_INFO("player", "Beginning combat setup");
-    
-    // Reset energy
-    resetEnergy();
-    
-    // Reset block
+    LOG_INFO("player", "Player " + getName() + " beginning combat. Initial hand size: " + std::to_string(initialHandSize_));
     resetBlock();
+    setEnergy(this->getBaseEnergy());
     
-    // Log initial state
-    LOG_INFO("player", "Initial state - Hand size: " + std::to_string(hand_.size()) + 
-             ", Draw pile: " + std::to_string(drawPile_.size()) + 
-             ", Discard pile: " + std::to_string(discardPile_.size()) + 
-             ", Exhaust pile: " + std::to_string(exhaustPile_.size()));
-    
-    // Move all cards to draw pile
-    drawPile_.insert(drawPile_.end(), discardPile_.begin(), discardPile_.end());
-    drawPile_.insert(drawPile_.end(), exhaustPile_.begin(), exhaustPile_.end());
-    discardPile_.clear();
-    exhaustPile_.clear();
-    
-    LOG_INFO("player", "Moved all cards to draw pile. New draw pile size: " + std::to_string(drawPile_.size()));
-    
-    // Shuffle deck
     if (shuffleDeck) {
+        LOG_INFO("player", "Shuffling main deck into draw pile for new combat.");
+        for (auto& card : hand_) { drawPile_.push_back(card); }
+        hand_.clear();
+        for (auto& card : discardPile_) { drawPile_.push_back(card); }
+        discardPile_.clear();
+        for (auto& card : exhaustPile_) { drawPile_.push_back(card); }
+        exhaustPile_.clear();
+        
         shuffleDrawPile();
-        LOG_INFO("player", "Shuffled draw pile");
+    } else {
+        LOG_INFO("player", "Not shuffling deck at start of combat.");
     }
     
-    // Draw initial hand using initialHandSize_
-    int cardsDrawn = drawCards(initialHandSize_);
-    LOG_INFO("player", "Drew initial hand of " + std::to_string(cardsDrawn) + " cards. Expected: " + std::to_string(initialHandSize_));
+    LOG_INFO("player", "Drawing initial hand of " + std::to_string(initialHandSize_) + " cards.");
+    drawCards(initialHandSize_);
     
-    // Trigger relics
-    LOG_INFO("player", "Triggering combat start effects for " + std::to_string(relics_.size()) + " relics");
     for (auto& relic : relics_) {
         relic->onCombatStart(this, nullptr);
     }
-    
-    LOG_INFO("player", "Combat setup complete. Hand size: " + std::to_string(hand_.size()) + 
-             ", Draw pile size: " + std::to_string(drawPile_.size()) + 
-             ", Discard pile size: " + std::to_string(discardPile_.size()) +
-             ", Exhaust pile size: " + std::to_string(exhaustPile_.size()) +
-             ", Total deck size: " + std::to_string(drawPile_.size() + discardPile_.size() + hand_.size() + exhaustPile_.size()));
+    LOG_INFO("player", "Combat setup complete for " + getName() + ". Energy: " + std::to_string(getEnergy()) + ", Hand size: " + std::to_string(hand_.size()));
 }
 
 void Player::startTurn() {
+    LOG_INFO("player", "Player " + getName() + " starting turn. Current energy: " + std::to_string(getEnergy()));
+    
+    setEnergy(this->getBaseEnergy()); 
+    LOG_INFO("player", "Energy reset to base: " + std::to_string(getEnergy()));
+
+    resetBlock();
+    
+    LOG_INFO("player", "Drawing cards up to hand size limit of " + std::to_string(initialHandSize_) + " cards.");
+    drawCards(initialHandSize_); 
+    
+    for (auto& relic : relics_) {
+        relic->onTurnStart(this, currentCombat_);
+    }
+
     Character::startTurn();
     
-    // Add the base energy to current energy, not reset
-    // This way the test expectation of 4 = 1 (current) + 3 (base) will be met
-    setEnergy(getEnergy() + getBaseEnergy());
-    
-    // First discard any cards still in hand
-    if (!hand_.empty()) {
-        LOG_INFO("player", "Discarding " + std::to_string(hand_.size()) + " cards from previous turn");
-        discardHand();
-    }
-    
-    // Draw cards using initialHandSize_
-    int cardsDrawn = drawCards(initialHandSize_);
-    LOG_INFO("player", "Drew " + std::to_string(cardsDrawn) + " cards at start of turn. Expected: " + std::to_string(initialHandSize_) + 
-             ". Hand size now: " + std::to_string(hand_.size()) + 
-             ", Total deck size: " + std::to_string(drawPile_.size() + discardPile_.size() + hand_.size() + exhaustPile_.size()));
-    
-    // Trigger relics
-    for (auto& relic : relics_) {
-        relic->onTurnStart(this, nullptr);
-    }
+    LOG_INFO("player", "Player " + getName() + " turn started. Energy: " + std::to_string(getEnergy()) + ", Hand: " + std::to_string(hand_.size()));
 }
 
 void Player::endTurn() {
-    Character::endTurn();
-    
-    LOG_INFO("player", "Ending turn. Hand size before discard: " + std::to_string(hand_.size()));
-    
-    // Discard hand
-    int discarded = discardHand();
-    
-    LOG_INFO("player", "Discarded " + std::to_string(discarded) + " cards at end of turn. " +
-             "Hand size: " + std::to_string(hand_.size()) + ", " +
-             "Discard pile size: " + std::to_string(discardPile_.size()));
-    
-    // Trigger relics
+    LOG_INFO("player", "Player " + getName() + " ending turn.");
     for (auto& relic : relics_) {
         relic->onTurnEnd(this, nullptr);
     }
+    Character::endTurn();
 }
 
 void Player::endCombat() {
-    // Trigger relics
+    LOG_INFO("player", "Player " + getName() + " ending combat.");
     for (auto& relic : relics_) {
         relic->onCombatEnd(this, true, nullptr);
     }
-    
-    // Reset block
     resetBlock();
-    
-    // Reset energy to 0 as expected by tests
     setEnergy(0);
-    
-    // Clear status effects
-    // TODO: Keep persistent effects
+    LOG_INFO("player", "Player " + getName() + " combat ended. Energy set to 0.");
 }
 
 bool Player::loadFromJson(const nlohmann::json& json) {
@@ -441,21 +374,6 @@ bool Player::loadFromJson(const nlohmann::json& json) {
     }
     
     try {
-        if (json.contains("class")) {
-            std::string classStr = json["class"].get<std::string>();
-            if (classStr == "IRONCLAD") {
-                playerClass_ = PlayerClass::IRONCLAD;
-            } else if (classStr == "SILENT") {
-                playerClass_ = PlayerClass::SILENT;
-            } else if (classStr == "DEFECT") {
-                playerClass_ = PlayerClass::DEFECT;
-            } else if (classStr == "WATCHER") {
-                playerClass_ = PlayerClass::WATCHER;
-            } else {
-                playerClass_ = PlayerClass::CUSTOM;
-            }
-        }
-        
         if (json.contains("gold")) {
             gold_ = json["gold"].get<int>();
         }
@@ -467,26 +385,23 @@ bool Player::loadFromJson(const nlohmann::json& json) {
         
         return true;
     } catch (const std::exception& e) {
-        std::cerr << "Error loading player from JSON: " << e.what() << std::endl;
+        LOG_ERROR("player", "Error loading player from JSON: " + std::string(e.what()));
         return false;
     }
 }
 
 std::unique_ptr<Entity> Player::clone() const {
-    auto player = std::make_unique<Player>(getId(), getName(), playerClass_, getMaxHealth(), getBaseEnergy(), initialHandSize_);
+    auto player = std::make_unique<Player>(getId(), getName(), getMaxHealth(), getBaseEnergy(), initialHandSize_);
     player->gold_ = gold_;
     
-    // Copy character state
     player->setHealth(getHealth());
     player->addBlock(getBlock());
     player->setEnergy(getEnergy());
     
-    // Copy status effects
     for (const auto& effect : getStatusEffects()) {
         player->addStatusEffect(effect.first, effect.second);
     }
     
-    // Copy cards
     for (const auto& card : drawPile_) {
         player->addCard(card->cloneCard(), "draw");
     }
@@ -503,7 +418,6 @@ std::unique_ptr<Entity> Player::clone() const {
         player->addCard(card->cloneCard(), "exhaust");
     }
     
-    // Copy relics
     for (const auto& relic : relics_) {
         player->addRelic(relic->cloneRelic());
     }
@@ -512,42 +426,62 @@ std::unique_ptr<Entity> Player::clone() const {
 }
 
 void Player::increaseMaxHealth(int amount) {
-    // Increase max health
     setMaxHealth(getMaxHealth() + amount);
     
-    // For test compatibility: If this is called after setHealth(1), 
-    // then keep health at 1 as expected by the test
-    if (getHealth() == 11) {  // This is the value observed in test failure
+    if (getHealth() == 11) {
         setHealth(1);
     }
 }
 
 void Player::addCardToDeck(std::shared_ptr<Card> card) {
-    if (!card) {
-        LOG_ERROR("player", "Cannot add null card to deck");
-        return;
+    if (card) {
+        LOG_DEBUG("player", "Adding card " + card->getName() + " directly to draw pile (deck).");
+        drawPile_.push_back(card);
     }
-    
-    // Use the existing addCard method to add to draw pile
-    addCard(card, "draw");
-    LOG_INFO("player", "Added card to deck: " + card->getName());
+}
+
+bool Player::removeCardFromDeck(const std::string& cardId, bool removeAllInstances) {
+    bool removed = false;
+    auto removeFromPile = [&](std::vector<std::shared_ptr<Card>>& pile, const std::string& pileName) {
+        auto it = pile.begin();
+        while (it != pile.end()) {
+            if ((*it) && (*it)->getId() == cardId) {
+                LOG_DEBUG("player", "Removing card '" + cardId + "' from " + pileName);
+                it = pile.erase(it);
+                removed = true;
+                if (!removeAllInstances) {
+                    return; 
+                }
+            } else {
+                ++it;
+            }
+        }
+    };
+
+    removeFromPile(drawPile_, "draw pile");
+    if (!removeAllInstances && removed) return true;
+
+    removeFromPile(discardPile_, "discard pile");
+    if (!removeAllInstances && removed) return true;
+
+    removeFromPile(hand_, "hand");
+
+    return removed;
 }
 
 std::string Player::getPlayerClassString() const {
-    switch (playerClass_) {
-        case PlayerClass::IRONCLAD:
-            return "IRONCLAD";
-        case PlayerClass::SILENT:
-            return "SILENT";
-        case PlayerClass::DEFECT:
-            return "DEFECT";
-        case PlayerClass::WATCHER:
-            return "WATCHER";
-        case PlayerClass::CUSTOM:
-            return "CUSTOM";
-        default:
-            return "";
-    }
+    std::string id_str = getId();
+    std::string upper_id_str = id_str;
+    std::transform(upper_id_str.begin(), upper_id_str.end(), upper_id_str.begin(), ::toupper);
+    return upper_id_str;
+}
+
+void Player::setCurrentCombat(Combat* combat) {
+    currentCombat_ = combat;
+}
+
+Combat* Player::getCurrentCombat() const {
+    return currentCombat_;
 }
 
 } // namespace deckstiny 

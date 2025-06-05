@@ -4,6 +4,8 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,43,252,35,252,40,199,48"/>
 <area shape="rect" id="Node000003" href="$classdeckstiny_1_1_character.html#ad7c1e499124d15caf120041e6592db3d" title="Heal the character." alt="" coords="260,71,402,111"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,70,244,76,244,81,202,75"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="450,71,592,111"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="403,88,435,88,435,94,403,94"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="458,37,585,78"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="402,76,442,69,442,74,403,81"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_character.html#a6406f66b962a567d0532c8269fa24a11" title="Check if character is alive." alt="" coords="450,103,592,143"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="403,100,435,106,434,111,402,106"/>
 </map>

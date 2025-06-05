@@ -1,9 +1,19 @@
 <map id="deckstiny::Game::initializeLogging" name="deckstiny::Game::initializeLogging">
-<area shape="rect" id="Node000001" title="Initialize the logging system." alt="" coords="5,35,181,75"/>
+<area shape="rect" id="Node000001" title="Initialize the logging system." alt="" coords="5,193,181,234"/>
 <area shape="rect" id="Node000002" href="$classdeckstiny_1_1util_1_1_logger.html#ac81e9e238abf86fa6fddf7d35304cd91" title="Get the singleton instance." alt="" coords="229,63,378,103"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,64,214,68,213,74,181,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,191,167,153,227,114,238,108,240,113,230,119,170,158,121,195"/>
 <area shape="rect" id="Node000003" href="$classdeckstiny_1_1util_1_1_logger.html#a57cd88b468afdb727287f5ab6af4a9d8" title="Initialize the logger system." alt="" coords="426,5,575,46"/>
-<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="181,46,410,29,411,35,181,51"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="102,191,121,158,149,119,184,80,227,49,272,31,319,20,366,15,410,15,410,20,367,21,320,25,273,36,230,53,188,84,153,122,126,161,107,194"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1util_1_1_logger.html#a5f7c8bee3cbc896159ee480ac3aa206e" title="Enable or disable console output." alt="" coords="229,128,378,169"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="160,190,220,171,222,176,161,195"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1util_1_1_logger.html#abd62a37bb757b5847f1498a0d897cf02" title="Set the minimum log level for console output." alt="" coords="229,193,378,234"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="181,211,214,211,214,216,181,216"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1util_1_1_logger.html#a7bb975bd108935d25e75612075acca49" title="Enable or disable file output." alt="" coords="229,259,378,299"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="161,232,222,251,220,256,160,237"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1util_1_1_logger.html#a53d4aa82360c18a7e5dc183a4477b48c" title="Set the minimum log level for file output." alt="" coords="229,324,378,365"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="121,232,170,270,230,309,240,314,238,319,227,313,167,274,118,236"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1util_1_1_logger.html#a924d997a67367c3a3f30c7c6cf4080e3" title="Set the log directory." alt="" coords="229,389,378,430"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="109,233,158,301,192,340,230,374,237,379,234,383,227,378,188,343,153,304,105,236"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="375,60,413,48,415,53,376,65"/>
 <area shape="rect" id="Node000004" href="$classdeckstiny_1_1util_1_1_logger.html#a5aee353b23b46197d4bcc921833c92cb" title=" " alt="" coords="623,35,773,75"/>
 <area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="378,75,607,59,608,64,379,80"/>

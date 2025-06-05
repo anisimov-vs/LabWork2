@@ -1,8 +1,13 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include <gtest/gtest.h>
 #include "core/relic.h"
 #include "core/player.h"
 #include "core/enemy.h"
 #include "core/combat.h"
+#include "core/game.h"
+#include "mocks/MockUI.h"
 #include <memory>
 
 namespace deckstiny {
@@ -22,7 +27,7 @@ protected:
         );
         
         // Create a player for testing relic effects
-        player = std::make_shared<Player>("player1", "Test Player", PlayerClass::IRONCLAD, 75, 3, 5);
+        player = std::make_shared<Player>("ironclad", "Test Player", 75, 3, 5);
     }
 
     void TearDown() override {
@@ -114,7 +119,7 @@ class RelicEffectTest : public ::testing::Test {
 protected:
     void SetUp() override {
         // Create a player for testing
-        player = std::make_shared<Player>("player1", "Test Player", PlayerClass::IRONCLAD, 75, 3, 5);
+        player = std::make_shared<Player>("ironclad", "Test Player", 75, 3, 5);
         
         // Create an enemy for combat tests
         enemy = std::make_shared<Enemy>("enemy1", "Test Enemy", 50);
@@ -168,22 +173,36 @@ protected:
     std::shared_ptr<Relic> energyRelic;
     std::shared_ptr<Relic> penNib;
     std::shared_ptr<Relic> torii;
+    std::shared_ptr<Game> game;
+    std::shared_ptr<MockUI> mockUi;
 };
 
 // Test burning blood relic effect
 TEST_F(RelicEffectTest, BurningBloodEffect) {
+    // Initialize Game and MockUI
+    game = std::make_shared<Game>();
+    mockUi = std::make_shared<MockUI>();
+    ASSERT_TRUE(game->initialize(mockUi)); // This loads all data
+
+    // Get the actual Burning Blood relic from the game data
+    auto loadedBurningBlood = game->getRelicData("burning_blood");
+    ASSERT_NE(loadedBurningBlood, nullptr) << "Burning Blood relic not loaded from game data";
+    player->addRelic(loadedBurningBlood); // Add the loaded relic to the player
+
     // Setup combat
     auto combat = std::make_shared<Combat>(player.get());
     combat->addEnemy(enemy);
     
-    // Record player health before
-    int healthBefore = player->getHealth();
+    // Ensure player is not at max HP to properly test healing
+    player->takeDamage(10); // Player max HP is 75, current is 75. Damage makes it 65 (assuming no block).
+    int healthAfterDamage = player->getHealth();
+    int maxHp = player->getMaxHealth();
     
-    // Simulate end of combat with victory
-    burningBlood->onCombatEnd(player.get(), true, combat.get());
+    // Simulate end of combat with victory, using the LOADED relic
+    loadedBurningBlood->onCombatEnd(player.get(), true, combat.get());
     
-    // Check if player was healed
-    EXPECT_EQ(player->getHealth(), healthBefore + 6);
+    // Check if player was healed, respecting max HP
+    EXPECT_EQ(player->getHealth(), std::min(maxHp, healthAfterDamage + 6));
 }
 
 // Test pen nib counter

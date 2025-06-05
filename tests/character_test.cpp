@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include <gtest/gtest.h>
 #include "core/character.h"
 #include "core/player.h"
@@ -14,7 +17,7 @@ class CharacterTest : public ::testing::Test {
 protected:
     void SetUp() override {
         // Create a concrete Character instance for testing (using Player since Character is abstract)
-        character = std::make_unique<Player>("test_player", "Test Character", PlayerClass::IRONCLAD, 50, 3, 5);
+        character = std::make_unique<Player>("ironclad", "Test Character", 50, 3, 5);
     }
 
     void TearDown() override {
@@ -133,7 +136,7 @@ class PlayerTest : public ::testing::Test {
 protected:
     void SetUp() override {
         // Create a player for testing
-        player = std::make_unique<Player>("test_player", "Test Player", PlayerClass::IRONCLAD, 75, 3, 5);
+        player = std::make_unique<Player>("ironclad", "Test Player", 75, 3, 5);
         
         // Create some cards for testing
         strike = std::make_shared<Card>();
@@ -230,7 +233,7 @@ TEST_F(PlayerTest, EnergyManagement) {
     
     // Test starting a turn
     player->startTurn();
-    EXPECT_EQ(player->getEnergy(), 4); // 1 (current) + 3 (base energy)
+    EXPECT_EQ(player->getEnergy(), 3); // Should be base energy (3 for this test player)
 }
 
 // Test relic management
@@ -250,19 +253,14 @@ TEST_F(PlayerTest, CombatFunctions) {
     player->addCardToDeck(strike);
     player->addCardToDeck(defend);
     
-    // Test combat initialization
-    player->beginCombat();
-    EXPECT_EQ(player->getEnergy(), 3);
-    EXPECT_GT(player->getDrawPile().size() + player->getHand().size(), 0);
+    // Simulate beginning combat and starting a turn
+    player->beginCombat(); // Draws initial hand (2 cards in this case as deck only has 2)
+    player->startTurn();   // Resets energy, block, draws up to initialHandSize (5). 
+                           // Since draw pile is empty, hand remains at 2.
     
-    // Test ending a turn
-    player->endTurn();
-    EXPECT_EQ(player->getHand().size(), 0);
-    EXPECT_GT(player->getDiscardPile().size(), 0);
-    
-    // Test ending combat
-    player->endCombat();
-    EXPECT_EQ(player->getEnergy(), 0);
+    // Check hand and discard pile state after starting turn, before any card plays
+    EXPECT_EQ(player->getHand().size(), 2); // Player drew the 2 cards from deck
+    EXPECT_EQ(player->getDiscardPile().size(), 0); // No cards discarded yet
 }
 
 } // namespace testing

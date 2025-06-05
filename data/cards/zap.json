@@ -1,0 +1,19 @@
+{
+    "id": "zap",
+    "name": "Zap",
+    "description": "Deal 5 damage.",
+    "type": "ATTACK",
+    "rarity": "BASIC",
+    "target": "SINGLE_ENEMY", 
+    "cost": 1,
+    "upgradable": true,
+    "class": "DEFECT",
+    "effects": [
+        {
+            "type": "damage",
+            "value": 5,
+            "target": "enemy",
+            "upgraded_value": 8 
+        }
+    ]
+} 

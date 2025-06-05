@@ -1,15 +1,33 @@
 <map id="deckstiny::Character::hasStatusEffect" name="deckstiny::Character::hasStatusEffect">
-<area shape="rect" id="Node000001" title="Check if has a specific status effect." alt="" coords="430,87,572,128"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#afc9c623aa8a9321246d0cb6b7a999c85" title="End of turn processing." alt="" coords="240,54,382,94"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,95,382,89,383,84,415,90"/>
-<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="240,119,382,160"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="415,125,383,130,382,125,414,119"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_enemy.html#a083bf21385991e4a40804a3f2ba53076" title="End of turn processing." alt="" coords="8,5,189,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="224,54,149,34,151,29,225,49"/>
-<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_player.html#a2e711b6d920a4dc939a0ecb51ed195ec" title="End of turn processing." alt="" coords="33,55,164,96"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="224,77,164,78,164,72,224,72"/>
-<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_enemy.html#a1b88024f36ca803dc9b701803b29db2f" title="Start of turn processing." alt="" coords="5,124,192,150"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="224,141,192,141,192,135,224,136"/>
-<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="33,174,164,214"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="225,164,165,180,163,175,224,159"/>
+<area shape="rect" id="Node000001" title="Check if has a specific status effect." alt="" coords="1044,235,1186,276"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_character.html#afc9c623aa8a9321246d0cb6b7a999c85" title="End of turn processing." alt="" coords="854,55,996,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1079,226,946,98,950,95,1083,222"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_card.html#a27ee1454f3b25ed78f430f311119c901" title="Implementation of card effect." alt="" coords="398,308,560,334"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1081,288,1042,318,997,346,946,370,905,386,862,397,806,406,712,419,671,417,620,406,582,392,548,373,495,336,498,332,550,369,585,387,621,401,672,412,712,414,805,401,861,392,903,381,944,366,995,341,1039,314,1078,284"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_character.html#a81a8cebaa2c39c6d78aaa668638c3ccc" title="Start of turn processing." alt="" coords="642,120,784,161"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1028,234,784,164,785,158,1030,229"/>
+<area shape="rect" id="Node000011" href="$classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="854,235,996,276"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1028,258,996,258,996,253,1028,253"/>
+<area shape="rect" id="Node000014" href="$classdeckstiny_1_1_enemy.html#af03aa6f850faabc1162ad0d138a3a36f" title="Execute the enemy&#39;s turn." alt="" coords="620,365,806,391"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="1036,284,806,355,765,367,763,362,805,350,1035,279"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_enemy.html#a083bf21385991e4a40804a3f2ba53076" title="End of turn processing." alt="" coords="622,5,804,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="838,55,763,34,764,29,839,50"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_player.html#a2e711b6d920a4dc939a0ecb51ed195ec" title="End of turn processing." alt="" coords="648,55,778,96"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="838,78,779,78,779,73,838,73"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_card.html#a4b30a0104e27e7cbfff5a0502a1229d6" title="Play the card." alt="" coords="193,308,338,334"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="383,324,339,324,339,318,383,318"/>
+<area shape="rect" id="Node000007" href="$classdeckstiny_1_1_combat.html#a630848a10cd188582e2722f407936f09" title="Play a card." alt="" coords="5,300,145,341"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="177,324,145,324,145,318,177,318"/>
+<area shape="rect" id="Node000009" href="$classdeckstiny_1_1_enemy.html#a1b88024f36ca803dc9b701803b29db2f" title="Start of turn processing." alt="" coords="386,157,572,183"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="627,154,573,161,573,156,626,149"/>
+<area shape="rect" id="Node000010" href="$classdeckstiny_1_1_player.html#afee43d708f7b711b3c290633bb15fa91" title="Start of turn processing." alt="" coords="414,92,544,133"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="626,133,544,123,545,118,627,128"/>
+<area shape="poly" id="edge13_Node000011_Node000005" title=" " alt="" coords="846,233,795,222,738,215,679,215,621,226,583,243,547,265,495,309,492,305,544,261,580,238,620,221,678,210,738,210,796,217,847,228"/>
+<area shape="poly" id="edge15_Node000011_Node000008" title=" " alt="" coords="881,229,804,182,767,164,769,159,807,177,883,224"/>
+<area shape="rect" id="Node000012" href="$classdeckstiny_1_1_card.html#ab455b6238b157235a724969a27782a5d" title="Fallback implementation for basic card effects when JSON processing fails." alt="" coords="630,300,796,341"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="843,283,782,302,781,297,842,278"/>
+<area shape="rect" id="Node000013" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="626,235,800,276"/>
+<area shape="poly" id="edge14_Node000011_Node000013" title=" " alt="" coords="838,258,800,258,800,253,838,253"/>
+<area shape="poly" id="edge16_Node000011_Node000014" title=" " alt="" coords="895,289,855,324,807,355,778,367,776,362,804,350,852,319,891,285"/>
+<area shape="poly" id="edge12_Node000012_Node000005" title=" " alt="" coords="615,324,560,324,560,318,615,318"/>
 </map>

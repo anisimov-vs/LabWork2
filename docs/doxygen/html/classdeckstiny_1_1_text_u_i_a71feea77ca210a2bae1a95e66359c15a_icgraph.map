@@ -1,7 +1,5 @@
 <map id="deckstiny::TextUI::printDivider" name="deckstiny::TextUI::printDivider">
-<area shape="rect" id="Node000001" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="186,39,318,79"/>
+<area shape="rect" id="Node000001" title="Prints a line of equals signs (useful for section dividers)" alt="" coords="186,5,318,46"/>
 <area shape="rect" id="Node000002" href="$classdeckstiny_1_1_text_u_i.html#a2ba3c38d1cf810f7ffbce3a12aa8b429" title="Show an event." alt="" coords="5,5,138,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,47,137,41,138,35,171,41"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_text_u_i.html#ad0ff19a76f167ff87a68c0ddd10646c2" title="Show an event result." alt="" coords="5,71,138,111"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,76,138,82,138,77,170,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,28,138,28,138,23,170,23"/>
 </map>

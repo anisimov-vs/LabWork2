@@ -115,22 +115,28 @@ $(function(){initNavTree('game_8h.html',''); initResizable(true); });
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for game.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8h__incl.png" border="0" usemap="#ainclude_2core_2game_8h" alt=""/></div>
 <map name="ainclude_2core_2game_8h" id="ainclude_2core_2game_8h">
-<area shape="rect" title=" " alt="" coords="161,5,299,31"/>
+<area shape="rect" title=" " alt="" coords="269,5,407,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,74,105"/>
-<area shape="poly" title=" " alt="" coords="199,34,87,76,85,71,197,29"/>
+<area shape="poly" title=" " alt="" coords="287,34,89,81,88,76,285,29"/>
 <area shape="rect" title=" " alt="" coords="98,79,152,105"/>
-<area shape="poly" title=" " alt="" coords="214,34,157,72,154,68,211,29"/>
+<area shape="poly" title=" " alt="" coords="303,34,167,79,165,74,301,29"/>
 <area shape="rect" title=" " alt="" coords="175,79,285,105"/>
-<area shape="poly" title=" " alt="" coords="233,31,233,63,228,63,228,31"/>
+<area shape="poly" title=" " alt="" coords="321,34,263,72,260,68,318,29"/>
 <area shape="rect" title=" " alt="" coords="310,79,367,105"/>
-<area shape="poly" title=" " alt="" coords="250,29,308,68,305,72,247,34"/>
+<area shape="poly" title=" " alt="" coords="341,31,341,63,336,63,336,31"/>
 <area shape="rect" title=" " alt="" coords="392,79,469,105"/>
-<area shape="poly" title=" " alt="" coords="265,29,383,71,381,76,263,34"/>
+<area shape="poly" title=" " alt="" coords="355,29,405,67,401,72,352,34"/>
+<area shape="rect" title=" " alt="" coords="493,79,557,105"/>
+<area shape="poly" title=" " alt="" coords="371,29,480,70,478,75,369,34"/>
+<area shape="rect" title=" " alt="" coords="582,79,628,105"/>
+<area shape="poly" title=" " alt="" coords="389,29,567,76,566,81,388,34"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -138,19 +144,21 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8h__dep__incl.png" border="0" usemap="#ainclude_2core_2game_8hdep" alt=""/></div>
 <map name="ainclude_2core_2game_8hdep" id="ainclude_2core_2game_8hdep">
-<area shape="rect" title=" " alt="" coords="388,5,526,31"/>
+<area shape="rect" title=" " alt="" coords="471,5,609,31"/>
 <area shape="rect" href="card_8cpp.html" title=" " alt="" coords="5,79,128,105"/>
-<area shape="poly" title=" " alt="" coords="376,37,128,82,127,77,375,32"/>
+<area shape="poly" title=" " alt="" coords="455,35,140,82,129,83,128,78,139,76,455,29"/>
 <area shape="rect" href="combat_8cpp.html" title=" " alt="" coords="152,79,293,105"/>
-<area shape="poly" title=" " alt="" coords="404,38,263,81,262,76,402,33"/>
-<area shape="rect" href="event_8cpp.html" title=" " alt="" coords="316,79,446,105"/>
-<area shape="poly" title=" " alt="" coords="435,44,396,81,392,77,431,40"/>
-<area shape="rect" href="game_8cpp.html" title=" " alt="" coords="470,79,599,105"/>
-<area shape="poly" title=" " alt="" coords="483,40,523,77,520,81,480,44"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="624,79,720,105"/>
-<area shape="poly" title=" " alt="" coords="509,34,636,76,634,81,507,39"/>
-<area shape="rect" href="text__ui_8cpp.html" title=" " alt="" coords="744,79,866,105"/>
-<area shape="poly" title=" " alt="" coords="532,32,747,76,745,81,531,37"/>
+<area shape="poly" title=" " alt="" coords="472,38,277,81,276,76,470,32"/>
+<area shape="rect" href="enemy_8cpp.html" title=" " alt="" coords="317,79,451,105"/>
+<area shape="poly" title=" " alt="" coords="501,40,412,81,409,76,498,35"/>
+<area shape="rect" href="event_8cpp.html" title=" " alt="" coords="475,79,604,105"/>
+<area shape="poly" title=" " alt="" coords="542,46,542,79,537,79,537,46"/>
+<area shape="rect" href="game_8cpp.html" title=" " alt="" coords="628,79,758,105"/>
+<area shape="poly" title=" " alt="" coords="581,36,668,76,666,81,579,40"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="782,79,879,105"/>
+<area shape="poly" title=" " alt="" coords="605,33,783,76,781,81,603,38"/>
+<area shape="rect" href="text__ui_8cpp.html" title=" " alt="" coords="903,79,1024,105"/>
+<area shape="poly" title=" " alt="" coords="625,31,903,78,902,83,624,36"/>
 </map>
 </div>
 </div>
@@ -158,6 +166,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdeckstiny_1_1_character_data.html">deckstiny::CharacterData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the data for a character class, loaded from JSON.  <a href="structdeckstiny_1_1_character_data.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdeckstiny_1_1_game.html">deckstiny::Game</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main game manager class.  <a href="classdeckstiny_1_1_game.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>

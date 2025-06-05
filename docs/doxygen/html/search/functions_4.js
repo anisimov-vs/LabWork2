@@ -8,6 +8,5 @@ var searchData=
   ['enemy_5',['Enemy',['../classdeckstiny_1_1_enemy.html#a40304104016218bc9c981d21d1f14043',1,'deckstiny::Enemy::Enemy()=default'],['../classdeckstiny_1_1_enemy.html#ae3eec4c3afaf8ced0a0ddd5d2274abcc',1,'deckstiny::Enemy::Enemy(const std::string &amp;id, const std::string &amp;name, int maxHealth)']]],
   ['entity_6',['Entity',['../classdeckstiny_1_1_entity.html#a6563cb1bf9cb6228734640399dfb08d8',1,'deckstiny::Entity::Entity()=default'],['../classdeckstiny_1_1_entity.html#a5146e283c1aef27ecc4f0eff7b8bd0fe',1,'deckstiny::Entity::Entity(const std::string &amp;id, const std::string &amp;name)']]],
   ['event_7',['Event',['../classdeckstiny_1_1_event.html#af1b5f7d2da30ee9e11439246c8f342f1',1,'deckstiny::Event::Event()=default'],['../classdeckstiny_1_1_event.html#ab610a737723170fb080cdd5f3f905553',1,'deckstiny::Event::Event(const std::string &amp;id, const std::string &amp;name, const std::string &amp;description)']]],
-  ['executemove_8',['executeMove',['../classdeckstiny_1_1_enemy.html#a52c262c65e7b01dcfdc1663db97718a7',1,'deckstiny::Enemy']]],
-  ['exhaustcard_9',['exhaustCard',['../classdeckstiny_1_1_player.html#a260aec6a5e0304a80bd3a7f17732dbb9',1,'deckstiny::Player']]]
+  ['exhaustcard_8',['exhaustCard',['../classdeckstiny_1_1_player.html#a260aec6a5e0304a80bd3a7f17732dbb9',1,'deckstiny::Player']]]
 ];

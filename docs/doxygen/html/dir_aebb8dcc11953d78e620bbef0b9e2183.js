@@ -7,7 +7,7 @@ var dir_aebb8dcc11953d78e620bbef0b9e2183 =
     [ "entity.cpp", "entity_8cpp.html", null ],
     [ "event.cpp", "event_8cpp.html", null ],
     [ "game.cpp", "game_8cpp.html", "game_8cpp" ],
-    [ "map.cpp", "map_8cpp.html", null ],
+    [ "map.cpp", "map_8cpp.html", "map_8cpp" ],
     [ "player.cpp", "player_8cpp.html", null ],
     [ "relic.cpp", "relic_8cpp.html", null ]
 ];

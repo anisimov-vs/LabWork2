@@ -1,5 +1,14 @@
 <map id="deckstiny::Game::upgradeCard" name="deckstiny::Game::upgradeCard">
-<area shape="rect" id="Node000001" title="Show UI for selecting and upgrading a card from the player&#39;s deck." alt="" coords="227,13,429,38"/>
-<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="5,5,179,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,28,179,28,179,23,211,23"/>
+<area shape="rect" id="Node000001" title="Show UI for selecting and upgrading a card from the player&#39;s deck." alt="" coords="700,78,903,104"/>
+<area shape="rect" id="Node000002" href="$classdeckstiny_1_1_game.html#a5846cd61e796127f56b0d16d7a8b499e" title=" " alt="" coords="452,37,652,78"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="685,78,652,74,653,68,686,73"/>
+<area shape="rect" id="Node000006" href="$classdeckstiny_1_1_event.html#a37060e356f075e046a080cff3330647d" title="Process a selected choice." alt="" coords="466,103,639,143"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="685,109,639,115,639,109,685,103"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_game.html#afc02597300d0088d4fcb5b7a91760c13" title="Initialize input handlers." alt="" coords="229,5,404,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="436,45,404,40,405,35,437,39"/>
+<area shape="rect" id="Node000005" href="$classdeckstiny_1_1_game.html#adc93138f082b628f488630a534affd92" title="Process input for the current state." alt="" coords="229,71,404,111"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="437,77,404,81,404,76,436,71"/>
+<area shape="rect" id="Node000004" href="$classdeckstiny_1_1_game.html#afd197e4fb49751401aeb6298c5882df3" title="Initialize the game." alt="" coords="5,46,181,72"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="214,44,181,49,181,43,213,38"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="214,79,181,74,182,69,215,74"/>
 </map>

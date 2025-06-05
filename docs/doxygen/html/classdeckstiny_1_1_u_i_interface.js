@@ -22,6 +22,8 @@ var classdeckstiny_1_1_u_i_interface =
     [ "showRelic", "classdeckstiny_1_1_u_i_interface.html#a6dedb31749d51e39976cb260086dd753", null ],
     [ "showRelics", "classdeckstiny_1_1_u_i_interface.html#a0f5e7090005a098addfc6dee45750902", null ],
     [ "showRewards", "classdeckstiny_1_1_u_i_interface.html#ac6d4f21311db0655a0a626a119a4c351", null ],
+    [ "showShop", "classdeckstiny_1_1_u_i_interface.html#a36ce15c94eb7745e1ae5f3cd440789ff", null ],
+    [ "showShop", "classdeckstiny_1_1_u_i_interface.html#af8b18bbd44f1691f920b3258728a885c", null ],
     [ "shutdown", "classdeckstiny_1_1_u_i_interface.html#ab56d8960fdcb8d373458997586bb1037", null ],
     [ "update", "classdeckstiny_1_1_u_i_interface.html#a3345c6ddb7caf168fda82d99157d468d", null ]
 ];

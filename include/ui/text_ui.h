@@ -1,9 +1,13 @@
-#pragma once
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
+#ifndef DECKSTINY_UI_TEXT_UI_H
+#define DECKSTINY_UI_TEXT_UI_H
 
 #include "ui/ui_interface.h"
-#include "core/map.h"        // For RoomType
-#include "core/card.h"       // For CardType, CardRarity
-#include "core/relic.h"      // For RelicRarity
+#include "core/map.h"
+#include "core/card.h"
+#include "core/relic.h"
 
 #include <iostream>
 #include <sstream>
@@ -33,6 +37,19 @@ public:
      * @brief Virtual destructor
      */
     virtual ~TextUI();
+    
+    /**
+     * @brief Sets the testing mode for TextUI.
+     * In testing mode, TextUI will not start its input thread or print to console.
+     * @param enabled True to enable testing mode, false otherwise.
+     */
+    static void setTestingMode(bool enabled);
+    
+    /**
+     * @brief Checks if TextUI is currently in testing mode.
+     * @return True if in testing mode, false otherwise.
+     */
+    static bool isTestingMode();
     
     /**
      * @brief Initialize the UI
@@ -202,12 +219,36 @@ public:
     void showEventResult(const std::string& resultText) override;
 
     /**
+     * @brief Show the shop UI
+     * @param cards Cards for sale
+     * @param relics Relics for sale
+     * @param playerGold Current player gold
+     */
+    void showShop(const std::vector<Card*>& cards, 
+                  const std::vector<Relic*>& relics, 
+                  int playerGold) override;
+                  
+    /**
+     * @brief Show the shop UI with relic prices
+     * @param cards Cards for sale
+     * @param relics Relics for sale
+     * @param relicPrices Map of relics to their prices
+     * @param playerGold Current player gold
+     */
+    void showShop(const std::vector<Card*>& cards, 
+                  const std::vector<Relic*>& relics,
+                  const std::unordered_map<Relic*, int>& relicPrices,
+                  int playerGold) override;
+
+    /**
      * @brief Prints a line of equals signs (useful for section dividers)
      * @param width Width of the divider (default: 80)
      */
     void printDivider(int width = 80);
 
 private:
+    static std::atomic<bool> testingModeEnabled_; // Static flag for testing mode
+
     Game* game_ = nullptr;                     ///< Pointer to the game instance
     std::function<bool(const std::string&)> inputCallback_; ///< Input callback function
     
@@ -221,11 +262,6 @@ private:
      * @brief Input thread function
      */
     void inputThreadFunc();
-    
-    /**
-     * @brief Process pending input
-     */
-    void processInput();
     
     /**
      * @brief Get room type as string
@@ -284,3 +320,5 @@ private:
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_UI_TEXT_UI_H

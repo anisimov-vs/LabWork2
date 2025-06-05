@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include <gtest/gtest.h>
 #include "core/card.h"
 #include "core/player.h"
@@ -25,7 +28,7 @@ protected:
         );
         
         // Create a player and enemy for testing card effects
-        player = std::make_shared<Player>("player1", "Test Player", PlayerClass::IRONCLAD, 75, 3, 5);
+        player = std::make_shared<Player>("ironclad", "Test Player", 75, 3, 5);
         enemy = std::make_shared<Enemy>("enemy1", "Test Enemy", 50);
     }
 
@@ -95,6 +98,10 @@ TEST_F(CardTest, CardTargeting) {
     // Create a combat instance
     auto combat = std::make_shared<Combat>(player.get());
     combat->addEnemy(enemy);
+    
+    // Start combat for player and combat object
+    player->beginCombat(); // Initialize player for combat (e.g., set current energy)
+    combat->start();       // Initialize combat state (e.g., enemy intents)
     
     // Test card with no target
     auto noTargetCard = std::make_shared<Card>(

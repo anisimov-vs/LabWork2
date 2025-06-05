@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
 #include "core/character.h"
 #include "core/player.h"
 #include "util/logger.h"
@@ -22,9 +25,12 @@ int Character::getMaxHealth() const {
     return maxHealth_;
 }
 
-void Character::setMaxHealth(int maxHealth) {
-    maxHealth_ = std::max(1, maxHealth);
+void Character::setMaxHealth(int newMaxHealthValue) {
+    int oldMaxHealth = maxHealth_;
+    int oldCurrentHealth = currentHealth_;
+    maxHealth_ = std::max(1, newMaxHealthValue);
     currentHealth_ = std::min(currentHealth_, maxHealth_);
+    LOG_INFO("character_setmaxhealth", getName() + " setMaxHealth. Old MaxHP: " + std::to_string(oldMaxHealth) + " -> New MaxHP: " + std::to_string(maxHealth_) + ". Old HP: " + std::to_string(oldCurrentHealth) + " -> New HP (after cap): " + std::to_string(currentHealth_) + ". Requested New MaxHP: " + std::to_string(newMaxHealthValue));
 }
 
 bool Character::isAlive() const {
@@ -36,23 +42,25 @@ int Character::takeDamage(int amount) {
         return 0;
     }
     
-    // Add debug logging
-    std::string entityType = (dynamic_cast<Player*>(this)) ? "Player" : "Enemy";
-    LOG_DEBUG("combat", entityType + " " + getName() + " taking " + std::to_string(amount) + " damage with " + std::to_string(block_) + " block");
+    int modifiedAmount = amount;
+    if (hasStatusEffect("vulnerable")) {
+        modifiedAmount = static_cast<int>(std::round(modifiedAmount * 1.5));
+        LOG_DEBUG("combat", getName() + " is Vulnerable, incoming damage increased to " + std::to_string(modifiedAmount));
+    }
     
-    // Apply block
-    int remainingDamage = amount;
+    std::string entityType = (dynamic_cast<Player*>(this)) ? "Player" : "Enemy";
+    LOG_DEBUG("combat", entityType + " " + getName() + " taking " + std::to_string(modifiedAmount) + " damage with " + std::to_string(block_) + " block");
+    
+    int remainingDamage = modifiedAmount;
     if (block_ > 0) {
         int blockUsed = std::min(block_, remainingDamage);
         block_ -= blockUsed;
         remainingDamage -= blockUsed;
         
-        // More detailed block usage logging
         LOG_DEBUG("combat", entityType + " " + getName() + " blocked " + std::to_string(blockUsed) + 
                  " damage, " + std::to_string(block_) + " block remaining");
     }
     
-    // Apply remaining damage to health
     if (remainingDamage > 0) {
         int oldHealth = currentHealth_;
         currentHealth_ = std::max(0, currentHealth_ - remainingDamage);
@@ -60,25 +68,26 @@ int Character::takeDamage(int amount) {
                  " health damage, health now " + std::to_string(currentHealth_));
     }
     
-    // Return the original damage amount, as the tests expect this
     return amount;
 }
 
 int Character::heal(int amount) {
     if (amount <= 0 || !isAlive()) {
+        LOG_DEBUG("character_heal", getName() + " heal called with amount " + std::to_string(amount) + " but no healing done (amount<=0 or !isAlive).");
         return 0;
     }
     
     int oldHealth = currentHealth_;
     currentHealth_ = std::min(maxHealth_, currentHealth_ + amount);
-    return currentHealth_ - oldHealth;
+    int healedAmount = currentHealth_ - oldHealth;
+    LOG_INFO("character_heal", getName() + " healed for " + std::to_string(healedAmount) + ". Health: " + std::to_string(oldHealth) + " -> " + std::to_string(currentHealth_) + " (Max: " + std::to_string(maxHealth_) + "). Requested: " + std::to_string(amount));
+    return healedAmount;
 }
 
 void Character::addBlock(int amount) {
     if (amount > 0) {
         int oldBlock = block_;
         block_ += amount;
-        // Add debug logging
         std::string entityType = (dynamic_cast<Player*>(this)) ? "Player" : "Enemy";
         LOG_DEBUG("combat", entityType + " " + getName() + " block increased from " + 
                  std::to_string(oldBlock) + " to " + std::to_string(block_));
@@ -119,7 +128,6 @@ void Character::resetEnergy() {
 }
 
 void Character::resetBlock() {
-    // Add debug logging
     if (block_ > 0) {
         std::string entityType = (dynamic_cast<Player*>(this)) ? "Player" : "Enemy";
         LOG_DEBUG("combat", entityType + " " + getName() + " block reset from " + 
@@ -160,18 +168,14 @@ const std::unordered_map<std::string, int>& Character::getStatusEffects() const 
 }
 
 void Character::startTurn() {
-    // Process status effects at start of turn
-    // For example, poison damage
     if (hasStatusEffect("poison")) {
         int poison = getStatusEffect("poison");
         takeDamage(poison);
-        addStatusEffect("poison", -1); // Reduce poison by 1
+        addStatusEffect("poison", -1);
     }
 }
 
 void Character::endTurn() {
-    // Process status effects at end of turn
-    // For example, reduce strength from temporary buffs
     if (hasStatusEffect("temporary_strength")) {
         int tempStr = getStatusEffect("temporary_strength");
         addStatusEffect("strength", -tempStr);
@@ -207,7 +211,6 @@ bool Character::loadFromJson(const nlohmann::json& json) {
         
         return true;
     } catch (const std::exception& e) {
-        // TODO: Add proper error handling/logging
         return false;
     }
 }

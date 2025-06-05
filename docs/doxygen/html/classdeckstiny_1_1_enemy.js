@@ -8,7 +8,6 @@ var classdeckstiny_1_1_enemy =
     [ "clone", "classdeckstiny_1_1_enemy.html#a06cab94a29b58f53cf9f74dc5c905d20", null ],
     [ "cloneEnemy", "classdeckstiny_1_1_enemy.html#a4140a873efdbb9728be9236bfd766f98", null ],
     [ "endTurn", "classdeckstiny_1_1_enemy.html#a083bf21385991e4a40804a3f2ba53076", null ],
-    [ "executeMove", "classdeckstiny_1_1_enemy.html#a52c262c65e7b01dcfdc1663db97718a7", null ],
     [ "getIntent", "classdeckstiny_1_1_enemy.html#aec86f62bb424ed791b43ec2e5afa9f33", null ],
     [ "getMaxGold", "classdeckstiny_1_1_enemy.html#a4cae28c51b4b2a3af7d743a448cb03c3", null ],
     [ "getMinGold", "classdeckstiny_1_1_enemy.html#a56c7c42a3c271fcb96090e2913742810", null ],

@@ -32,6 +32,10 @@ add_library(deckstiny_ui STATIC ${UI_SOURCES})
 target_link_libraries(deckstiny_core PUBLIC nlohmann_json::nlohmann_json PUBLIC deckstiny_util)
 target_link_libraries(deckstiny_ui PUBLIC deckstiny_core)
 
+if(BUILD_TESTS)
+    target_compile_definitions(deckstiny_core PRIVATE DECKSTINY_TESTING_ENV)
+endif()
+
 # Add executable
 add_executable(deckstiny ${MAIN_SOURCES})
 target_link_libraries(deckstiny 

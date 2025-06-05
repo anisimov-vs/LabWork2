@@ -10,7 +10,9 @@
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="154,175,212,193,210,199,153,180"/>
 <area shape="rect" id="Node000007" href="$classdeckstiny_1_1_character.html#a54b612fa3d3cda6c47c36ffccefbab1a" title="Apply damage to the character." alt="" coords="220,267,362,307"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="116,175,164,212,221,251,230,257,228,261,218,256,161,217,113,179"/>
-<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="410,136,537,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="342,44,363,57,406,89,443,123,440,127,403,93,361,61,339,49"/>
-<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="339,264,361,251,403,219,440,186,443,190,406,223,363,256,342,268"/>
+<area shape="rect" id="Node000003" href="$classdeckstiny_1_1_entity.html#ad12cec4d3bbda7c12589fb396e029ece" title="Get the entity&#39;s name." alt="" coords="418,104,545,145"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="338,44,363,57,432,94,429,98,361,61,336,49"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="341,264,360,252,413,204,454,155,458,159,417,207,364,256,343,268"/>
+<area shape="rect" id="Node000008" href="$classdeckstiny_1_1_character.html#a462fb9eb3e4bc38e2a918686b619bf30" title="Check if has a specific status effect." alt="" coords="410,267,552,307"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="363,284,395,284,395,290,363,290"/>
 </map>

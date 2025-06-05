@@ -5,18 +5,18 @@
     "base_energy": 3,
     "initial_hand_size": 5,
     "class": "WATCHER",
-    "description": "A blind ascetic who has come to evaluate the Spire.",
+    "description": "A blind ascetic who has come to 'evaluate' the Spire. Channels divine Stances.",
     "starting_deck": [
-        "strike_p",
-        "strike_p",
-        "strike_p",
-        "strike_p",
-        "defend_p",
-        "defend_p",
-        "defend_p",
-        "defend_p",
-        "eruption",
-        "vigilance"
+        "erupt_w",
+        "erupt_w",
+        "vigilance_w",
+        "vigilance_w",
+        "vigilance_w",
+        "empty_fist_w",
+        "empty_fist_w",
+        "empty_fist_w",
+        "tranquility_w",
+        "tranquility_w"
     ],
     "starting_relics": [
         "pure_water"

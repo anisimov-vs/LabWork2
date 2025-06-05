@@ -1,4 +1,8 @@
-#pragma once
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Laboratory Work 2
+
+#ifndef DECKSTINY_CORE_ENEMY_H
+#define DECKSTINY_CORE_ENEMY_H
 
 #include "core/character.h"
 #include <vector>
@@ -17,11 +21,12 @@ class Player;
  * @brief Structure representing an enemy's intent
  */
 struct Intent {
-    std::string type;       ///< Type of intent (attack, defend, buff, debuff, etc.)
-    int value = 0;          ///< Primary value (damage, block, etc.)
-    int secondaryValue = 0; ///< Secondary value (if needed)
-    std::string target;     ///< Target of the intent (player, self, ally, etc.)
-    std::string effect;     ///< Additional effect (if applicable)
+    std::string type;                           ///< Type of intent (attack, defend, buff, debuff, etc.)
+    int value = 0;                              ///< Primary value (damage, block, etc.)
+    int secondaryValue = 0;                     ///< Secondary value (if needed)
+    std::string target;                         ///< Target of the intent (player, self, ally, etc.)
+    std::string effect;                         ///< Additional effect (if applicable)
+    nlohmann::json associatedEffectsJson;       ///< Raw JSON of the full effects array for this move
 };
 
 /**
@@ -166,25 +171,17 @@ public:
      * @return Shared pointer to a new enemy with the same properties
      */
     std::shared_ptr<Enemy> cloneEnemy() const;
-
-protected:
-    /**
-     * @brief Execute a specific move
-     * @param moveId ID of the move to execute
-     * @param combat Current combat instance
-     * @param player Player character
-     * @return True if move executed successfully, false otherwise
-     */
-    virtual bool executeMove(const std::string& moveId, Combat* combat, Player* player);
     
 private:
-    Intent currentIntent_;             ///< Current intent
-    std::vector<std::string> moves_;   ///< Possible moves
+    Intent currentIntent_;                                 ///< Current intent
+    std::vector<std::string> moves_;                       ///< Possible moves
     std::unordered_map<std::string, Intent> moveIntents_;  ///< Map of move IDs to their intent data
-    bool elite_ = false;               ///< Whether this is an elite enemy
-    bool boss_ = false;                ///< Whether this is a boss enemy
-    int minGold_ = 10;                 ///< Minimum gold reward
-    int maxGold_ = 20;                 ///< Maximum gold reward
+    bool elite_ = false;                                   ///< Whether this is an elite enemy
+    bool boss_ = false;                                    ///< Whether this is a boss enemy
+    int minGold_ = 10;                                     ///< Minimum gold reward
+    int maxGold_ = 20;                                     ///< Maximum gold reward
 };
 
 } // namespace deckstiny 
+
+#endif // DECKSTINY_CORE_ENEMY_H
