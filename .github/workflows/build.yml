@@ -8,20 +8,23 @@ on:
     branches:
       - '*'
 
+permissions:
+  contents: write  # Needed to create releases
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: 'recursive'
+        fetch-depth: 0  # Fetch all history for proper versioning
         
-    - name: Install dependencies
+    - name: Install general dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential cmake
+        sudo apt-get install -y build-essential cmake libsfml-dev wget libfuse2
 
-        
     - name: Create build directory
       run: mkdir -p build
       
@@ -33,9 +36,99 @@ jobs:
     - name: Build
       run: |
         cd build
-        make
+        make -j$(nproc)
       
     - name: Test
       run: |
         cd build
-        ctest --verbose
+        ctest
+
+    - name: Download linuxdeploy
+      run: |
+        wget -c https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+        chmod +x linuxdeploy-x86_64.AppImage
+
+    - name: Prepare AppDir
+      run: |
+        mkdir -p AppDir/usr/bin
+        mkdir -p AppDir/usr/share/applications
+        mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
+        mkdir -p AppDir/usr/share/resources
+
+        cp build/deckstiny AppDir/usr/bin/
+        # Ensure data directory exists in build before copying
+        if [ -d "build/data" ]; then
+          cp -r build/data AppDir/usr/share/resources/
+        else
+          echo "Warning: build/data directory not found. Skipping data copy for AppImage."
+        fi
+
+        # Create .desktop file
+        cat <<EOF > AppDir/usr/share/applications/deckstiny.desktop
+        [Desktop Entry]
+        Name=Deckstiny
+        Exec=deckstiny
+        Icon=deckstiny
+        Type=Application
+        Categories=Game;
+        EOF
+
+        # Copy icon (assuming deckstiny.png is in the repo root)
+        if [ -f "deckstiny.png" ]; then
+          cp deckstiny.png AppDir/usr/share/icons/hicolor/256x256/apps/deckstiny.png
+        else
+          echo "Warning: Icon deckstiny.png not found in repository root. AppImage will not have a custom icon."
+        fi
+
+    - name: Build AppImage
+      run: |
+        ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage \
+          --executable AppDir/usr/bin/deckstiny \
+          --desktop-file AppDir/usr/share/applications/deckstiny.desktop \
+          --icon-file AppDir/usr/share/icons/hicolor/256x256/apps/deckstiny.png
+
+    - name: Upload AppImage Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Deckstiny-AppImage
+        path: Deckstiny*.AppImage
+        
+    - name: Generate Release Info
+      id: release_info
+      run: |
+        # Get short commit hash
+        SHORT_HASH=$(git rev-parse --short HEAD)
+        echo "commit_hash=$SHORT_HASH" >> $GITHUB_OUTPUT
+        
+        # Get commit message
+        COMMIT_MSG=$(git log -1 --pretty=%B)
+        echo "commit_message<<EOF" >> $GITHUB_OUTPUT
+        echo "$COMMIT_MSG" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        
+        # Generate release name with timestamp for chronological sorting
+        CURRENT_DATE=$(date +"%Y-%m-%d")
+        TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+        FORMATTED_TIMESTAMP=$(date +"%Y.%m.%d_%H.%M.%S")
+        BRANCH_NAME=${GITHUB_REF#refs/heads/}
+        echo "release_name=Pre-release-Deckstiny-$FORMATTED_TIMESTAMP-$BRANCH_NAME-$SHORT_HASH" >> $GITHUB_OUTPUT
+        
+        # Always create a release for new commits
+        echo "should_release=true" >> $GITHUB_OUTPUT
+
+    - name: Create GitHub Release
+      if: github.event_name == 'push' && steps.release_info.outputs.should_release == 'true'
+      uses: softprops/action-gh-release@v1
+      with:
+        name: ${{ steps.release_info.outputs.release_name }}
+        tag_name: ${{ steps.release_info.outputs.release_name }}
+        body: |
+          Pre-release build from commit ${{ steps.release_info.outputs.commit_hash }} on branch ${{ github.ref_name }}
+          
+          ${{ steps.release_info.outputs.commit_message }}
+          
+          Full Changelog: https://github.com/${{ github.repository }}/compare/${{ github.event.before }}...${{ steps.release_info.outputs.commit_hash }}
+        files: Deckstiny*.AppImage
+        prerelease: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

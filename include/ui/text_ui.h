@@ -17,6 +17,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <queue>
+#include <map>
 
 namespace deckstiny {
 
@@ -229,15 +230,17 @@ public:
                   int playerGold) override;
                   
     /**
-     * @brief Show the shop UI with relic prices
+     * @brief Show the shop UI with relic and card prices
      * @param cards Cards for sale
      * @param relics Relics for sale
      * @param relicPrices Map of relics to their prices
+     * @param cardPrices Map of cards to their prices (NEW)
      * @param playerGold Current player gold
      */
     void showShop(const std::vector<Card*>& cards, 
                   const std::vector<Relic*>& relics,
-                  const std::unordered_map<Relic*, int>& relicPrices,
+                  const std::map<Relic*, int>& relicPrices,
+                  const std::map<Card*, int>& cardPrices,
                   int playerGold) override;
 
     /**

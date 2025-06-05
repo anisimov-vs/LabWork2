@@ -213,7 +213,7 @@ bool Combat::playCard(int cardIndex, int targetIndex) {
     LOG_DEBUG("combat", "Attempting to play card: " + card->getName());
     
     if (!card->canPlay(player_, targetIndex, this)) {
-        LOG_ERROR("combat", "Card cannot be played: " + card->getName());
+        LOG_INFO("combat", "Card cannot be played: " + card->getName());
         return false;
     }
     

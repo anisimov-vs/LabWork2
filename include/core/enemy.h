@@ -172,6 +172,12 @@ public:
      */
     std::shared_ptr<Enemy> cloneEnemy() const;
     
+    /**
+     * @brief Get a textual description of the current intent
+     * @return String describing the intent
+     */
+    std::string getIntentDescription() const;
+    
 private:
     Intent currentIntent_;                                 ///< Current intent
     std::vector<std::string> moves_;                       ///< Possible moves

@@ -253,7 +253,7 @@ bool GameMap::generate(int act) {
             if (added_count > 0) {
                  LOG_INFO("map_diversify", "  Room #" + std::to_string(source_room_on_floor_y->id) + " now has " + std::to_string(source_room_on_floor_y->nextRooms.size()) + " exits after diversification.");
             } else if (num_additional_paths_needed > 0) {
-                 LOG_WARNING("map_diversify", "  Could not add any new exits for Room #" + std::to_string(source_room_on_floor_y->id) + ". Still needs " + std::to_string(num_additional_paths_needed - added_count) + " exits.");
+                 LOG_DEBUG("map_diversify", "  Could not add any new exits for Room #" + std::to_string(source_room_on_floor_y->id) + ". Still needs " + std::to_string(num_additional_paths_needed - added_count) + " exits.");
             }
         }
     }

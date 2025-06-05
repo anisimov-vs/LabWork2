@@ -201,20 +201,24 @@ public:
                           int playerGold) = 0;
 
     /**
-     * @brief Show the shop UI with relic prices
+     * @brief Show the shop UI with relic and card prices
      * @param cards Cards for sale
      * @param relics Relics for sale
      * @param relicPrices Map of relics to their prices
+     * @param cardPrices Map of cards to their prices (NEW)
      * @param playerGold Current player gold
      */
     virtual void showShop(const std::vector<Card*>& cards, 
                          const std::vector<Relic*>& relics,
-                         const std::unordered_map<Relic*, int>& relicPrices,
+                         const std::map<Relic*, int>& relicPrices,
+                         const std::map<Card*, int>& cardPrices,
                          int playerGold) {
         // Prevent unused parameter warning
         (void)relicPrices;
+        (void)cardPrices; // Prevent unused for new parameter
         
-        // Default implementation just calls the regular showShop
+        // Default implementation just calls the simpler showShop for backward compatibility
+        // Derived classes should override this more specific version.
         showShop(cards, relics, playerGold);
     }
 };

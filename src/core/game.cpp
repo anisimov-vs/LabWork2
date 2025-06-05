@@ -54,15 +54,84 @@ Game::~Game() {
 
 void Game::initializeLogging() {
     util::Logger::init();
-    util::Logger::getInstance().setFileEnabled(true); 
-    util::Logger::getInstance().setLogDirectory("logs/deckstiny"); 
+
+    const char* appDirEnv = std::getenv("APPDIR");
+    if (appDirEnv) {
+        // Running in AppImage, save logs to a user-specific directory
+        std::string homeDir = std::getenv("HOME") ? std::getenv("HOME") : ".";
+        std::string logPath = homeDir + "/.local/share/Deckstiny/logs";
+        
+        try {
+            if (!fs::exists(logPath)) {
+                fs::create_directories(logPath);
+            }
+            util::Logger::getInstance().setLogDirectory(logPath);
+            util::Logger::getInstance().setFileEnabled(true);
+            LOG_INFO("game_init", "AppImage detected. Log directory set to: " + logPath);
+        } catch (const fs::filesystem_error& e) {
+            util::Logger::getInstance().setLogDirectory("logs/deckstiny"); 
+            util::Logger::getInstance().setFileEnabled(true);
+            LOG_ERROR("game_init", "Failed to create AppImage log directory " + logPath + ": " + e.what() + ". Defaulting to ./logs/deckstiny");
+        }
+    } else {
+        // Not in AppImage, use local logs directory
+        util::Logger::getInstance().setLogDirectory("logs/deckstiny"); 
+        util::Logger::getInstance().setFileEnabled(true);
+        LOG_DEBUG("game_init", "Not an AppImage. Log directory set to: logs/deckstiny");
+    }
+
     util::Logger::getInstance().setConsoleEnabled(true); 
     util::Logger::getInstance().setFileLevel(util::LogLevel::Debug);
     util::Logger::getInstance().setConsoleLevel(util::LogLevel::Warning);
 }
 
+void Game::prepareUserSpecificData() {
+    const char* appDirEnv = std::getenv("APPDIR");
+    if (!appDirEnv) {
+        LOG_DEBUG("game_init", "Not an AppImage, skipping user-specific data preparation.");
+        return;
+    }
+
+    LOG_INFO("game_init", "AppImage detected. Preparing user-specific data directory if needed.");
+    std::filesystem::path user_config_base_dir = get_user_deckstiny_config_dir_path();
+    std::filesystem::path user_data_dir = user_config_base_dir / "data";
+
+    if (fs::exists(user_data_dir) && fs::is_directory(user_data_dir)) {
+        LOG_INFO("game_init", "User-specific data directory already exists: " + user_data_dir.string());
+        return;
+    }
+
+    LOG_INFO("game_init", "User-specific data directory does not exist. Attempting to copy from AppImage bundle.");
+    
+    try {
+        if (!fs::exists(user_config_base_dir)) {
+            LOG_DEBUG("game_init", "Creating user config base directory: " + user_config_base_dir.string());
+            fs::create_directories(user_config_base_dir);
+        }
+    } catch (const fs::filesystem_error& e) {
+        LOG_ERROR("game_init", "Failed to create user config base directory " + user_config_base_dir.string() + ": " + e.what());
+        return;
+    }
+
+    std::filesystem::path app_bundle_data_dir = std::filesystem::path(appDirEnv) / "usr" / "share" / "resources" / "data";
+
+    if (fs::exists(app_bundle_data_dir) && fs::is_directory(app_bundle_data_dir)) {
+        LOG_INFO("game_init", "Found bundled data at: " + app_bundle_data_dir.string());
+        try {
+            LOG_INFO("game_init", "Copying bundled data to: " + user_data_dir.string());
+            fs::copy(app_bundle_data_dir, user_data_dir, fs::copy_options::recursive | fs::copy_options::overwrite_existing);
+            LOG_INFO("game_init", "Successfully copied bundled data to user-specific directory.");
+        } catch (const fs::filesystem_error& e) {
+            LOG_ERROR("game_init", "Failed to copy bundled data from " + app_bundle_data_dir.string() + " to " + user_data_dir.string() + ": " + e.what());
+        }
+    } else {
+        LOG_WARNING("game_init", "Bundled data directory not found at: " + app_bundle_data_dir.string() + ". Cannot copy to user-specific location.");
+    }
+}
+
 bool Game::initialize(std::shared_ptr<UIInterface> uiInterface) {
     initializeLogging();
+    prepareUserSpecificData();
 
     if (!uiInterface) {
         LOG_ERROR("game", "UIInterface is null, cannot initialize game.");
@@ -127,6 +196,7 @@ void Game::setState(GameState newState) {
              " to " + GameStateToString(newState));
 
     GameState previousState = state_;
+    LOG_DEBUG("game_trace", "Game::setState called. Previous: " + GameStateToString(previousState) + ", New: " + GameStateToString(newState));
     state_ = newState;
 
     LOG_DEBUG("game", "newState value before switch: " + GameStateToString(newState) + ", current state_ after assignment: " + GameStateToString(state_));
@@ -134,7 +204,10 @@ void Game::setState(GameState newState) {
     switch (newState) {
         case GameState::MAIN_MENU: {
             LOG_DEBUG("game", "Showing main menu (switched on newState)");
-            if (ui_) ui_->showMainMenu();
+            if (ui_) {
+                LOG_DEBUG("game_trace", "Game::setState -> Calling ui_->showMainMenu()");
+                ui_->showMainMenu();
+            }
             break;
         }
         case GameState::CHARACTER_SELECT: {
@@ -160,6 +233,7 @@ void Game::setState(GameState newState) {
         case GameState::MAP: {
             LOG_DEBUG("game", "Showing map (switched on newState)");
             if (ui_ && map_ && map_->getCurrentRoom()) {
+                LOG_DEBUG("game_trace", "Game::setState -> Calling ui_->showMap()");
                 ui_->showMap(map_->getCurrentRoom()->id, map_->getAvailableRooms(), map_->getAllRooms());
                 LOG_DEBUG("game", "Map shown");
             } else {
@@ -184,7 +258,7 @@ void Game::setState(GameState newState) {
             this->startShop(); 
             if (ui_ && player_) {
                 LOG_DEBUG("game_setState_shop_check", "Before calling ui_->showShop: shopCardsForSale_.size() = " + std::to_string(shopCardsForSale_.size()) + ", shopRelicsForSale_.size() = " + std::to_string(shopRelicsForSale_.size()));
-                ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+                ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
                 LOG_DEBUG("game", "Shop shown");
             } else {
                 LOG_ERROR("game", "Cannot show shop: UI or player is null");
@@ -216,6 +290,7 @@ void Game::setState(GameState newState) {
         }
         case GameState::GAME_OVER: {
             LOG_DEBUG("game", "Showing game over (switched on newState)");
+            LOG_DEBUG("game_trace", "Game::setState -> Calling ui_->showGameOver()");
             if (currentCombat_) {
                 LOG_INFO("game", "Cleaning up combat state before game over");
                 currentCombat_.reset();
@@ -224,20 +299,7 @@ void Game::setState(GameState newState) {
             int finalScore = calculateScore();
             LOG_INFO("game", "Game over - Final score: " + std::to_string(finalScore));
             if (ui_) ui_->showGameOver(map_ && map_->isBossDefeated(), finalScore);
-            LOG_DEBUG("game", "Game over shown, awaiting transition to main menu");
-            
-            LOG_INFO("game", "Scheduling automatic transition to main menu in 5 seconds");
-            std::thread([this]() {
-                std::this_thread::sleep_for(std::chrono::seconds(5));
-                LOG_INFO("game", "Auto-executing game over handler to return to main menu");
-                currentCombat_.reset();
-                transitioningFromCombat_ = false;
-                currentEvent_.reset();
-                map_.reset();
-                player_.reset();
-                setState(GameState::MAIN_MENU);
-                LOG_INFO("game", "Auto-returned to main menu after game over");
-            }).detach();
+            LOG_DEBUG("game", "Game over shown, awaiting player input to transition to main menu");
             break;
         }
         case GameState::REWARD: {
@@ -648,6 +710,7 @@ bool Game::processInput(const std::string& input) {
     }
 
     bool result = false;
+    LOG_DEBUG("game_trace", "Game::processInput: Current state: " + GameStateToString(state_) + ", Input: '" + input + "'");
     switch (state_) {
         case GameState::MAIN_MENU:
             result = handleMainMenuInput(input);
@@ -666,12 +729,14 @@ bool Game::processInput(const std::string& input) {
             break;
         case GameState::REWARD:
             LOG_INFO("game", "Input received in REWARD state: " + input + ". Transitioning to MAP.");
+            LOG_DEBUG("game_trace", "Game::processInput (REWARD) received: '" + input + "'. Transitioning to MAP.");
             currentCombat_.reset();
             setState(GameState::MAP);
             result = true;
             break;
         case GameState::GAME_OVER:
             LOG_INFO("game", "Input received in GAME_OVER state: " + input + ". Transitioning to MAIN_MENU.");
+            LOG_DEBUG("game_trace", "Game::processInput (GAME_OVER) received: '" + input + "'. Transitioning to MAIN_MENU.");
             setState(GameState::MAIN_MENU);
             result = true;
             break;
@@ -764,6 +829,7 @@ void Game::initializeInputHandlers() {
     
     inputHandlers_[GameState::GAME_OVER] = [this](const std::string& input) {
         LOG_INFO("game", "Game over handler activated with input: '" + input + "'");
+        LOG_DEBUG("game_trace", "InputHandler (GAME_OVER) received: '" + input + "'. Transitioning to MAIN_MENU.");
         
         int score = calculateScore();
         LOG_INFO("game", "Final score: " + std::to_string(score));
@@ -963,45 +1029,53 @@ bool Game::handleMapInput(const std::string& input) {
                             case RoomType::MONSTER: {
                                 std::vector<std::string> availableEnemies;
                                 int floorRange = map_->getEnemyFloorRange();
-                                
+
                                 LOG_INFO("game", "Selecting enemy for monster room at floor range: " + std::to_string(floorRange));
-                                
-                                try {
-                                    for (const auto& entry : fs::directory_iterator("data/enemies")) {
-                                        if (entry.is_regular_file() && entry.path().extension() == ".json") {
-                                            std::string id = entry.path().stem().string();
-                                            json enemyData;
-                                            std::ifstream file(entry.path());
-                                            if (file.is_open()) {
-                                                file >> enemyData;
-                                                
-                                                bool isAppropriate = true;
-                                                
-                                                if ((enemyData.contains("is_elite") && enemyData["is_elite"].get<bool>()) || 
-                                                    (enemyData.contains("is_boss") && enemyData["is_boss"].get<bool>())) {
-                                                    isAppropriate = false;
-                                                }
-                                                
-                                                if (enemyData.contains("min_floor") && 
-                                                    floorRange < enemyData["min_floor"].get<int>()) {
-                                                    isAppropriate = false;
-                                                }
-                                                
-                                                if (enemyData.contains("max_floor") && 
-                                                    floorRange > enemyData["max_floor"].get<int>()) {
-                                                    isAppropriate = false;
-                                                }
-                                                
-                                                if (isAppropriate) {
-                                                    availableEnemies.push_back(id);
-                                                    LOG_DEBUG("game", "Added enemy " + id + " to available list for floor range " + 
-                                                              std::to_string(floorRange));
+                                std::string enemies_path_str = get_data_path_prefix() + "data/enemies";
+                                LOG_DEBUG("game", "Looking for enemies in: " + enemies_path_str);
+
+                                if (fs::exists(enemies_path_str) && fs::is_directory(enemies_path_str)) {
+                                    try {
+                                        for (const auto& entry : fs::directory_iterator(enemies_path_str)) {
+                                            if (entry.is_regular_file() && entry.path().extension() == ".json") {
+                                                try {
+                                                    std::string id = entry.path().stem().string();
+                                                    json enemyData;
+                                                    std::ifstream file(entry.path());
+                                                    if (file.is_open()) {
+                                                        file >> enemyData;
+                                                        
+                                                        bool isAppropriate = true;
+                                                        
+                                                        if ((enemyData.contains("is_elite") && enemyData["is_elite"].get<bool>()) || 
+                                                            (enemyData.contains("is_boss") && enemyData["is_boss"].get<bool>())) {
+                                                            isAppropriate = false;
+                                                        }
+                                                        
+                                                        if (enemyData.contains("min_floor") && 
+                                                            floorRange < enemyData["min_floor"].get<int>()) {
+                                                            isAppropriate = false;
+                                                        }
+                                                        
+                                                        if (enemyData.contains("max_floor") && 
+                                                            floorRange > enemyData["max_floor"].get<int>()) {
+                                                            isAppropriate = false;
+                                                        }
+                                                        
+                                                        if (isAppropriate) {
+                                                            availableEnemies.push_back(id);
+                                                            LOG_DEBUG("game", "Added enemy " + id + " to available list for floor range " + 
+                                                                      std::to_string(floorRange));
+                                                        }
+                                                    }
+                                                } catch (const std::exception& e) {
+                                                    LOG_ERROR("game", "Error loading enemies for encounter: " + std::string(e.what()));
                                                 }
                                             }
                                         }
+                                    } catch (const std::exception& e) {
+                                        LOG_ERROR("game", "Error accessing enemy directory: " + std::string(e.what()));
                                     }
-                                } catch (const std::exception& e) {
-                                    LOG_ERROR("game", "Error loading enemies for encounter: " + std::string(e.what()));
                                 }
                                 
                                 if (availableEnemies.empty()) {
@@ -1054,9 +1128,11 @@ bool Game::handleMapInput(const std::string& input) {
                                 int floorRange = map_->getEnemyFloorRange();
                                 
                                 LOG_INFO("game", "Selecting elite enemy for elite room at floor range: " + std::to_string(floorRange));
+                                std::string elite_enemies_path_str = get_data_path_prefix() + "data/enemies";
+                                LOG_DEBUG("game", "Looking for elite enemies in: " + elite_enemies_path_str);
                                 
                                 try {
-                                    for (const auto& entry : fs::directory_iterator("data/enemies")) {
+                                    for (const auto& entry : fs::directory_iterator(elite_enemies_path_str)) {
                                         if (entry.is_regular_file() && entry.path().extension() == ".json") {
                                             try {
                                                 std::string id = entry.path().stem().string();
@@ -1101,7 +1177,7 @@ bool Game::handleMapInput(const std::string& input) {
                                                 ", falling back to all elite enemies");
                                     
                                     try {
-                                        for (const auto& entry : fs::directory_iterator("data/enemies")) {
+                                        for (const auto& entry : fs::directory_iterator(elite_enemies_path_str)) {
                                             if (entry.is_regular_file() && entry.path().extension() == ".json") {
                                                 try {
                                                     std::string id = entry.path().stem().string();
@@ -1128,7 +1204,7 @@ bool Game::handleMapInput(const std::string& input) {
                                     
                                     std::vector<std::string> basicEnemies;
                                     try {
-                                        for (const auto& entry : fs::directory_iterator("data/enemies")) {
+                                        for (const auto& entry : fs::directory_iterator(elite_enemies_path_str)) {
                                             if (entry.is_regular_file() && entry.path().extension() == ".json") {
                                                 try {
                                                     std::string id = entry.path().stem().string();
@@ -1198,8 +1274,10 @@ bool Game::handleMapInput(const std::string& input) {
                             }
                             case RoomType::BOSS: {
                                 std::vector<std::string> bossEnemies;
+                                std::string boss_enemies_path_str = get_data_path_prefix() + "data/enemies";
+                                LOG_DEBUG("game", "Looking for boss enemies in: " + boss_enemies_path_str);
                                 try {
-                                    for (const auto& entry : fs::directory_iterator("data/enemies")) {
+                                    for (const auto& entry : fs::directory_iterator(boss_enemies_path_str)) {
                                         if (entry.is_regular_file() && entry.path().extension() == ".json") {
                                             try {
                                                 std::string id = entry.path().stem().string();
@@ -1289,27 +1367,16 @@ bool Game::handleMapInput(const std::string& input) {
                                 break;
                             }
                             case RoomType::SHOP: {
-                                LOG_INFO("game", "Player entered SHOP room #" + std::to_string(room->id));
-                                std::vector<Card*> cardsForSale; 
-                                std::vector<Relic*> relicsForSale;
-                                if (allCards_.size() >= 3) {
-                                    auto it = allCards_.begin();
-                                    std::advance(it, rand() % (allCards_.size() - 2));
-                                    cardsForSale.push_back(it->second.get()); it++;
-                                    cardsForSale.push_back(it->second.get()); it++;
-                                    cardsForSale.push_back(it->second.get());
-                                }
-                                if (!allRelics_.empty()) {
-                                    auto it = allRelics_.begin();
-                                    std::advance(it, rand() % allRelics_.size());
-                                    relicsForSale.push_back(it->second.get());
-                                }
+                                LOG_INFO("game", "Player entered SHOP room #" + std::to_string(room->id) + " via map. Initializing shop.");
+                                this->startShop();
 
                                 if (player_) {
-                                    ui_->showShop(cardsForSale, relicsForSale, shopRelicPrices_, player_->getGold());
-                                    setState(GameState::SHOP);
+                                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
+                                    if (state_ != GameState::SHOP) {
+                                       setState(GameState::SHOP);
+                                    }
                                 } else {
-                                    LOG_ERROR("game", "Player is null when trying to enter SHOP room.");
+                                    LOG_ERROR("game", "Player is null when trying to enter SHOP room from map.");
                                     setState(GameState::MAP);
                                 }
                                 break;
@@ -1696,6 +1763,16 @@ bool Game::handleEventInput(const std::string& input) {
             } else {
                 resultText += " Failed to obtain a random relic.";
             }
+        } else if (effect.type == "RANDOM_RELIC") {
+            std::shared_ptr<Relic> relic = this->getRandomRelicFromMasterList(); 
+            if (relic) {
+                player_->addRelic(relic);
+                resultText += " You found a random relic: " + relic->getName() + ".";
+                LOG_INFO("game", "Event effect RANDOM_RELIC: Gave player relic: " + relic->getName());
+            } else {
+                resultText += " Failed to find a random relic for you.";
+                LOG_WARNING("game", "Event effect RANDOM_RELIC: getRandomRelicFromMasterList returned nullptr.");
+            }
         } else if (effect.type == "START_COMBAT" || effect.type == "COMBAT") {
             std::vector<std::string> enemyIds;
             std::stringstream ss(effect.target);
@@ -1731,31 +1808,6 @@ bool Game::loadGameData() {
     std::string data_prefix = get_data_path_prefix();
     LOG_INFO("game", "Data path prefix: " + data_prefix);
 
-    std::vector<std::string> dataDirs = {
-        data_prefix + "data",
-        data_prefix + "data/cards",
-        data_prefix + "data/enemies",
-        data_prefix + "data/relics",
-        data_prefix + "data/characters",
-        data_prefix + "data/events"
-    };
-    
-    for (const auto& dir_path_str : dataDirs) {
-        fs::path dir_path(dir_path_str);
-        if (!fs::exists(dir_path)) {
-            try {
-                LOG_INFO("game", "Creating directory: " + dir_path.string());
-                fs::create_directories(dir_path);
-            } catch (const fs::filesystem_error& e) {
-                LOG_ERROR("game", "Failed to create directory: " + dir_path.string() + ": " + e.what());
-                return false;
-            }
-        } else if (!fs::is_directory(dir_path)) {
-            LOG_ERROR("game", "Path exists but is not a directory: " + dir_path.string());
-            return false;
-        }
-    }
-    
     if (!loadAllCharacters()) {
         LOG_ERROR("game", "Failed to load characters.");
         return false;
@@ -1980,7 +2032,7 @@ bool Game::handleShopInput(const std::string& input) {
 
     if (trimmed_input.empty()) {
         ui_->showMessage("Please enter an item to buy (e.g., C1, R1) or 'leave'.", true);
-        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
         return true;
     }
 
@@ -1990,7 +2042,7 @@ bool Game::handleShopInput(const std::string& input) {
 
     if ((item_type_char != 'c' && item_type_char != 'r') || item_number_str.empty()) {
         ui_->showMessage("Invalid format. Use C<number> for cards, R<number> for relics, or 'leave'.", true);
-        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
         return true;
     }
 
@@ -1998,7 +2050,7 @@ bool Game::handleShopInput(const std::string& input) {
         item_idx = std::stoi(item_number_str) - 1;
     } catch (const std::exception& e) {
         ui_->showMessage("Invalid item number. Please use format C<number> or R<number>.", true);
-        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
         return true;
     }
 
@@ -2006,15 +2058,28 @@ bool Game::handleShopInput(const std::string& input) {
         LOG_DEBUG("game_shop", "Checking card purchase. item_idx: " + std::to_string(item_idx) + ", shopCardsForSale_.size(): " + std::to_string(shopCardsForSale_.size()));
         if (item_idx >= 0 && item_idx < static_cast<int>(shopCardsForSale_.size())) {
             Card* selectedCard = shopCardsForSale_[item_idx];
-            int cardCost = selectedCard->getCost();
             
-            if (player_->getGold() >= cardCost) {
-                if (player_->spendGold(cardCost)) {
+            int cardGoldCost = 0;
+            auto priceIt = shopCardPrices_.find(selectedCard);
+            if (priceIt != shopCardPrices_.end()) {
+                cardGoldCost = priceIt->second;
+            } else {
+                LOG_ERROR("game_shop", "Could not find price for card: " + selectedCard->getName() + ". Defaulting to high price to prevent free purchase.");
+                cardGoldCost = 999; // Fallback
+            }
+            
+            if (player_->getGold() >= cardGoldCost) {
+                if (player_->spendGold(cardGoldCost)) {
                     player_->addCardToDeck(std::make_shared<Card>(*selectedCard));
-                    ui_->showMessage("You bought " + selectedCard->getName() + " for " + std::to_string(cardCost) + " gold!", true);
+                    ui_->showMessage("You bought " + selectedCard->getName() + " for " + std::to_string(cardGoldCost) + " gold!", true);
                     LOG_INFO("game", "Player bought card: " + selectedCard->getName());
+                    
+                    shopCardPrices_.erase(selectedCard);
                     shopCardsForSale_.erase(shopCardsForSale_.begin() + item_idx);
-                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold()); 
+                    
+                    delete selectedCard;
+
+                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold()); 
                 } else {
                      ui_->showMessage("Something went wrong with spending gold.", true);
                 }
@@ -2048,7 +2113,7 @@ bool Game::handleShopInput(const std::string& input) {
 
                     shopRelicPrices_.erase(selectedRelic);
                     shopRelicsForSale_.erase(shopRelicsForSale_.begin() + item_idx);
-                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+                    ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
                 } else {
                      ui_->showMessage("Something went wrong with spending gold.", true);
                 }
@@ -2063,7 +2128,7 @@ bool Game::handleShopInput(const std::string& input) {
     }
     
     if (state_ == GameState::SHOP) {
-        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, player_->getGold());
+        ui_->showShop(shopCardsForSale_, shopRelicsForSale_, shopRelicPrices_, shopCardPrices_, player_->getGold());
     }
     return true;
 }
@@ -2130,6 +2195,7 @@ void Game::startShop() {
     shopCardsForSale_.clear();
     shopRelicsForSale_.clear();
     shopRelicPrices_.clear();
+    shopCardPrices_.clear(); 
 
     // --- Populate Cards ---
     LOG_DEBUG("game_shop", "Total cards in allCards_: " + std::to_string(allCards_.size()));
@@ -2175,13 +2241,16 @@ void Game::startShop() {
             int price = 50;
 
             if      (shopCardInstance->getRarity() == CardRarity::COMMON) price = 20 + (rng_() % 9);    // 20-29
-            else if (shopCardInstance->getRarity() == CardRarity::BASIC) price = 25 + (rng_() % 11);    // 35-46
-            else if (shopCardInstance->getRarity() == CardRarity::UNCOMMON) price = 45 + (rng_() % 21); // 65-86
-            else if (shopCardInstance->getRarity() == CardRarity::RARE) price = 70 + (rng_() % 31);     // 100-131
+            else if (shopCardInstance->getRarity() == CardRarity::BASIC) price = 25 + (rng_() % 11);    // 25-35
+            else if (shopCardInstance->getRarity() == CardRarity::UNCOMMON) price = 45 + (rng_() % 21); // 45-65
+            else if (shopCardInstance->getRarity() == CardRarity::RARE) price = 70 + (rng_() % 31);     // 70-100
             
-            shopCardInstance->setCost(price);
+            shopCardPrices_[shopCardInstance] = price;
+
             shopCardsForSale_.push_back(shopCardInstance);
-            LOG_DEBUG("game_shop", "Added card to shop: " + shopCardInstance->getName() + " for " + std::to_string(shopCardInstance->getCost()) + "G");
+            LOG_DEBUG("game_shop", "Added card to shop: " + shopCardInstance->getName() + 
+                                   " (Energy: " + std::to_string(shopCardInstance->getCost()) + ")" +
+                                   " for " + std::to_string(price) + "G");
         }
     }
 

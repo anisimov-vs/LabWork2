@@ -10,6 +10,7 @@
 #include <random>
 #include <chrono>
 #include <iostream>
+#include <sstream>
 
 namespace deckstiny {
 
@@ -167,6 +168,23 @@ void Enemy::takeTurn(Combat* combat, Player* player) {
             }
         } else {
             LOG_WARNING("combat", getName() + " summon failed. SummonType: '" + summonType + "', NumToSummon: " + std::to_string(numToSummon) + ", Combat valid: " + (combat ? "true":"false") + ", Game valid: " + (combat && combat->getGame() ? "true":"false"));
+        }
+    } else if (currentIntent_.type == "attack_debuff") {
+        int finalDamage = currentIntent_.value;
+        if (hasStatusEffect("weak")) {
+            finalDamage = static_cast<int>(std::round(finalDamage * 0.75));
+            LOG_DEBUG("combat", getName() + " is Weak, attack_debuff damage reduced to " + std::to_string(finalDamage));
+        }
+        if (player) player->takeDamage(finalDamage);
+        if (player && !currentIntent_.effect.empty() && currentIntent_.secondaryValue > 0) {
+            player->addStatusEffect(currentIntent_.effect, currentIntent_.secondaryValue);
+            LOG_DEBUG("combat", getName() + " applied debuff '" + currentIntent_.effect + "' for " + std::to_string(currentIntent_.secondaryValue) + " turns to player.");
+        }
+    } else if (currentIntent_.type == "defend_debuff") {
+        addBlock(currentIntent_.value);
+        if (player && !currentIntent_.effect.empty() && currentIntent_.secondaryValue > 0) {
+            player->addStatusEffect(currentIntent_.effect, currentIntent_.secondaryValue);
+            LOG_DEBUG("combat", getName() + " applied debuff '" + currentIntent_.effect + "' for " + std::to_string(currentIntent_.secondaryValue) + " turns to player while defending.");
         }
     } else {
         LOG_WARNING("combat", "Unknown intent type '" + currentIntent_.type + "' for enemy " + getName());
@@ -332,6 +350,60 @@ std::shared_ptr<Enemy> Enemy::cloneEnemy() const {
     }
     
     return enemy;
+}
+
+std::string Enemy::getIntentDescription() const {
+    std::stringstream ss;
+    if (currentIntent_.type == "attack") {
+        ss << "Attack: " << currentIntent_.value;
+    } else if (currentIntent_.type == "attack_defend") {
+        ss << "Attack: " << currentIntent_.value << ", Defend: " << currentIntent_.secondaryValue;
+    } else if (currentIntent_.type == "defend") {
+        ss << "Defend: " << currentIntent_.value;
+    } else if (currentIntent_.type == "buff") {
+        ss << "Buff";
+        if (!currentIntent_.effect.empty()) {
+            ss << " (" << currentIntent_.effect << " +" << currentIntent_.value << ")";
+        }
+    } else if (currentIntent_.type == "debuff") {
+        ss << "Debuff";
+        if (!currentIntent_.effect.empty()) {
+            ss << " (" << currentIntent_.effect << " +" << currentIntent_.value << ")";
+        }
+    } else if (currentIntent_.type == "attack_debuff") {
+        ss << "Attack: " << currentIntent_.value;
+        if (!currentIntent_.effect.empty()) {
+            ss << ", Debuff (" << currentIntent_.effect;
+            if (currentIntent_.secondaryValue > 0) {
+                ss << " " << currentIntent_.secondaryValue;
+            }
+            ss << ")";
+        } else {
+            ss << ", Debuff";
+        }
+    } else if (currentIntent_.type == "defend_debuff") {
+        ss << "Defend: " << currentIntent_.value;
+        if (!currentIntent_.effect.empty()) {
+            ss << ", Debuff (" << currentIntent_.effect;
+            if (currentIntent_.secondaryValue > 0) {
+                ss << " " << currentIntent_.secondaryValue;
+            }
+            ss << ")";
+        } else {
+            ss << ", Debuff";
+        }
+    } else if (currentIntent_.type == "summon") {
+        ss << "Summon";
+         if (currentIntent_.value > 0) {
+            ss << " (" << currentIntent_.value << ")";
+        }
+    } else {
+        ss << currentIntent_.type;
+        if (currentIntent_.value > 0) {
+            ss << " (" << currentIntent_.value << ")";
+        }
+    }
+    return ss.str();
 }
 
 } // namespace deckstiny 

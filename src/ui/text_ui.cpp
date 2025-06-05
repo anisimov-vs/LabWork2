@@ -731,20 +731,8 @@ void TextUI::showEvent(const Event* event, const Player* player) {
 
 void TextUI::showEventResult(const std::string& resultText) {
     if (isTestingMode()) return;
-    LOG_DEBUG("textui", "Showing event result: \" + resultText + \"");
-    clearScreen();
-    drawLine();
-    std::cout << centerString("EVENT RESULT", 80) << std::endl;
-    drawLine();
-    std::cout << std::endl;
-    std::cout << resultText << std::endl;
-    std::cout << std::endl;
-    drawLine();
-    std::cout << "Press Enter to continue...";
-    if (!isTestingMode()) {
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      clearScreen();
-    }
+    std::cout << "EVENT RESULT: " << resultText << std::endl;
+    waitForKeyPress();
 }
 
 void TextUI::showEventHelp() {
@@ -786,70 +774,76 @@ void TextUI::printDivider(int width) {
 void TextUI::showShop(const std::vector<Card*>& cards, 
                         const std::vector<Relic*>& relics, 
                         int playerGold) {
-    // Call the overloaded version with an empty relic prices map
-    std::unordered_map<Relic*, int> emptyPrices;
-    showShop(cards, relics, emptyPrices, playerGold);
+    if (isTestingMode()) return;
+    LOG_DEBUG("textui_shop", "TextUI::showShop (simple) called. Forwarding with empty price maps.");
+    showShop(cards, relics, {}, {}, playerGold);
 }
-
+                  
 void TextUI::showShop(const std::vector<Card*>& cards, 
-                        const std::vector<Relic*>& relics,
-                        const std::unordered_map<Relic*, int>& relicPrices,
-                        int playerGold) {
-    LOG_DEBUG("textui_shop_check", "TextUI::showShop called. Received cards.size() = " + std::to_string(cards.size()) + ", relics.size() = " + std::to_string(relics.size()));
+                  const std::vector<Relic*>& relics,
+                  const std::map<Relic*, int>& relicPrices,
+                  const std::map<Card*, int>& cardPrices,
+                  int playerGold) {
     if (isTestingMode()) return;
     clearScreen();
     drawLine();
-    std::cout << centerString("MERCHANT", 80) << std::endl;
+    std::cout << centerString("SHOP", 80) << std::endl;
     drawLine();
-    std::cout << std::endl;
-    std::cout << "Your Gold: " << playerGold << std::endl << std::endl;
-
-    std::cout << "--- Cards for Sale ---" << std::endl;
-    if (cards.empty()) {
-        std::cout << "No cards available for sale right now." << std::endl;
-    } else {
-        for (size_t i = 0; i < cards.size(); ++i) {
-            const Card* card = cards[i];
-            if (card) {
-                int price = card->getCost();
-
-                std::cout << "C" << (i + 1) << ". " << card->getName() 
-                          << " (Cost: " << price << "G) - " 
-                          << card->getDescription() << std::endl;
-            }
-        }
-    }
-    std::cout << std::endl;
-
-    std::cout << "--- Relics for Sale ---" << std::endl;
-    if (relics.empty()) {
-        std::cout << "No relics available for sale right now." << std::endl;
-    } else {
-        for (size_t i = 0; i < relics.size(); ++i) {
-            const Relic* relic = relics[i];
-            if (relic) {
-                // Get price from the map if available
-                int price = 150; // Default price for common relics
-                auto priceIt = relicPrices.find(const_cast<Relic*>(relic));
-                if (priceIt != relicPrices.end()) {
-                    price = priceIt->second;
-                } else {
-                    // Calculate based on rarity if not found in map
-                    if (relic->getRarity() == RelicRarity::RARE) price = 250;
-                    else if (relic->getRarity() == RelicRarity::UNCOMMON) price = 200;
-                    else if (relic->getRarity() == RelicRarity::BOSS) price = 300;
-                    else if (relic->getRarity() == RelicRarity::SHOP) price = 120;
-                }
-
-                std::cout << "R" << (i + 1) << ". " << relic->getName()
-                          << " (Cost: " << price << "G) - "
-                          << relic->getDescription() << std::endl;
-            }
-        }
-    }
-    std::cout << std::endl;
-
+    std::cout << "Your Gold: " << playerGold << "G" << std::endl;
     drawLine();
-    std::cout << "Enter item to buy (e.g., C1, R2) or 'leave': ";
+    
+    std::cout << "Cards for Sale:" << std::endl;
+    printDivider();
+    for (size_t i = 0; i < cards.size(); ++i) {
+        Card* card = cards[i];
+        if (!card) continue;
+        
+        int price = -1;
+        // Find price in map
+        auto priceIt = cardPrices.find(card);
+        if (priceIt != cardPrices.end()) {
+            price = priceIt->second;
+        } else {
+            // Fallback if not in map
+            if (card->getRarity() == CardRarity::RARE) price = 75;
+            else if (card->getRarity() == CardRarity::UNCOMMON) price = 50;
+            else price = 25;
+            LOG_WARNING("textui_shop", "Card '" + card->getName() + "' not found in price map. Using default price: " + std::to_string(price));
+        }
+
+        std::cout << "C" << (i + 1) << ". " << card->getName() 
+                  << " (Cost: " << card->getCost() << ", Type: " << getCardTypeString(card->getType()) 
+                  << ", Rarity: " << getCardRarityString(card->getRarity()) << ") - " 
+                  << price << "G" << std::endl;
+        std::cout << "   " << card->getDescription() << std::endl;
+    }
+    printDivider();
+
+    std::cout << std::endl << "Relics for Sale:" << std::endl;
+    printDivider();
+    for (size_t i = 0; i < relics.size(); ++i) {
+        Relic* relic = relics[i];
+        if (!relic) continue;
+
+        int price = -1;
+        auto priceIt = relicPrices.find(relic);
+        if (priceIt != relicPrices.end()) {
+            price = priceIt->second;
+        } else {
+            // Fallback
+            if (relic->getRarity() == RelicRarity::RARE) price = 250;
+            else if (relic->getRarity() == RelicRarity::UNCOMMON) price = 150;
+            else price = 100;
+            LOG_WARNING("textui_shop", "Relic '" + relic->getName() + "' not found in price map. Using default price: " + std::to_string(price));
+        }
+
+        std::cout << "R" << (i + 1) << ". " << relic->getName() 
+                  << " (Rarity: " << getRelicRarityString(relic->getRarity()) << ") - " 
+                  << price << "G" << std::endl;
+        std::cout << "   " << relic->getDescription() << std::endl;
+    }
+    
+    drawLine();
+    std::cout << "Enter item to buy (e.g., C1, R1) or type 'leave': ";
 }
 } // namespace deckstiny 

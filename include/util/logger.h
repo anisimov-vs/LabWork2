@@ -137,8 +137,8 @@ private:
     LogLevel consoleLevel_ = LogLevel::Info;
     LogLevel fileLevel_ = LogLevel::Debug;
     bool consoleEnabled_ = true;
-    bool fileEnabled_ = true;
-    std::string logDirectory_ = "logs/deckstiny";
+    bool fileEnabled_ = false;
+    std::string logDirectory_ = "";
     bool testingMode_ = false;
     
     // Log files
